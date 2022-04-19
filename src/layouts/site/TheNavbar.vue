@@ -30,7 +30,7 @@
             <span class="navbar__text hidden">linkedin</span>
           </a>
           <a href="#skills" class="navbar__link">
-            <i class="navbar__icon icon--git"></i>
+            <i class="navbar__icon icon--github"></i>
             <span class="navbar__text hidden">git</span>
           </a>
         </ul>
