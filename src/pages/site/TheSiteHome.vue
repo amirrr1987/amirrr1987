@@ -33,9 +33,9 @@ import { ref } from "vue";
 import useDataStore from "@/stores";
 const dataStore = useDataStore();
 
-dataStore.setMainClass('grid');
-dataStore.setSectionClass('grid grid-cols-1 gap-y-8');
-dataStore.setContainerClass('container mx-auto grid grid-cols-3 p-5');
+dataStore.setMainClass("grid");
+dataStore.setSectionClass("grid grid-cols-1 gap-y-8");
+dataStore.setContainerClass("container mx-auto grid grid-cols-3 p-5");
 const slideData = [
   {
     img: "js.png",
@@ -59,9 +59,18 @@ const slide = ref({
   text: "full stack",
 });
 
-setInterval(() => {
-  slide.value = slideData[Math.floor(Math.random() * slideData.length)];
-}, 3000);
+let i = 0;
+const slidTimer = 3000;
+setTimeout(function run() {
+  slide.value = slideData[i];
+  i++;
+  if (i < slideData.length) {
+    setTimeout(run, slidTimer);
+  } else {
+    i = 0;
+    setTimeout(run, slidTimer);
+  }
+}, slidTimer);
 
 const getImgUrl = (imgName) => {
   return "img/" + imgName;
