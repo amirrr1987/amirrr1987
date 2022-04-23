@@ -66,7 +66,11 @@ const skills = reactive([
     duration: 34
   },
 ])
-const targetSkill = ref({})
+const targetSkill = ref({
+  name: "",
+  caption: "",
+  duration: 0
+})
 const skillIndex = (value:string)=>{
   skills.find((item:any)=>{
     item.name === value ? targetSkill.value = item : {}

@@ -16,7 +16,6 @@
         <span>+989198881400</span>
       </a>
     </div>
-
   </div>
 
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 790 563" fill="none">
@@ -778,21 +777,21 @@
     </div>
     <div class="text-center text-4xl">
       <div class="flex gap-x-5 justify-center mb-7">
-        <a class="text-[#35495e] ">
+        <a class="text-[#35495e]">
           <i class="icon--github"></i>
         </a>
-        <a class="text-[#35495e] ">
+        <a class="text-[#35495e]">
           <i class="icon--stackoverflow"></i>
         </a>
-        <a class="text-[#35495e] ">
+        <a class="text-[#35495e]">
           <i class="icon--codeopen"></i>
         </a>
       </div>
       <div class="flex gap-x-5 justify-center">
-        <a class="text-[#35495e] ">
+        <a class="text-[#35495e]">
           <i class="icon--skype"></i>
         </a>
-        <a class="text-[#35495e] ">
+        <a class="text-[#35495e]">
           <i class="icon--linkedin"></i>
         </a>
       </div>
@@ -804,6 +803,8 @@ import useDataStore from "@/stores";
 const dataStore = useDataStore();
 dataStore.setMainClass("grid");
 dataStore.setSectionClass("grid");
-dataStore.setContainerClass("container mx-auto grid grid-cols-3 gap-x-5 px-5 py-20");
+dataStore.setContainerClass(
+  "container mx-auto grid grid-cols-3 gap-x-5 px-5 py-20"
+);
 </script>
 <style lang="scss"></style>
