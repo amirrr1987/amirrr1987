@@ -28,7 +28,7 @@
     <img class="w-80 block ml-auto" src="@/assets/img/me.png" title="" alt="" />
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import useDataStore from "@/stores";
 const dataStore = useDataStore();
@@ -59,8 +59,8 @@ const slide = ref({
   text: "full stack",
 });
 
-let i = 0;
-const slidTimer = 3000;
+let i = 1;
+const slidTimer = 1500;
 setTimeout(function run() {
   slide.value = slideData[i];
   i++;
@@ -72,7 +72,7 @@ setTimeout(function run() {
   }
 }, slidTimer);
 
-const getImgUrl = (imgName) => {
+const getImgUrl = (imgName: string) => {
   return "img/" + imgName;
 };
 </script>
