@@ -63,7 +63,7 @@ import { RouterLink } from "vue-router";
   @apply flex gap-x-5;
 }
 .navbar__link {
-  @apply text-xl hover:text-[#42b883];
+  @apply text-xl text-[#35495e] hover:text-[#42b883];
 }
 .navbar__text {
   @apply capitalize;

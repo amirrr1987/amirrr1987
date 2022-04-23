@@ -31,11 +31,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import useDataStore from "@/stores";
+import { getImgUrl } from "@/utils";
 const dataStore = useDataStore();
 
 dataStore.setMainClass("grid");
 dataStore.setSectionClass("grid grid-cols-1 gap-y-8");
 dataStore.setContainerClass("container mx-auto grid grid-cols-3 p-5");
+
 const slideData = [
   {
     img: "js.png",
@@ -57,6 +59,7 @@ const slideData = [
 const slide = ref({
   img: "js.png",
   text: "full stack",
+  imgStyle: "h-44",
 });
 
 let i = 1;
@@ -71,8 +74,4 @@ setTimeout(function run() {
     setTimeout(run, slidTimer);
   }
 }, slidTimer);
-
-const getImgUrl = (imgName: string) => {
-  return "img/" + imgName;
-};
 </script>
