@@ -25,14 +25,9 @@
         </ul>
 
         <ul class="navbar__social items-center">
-          <a href="#skills" class="navbar__link">
-            <i class="navbar__icon icon--linkedin"></i>
-            <span class="navbar__text hidden">linkedin</span>
-          </a>
-          <a href="#skills" class="navbar__link">
-            <i class="navbar__icon icon--github"></i>
-            <span class="navbar__text hidden">git</span>
-          </a>
+          {{
+            clock
+          }}
         </ul>
       </div>
     </div>
@@ -41,33 +36,68 @@
 
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
+import { ref } from "vue";
+
+const clock = ref();
+
+function zeroFielder(time: string | number) {
+  return time < 10 ? "0" + time : time;
+}
+
+function timeRuner() {
+  const dateNow = new Date();
+  let hour: number | string = dateNow.getHours();
+  let minute: number | string = dateNow.getMinutes();
+  let second: number | string = dateNow.getSeconds();
+
+  let state = "AM";
+  if (hour > 12) {
+    hour -= 12;
+    state = "PM";
+  }
+
+  hour = zeroFielder(hour);
+  minute = zeroFielder(minute);
+  second = zeroFielder(second);
+
+  clock.value = `${hour} : ${minute} : ${second} ${state}`;
+
+  setTimeout(timeRuner, 1000);
+}
+timeRuner();
+
+setInterval(timeRuner, 1000);
 </script>
 
-<style>
+<style lang="scss">
 .navbar {
   @apply shadow py-3;
-}
-.navbar__container {
-  @apply container mx-auto px-5;
-}
-.navbar__row {
-  @apply grid grid-cols-[max-content,1fr,max-content] items-center gap-x-10;
-}
-.navbar__logo {
-  @apply w-6;
-}
-.navbar__menu {
-  @apply flex gap-x-5;
-}
-.navbar__social {
-  @apply flex gap-x-5;
-}
-.navbar__link {
-  @apply text-xl text-[#35495e] hover:text-[#42b883];
-}
-.navbar__text {
-  @apply capitalize;
-}
-.navbar__icon {
+
+  &__container {
+    @apply container mx-auto px-5;
+  }
+
+  &__row {
+    @apply grid grid-cols-[max-content,1fr,max-content] items-center gap-x-10;
+  }
+
+  &__logo {
+    @apply w-6;
+  }
+
+  &__menu {
+    @apply flex gap-x-5;
+  }
+  &__social {
+    @apply flex gap-x-5;
+  }
+  &__link {
+    @apply text-xl text-[#35495e] hover:text-[#42b883];
+  }
+  &__text {
+    @apply capitalize;
+  }
+  &__icon {
+  }
 }
 </style>

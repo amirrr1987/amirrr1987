@@ -80,9 +80,7 @@ const setData = (value:string)=>{
   skillIndex(value);
   showCaption.value = true
 }
-const removeClass = ()=>{
-  showCaption.value = false
-}
+
 const showCaption = ref(false)
 </script>
 <style>
