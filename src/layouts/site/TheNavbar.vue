@@ -66,7 +66,8 @@ function timeRuner() {
 }
 timeRuner();
 
-setInterval(timeRuner, 1000);
+// setInterval(timeRuner, 1000);
+
 </script>
 
 <style lang="scss">

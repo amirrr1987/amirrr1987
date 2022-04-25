@@ -1,31 +1,38 @@
 <template>
-  <div class="self-end">
-    <strong class="text-3xl mb-3 inline-block text-[#414141]">Hi, I`m</strong>
-    <h1 class="text-5xl capitalize font-bold text-[#414141]">amir maghami</h1>
-    <div class="flex py-8">
-      <a
-        href=""
-        class="px-5 py-2 rounded text-white bg-[#42b883] border border-[#42b883]"
-      >
-        Download CV
-      </a>
+  <div class="grid grid-cols-3 p-5">
+    <div class="self-end">
+      <strong class="text-3xl mb-3 inline-block text-[#414141]">Hi, I`m</strong>
+      <h1 class="text-5xl capitalize font-bold text-[#414141]">amir maghami</h1>
+      <div class="flex py-8">
+        <a
+          href=""
+          class="px-5 py-2 rounded text-white bg-[#42b883] border border-[#42b883]"
+        >
+          Download CV
+        </a>
+      </div>
     </div>
-  </div>
-  <div class="self-center">
-    <div class="grid justify-center text-center gap-y-9">
-      <h1 class="text-7xl capitalize font-bold">{{ slide.text }}</h1>
-      <h1 class="text-4xl capitalize font-bold">developer</h1>
+    <div class="self-center">
+      <div class="grid justify-center text-center gap-y-9">
+        <h1 class="text-7xl capitalize font-bold">{{ slide.text }}</h1>
+        <h1 class="text-4xl capitalize font-bold">developer</h1>
+        <img
+          class="block mx-auto max-h-48"
+          :class="slide.imgStyle"
+          :src="getImgUrl(slide.img)"
+          title=""
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="">
       <img
-        class="block mx-auto max-h-48"
-        :class="slide.imgStyle"
-        :src="getImgUrl(slide.img)"
+        class="w-80 block ml-auto"
+        src="@/assets/img/me.png"
         title=""
         alt=""
       />
     </div>
-  </div>
-  <div class="">
-    <img class="w-80 block ml-auto" src="@/assets/img/me.png" title="" alt="" />
   </div>
 </template>
 <script setup lang="ts">
@@ -36,7 +43,7 @@ const dataStore = useDataStore();
 
 dataStore.setMainClass("grid");
 dataStore.setSectionClass("grid grid-cols-1 gap-y-8");
-dataStore.setContainerClass("container mx-auto grid grid-cols-3 p-5");
+dataStore.setContainerClass("container mx-auto grid");
 
 const slideData = [
   {

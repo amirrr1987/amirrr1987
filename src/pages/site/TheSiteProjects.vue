@@ -1,33 +1,35 @@
 <template>
-  <div class="col-span-full">
-    <h3 class="text-xl">Projects:</h3>
-    <hr class="my-4 border-[#FFF]"/>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 p-5 auto-rows-max"
+  >
+    <div class="col-span-full">
+      <h3 class="text-xl">Projects:</h3>
+      <hr class="my-4 border-[#FFF]" />
+    </div>
+    <template v-for="(item, index) in projects" :key="index">
+      <figure class="effect">
+        <img class="effect__img" :src="getImgUrl(item.img)" alt="img25" />
+        <figcaption class="effect__caption">
+          <h2 class="effect__title">{{ item.title }}</h2>
+          <p class="effect__links">
+            <a href="#"><i class="icon--link"></i></a>
+            <a href="#"><i class="icon--github"></i></a>
+          </p>
+          <p class="effect__description">
+            {{ item.text }}
+          </p>
+        </figcaption>
+      </figure>
+    </template>
   </div>
-  <template v-for="(item, index) in projects" :key="index">
-    <figure class="effect">
-      <img class="effect__img" :src="getImgUrl(item.img)" alt="img25"/>
-      <figcaption class="effect__caption">
-        <h2 class="effect__title">{{ item.title }}</h2>
-        <p class="effect__links">
-          <a href="#"><i class="icon--link"></i></a>
-          <a href="#"><i class="icon--github"></i></a>
-        </p>
-        <p class="effect__description">
-          {{ item.text }}
-        </p>
-      </figcaption>
-    </figure>
-  </template>
 </template>
 <script setup lang="ts">
 import useDataStore from "@/stores";
-import {reactive} from "vue";
-import {getImgUrl} from "@/utils";
+import { reactive } from "vue";
+import { getImgUrl } from "@/utils";
 
 const dataStore = useDataStore();
-dataStore.setContainerClass(
-    "container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-5 auto-rows-max	"
-);
+dataStore.setContainerClass("container mx-auto");
 
 const projects = reactive([
   {
@@ -66,17 +68,13 @@ $color_5: #252d31;
 $font-family_1: "feathericons";
 
 .effect {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 1/1;
+  @apply relative overflow-hidden w-full aspect-square text-center cursor-pointer rounded-full duration-75;
   background: #3085a3;
-  text-align: center;
-  cursor: pointer;
-
   &:hover {
+    @apply rounded;
     .effect__links {
       a {
+        transform: translate3d(0, 0, 0);
         &:hover {
           color: $color_5;
         }
@@ -84,22 +82,11 @@ $font-family_1: "feathericons";
         &:focus {
           color: $color_5;
         }
-
-        transform: translate3d(0, 0, 0);
-
-        &:nth-child(3) {
-
-          transition-delay: 0.1s;
-        }
-
-        &:nth-child(2) {
-
-          transition-delay: 0.15s;
-        }
-
         &:first-child {
-
-          transition-delay: 0.2s;
+          @apply duration-[3s];
+        }
+        &:nth-child(2) {
+          @apply duration-[2s];
         }
       }
     }
@@ -115,7 +102,7 @@ $font-family_1: "feathericons";
 
     .effect__title {
       transform: translate3d(0, 0, 0);
-      transition-delay: 0.05s;
+      @apply duration-[1s];
     }
   }
 
