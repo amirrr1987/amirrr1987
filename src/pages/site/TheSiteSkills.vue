@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-2 p-5">
     <div class="grid grid-cols-5">
-      <button class="skill" @mouseenter="setData('HTML')">HTML</button>
+      <button class="skill" @mouseenter="setData('HTML')" @mouseleave="showCaption= false">HTML</button>
       <button class="skill" @mouseenter="setData('CSS')">CSS</button>
       <button class="skill" @mouseenter="setData('JavaScript')">
         JavaScript
@@ -12,16 +12,19 @@
     </div>
 
     <div class="relative overflow-hidden">
-      <div
-        class="caption"
-        :class="showCaption ? '!translate-x-0' : 'translate-x-full'"
-      >
-        <h3>{{ targetSkill.name }}</h3>
-        <p class="e">
-          {{ targetSkill.caption }}
-        </p>
-        <div>{{ targetSkill.duration }}</div>
-      </div>
+      <transition name="fade" mode="out-in">
+        <div
+        v-show="showCaption"
+          class="caption"
+          :class="showCaption ? '!translate-x-0' : 'translate-x-full'"
+        >
+          <h3>{{ targetSkill.name }}</h3>
+          <p class="e">
+            {{ targetSkill.caption }}
+          </p>
+          <div>{{ targetSkill.duration }}</div>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -74,15 +77,27 @@ const skillIndex = (value: string) => {
     item.name === value ? (targetSkill.value = item) : {};
   });
 };
+  const showCaption = ref(false);
 const setData = (value: string) => {
   skillIndex(value);
   showCaption.value = true;
 };
 
-const showCaption = ref(false);
 </script>
 <style>
 .skill {
   @apply border border-[red] w-28 h-28 block hover:bg-[red] duration-500;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+  transform: rotateX(-100px);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: rotateX(0px);
+
 }
 </style>
