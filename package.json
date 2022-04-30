@@ -8,11 +8,15 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "chart.js": "^3.7.1",
     "gsap": "^3.10.4",
+    "lodash": "^4.17.21",
     "vue": "^3.2.31",
+    "vue-chart-3": "^3.1.8",
     "vue-router": "^4.0.14"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.182",
     "@types/node": "^16.11.26",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/tsconfig": "^0.1.3",

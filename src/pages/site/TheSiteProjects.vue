@@ -68,7 +68,7 @@ $color_5: #252d31;
 $font-family_1: "feathericons";
 
 .effect {
-  @apply relative overflow-hidden w-full aspect-square text-center cursor-pointer rounded-full duration-75;
+  @apply relative overflow-hidden w-full aspect-square text-center cursor-pointer rounded duration-75;
   background: #3085a3;
   &:hover {
     @apply rounded;

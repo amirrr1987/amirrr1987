@@ -1,7 +1,13 @@
 <template>
-  <div class="grid grid-cols-2 p-5">
+  <div class="h-full grid grid-cols-2 grid-rows-2 p-5">
     <div class="grid grid-cols-5">
-      <button class="skill" @mouseenter="setData('HTML')" @mouseleave="showCaption= false">HTML</button>
+      <button
+        class="skill"
+        @mouseenter="setData('HTML')"
+        @mouseleave="showCaption = false"
+      >
+        HTML
+      </button>
       <button class="skill" @mouseenter="setData('CSS')">CSS</button>
       <button class="skill" @mouseenter="setData('JavaScript')">
         JavaScript
@@ -10,11 +16,13 @@
         TypeScript
       </button>
     </div>
-
+    <div class="row-span-2">
+      <SkillChart class="h-full" />
+    </div>
     <div class="relative overflow-hidden">
       <transition name="fade" mode="out-in">
         <div
-        v-show="showCaption"
+          v-show="showCaption"
           class="caption"
           :class="showCaption ? '!translate-x-0' : 'translate-x-full'"
         >
@@ -29,6 +37,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import SkillChart from "@/components/SkillChart.vue";
 import useDataStore from "@/stores";
 import { reactive, ref } from "vue";
 const dataStore = useDataStore();
@@ -77,12 +86,11 @@ const skillIndex = (value: string) => {
     item.name === value ? (targetSkill.value = item) : {};
   });
 };
-  const showCaption = ref(false);
+const showCaption = ref(false);
 const setData = (value: string) => {
   skillIndex(value);
   showCaption.value = true;
 };
-
 </script>
 <style>
 .skill {
@@ -98,6 +106,5 @@ const setData = (value: string) => {
 .fade-leave-to {
   opacity: 0;
   transform: rotateX(0px);
-
 }
 </style>

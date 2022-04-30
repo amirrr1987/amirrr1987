@@ -1,60 +1,42 @@
 <template>
-
-    <RadarChart v-bind="barChartProps" />
+  <RadarChart v-bind="barChartProps" />
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { Chart, registerables } from "chart.js";
 import { RadarChart, useBarChart } from "vue-chart-3";
-import { ref, computed, defineComponent } from "vue";
 import { shuffle } from "lodash";
-
+import { ref, computed } from "vue";
 Chart.register(...registerables);
 
-export default defineComponent({
-  name: "SkillChart",
-  components: {
-    RadarChart,
+const data = ref([10, 30, 29, 68, 58]);
+const chartData = computed(() => ({
+  labels: ["Structure", "Fluency", "Clean Code", "Syntax", "Logic"],
+  datasets: [
+    {
+      title: "aaa",
+      data: data.value,
+      backgroundColor: ["#fff"],
+    },
+  ],
+}));
+
+const options = computed(() => ({
+  scales: {},
+  plugins: {
+    title: {
+      display: false,
+      text: "My Skill Chart.js",
+    },
   },
-  setup() {
-    const data = ref([10, 30, 29, 68, 58]);
+}));
+const { barChartProps } = useBarChart({
+  chartData,
 
-    const chartData = computed(() => ({
-      
-      labels: ["Structure", "Fluency", "Clean Code", "Syntax", "Logic"],
-      datasets: [
-        {
-          title: 'aaa',
-          data: data.value,
-          backgroundColor: [
-            "#fff",
-          ],
-        },
-      ],
-    }));
-    const options = computed(() => ({
-      scales: {
-    
-      },
-      plugins: {
-     
-        title: {
-          display: false,
-          text: "My Skill Chart.js",
-        },
-      },
-    }));
-    const { barChartProps } = useBarChart({
-      chartData,
-
-      options,
-    });
-
-    function shuffleData() {
-      data.value = shuffle(data.value);
-    }
-
-    return { shuffleData, barChartProps };
-  },
+  options,
 });
+
+function shuffleData() {
+  data.value = shuffle(data.value);
+}
 </script>

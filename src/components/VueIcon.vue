@@ -1,6 +1,6 @@
 <template>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2058.71 826.05" id="vlogo">
-   <g class="vlogo">
+ 
     <polygon points="1054.48 519.14 999.88 519.14 1027.18 566.42 1054.48 519.14" fill="#33a072"/>
     <polygon points="999.88 519.14 1027.18 471.85 972.58 471.85 999.88 519.14" fill="#33a072"/>
     <polygon points="1054.48 519.14 1027.18 471.85 999.88 519.14 1054.48 519.14" fill="#318d64"/>
@@ -97,13 +97,15 @@
     <polygon points="1163.67 61.32 1190.97 14.04 1136.37 14.04 1163.67 61.32" fill="#a2bedb"/>
     <polygon points="1301.79 58.96 1329.1 11.68 1274.5 11.68 1301.79 58.96" fill="#aed8c3"/>
     <polygon points="1163.67 140.88 1136.37 188.16 1190.97 188.16 1163.67 140.88" fill="#89c8a6"/>
-  </g>
+
 
 </svg>
 </template>
 <style>
 #vlogo{
-  @apply grid justify-center items-center
+  /* @apply grid justify-center items-center;
+  width: 50vw;
+  height: min-content; */
 }
 .vlogo{
   @apply m-auto block

@@ -12,7 +12,7 @@ onMounted(() => {
   visibility.value = true;
   setTimeout(() => {
     visibility.value = false;
-  }, 30000);
+  }, 3000);
 });
 </script>
 
