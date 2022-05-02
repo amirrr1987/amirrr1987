@@ -17,7 +17,7 @@
       </button>
     </div>
     <div class="row-span-2">
-      <SkillChart class="h-full" />
+      <ApexChart :chartData="chartData" />
     </div>
     <div class="relative overflow-hidden">
       <transition name="fade" mode="out-in">
@@ -37,9 +37,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import SkillChart from "@/components/SkillChart.vue";
+import { reactive, ref, computed } from "vue";
+import ApexChart from "@/components/ApexChart.vue";
+
 import useDataStore from "@/stores";
-import { reactive, ref } from "vue";
 const dataStore = useDataStore();
 dataStore.setMainClass("grid");
 dataStore.setSectionClass("grid grid-cols-1 gap-y-8");
@@ -91,7 +92,12 @@ const setData = (value: string) => {
   skillIndex(value);
   showCaption.value = true;
 };
+
+const chartData = computed(() => {
+  return [{ name: "amir ", data: [100, 10, 10, 0, 50] }];
+});
 </script>
+
 <style>
 .skill {
   @apply border border-[red] w-28 h-28 block hover:bg-[red] duration-500;

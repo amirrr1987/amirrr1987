@@ -1,6 +1,6 @@
 {
   "name": "amirmaghami",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -8,12 +8,12 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "chart.js": "^3.7.1",
+    "apexcharts": "^3.35.0",
     "gsap": "^3.10.4",
     "lodash": "^4.17.21",
     "vue": "^3.2.31",
-    "vue-chart-3": "^3.1.8",
-    "vue-router": "^4.0.14"
+    "vue-router": "^4.0.14",
+    "vue3-apexcharts": "^1.4.1"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.182",
