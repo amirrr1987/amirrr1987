@@ -8,11 +8,25 @@
       >
         HTML
       </button>
-      <button class="skill" @mouseenter="setData('CSS')">CSS</button>
-      <button class="skill" @mouseenter="setData('JavaScript')">
+      <button
+        class="skill"
+        @mouseenter="setData('CSS')"
+        @mouseleave="showCaption = false"
+      >
+        CSS
+      </button>
+      <button
+        class="skill"
+        @mouseenter="setData('JavaScript')"
+        @mouseleave="showCaption = false"
+      >
         JavaScript
       </button>
-      <button class="skill" @mouseenter="setData('TypeScript')">
+      <button
+        class="skill"
+        @mouseenter="setData('TypeScript')"
+        @mouseleave="showCaption = false"
+      >
         TypeScript
       </button>
     </div>
@@ -26,18 +40,21 @@
           class="caption"
           :class="showCaption ? '!translate-x-0' : 'translate-x-full'"
         >
-          <h3>{{ targetSkill.name }}</h3>
+          <h3>Title: {{ targetSkill.name }}</h3>
           <p class="e">
-            {{ targetSkill.caption }}
+            detial: {{ targetSkill.caption }}
           </p>
-          <div>{{ targetSkill.duration }}</div>
+          <div>
+            deuration : {{ targetSkill.duration }}
+          </div>
+          
         </div>
       </transition>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { reactive, ref, computed } from "vue";
+import { computed, reactive, ref } from "vue";
 import ApexChart from "@/components/ApexChart.vue";
 
 import useDataStore from "@/stores";
@@ -45,42 +62,50 @@ const dataStore = useDataStore();
 dataStore.setMainClass("grid");
 dataStore.setSectionClass("grid grid-cols-1 gap-y-8");
 dataStore.setContainerClass("container mx-auto");
+// const chartData = ref([]);
 const skills = reactive([
   {
     name: "HTML",
     caption: "lorem10",
     duration: 34,
+    data: [100, 80, 70, 0, 30],
   },
   {
     name: "CSS",
     caption: "lorem10",
     duration: 34,
+    data: [100, 10, 10, 80, 90],
   },
   {
     name: "SCSS",
     caption: "lorem10",
     duration: 34,
+    data: [100, 10, 10, 0, 50],
   },
   {
     name: "JavaScript",
     caption: "lorem10",
     duration: 34,
+    data: [100, 10, 100, 0, 50],
   },
   {
     name: "TailwindCSS",
     caption: "lorem10",
     duration: 34,
+    data: [100, 10, 10, 0, 50],
   },
   {
     name: "TypeScript",
     caption: "lorem10",
     duration: 34,
+    data: [100, 10, 10, 0, 50],
   },
 ]);
 const targetSkill = ref({
   name: "",
   caption: "",
   duration: 0,
+  data: [],
 });
 const skillIndex = (value: string) => {
   skills.find((item: any) => {
@@ -94,7 +119,11 @@ const setData = (value: string) => {
 };
 
 const chartData = computed(() => {
-  return [{ name: "amir ", data: [100, 10, 10, 0, 50] }];
+  if (showCaption.value) {
+    return [targetSkill.value];
+  } else {
+    return [{ name: "title", data: [0, 0, 0, 0, 0] }];
+  }
 });
 </script>
 

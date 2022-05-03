@@ -14,6 +14,7 @@ const props = defineProps({
   chartData: {
     type: Array,
     default: () => [{ name: "title", data: [0, 0, 0, 0, 0] }],
+    required: true
   },
 });
 
