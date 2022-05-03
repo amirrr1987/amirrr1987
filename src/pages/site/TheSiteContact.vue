@@ -1,14 +1,13 @@
 <template>
-  <div class="grid grid-cols-[3fr,2.5fr] gap-5 p-5">
-    <div class="grid grid-cols-[max-content,1fr] gap-5 auto-rows-max">
-      <img
-        class="w-96 mx-auto col-span-full"
-        src="@/assets/img/contact.svg"
-        title=""
-        alt=""
-      />
-
-      <div class="col-span-full py-12">
+  <div class="grid lg:grid-cols-2 xl:grid-cols-[3fr,2.5fr] gap-10 ">
+    <img
+      class="w-96 mx-auto col-span-full"
+      src="@/assets/img/contact.svg"
+      title=""
+      alt=""
+    />
+    <div class="grid gap-5">
+      <div class="col-span-2">
         <h3 class="mb-3 capitalize font-bold text-2xl text-[#35495e]">
           Contact
         </h3>
@@ -28,7 +27,8 @@
           </a>
         </div>
       </div>
-      <div class="col-span-1">
+
+      <div class="col-span-2 sm:col-span-1">
         <h3 class="mb-3 capitalize font-bold text-2xl text-[#35495e]">
           Code Review
         </h3>
@@ -40,7 +40,7 @@
           <a class="block">
             <i class="icon--stackoverflow mr-1"></i>
             <span class="text-sm"
-              >https://stackoverflow.com/users/11471489/amir-maghami</span
+              >https://b2n.ir/b39690</span
             >
           </a>
           <a class="block">
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <div class="col-span-1">
+      <div class="col-span-2 sm:col-span-1">
         <h3 class="mb-3 capitalize font-bold text-2xl text-[#35495e]">
           Social
         </h3>
@@ -58,52 +58,50 @@
           <a class="block">
             <i class="icon--skype mr-1"></i>
             <span class="text-sm"
-              >https://join.skype.com/invite/pTBArdcQjuGf</span
+              >https://b2n.ir/u65001</span
             >
           </a>
           <a class="block">
             <i class="icon--linkedin mr-1"></i>
-            <span class="text-sm">https://www.linkedin.com/in/amirrr1987/</span>
+            <span class="text-sm">https://b2n.ir/f24225</span>
           </a>
         </div>
       </div>
     </div>
 
-    <div class="flex items-center justify-center">
-      <form class="grid grid-cols-2 gap-5">
-        <legend class="col-span-2">Send a mail</legend>
+    <form class="grid grid-cols-2 gap-5">
+      <legend class="col-span-2">Send a mail</legend>
 
-        <input
-          class="col-span-1 p-3 outline-0"
-          type="text"
-          placeholder="First name:"
-        />
+      <input
+        class="col-span-1 p-3 outline-0"
+        type="text"
+        placeholder="First name:"
+      />
 
-        <input
-          class="col-span-1 p-3 outline-0"
-          type="text"
-          placeholder="Last name:"
-        />
+      <input
+        class="col-span-1 p-3 outline-0"
+        type="text"
+        placeholder="Last name:"
+      />
 
-        <input
-          class="col-span-2 p-3 outline-0"
-          type="text"
-          placeholder="Email:"
-        />
+      <input
+        class="col-span-2 p-3 outline-0"
+        type="text"
+        placeholder="Email:"
+      />
 
-        <textarea
-          rows="10"
-          class="col-span-2 p-3 outline-0"
-          placeholder="Your message:"
-        ></textarea>
+      <textarea
+        rows="10"
+        class="col-span-2 p-3 outline-0"
+        placeholder="Your message:"
+      ></textarea>
 
-        <div class="col-span-2">
-          <button class="bg-[#35495e] text-white px-5 py-2 rounded">
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
+      <div class="col-span-2">
+        <button class="bg-[#35495e] text-white px-5 py-2 rounded">
+          Submit
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 <script setup lang="ts">
@@ -112,6 +110,6 @@ import useDataStore from "@/stores";
 const dataStore = useDataStore();
 dataStore.setMainClass("grid");
 dataStore.setSectionClass("grid");
-dataStore.setContainerClass("container mx-auto grid");
+dataStore.setContainerClass("container mx-auto grid p-5");
 </script>
 <style lang="scss"></style>

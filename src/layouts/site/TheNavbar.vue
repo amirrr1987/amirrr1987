@@ -24,7 +24,7 @@
           </RouterLink>
         </ul>
 
-        <ul class="navbar__social items-center">
+        <ul class="navbar__social items-center hidden">
           {{
             clock
           }}
