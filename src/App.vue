@@ -20,12 +20,8 @@ onMounted(() => {
 
 <style>
 #app {
-  @apply relative min-h-screen text-[#333] bg-[#dcedf1] subpixel-antialiased grid grid-rows-[max-content,1fr] overflow-hidden;
-  background-image: radial-gradient(
-    circle farthest-corner at center,
-    #f7fbfc 0%,
-    #add9e4 100%
-  );
+  @apply relative min-h-screen text-[#333] bg-[#dcedf1] subpixel-antialiased grid md:grid-rows-[max-content,1fr] overflow-hidden app-bg;
+
 }
 .bounce-enter-active {
   animation: bounce-in .5s;

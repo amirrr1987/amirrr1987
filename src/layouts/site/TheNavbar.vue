@@ -7,24 +7,24 @@
         </RouterLink>
         <ul class="navbar__menu">
           <RouterLink to="/" class="navbar__link">
-            <i class="navbar__icon icon--home md:hidden"></i>
+            <i class="navbar__icon icon--home"></i>
             <span class="navbar__text">home</span>
           </RouterLink>
           <RouterLink to="/skills" class="navbar__link">
-            <i class="navbar__icon icon--chart-pie md:hidden"></i>
+            <i class="navbar__icon icon--chart-pie"></i>
             <span class="navbar__text">skills</span>
           </RouterLink>
           <RouterLink to="/projects" class="navbar__link">
-            <i class="navbar__icon icon--file-code md:hidden"></i>
+            <i class="navbar__icon icon--file-code"></i>
             <span class="navbar__text">projects</span>
           </RouterLink>
           <RouterLink to="/contact" class="navbar__link">
-            <i class="navbar__icon icon--mail md:hidden"></i>
+            <i class="navbar__icon icon--mail"></i>
             <span class="navbar__text">contact</span>
           </RouterLink>
         </ul>
 
-        <ul class="navbar__social items-center hidden">
+        <ul class="navbar__time">
           {{
             clock
           }}
@@ -67,38 +67,38 @@ function timeRuner() {
 timeRuner();
 
 // setInterval(timeRuner, 1000);
-
 </script>
 
 <style lang="scss">
 .navbar {
-  @apply shadow py-3;
+  @apply py-3 fixed bottom-0 inset-x-0 z-50 md:shadow md:static bg-[#dcedf1] md:bg-transparent;
 
   &__container {
     @apply container mx-auto px-5;
   }
 
   &__row {
-    @apply grid grid-cols-[max-content,1fr,max-content] items-center gap-x-10;
+    @apply grid md:grid-cols-[max-content,1fr,max-content] items-center gap-x-10;
   }
 
   &__logo {
-    @apply w-6;
+    @apply hidden md:block md:w-6;
   }
 
   &__menu {
-    @apply flex gap-x-5;
+    @apply flex justify-evenly md:justify-start gap-x-5;
   }
-  &__social {
-    @apply flex gap-x-5;
+  &__time {
+    @apply hidden md:flex md:items-center;
   }
   &__link {
     @apply text-xl text-[#35495e] hover:text-[#42b883];
   }
   &__text {
-    @apply capitalize;
+    @apply hidden md:block md:capitalize;
   }
   &__icon {
+    @apply text-2xl md:hidden;
   }
 }
 </style>

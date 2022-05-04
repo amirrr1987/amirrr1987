@@ -1,5 +1,5 @@
 <template>
-  <main :class="dataStore.state.mainClass">
+  <main class="pb-16 md:pb-0" :class="dataStore.state.mainClass">
     <section :class="dataStore.state.sectionclass">
       <div :class="dataStore.state.containerClass">
         <router-view v-slot="{ Component }">
