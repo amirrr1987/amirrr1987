@@ -1,11 +1,12 @@
 <template>
   <div class="grid lg:grid-cols-2 xl:grid-cols-[3fr,2.5fr] gap-10 ">
     <img
-      class="w-96 mx-auto col-span-full"
+      class="h-72 mx-auto col-span-full lg:col-span-1"
       src="@/assets/img/contact.svg"
       title=""
       alt=""
     />
+    <TheLottiePlayer class="hidden lg:block lg:h-72" src="https://assets5.lottiefiles.com/packages/lf20_3ntisyac.json" />
     <div class="grid gap-5">
       <div class="col-span-2">
         <h3 class="mb-3 capitalize font-bold text-2xl text-[#35495e]">
@@ -106,6 +107,7 @@
 </template>
 <script setup lang="ts">
 import useDataStore from "@/stores";
+import TheLottiePlayer from "@/components/TheLottiePlayer.vue";
 
 const dataStore = useDataStore();
 dataStore.setMainClass("grid");

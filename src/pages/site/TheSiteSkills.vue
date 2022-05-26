@@ -1,34 +1,19 @@
 <template>
-  <div class="h-full grid grid-cols-2 grid-rows-2 p-5">
-    <div class="grid grid-cols-5">
-      <button
-        class="skill"
-        @mouseenter="setData('HTML')"
-        @mouseleave="showCaption = false"
+  <div class="h-full grid grid-cols-2 grid-rows-3 p-5">
+    <div class="row-span-3 flex justify-center items-center">
+      <div
+        class="grid grid-cols-6 grid-rows-6 gap-3 aspect-square -rotate-45 w-9/12"
       >
-        HTML
-      </button>
-      <button
-        class="skill"
-        @mouseenter="setData('CSS')"
-        @mouseleave="showCaption = false"
-      >
-        CSS
-      </button>
-      <button
-        class="skill"
-        @mouseenter="setData('JavaScript')"
-        @mouseleave="showCaption = false"
-      >
-        JavaScript
-      </button>
-      <button
-        class="skill"
-        @mouseenter="setData('TypeScript')"
-        @mouseleave="showCaption = false"
-      >
-        TypeScript
-      </button>
+        <template v-for="(item, index) in skills" :key="index">
+          <button
+            class="skill"
+            :class="item.position"
+            @click="setData(item.name)"
+          >
+            <div class="rotate-45">{{ item.name }}</div>
+          </button>
+        </template>
+      </div>
     </div>
     <div class="row-span-2">
       <ApexChart :chartData="chartData" />
@@ -41,13 +26,8 @@
           :class="showCaption ? '!translate-x-0' : 'translate-x-full'"
         >
           <h3>Title: {{ targetSkill.name }}</h3>
-          <p class="e">
-            detial: {{ targetSkill.caption }}
-          </p>
-          <div>
-            deuration : {{ targetSkill.duration }}
-          </div>
-          
+          <p class="e">detial: {{ targetSkill.caption }}</p>
+          <div>deuration : {{ targetSkill.duration }}</div>
         </div>
       </transition>
     </div>
@@ -65,38 +45,65 @@ dataStore.setContainerClass("container mx-auto");
 // const chartData = ref([]);
 const skills = reactive([
   {
+    name: "Network+",
+    caption: "lorem10",
+    position: 'row-start-1 col-start-1',
+    duration: 34,
+    data: [100, 80, 70, 0, 30],
+  },
+  {
     name: "HTML",
     caption: "lorem10",
+    position: 'row-start-1 col-start-2',
     duration: 34,
     data: [100, 80, 70, 0, 30],
   },
   {
     name: "CSS",
     caption: "lorem10",
+    position: 'row-start-1 col-start-3',
     duration: 34,
     data: [100, 10, 10, 80, 90],
   },
   {
     name: "SCSS",
     caption: "lorem10",
+    position: 'row-start-1 col-start-4',
     duration: 34,
     data: [100, 10, 10, 0, 50],
   },
   {
     name: "JavaScript",
     caption: "lorem10",
+    position: 'row-start-1 col-start-5',
     duration: 34,
     data: [100, 10, 100, 0, 50],
   },
   {
-    name: "TailwindCSS",
+    name: "JavaScript",
     caption: "lorem10",
+    position: 'row-start-1 col-start-6',
+    duration: 34,
+    data: [100, 10, 100, 0, 50],
+  },
+  {
+    name: "Tailwind",
+    caption: "lorem10",
+    position: 'row-start-2 col-start-1',
     duration: 34,
     data: [100, 10, 10, 0, 50],
   },
   {
-    name: "TypeScript",
+    name: "CSS Grid",
     caption: "lorem10",
+    position: 'row-start-2 col-start-2',
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSS Grid",
+    caption: "lorem10",
+    position: 'row-start-2 col-start-3',
     duration: 34,
     data: [100, 10, 10, 0, 50],
   },
@@ -129,7 +136,8 @@ const chartData = computed(() => {
 
 <style>
 .skill {
-  @apply border border-[red] w-28 h-28 block hover:bg-[red] duration-500;
+  /* @apply border border-[red] w-28 h-28 block hover:bg-[red] duration-500; */
+  @apply bg-gray-500 text-white;
 }
 .fade-enter-active,
 .fade-leave-active {

@@ -8,6 +8,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@lottiefiles/lottie-player": "^1.5.7",
     "apexcharts": "^3.35.0",
     "gsap": "^3.10.4",
     "lodash": "^4.17.21",
