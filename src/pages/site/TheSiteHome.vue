@@ -33,7 +33,7 @@
       </h1>
       <div class="flex py-8">
         <a
-          href="@/assets/pdf/ResumeFrontEndVueAmirMaghami.pdf"
+          href="/pdf/ResumeFrontEndVueAmirMaghami.pdf"
           download
           class="px-5 py-2 rounded text-white bg-[#42b883] border border-[#42b883]"
         >
