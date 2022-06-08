@@ -19,14 +19,14 @@ const dataStore = useDataStore();
 <style>
 .route-enter-from {
   opacity: 0;
-  transform: translateX(50px);
+  transform: translateX(-50px);
 }
 .route-enter-active {
   transition: all 0.3s ease-out; 
 }
 .route-leave-to {
   opacity: 0;
-  transform: translateX(-50px);
+  transform: translateX(50px);
 }
 .route-leave-active {
   transition: all 0.3s ease-in; 
