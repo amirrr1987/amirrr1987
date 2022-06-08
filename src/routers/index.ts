@@ -7,6 +7,7 @@ import TheSiteContact from "../pages/site/TheSiteContact.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+
   routes: [
     {
       path: "/",
@@ -36,6 +37,9 @@ const router = createRouter({
       ],
     },
   ],
+    scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  },
 });
 
 export default router
