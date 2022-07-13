@@ -11,9 +11,9 @@ Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught 
   <img align="right" alt="GIF" src="https://github.com/abhisheknaiidu/abhisheknaiidu/blob/master/code.gif?raw=true" width="500" height="320" />
   
 - 😃 Ask me about anything, I am happy to help;
-- 🌐 How to reach me:  <a href="https://www.linkedin.com/in/amirrr1987/">
+- 🌐 How to reach me:  (<a href="https://www.linkedin.com/in/amirrr1987/">
   <img align="center" alt="Amir Maghami Linkedin" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" />
-</a>
+</a>)
 - 📝 Download my CV: [Resume](https://amirmaghami.ir/pdf/ResumeFrontEndVueAmirMaghami.pdf)
 
 
