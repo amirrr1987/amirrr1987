@@ -14,7 +14,8 @@ Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught 
 - 🌐 How to reach me:  <a href="https://www.linkedin.com/in/amirrr1987/">
   <img align="center" alt="Amir Maghami Linkedin" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" />
 </a>
-- 📝 Download my CV: [Resume](https://amirmaghami.ir/pdf/ResumeFrontEndVueAmirMaghami.pdf)
+
+- 📝 Download my CV: ![Resume](https://amirmaghami.ir/pdf/ResumeFrontEndVueAmirMaghami.pdf)
 
 
 **Languages and Tools:**  
