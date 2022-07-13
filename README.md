@@ -1,23 +1,21 @@
 ### Hey there <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">
-<a href="https://twitter.com/amirrr1987">
-  <img align="left" alt="Khánh Pluto | Twitter" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/twitter.svg" />
-</a>
+
 <a href="https://www.linkedin.com/in/amirrr1987/">
-  <img align="left" alt="Khánh Pluto LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" />
+  <img align="left" alt="Amir Maghami Linkedin" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" />
 </a>
 
 ![](https://visitor-badge.glitch.me/badge?page_id=amirrr1987)
 
 <br />
 
-Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught AI Engineer and Developer from world. I always want build the AI systems to help people in the world: mentality, medical, science,... 🌸. 
+Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught Web Developer from world. I always want build systems to help people in the world: ERP, PWA, mentality, medical, science,... 🌸. 
 
 
   <img align="right" alt="GIF" src="https://github.com/abhisheknaiidu/abhisheknaiidu/blob/master/code.gif?raw=true" width="500" height="320" />
   
 - 💬 Ask me about anything, I am happy to help;
 - 📫 How to reach me: [@amirrr1987](https://www.linkedin.com/in/amirrr1987/);
-- 📝 [Resume](https://drive.google.com/file/d/1Ps_K1rw4SY9amdNmc1nRMjLxPCBvQZhx/view?usp=sharing)
+- 📝 [Resume](https://amirmaghami.ir/pdf/ResumeFrontEndVueAmirMaghami.pdf)
 
 **Languages and Tools:**  
 
