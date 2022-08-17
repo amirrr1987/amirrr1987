@@ -20,7 +20,7 @@ onMounted(() => {
 
 <style>
 #app {
-  @apply relative min-h-screen text-[#333] bg-[#dcedf1] subpixel-antialiased grid md:grid-rows-[max-content,1fr] overflow-hidden app-bg;
+  @apply font-body relative min-h-screen text-[#333] bg-[#dcedf1] subpixel-antialiased grid md:grid-rows-[max-content,1fr] overflow-hidden app-bg;
 
 }
 .bounce-enter-active {
