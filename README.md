@@ -41,7 +41,7 @@ Express.js                    5 Month     ████████░░░░�
 
 <img src="https://github-readme-stats.vercel.app/api?username=amirrr1987&show_icons=true&theme=radical" alt="Amir Maghami" />
   <img height= "180" src="https://github-readme-stats.vercel.app/api?username=amirrr1987&theme=gotham&show_icons=true&include_all_commits=true"  alt="Amir Maghami" />
-  <img height= "180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=amirrr1987&theme=react&layout=compact"  alt="Amir Maghami" />
+  <img height= "180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=amirrr1987&theme=radical&layout=compact"  alt="Amir Maghami" />
    <img src="https://github-readme-stats.vercel.app/api?username=amirrr1987&show_icons=true&theme=gotham"  alt="Amir Maghami" />
 </p>
 
