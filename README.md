@@ -13,6 +13,21 @@ Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught 
 - 😃 Ask me about anything, I am happy to help;
 - 🌐 How to reach me:  <a href="https://www.linkedin.com/in/amirrr1987/"><img align="center" alt="Amir Maghami Linkedin" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /></a>
 - 📝 Download my CV: [Resume](https://amirmaghami.ir/pdf/ResumeFrontEndVueAmirMaghami.pdf)
+- 🔭 I’m currently working on [survey](private)  
+  
+- 🌱 I’m currently learning **Vue.js, React.js Express.js**  
+  
+- 👨‍💻 All of my projects are available at [https://github.com/amirrr1987?tab=repositories](https://github.com/amirrr1987?tab=repositories)  
+  
+- 📝 I regularly write articles on [http://amirmaghami.ir/](http://amirmaghami.ir/)  
+  
+- 💬 Ask me about **Vue.js, TailwindCSS, CSS,**  
+  
+- 📫 How to reach me **maghami.a1987@gmail.com**  
+  
+- 📄 Know about my experiences [http://amirmaghami.ir/](http://amirmaghami.ir/)  
+  
+- ⚡ My hobbies **Technology, Swimming, Movies, Series, Family && Friends**  
 
 
 **Languages and Tools:**  
