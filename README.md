@@ -1,7 +1,7 @@
-<h1 align="center">Hello 👋, This is a Amir Maghami</h1>  
+<h1 align="center">Hello <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">, This is a Amir Maghami</h1>  
 <h3 align="center">A passionate frontend developer from Iran</h3>  
 
-### Hey there <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">
+### Hey there 
 
 
 ![](https://visitor-badge.glitch.me/badge?page_id=amirrr1987)
