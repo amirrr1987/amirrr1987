@@ -7,7 +7,7 @@
 
     <div class="row-start-3 row-end-4 col-start-1 col-end-3 lg:row-start-1 lg:row-end-3 lg:col-end-2 flex justify-center items-center">
       <div
-        class="grid grid-cols-6 grid-rows-6 gap-3 aspect-square lg:-rotate-45 w-9/12 row-start-2 "
+        class="grid grid-cols-6 grid-rows-6 gap-3 aspect-square lg:-rotate-45  row-start-2 "
       >
         <template v-for="(item, index) in skills" :key="index">
           <button
@@ -113,6 +113,90 @@ const skills = reactive([
     duration: 34,
     data: [100, 10, 10, 0, 50],
   },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-2 col-start-4",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-2 col-start-5",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-3 col-start-1",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-3 col-start-2",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-3 col-start-3",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-3 col-start-4",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-4 col-start-1",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-4 col-start-2",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-4 col-start-3",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-5 col-start-1",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-5 col-start-2",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
+  {
+    name: "CSSSS Grid",
+    caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, aut!",
+    position: "row-start-6 col-start-1",
+    duration: 34,
+    data: [100, 10, 10, 0, 50],
+  },
 ]);
 const targetSkill = ref({
   name: "",
@@ -150,7 +234,7 @@ const chartData = computed(() => {
 }
 .skill {
   /* @apply border border-[red] w-28 h-28 block hover:bg-[red] duration-500; */
-  @apply bg-gray-500 text-white;
+  @apply bg-gray-500 text-white text-xs;
 }
 .fade-enter-active,
 .fade-leave-active {
