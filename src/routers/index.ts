@@ -4,6 +4,7 @@ import TheSiteHome from "@/pages/site/TheSiteHome.vue";
 import TheSiteSkills from "@/pages/site/TheSiteSkills.vue";
 import TheSiteProjects from "@/pages/site/TheSiteProjects.vue";
 import TheSiteContact from "../pages/site/TheSiteContact.vue";
+import TheSiteQR from "../pages/site/TheSiteQR.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,8 +34,14 @@ const router = createRouter({
           path: "/contact",
           name: "TheSiteContact",
           component: TheSiteContact,
-        },
+        }
       ],
+    },
+
+    {
+      path: "/qr",
+      name: "TheSiteQR",
+      component: TheSiteQR,
     },
   ],
     scrollBehavior(to, from, savedPosition) {
