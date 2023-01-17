@@ -28,7 +28,7 @@ body {
     background-image: radial-gradient(circle farthest-corner at center,
             #f7fbfc 0%,
             #add9e4 100%);
-    min-height: 100svh;
+    height: 100svh;
     display: grid;
     height: fill-available;
     height: -webkit-fill-available;
