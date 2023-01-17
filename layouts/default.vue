@@ -30,7 +30,8 @@ body {
             #add9e4 100%);
     min-height: 100svh;
     display: grid;
-height: -webkit-fill-available;
+    height: fill-available;
+    height: -webkit-fill-available;
     /* grid-template-rows: max-content 1fr; */
 }
 </style>
