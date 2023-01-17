@@ -5,6 +5,8 @@
 
 <script setup lang="ts">
 
+// window.addEventListener('resize', documentHeight)
+// documentHeight()
 </script>
 
 <style>
@@ -13,6 +15,8 @@
     box-sizing: border-box;
     padding: 0;
 }
+
+
 
 body {
     font-family: 'Poppins';
@@ -26,6 +30,7 @@ body {
             #add9e4 100%);
     min-height: 100svh;
     display: grid;
+height: -webkit-fill-available;
     /* grid-template-rows: max-content 1fr; */
 }
 </style>
