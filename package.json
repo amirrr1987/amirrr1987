@@ -1,33 +1,21 @@
 {
-  "name": "amirmaghami",
-  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 5050",
-    "typecheck": "vue-tsc --noEmit"
-  },
-  "dependencies": {
-    "@lottiefiles/lottie-player": "^1.5.7",
-    "apexcharts": "^3.35.4",
-    "gsap": "^3.11.0",
-    "lodash": "^4.17.21",
-    "vue": "^3.2.37",
-    "vue-router": "^4.1.3",
-    "vue3-apexcharts": "^1.4.1"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.183",
-    "@types/node": "^18.7.6",
-    "@vitejs/plugin-vue": "^3.0.3",
-    "@vue/tsconfig": "^0.1.3",
-    "autoprefixer": "^10.4.8",
-    "postcss": "^8.4.16",
-    "sass": "^1.54.4",
-    "sass-loader": "^13.0.2",
-    "tailwindcss": "^3.1.8",
-    "typescript": "~4.7.4",
-    "vite": "^3.0.8",
-    "vue-tsc": "^0.40.1"
+    "@unocss/transformer-directives": "^0.48.4",
+    "nuxt": "^3.0.0",
+    "nuxt-icon": "^0.2.5",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0"
+  },
+  "dependencies": {
+    "@unocss/config": "^0.48.4",
+    "@unocss/nuxt": "^0.48.4"
   }
 }
