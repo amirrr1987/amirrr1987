@@ -2,21 +2,17 @@
     <TheNavbar />
     <slot />
 </template>
-
 <script setup lang="ts">
 
-// window.addEventListener('resize', documentHeight)
-// documentHeight()
 </script>
-
 <style>
+
+
 * {
     margin: 0;
     box-sizing: border-box;
     padding: 0;
 }
-
-
 
 body {
     font-family: 'Poppins';
@@ -28,10 +24,11 @@ body {
     background-image: radial-gradient(circle farthest-corner at center,
             #f7fbfc 0%,
             #add9e4 100%);
-    height: 100svh;
+
     display: grid;
-    height: fill-available;
-    height: -webkit-fill-available;
-    /* grid-template-rows: max-content 1fr; */
+    grid-template-rows: max-content 1fr;
+    min-height: 100vh;
+    padding-inline: 16px;
+    padding-block: 8px;
 }
 </style>

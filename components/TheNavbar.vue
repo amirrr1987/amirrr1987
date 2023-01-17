@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar" :class="toggleClass">
+    <!-- <nav class="navbar" :class="toggleClass">
         <div class="navbar__container">
             <div class="navbar__row">
                 <a href="" class="navbar__logo">
@@ -26,10 +26,25 @@
                 </span>
             </div>
         </div>
-    </nav>
-    <button class="bg-transparent border-0 absolute top-2 left-3 w-8 h-8 text-3xl" @click="toggleMenu">
-        <Icon :name="toggleIcon" />
-    </button>
+    </nav> -->
+    <div class="flex justify-between items-center">
+        <button class="bg-transparent border-0 text-4xl text-secondary" @click="toggleMenu">
+            <Icon class="text-4xl " :name="toggleIcon" />
+        </button>
+
+        <!-- <img class="h-10" src="@/assets/logo.png" alt=""> -->
+        <!-- <span class="navbar__time text-sm">
+            {{
+            clock
+            }}
+        </span> -->
+
+        <!-- <a href="/pdf/ResumeFrontEndAmirMaghami.pdf" download
+            class="flex justify-center items-center rounded text-base text-primary no-underline border border-solid h-8 w-32 border-primary">
+            Download CV
+        </a> -->
+    </div>
+
 </template>
 
 <script setup lang="ts">
