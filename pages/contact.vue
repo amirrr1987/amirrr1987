@@ -1,5 +1,5 @@
 <template>
-    <div class="p-6 grid gap-y-8">
+    <div class="grid gap-y-8">
         <TheLottiePlayer class=" lg:block lg:h-72" src="https://assets5.lottiefiles.com/packages/lf20_3ntisyac.json" />
         <img class="w-full h-52 object-contain" src="@/assets/img/contact.svg" title="" alt="" />
 
