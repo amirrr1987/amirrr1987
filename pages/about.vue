@@ -1,5 +1,5 @@
 <template>
-    <div class="p-6">
+    <div class="">
         <h3 class="mt-12 capitalize font-bold text-lg leading-[30.24px] text-secondary">title</h3>
         <p class="text-secondary font-normal text-base leading-[26.88px] mb-4">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa velit distinctio tempora fugiat recusandae
