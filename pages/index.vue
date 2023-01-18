@@ -30,8 +30,8 @@
                     {{ slide.text }}
                 </h1>
                 <h1 class="text-secondary text-2xl font-bold">developer</h1>
-                <img class="block mx-auto max-h-20 max-w-40 object-contain md:max-h-48" :class="slide.imgStyle" :src="getImgUrl(slide.img)"
-                title="" alt="" />
+                <img class="block mx-auto max-h-20 max-w-40 object-contain md:max-h-48" :class="slide.imgStyle"
+                    :src="getImgUrl(slide.img)" title="" alt="" />
             </div>
         </div>
         <div class="text-center">
@@ -39,6 +39,7 @@
             <h1 class="text-secondary text-3xl leading-[50.4px] capitalize font-black">
                 amir maghami
             </h1>
+
             <div class="py-8">
                 <a href="/pdf/ResumeFrontEndAmirMaghami.pdf" download
                     class="px-5 py-2 rounded text-white text-sm no-underline bg-[#42b883] border border-[#42b883]">
@@ -72,7 +73,7 @@ const slide = ref({
     imgStyle: "h-44",
 });
 let i = 1;
-const slidTimer = 5000;
+const slidTimer = 2500;
 setTimeout(function run() {
     slide.value = slideData[i];
     i++;
@@ -126,4 +127,5 @@ setTimeout(function run() {
 // }, slidTimer);
 </script>
 <style lang="scss">
+
 </style>

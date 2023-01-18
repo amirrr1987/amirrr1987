@@ -1,13 +1,15 @@
 <template>
     <TheNavbar />
-    <slot />
+    <main class="">
+        <div class="container mx-auto h-full grid p-4">
+            <slot />
+        </div>
+    </main>
 </template>
 <script setup lang="ts">
 
 </script>
 <style>
-
-
 * {
     margin: 0;
     box-sizing: border-box;
@@ -28,7 +30,7 @@ body {
     display: grid;
     grid-template-rows: max-content 1fr;
     min-height: 100vh;
-    padding-inline: 16px;
-    padding-block: 8px;
+    /* padding-inline: 16px; */
+    /* padding-block: 8px; */
 }
 </style>

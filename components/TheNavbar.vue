@@ -1,10 +1,12 @@
 <template>
-    <nav class="flex justify-between items-center">
-        <button class="bg-transparent border-0 text-4xl text-secondary z-10 relative " @click="toggleMenu">
-            <Icon class="text-4xl duration-700" :name="toggleIcon" />
-        </button>
-        <div class="navbar__container" :class="toggleClass">
-            <div class="navbar__row">
+    <nav class="">
+        
+        <div class="navbar__container">
+            <button class="bg-transparent border-0 text-4xl text-secondary z-10 relative mr-auto cursor-pointer" @click="toggleMenu">
+                <Icon class="text-4xl duration-700" :name="toggleIcon" />
+            </button>
+      
+            <div class="navbar__row"  :class="toggleClass">
                 <a href="" class="navbar__logo">
                     <img src="@/assets/logo.png" :title="title" alt="title">
                 </a>
@@ -22,7 +24,7 @@
                         <NuxtLink  @click="toggleMenu" class="navbar__link no-underline" to="/contact">contact</NuxtLink>
                     </li>
                 </ul>
-                <span class="navbar__time">
+                <span class="navbar__time row-span-1">
                     {{clock}}
                 </span>
             </div>
@@ -78,31 +80,36 @@ const toggleMenu = () => {
     // @apply ;
     // @apply py-3 fixed bottom-0 inset-x-0 z-50 md:shadow md:static bg-[#dcedf1] md:bg-transparent;
     &__container {
-        @apply absolute h-screen top-0 left-0 w-full bg-[#dcedf1] duration-700 ;
+        @apply container mx-auto px-4 ;
         // @apply container mx-auto px-5 py-12 h-full;
     }
     &__row {
+        // @apply absolute h-screen top-0 left-0 w-full bg-[#dcedf1] duration-700 ;
         // @apply grid grid-cols-[max-content_1fr_max-content] gap-x-8 items-center;
         // display: grid;
         // @apply grid;
         //     @apply grid md:grid-cols-[max-content, 1fr, max-content] items-center gap-x-10;
-        @apply grid grid-rows-3 h-full place-items-center;
+        // @apply grid grid-rows-3 h-full place-items-center;
+        @apply grid grid-rows-5 place-items-center absolute h-screen left-0 top-0 w-full duration-700 bg-[#dcedf1]  ;
     }
     &__logo {
         // @apply hidden md:block md:w-6;
+
+        @apply row-span-2;
         img {
             width: 100px;
         }
     }
     &__menu {
-        @apply list-none text-center flex flex-col gap-y-8 capitalize;
+        @apply list-none text-center flex flex-col gap-y-4 capitalize row-span-2;
         // @apply flex justify-evenly md:justify-start gap-x-5;
     }
-    // &__time {
-    //     @apply hidden md:flex md:items-center;
-    // }
+    &__time {
+        // @apply hidden md:flex md:items-center;
+        @apply row-span-1 text-secondary;
+    }
     &__link {
-        @apply text-xl text-secondary hover: text-primary;
+        @apply text-xl text-secondary hover: text-secondary;
     }
     // &__text {
     //     @apply hidden md:block md:capitalize;

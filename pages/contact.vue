@@ -61,7 +61,8 @@
 
 
         <form class="grid grid-cols-2 gap-2">
-            <legend class="col-span-2 capitalize font-bold text-lg leading-[30.24px] text-secondary">Send a mail</legend>
+            <legend class="col-span-2 capitalize font-bold text-lg leading-[30.24px] text-secondary">Send a mail
+            </legend>
 
             <input class="col-span-1 p-2 outline-0" type="text" placeholder="First name:" />
 
