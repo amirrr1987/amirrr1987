@@ -23,6 +23,19 @@
 
 - ⚡ Fun fact **I want to happy**
 
+
+📊 **My experience :** 🏆
+<!--START_SECTION:waka-->
+```text
+HTML                          9 years     █████████████████████░░░░  
+CSS                           9 years     █████████████████████░░░░ 
+javaScript                    5 years     ████████████░░░░░░░░░░░░░   
+Vue.js                        3 years     ██████████████████░░░░░░░
+Express.js                    5 Month     ████████░░░░░░░░░░░░░░░░░   
+```
+<!--END_SECTION:waka-->
+
+
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://codepen.io/https://codepen.io/amirrr1987" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="https://codepen.io/amirrr1987" height="30" width="40" /></a>
