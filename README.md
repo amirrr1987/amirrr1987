@@ -131,6 +131,3 @@ Express.js                    5 Month     ████████░░░░�
 
 
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=amirrr1987&show_icons=true&locale=en" alt="amirrr1987" /></p>
-
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=amirrr1987&" alt="amirrr1987" /></p>
