@@ -74,9 +74,6 @@ Express.js                    5 Month     ████████░░░░�
 
 
 
-<p align="left">
-  <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=amirrr1987" alt="amirrr1987" /></a>
-</p>
 
 
 
@@ -123,6 +120,9 @@ Express.js                    5 Month     ████████░░░░�
  
 <p>
   <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=amirrr1987&" alt="amirrr1987" />
+</p>
+<p align="left">
+  <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=amirrr1987" alt="amirrr1987" /></a>
 </p>
 
 
