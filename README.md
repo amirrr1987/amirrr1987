@@ -1,6 +1,13 @@
 <h1 align="center">Hi 👋, I'm This is Amir Maghami</h1>
 <h3 align="center">A passionate frontend developer from Iran</h3>
 
+<p align="left">
+  <img src="https://komarev.com/ghpvc/?username=amirrr1987&label=Profile%20views&color=0e75b6&style=flat" alt="amirrr1987" /> 
+![](https://visitor-badge.glitch.me/badge?page_id=amirrr1987)
+  
+
+</p>
+
 <br />
 
 Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught Web Developer from world. I always want build systems to help people in the world: ERP, PWA, mentality, medical, science,... 🌸. 
@@ -65,11 +72,12 @@ Express.js                    5 Month     ████████░░░░�
 
 
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=amirrr1987&label=Profile%20views&color=0e75b6&style=flat" alt="amirrr1987" /> </p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=amirrr1987" alt="amirrr1987" /></a> </p>
 
-![](https://visitor-badge.glitch.me/badge?page_id=amirrr1987)
+<p align="left">
+  <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=amirrr1987" alt="amirrr1987" /></a>
+</p>
+
 
 
 
