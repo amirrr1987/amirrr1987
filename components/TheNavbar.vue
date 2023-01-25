@@ -21,6 +21,9 @@
                         <NuxtLink  @click="toggleMenu" class="navbar__link no-underline" to="/projects">projects</NuxtLink>
                     </li>
                     <li class="navbar__item">
+                        <NuxtLink @click="toggleMenu" class="navbar__link no-underline" to="/skills">skills</NuxtLink>
+                    </li>
+                    <li class="navbar__item">
                         <NuxtLink  @click="toggleMenu" class="navbar__link no-underline" to="/contact">contact</NuxtLink>
                     </li>
                 </ul>
