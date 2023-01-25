@@ -5,6 +5,17 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=amirrr1987" alt="amirrr1987" /></a> </p>
 
+![](https://visitor-badge.glitch.me/badge?page_id=amirrr1987)
+
+<br />
+
+Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught Web Developer from world. I always want build systems to help people in the world: ERP, PWA, mentality, medical, science,... 🌸. 
+
+
+  <img align="right" alt="GIF" src="https://github.com/abhisheknaiidu/abhisheknaiidu/blob/master/code.gif?raw=true" width="500" height="320" />
+  
+  
+
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
 
 - 🔭 I’m currently working on **Survey**
