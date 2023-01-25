@@ -96,12 +96,6 @@ Express.js                    5 Month     ████████░░░░�
 
 
 # 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=amirrr1987&theme=radical&hide_border=true&include_all_commits=true&count_private=true)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=amirrr1987&theme=radical&hide_border=true)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=amirrr1987&theme=radical&hide_border=true&include_all_commits=true&count_private=true&layout=compact)
-
-
-# 📊 GitHub Stats:
 
 
 <!-- ![](https://github-readme-streak-stats.herokuapp.com/?user=amirrr1987&theme=radical&hide_border=true)<br/>
