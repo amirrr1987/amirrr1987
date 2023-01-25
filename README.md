@@ -93,6 +93,44 @@ Express.js                    5 Month     ████████░░░░�
 
 
 
+
+
+# 📊 GitHub Stats:
+![](https://github-readme-stats.vercel.app/api?username=amirrr1987&theme=radical&hide_border=true&include_all_commits=true&count_private=true)<br/>
+![](https://github-readme-streak-stats.herokuapp.com/?user=amirrr1987&theme=radical&hide_border=true)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=amirrr1987&theme=radical&hide_border=true&include_all_commits=true&count_private=true&layout=compact)
+
+
+# 📊 GitHub Stats:
+![](https://github-readme-stats.vercel.app/api?username=amirrr1987&theme=radical&hide_border=true&include_all_commits=true&count_private=true)<br/>
+![](https://github-readme-streak-stats.herokuapp.com/?user=amirrr1987&theme=radical&hide_border=true)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=amirrr1987&theme=radical&hide_border=true&include_all_commits=true&count_private=true&layout=compact)
+
+---
+[![](https://visitcount.itsvg.in/api?id=amirrr1987&icon=0&color=0)](https://visitcount.itsvg.in)
+
+
+📈 My GitHub Stats
+
+<p align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=amirrr1987&show_icons=true&theme=radical" alt="Amir Maghami" />
+  <img height= "180" src="https://github-readme-stats.vercel.app/api?username=amirrr1987&theme=gotham&show_icons=true&include_all_commits=true"  alt="Amir Maghami" />
+  <img height= "180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=amirrr1987&theme=radical&layout=compact"  alt="Amir Maghami" />
+   <img src="https://github-readme-stats.vercel.app/api?username=amirrr1987&show_icons=true&theme=gotham"  alt="Amir Maghami" />
+  [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&langs_count=8)](https://github.com/anuraghazra/github-readme-stats)
+
+</p>
+
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=amirrr1987&show_icons=true&locale=en&layout=compact" alt="amirrr1987" /></p>  
+  
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=amirrr1987&show_icons=true&locale=en" alt="amirrr1987" /></p>  
+  
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=amirrr1987&" alt="amirrr1987" /></p>
+
+
+
+
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=amirrr1987&show_icons=true&locale=en" alt="amirrr1987" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=amirrr1987&" alt="amirrr1987" /></p>
