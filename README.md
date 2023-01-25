@@ -1,9 +1,10 @@
 <h1 align="center">Hi 👋, I'm This is Amir Maghami</h1>
 <h3 align="center">A passionate frontend developer from Iran</h3>
 
-
+<p>
   <img src="https://komarev.com/ghpvc/?username=amirrr1987&label=Profile%20views&color=0e75b6&style=flat" alt="amirrr1987" /> 
-![](https://visitor-badge.glitch.me/badge?page_id=amirrr1987)
+  <img src="[https://komarev.com/ghpvc/?username=amirrr1987&label=Profile%20views&color=0e75b6&style=flat](https://visitor-badge.glitch.me/badge?page_id=amirrr1987)" alt="amirrr1987" /> 
+</p>
   
 
 
