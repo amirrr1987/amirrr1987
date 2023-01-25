@@ -3,7 +3,7 @@
 
 <p>
   <img src="https://komarev.com/ghpvc/?username=amirrr1987&label=Profile%20views&color=0e75b6&style=flat" alt="amirrr1987" /> 
-  <img src="[https://komarev.com/ghpvc/?username=amirrr1987&label=Profile%20views&color=0e75b6&style=flat](https://visitor-badge.glitch.me/badge?page_id=amirrr1987)" alt="amirrr1987" /> 
+  ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Famirrr1987&countColor=%23263759)
 </p>
   
 
