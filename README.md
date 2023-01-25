@@ -97,8 +97,6 @@ Express.js                    5 Month     ████████░░░░�
 
 ![](https://github-readme-stats.vercel.app/api?username=amirrr1987&theme=transparent&hide_border=true&include_all_commits=true&count_private=true)<br/>
 
-![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)
-
 
 <p>
   <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=amirrr1987&show_icons=true&locale=en&layout=compact" alt="amirrr1987" />
