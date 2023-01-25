@@ -42,7 +42,7 @@
 - ⚡ My hobbies **Technology, Swimming, Movies, Series, Family && Friends**  
 
 <h3 align="left">My experience:</h3>
-📊 **My experience :** 🏆
+
 <!--START_SECTION:waka-->
 ```text
 HTML                          9 years     █████████████████████░░░░  
