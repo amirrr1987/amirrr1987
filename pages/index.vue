@@ -41,7 +41,7 @@
             </h1>
 
             <div class="py-8">
-                <a href="/pdf/ResumeFrontEndAmirMaghami.pdf" download
+                <a href="/pdf/ResumeFrontEndAmirMaghamiEN-FA.pdf" download
                     class="px-5 py-2 rounded text-white text-sm no-underline bg-[#42b883] border border-[#42b883]">
                     Download CV
                 </a>
