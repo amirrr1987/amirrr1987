@@ -12,7 +12,6 @@
 
 Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught Web Developer from world. I always want build systems to help people in the world: ERP, PWA, mentality, medical, science,... 🌸. 
 
-<img align="right" alt="GIF" src="https://github.com/abhisheknaiidu/abhisheknaiidu/blob/master/code.gif?raw=true" width="500" height="320" />
   
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
 
