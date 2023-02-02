@@ -3,8 +3,6 @@
 
 <p>
   <img src="https://komarev.com/ghpvc/?username=amirrr1987&label=Profile%20views&color=0e75b6&style=flat" alt="amirrr1987" /> 
- 
-  
  ![](https://visitor-badge.glitch.me/badge?page_id=amirrr1987)
 </p>
 
@@ -12,7 +10,10 @@
 
 Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught Web Developer from world. I always want build systems to help people in the world: ERP, PWA, mentality, medical, science,... 🌸. 
 
-  
+
+<p align="left">
+<img align="right" alt="GIF" src="https://github.com/abhisheknaiidu/abhisheknaiidu/blob/master/code.gif?raw=true" width="500" height="320" />
+  </p>
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
 
 - 🔭 I’m currently working on **Survey**
