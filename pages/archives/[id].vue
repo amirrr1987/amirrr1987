@@ -17,7 +17,7 @@
 import useDataStore from '~~/stores';
 const { id } = useRoute().params
 const store = useDataStore()
-const singleProject = store.getSingleProject({ projectId: id })
+const singleProject = store.getSingleArchive({ archiveId: id })
 </script>
 
 <style lang="scss">

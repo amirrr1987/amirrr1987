@@ -6,7 +6,7 @@ export interface DataModel {
   containerClass: string;
   mainClass: string;
   projects: any
-  blogs: any
+  archives: any
 }
 
 export class DataStore {
@@ -37,11 +37,11 @@ export class DataStore {
     })
     return this.state.projects[projectIndex]
   }
-  getSingleBlog({ blogId: id }: any) {
-    const blogIndex = this.state.blogs.findIndex((blog: { id: string; }) => {
-      return blog.id === id
+  getSingleArchive({ archiveId: id }: any) {
+    const archiveIndex = this.state.archives.findIndex((archive: { id: string; }) => {
+      return archive.id === id
     })
-    return this.state.blogs[blogIndex]
+    return this.state.archives[archiveIndex]
   }
   private _init() {
     this._state = {
@@ -80,7 +80,7 @@ export class DataStore {
           description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
         },
       ],
-      blogs: [
+      archives: [
         {
           id: '1',
           image: '@/assets/img/camo.png',

@@ -1,6 +1,8 @@
 
 import { defineConfig, } from 'unocss'
 import transformerDirectives from '@unocss/transformer-directives'
+import transformerCompileClass from '@unocss/transformer-compile-class'
+import transformerVariantGroup from '@unocss/transformer-variant-group'
 
 export default defineConfig({
     shortcuts: [
@@ -17,6 +19,8 @@ export default defineConfig({
 
     transformers: [
         transformerDirectives(),
+        // transformerVariantGroup(),
+        // transformerCompileClass(),
     ],
 
 })

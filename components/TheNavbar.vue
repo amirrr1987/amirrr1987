@@ -1,35 +1,35 @@
 <template>
-    <nav class="">
+    <nav class="navbar">
         
         <div class="navbar__container">
-            <button class="bg-transparent border-0 text-4xl text-secondary z-10 relative mr-auto cursor-pointer" @click="toggleMenu">
-                <Icon class="text-4xl duration-700" :name="toggleIcon" />
+            <button class="navbar__btn" @click="toggleMenu">
+                <Icon :name="toggleIcon" />
             </button>
       
             <div class="navbar__row"  :class="toggleClass">
                 <a href="" class="navbar__logo">
-                    <img src="@/assets/logo.png" :title="title" alt="title">
+                    <img  src="@/assets/logo.png" :title="title" alt="title">
                 </a>
                 <ul class="navbar__menu">
                     <li class="navbar__item">
-                        <NuxtLink  @click="toggleMenu" class="navbar__link no-underline" to="/">home</NuxtLink>
+                        <NuxtLink  @click="toggleMenu" class="navbar__link" to="/">home</NuxtLink>
                     </li>
                     <li class="navbar__item">
-                        <NuxtLink  @click="toggleMenu" class="navbar__link no-underline" to="/about">about</NuxtLink>
+                        <NuxtLink  @click="toggleMenu" class="navbar__link" to="/about">about</NuxtLink>
                     </li>
                     <li class="navbar__item">
-                        <NuxtLink  @click="toggleMenu" class="navbar__link no-underline" to="/projects">projects</NuxtLink>
+                        <NuxtLink  @click="toggleMenu" class="navbar__link" to="/projects">projects</NuxtLink>
                     </li><li class="navbar__item">
-                        <NuxtLink @click="toggleMenu" class="navbar__link no-underline" to="/skills">skills</NuxtLink>
+                        <NuxtLink @click="toggleMenu" class="navbar__link" to="/skills">skills</NuxtLink>
                     </li>
                     <li class="navbar__item">
-                        <NuxtLink @click="toggleMenu" class="navbar__link no-underline" to="/blogs">blogs</NuxtLink>
+                        <NuxtLink @click="toggleMenu" class="navbar__link" to="/archives">archives</NuxtLink>
                     </li>
                     <li class="navbar__item">
-                        <NuxtLink  @click="toggleMenu" class="navbar__link no-underline" to="/contact">contact</NuxtLink>
+                        <NuxtLink  @click="toggleMenu" class="navbar__link" to="/contact">contact</NuxtLink>
                     </li>
                 </ul>
-                <span class="navbar__time row-span-1">
+                <span class="navbar__time">
                     {{clock}}
                 </span>
             </div>
@@ -62,7 +62,7 @@ timeRunner();
 const toggleClass = ref('-translate-x-full')
 const toggleIcon = ref('ic:outline-menu')
 const toggleMenu = () => {
-    if (toggleClass.value === 'translate-x-0') {
+    if (toggleClass.value === '') {
         toggleClass.value = '-translate-x-full'
         toggleIcon.value = 'ic:outline-menu'
     }
@@ -77,50 +77,37 @@ const toggleMenu = () => {
     transform: translateX(0) !important;
 }
 .navbar {
-    background-color: gray;
-    position: absolute;
-    transform: translateX(-100%);
-    transition-duration: 0.4s;
-    height: 100svh;
-    // @apply ;
-    // @apply py-3 fixed bottom-0 inset-x-0 z-50 md:shadow md:static bg-[#dcedf1] md:bg-transparent;
+    // background-color: gray;
+    // position: absolute;
+    // transform: translateX(-100%);
+    // transition-duration: 0.4s;
+    // height: 100svh;
+    // @apply lg:shadow py-4;
+    @apply relative lg:shadow;
     &__container {
-        @apply container mx-auto px-4 ;
-        // @apply container mx-auto px-5 py-12 h-full;
+        @apply container mx-auto px-4;
     }
     &__row {
-        // @apply absolute h-screen top-0 left-0 w-full bg-[#dcedf1] duration-700 ;
-        // @apply grid grid-cols-[max-content_1fr_max-content] gap-x-8 items-center;
-        // display: grid;
-        // @apply grid;
-        //     @apply grid md:grid-cols-[max-content, 1fr, max-content] items-center gap-x-10;
-        // @apply grid grid-rows-3 h-full place-items-center;
-        @apply grid grid-rows-5 place-items-center absolute h-screen left-0 top-0 w-full duration-700 bg-[#dcedf1]  ;
+        // @apply grid grid-rows-5 place-items-center absolute h-screen left-0 top-0 w-full duration-700 bg-[#dcedf1]  ;
+        // @apply lg:relative lg:h-auto lg:grid-rows-1 lg:grid-cols-[max-content_1fr_max-content] lg:bg-transparent lg:place-items-start lg:items-center lg:gap-x-4;
+        @apply bg-[#dcedf1] lg:bg-transparent absolute lg:relative left-0 top-0 w-full h-screen lg:h-auto grid lg:grid-cols-[max-content_1fr_max-content] lg:gap-x-4 items-center justify-center text-center lg:py-2 -translate-x-full;
     }
     &__logo {
-        // @apply hidden md:block md:w-6;
-
-        @apply row-span-2;
         img {
-            width: 100px;
+            @apply w-20 lg:h-10 lg:w-auto;
         }
     }
     &__menu {
-        @apply list-none text-center flex flex-col gap-y-4 capitalize row-span-2;
-        // @apply flex justify-evenly md:justify-start gap-x-5;
+        @apply list-none lg:flex lg:gap-x-4;
     }
     &__time {
-        // @apply hidden md:flex md:items-center;
-        @apply row-span-1 text-secondary;
+        @apply text-base text-secondary;
     }
     &__link {
-        @apply text-xl text-secondary hover: text-secondary;
+        @apply text-base font-medium text-secondary  no-underline capitalize;
     }
-    // &__text {
-    //     @apply hidden md:block md:capitalize;
-    // }
-    // &__icon {
-    //     @apply text-2xl md:hidden;
-    // }
+    &__btn{
+        @apply absolute left-4 top-2 z-10 bg-transparent border-0 text-4xl lg:hidden cursor-pointer duration-500;
+    }
 }
 </style>
