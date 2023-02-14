@@ -6,6 +6,7 @@ export interface DataModel {
   containerClass: string;
   mainClass: string;
   projects: any
+  blogs: any
 }
 
 export class DataStore {
@@ -36,12 +37,50 @@ export class DataStore {
     })
     return this.state.projects[projectIndex]
   }
+  getSingleBlog({ blogId: id }: any) {
+    const blogIndex = this.state.blogs.findIndex((blog: { id: string; }) => {
+      return blog.id === id
+    })
+    return this.state.blogs[blogIndex]
+  }
   private _init() {
     this._state = {
       sectionClass: "",
       containerClass: "",
       mainClass: "",
       projects: [
+        {
+          id: '1',
+          image: '@/assets/img/camo.png',
+          title: 'title',
+          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+        },
+        {
+          id: '2',
+          image: '@/assets/img/camo.png',
+          title: 'title',
+          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+        },
+        {
+          id: '3',
+          image: '@/assets/img/camo.png',
+          title: 'title',
+          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+        },
+        {
+          id: '4',
+          image: '@/assets/img/camo.png',
+          title: 'title',
+          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+        },
+        {
+          id: '5',
+          image: '@/assets/img/camo.png',
+          title: 'title',
+          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+        },
+      ],
+      blogs: [
         {
           id: '1',
           image: '@/assets/img/camo.png',
