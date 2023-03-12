@@ -4,9 +4,6 @@
 <p>
   <img src="https://komarev.com/ghpvc/?username=amirrr1987&label=Profile%20views&color=0e75b6&style=flat" alt="amirrr1987" /> 
   <img src="https://visitor-badge.glitch.me/badge?page_id=amirrr1987.visitor-badge" alt="amirrr1987" /> 
-  
-  ![visitor badge](https://visitor-badge.glitch.me/badge?page_id=amirrr1987.visitor-badge)
-
 </p>
 
 <br />
