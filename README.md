@@ -33,7 +33,7 @@ Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught 
 
 <!--START_SECTION:waka-->
 ```text
-HTML                          9 years     █████████████████████░░░░
+HTML                          9 years     █████████████████████
 CSS                           9 years     █████████████████████░░░░
 javaScript                    5 years     ████████████░░░░░░░░░░░░░
 Vue.js                        3 years     ██████████████████░░░░░░░
