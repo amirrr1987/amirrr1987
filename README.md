@@ -43,21 +43,6 @@ Express.js                    9 Month     ████████░░░░�
 <!--END_SECTION:waka-->
 
 
-
-
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://codepen.io/https://codepen.io/amirrr1987" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="https://codepen.io/amirrr1987" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/https://www.linkedin.com/in/amirrr1987/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/amirrr1987/" height="30" width="40" /></a>
-<a href="https://stackoverflow.com/users/https://stackoverflow.com/users/11471489/amirrr1987" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="https://stackoverflow.com/users/11471489/amirrr1987" height="30" width="40" /></a>
-</p>
-
-
-
-
-
-
 <h3 align="left">Languages :</h3>
 <p align="left">
   </a>
@@ -231,6 +216,14 @@ Express.js                    9 Month     ████████░░░░�
   <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=amirrr1987" alt="amirrr1987" /></a>
 </p>
 
+
+
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://codepen.io/https://codepen.io/amirrr1987" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="https://codepen.io/amirrr1987" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/https://www.linkedin.com/in/amirrr1987/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/amirrr1987/" height="30" width="40" /></a>
+<a href="https://stackoverflow.com/users/https://stackoverflow.com/users/11471489/amirrr1987" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="https://stackoverflow.com/users/11471489/amirrr1987" height="30" width="40" /></a>
+</p>
 
 
 
