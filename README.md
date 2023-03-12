@@ -16,39 +16,18 @@ Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught 
   </p>
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
 
-- 🔭 I’m currently working on **Survey**
-
-- 🌱 I’m currently learning **Nuxt, React, Flutter, Node**
-
-- 👨‍💻 All of my projects are available at [https://github.com/amirrr1987](https://github.com/amirrr1987)
-
-- 📝 I regularly write articles on [http://amirmaghami.ir/blog](http://amirmaghami.ir/blog)
-
-- 💬 Ask me about **Vue, CSS**
-
+- 🔭 I’m currently working on **Survey module** , **Test module**
+- 🌱 I’m currently learning **Nuxt, Express, React, Flutter,**
+- 👨‍💻 All of my projects are available at **[github](https://github.com/amirrr1987)**
+- 📝 I regularly write articles on **[blog](http://amirmaghami.ir/blog)**
+- 💬 Ask me about **HTML. CSS, JavaScript ...**
 - 📫 How to reach me **maghami.a1987@gmail.com**
-
-- 📄 Know about my experiences [https://amirmaghami.ir/pdf/ResumeFrontEndAmirMaghami.pdf](https://amirmaghami.ir/pdf/ResumeFrontEndAmirMaghami.pdf)
-
-- ⚡ Fun fact **I want to happy**
-- 😃 Ask me about anything, I am happy to help;
-- 🌐 How to reach me:  <a href="https://www.linkedin.com/in/amirrr1987/"><img align="center" alt="Amir Maghami Linkedin" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /></a>
+- 📄 Know about my experiences [https://amirmaghami.ir/](https://amirmaghami.ir/)
 - 📝 Download my CV: [Resume](https://amirmaghami.ir/pdf/ResumeFrontEndVueAmirMaghami.pdf)
-- 🔭 I’m currently working on [survey](private)  
-  
-- 🌱 I’m currently learning **Vue.js, React.js Express.js**  
-  
-- 👨‍💻 All of my projects are available at [https://github.com/amirrr1987?tab=repositories](https://github.com/amirrr1987?tab=repositories)  
-  
-- 📝 I regularly write articles on [http://amirmaghami.ir/](http://amirmaghami.ir/)  
-  
-- 💬 Ask me about **Vue.js, TailwindCSS, CSS,**  
-  
-- 📫 How to reach me **maghami.a1987@gmail.com**  
-  
-- 📄 Know about my experiences [http://amirmaghami.ir/](http://amirmaghami.ir/)  
-  
+- 📝 See my Profile: [Linkden](https://www.linkedin.com/in/amirrr1987/)
+- ⚡ Fun fact **I want to happy**
 - ⚡ My hobbies **Technology, Swimming, Movies, Series, Family && Friends**  
+- 😃 Ask me about anything, I am happy to help; 
 
 <h3 align="left">My experience:</h3>
 
