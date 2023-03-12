@@ -54,11 +54,12 @@ Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught 
 
 <!--START_SECTION:waka-->
 ```text
-HTML                          9 years     █████████████████████░░░░  
-CSS                           9 years     █████████████████████░░░░ 
-javaScript                    5 years     ████████████░░░░░░░░░░░░░   
+HTML                          9 years     █████████████████████░░░░
+CSS                           9 years     █████████████████████░░░░
+javaScript                    5 years     ████████████░░░░░░░░░░░░░
 Vue.js                        3 years     ██████████████████░░░░░░░
-Express.js                    5 Month     ████████░░░░░░░░░░░░░░░░░   
+React.js                      5 Month     ██████████████████░░░░░░░
+Express.js                    9 Month     ████████░░░░░░░░░░░░░░░░░
 ```
 <!--END_SECTION:waka-->
 
