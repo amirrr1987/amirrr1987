@@ -1,41 +1,65 @@
 <template>
-        <nav class="navbar">
-        
-        <div class="navbar__container">
-            <button class="navbar__btn" @click="menuToggle">
-                <Icon :name="toggleIcon" />
-            </button>
-      
-            <div class="navbar__row" :class="menuState ? 'translate-x-0	': '-translate-x-full'" >
-                <a href="" class="navbar__logo">
-                    <img  src="@/assets/logo.png" :title="title" :alt="title">
-                </a>
-                <ul class="navbar__menu">
-                    <li class="navbar__item">
-                        <NuxtLink  @click.prevent="menuState = false" class="navbar__link" to="/">home</NuxtLink>
-                    </li>
-                    <li class="navbar__item">
-                        <NuxtLink  @click.prevent="menuState = false" class="navbar__link" to="/about">about</NuxtLink>
-                    </li>
-                    <li class="navbar__item">
-                        <NuxtLink  @click.prevent="menuState = false" class="navbar__link" to="/projects">projects</NuxtLink>
-                    </li><li class="navbar__item">
-                        <NuxtLink @click.prevent="menuState = false" class="navbar__link" to="/skills">skills</NuxtLink>
-                    </li>
-                    <li class="navbar__item">
-                        <NuxtLink @click.prevent="menuState = false" class="navbar__link" to="/archives">archives</NuxtLink>
-                    </li>
-                    <li class="navbar__item">
-                        <NuxtLink @click.prevent="menuState = false"  class="navbar__link" to="/contact">contact</NuxtLink>
-                    </li>
+    <nav class="py-2 shadow">
+        <div class="container mx-auto px-4">
+            <div class="hidden lg:grid lg:grid-cols-[max-content_1fr_max-content] lg:items-center lg:gap-x-4">
+                <NuxtLink to="/" class="lg:h-12 lg:inline-flex">
+                    <img class="lg:h-12" src="@/assets/logo.png" :title="title" :alt="title">
+                </NuxtLink>
+                <ul class="lg:list-none lg:flex lg:gap-x-4">
+                    <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/">home</NuxtLink></li>
+                    <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/about">about</NuxtLink></li>
+                    <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/projects">projects</NuxtLink></li>
+                    <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/skills">skills</NuxtLink></li>
+                    <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/archives">archives</NuxtLink></li>
+                    <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/contact">contact</NuxtLink></li>
                 </ul>
-                <span class="navbar__time">
-                    {{clock}}
-                </span>
+                <span class="text-base">{{clock}}</span>
             </div>
+            <div class="flex justify-between items-center lg:hidden">
+                <NuxtLink to="/" class="h-12 inline-flex">
+                    <img class="h-12" src="@/assets/logo.png" :title="title" :alt="title">
+                    
+                </NuxtLink>
+                <button @click="toggleVisibilityMenu" class="bg-transparent border-0 text-4xl lg:hidden cursor-pointer relative z-50">
+                    <Icon :name="toggleIcon" />
+                </button>
+                <div class="fixed left-0 top-0 w-screen h-screen bg-[#dcedf1] flex flex-col justify-between items-center pb-12 py-24 duration-400" :class="menuState ? 'translate-x-0	': '-translate-x-full'">
+                    <NuxtLink to="/" class="h-12 inline-flex">
+                        <img class="h-32" src="@/assets/logo.png" :title="title" :alt="title">
+                    </NuxtLink>
+                    <ul class="list-none text-center flex flex-col gap-y-2">
+                        <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/">home</NuxtLink></li>
+                        <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/about">about</NuxtLink></li>
+                        <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/projects">projects</NuxtLink></li>
+                        <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/skills">skills</NuxtLink></li>
+                        <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/archives">archives</NuxtLink></li>
+                        <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/contact">contact</NuxtLink></li>
+                    </ul>
+                    <span class="text-base">{{clock}}</span>
+                </div>
+            </div>
+            <!-- <div class="grid grid-cols-[max-content_1fr_max-content] items-center gap-x-4">
+                <NuxtLink to="/" class="h-12 inline-flex">
+                    <img class="h-12" src="@/assets/logo.png" :title="title" :alt="title">
+                </NuxtLink>
+                <ul class="list-none flex gap-x-4">
+                    <li class="lg:mr-4"><NuxtLink @click.prevent="menuState = false" class="decoration-none text-base" to="/">home</NuxtLink></li>
+                    <li class="lg:mr-4"><NuxtLink @click.prevent="menuState = false" class="decoration-none text-base" to="/about">about</NuxtLink></li>
+                    <li class="lg:mr-4"><NuxtLink @click.prevent="menuState = false" class="decoration-none text-base" to="/projects">projects</NuxtLink></li>
+                    <li class="lg:mr-4"><NuxtLink @click.prevent="menuState = false" class="decoration-none text-base" to="/skills">skills</NuxtLink></li>
+                    <li class="lg:mr-4"><NuxtLink @click.prevent="menuState = false" class="decoration-none text-base" to="/archives">archives</NuxtLink></li>
+                    <li><NuxtLink @click.prevent="menuState = false" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white" to="/contact">contact</NuxtLink></li>
+                </ul>
+                <span class="inline-block bg-teal-200 rounded-full px-3 py-1 text-sm font-semibold text-teal-900 mr-2">{{clock}}</span>
+                <button @click="toggleVisibilityMenu" class="">
+                    <Icon :name="toggleIcon" />
+                </button>
+            </div> -->
         </div>
     </nav>
+
 </template>
+
 <script setup lang="ts">
 const title = ref('Amir Maghami')
 const clock = ref();
@@ -61,38 +85,7 @@ const timeRunner =() => {
 }
 timeRunner();
 const menuState = ref(false)
-const menuToggle =()=>{
+const toggleVisibilityMenu =()=>{
     menuState.value = !menuState.value 
 }
 </script>
-<style lang="scss">
-
-.navbar {
-    @apply relative lg:py-4;
-    &__container {
-        @apply container mx-auto px-4;
-    }
-    &__row {
-        @apply bg-[#dcedf1] fixed left-0 top-0 w-screen h-screen duration-700 grid justify-center items-center gap-y-4 z-40;
-        @apply lg:relative lg:grid-cols-[max-content_1fr_max-content] lg:gap-x-12 lg:translate-x-0 lg:w-auto lg:h-auto lg:bg-transparent;
-    }
-    &__logo {
-        @apply  lg:justify-self-start;
-        img {
-            @apply w-20 lg:h-10 lg:w-auto;
-        }
-    }
-    &__menu {
-        @apply list-none lg:flex lg:gap-x-4 text-center;
-    }
-    &__time {
-        @apply text-base text-secondary lg:justify-self-end;
-    }
-    &__link {
-        @apply text-base font-medium text-secondary  no-underline capitalize;
-    }
-    &__btn{
-        @apply bg-transparent border-0 text-4xl lg:hidden cursor-pointer z-50 fixed;
-    }
-}
-</style>
