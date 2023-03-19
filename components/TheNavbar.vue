@@ -23,9 +23,9 @@
                 <button @click="toggleVisibilityMenu" class="bg-transparent border-0 text-4xl lg:hidden cursor-pointer relative z-50">
                     <Icon :name="toggleIcon" />
                 </button>
-                <div class="fixed left-0 top-0 w-screen h-screen bg-[#dcedf1] flex flex-col justify-between items-center pb-12 py-24 duration-400" :class="menuState ? 'translate-x-0	': '-translate-x-full'">
-                    <NuxtLink to="/" class="h-12 inline-flex">
-                        <img class="h-32" src="@/assets/logo.png" :title="title" :alt="title">
+                <div class="fixed left-0 top-0 w-screen h-screen bg-[#dcedf1] flex flex-col justify-center gap-y-18 items-center duration-400" :class="menuState ? 'translate-x-0	': '-translate-x-full'">
+                    <NuxtLink to="/" class="h-32 inline-flex">
+                        <img class="h-full" src="@/assets/logo.png" :title="title" :alt="title">
                     </NuxtLink>
                     <ul class="list-none text-center flex flex-col gap-y-2">
                         <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/">home</NuxtLink></li>
