@@ -1,6 +1,14 @@
 <template>
-    <div class="grid gap-y-8">
-        <TheLottiePlayer class=" lg:block lg:h-72" src="https://assets5.lottiefiles.com/packages/lf20_3ntisyac.json" />
+    <div class="grid gap-y-8 lg:grid-cols-2">
+        <!-- <TheLottiePlayer class=" lg:block lg:h-72" src="https://assets5.lottiefiles.com/packages/lf20_3ntisyac.json" /> -->
+        <client-only>
+  <Vue3Lottie
+    animationLink="https://assets5.lottiefiles.com/packages/lf20_3ntisyac.json"
+    :height="200"
+    :width="200"
+    class="hidden lg:block lg:h-72"
+  />
+</client-only>
         <img class="w-full h-52 object-contain" src="@/assets/img/contact.svg" title="" alt="" />
 
         <div class="">
@@ -82,13 +90,7 @@
     </div>
 </template>
 <script setup lang="ts">
-// import useDataStore from "@/stores";
 // import TheLottiePlayer from "@/components/TheLottiePlayer.vue";
-
-// const dataStore = useDataStore();
-// dataStore.setMainClass("grid");
-// dataStore.setSectionClass("grid");
-// dataStore.setContainerClass("container mx-auto grid p-5");
 </script>
 <style lang="scss">
 
