@@ -66,16 +66,14 @@ const menuToggle =()=>{
 }
 </script>
 <style lang="scss">
-body{
-    overflow-x: hidden;
-}
+
 .navbar {
-    @apply relative lg:py-4 ;
+    @apply relative lg:py-4;
     &__container {
         @apply container mx-auto px-4;
     }
     &__row {
-        @apply bg-[#dcedf1] absolute left-0 top-0 w-screen h-screen duration-700 grid justify-center items-center gap-y-4 z-40;
+        @apply bg-[#dcedf1] fixed left-0 top-0 w-screen h-screen duration-700 grid justify-center items-center gap-y-4 z-40;
         @apply lg:relative lg:grid-cols-[max-content_1fr_max-content] lg:gap-x-12 lg:translate-x-0 lg:w-auto lg:h-auto lg:bg-transparent;
     }
     &__logo {
@@ -94,7 +92,7 @@ body{
         @apply text-base font-medium text-secondary  no-underline capitalize;
     }
     &__btn{
-        @apply bg-transparent border-0 text-4xl lg:hidden cursor-pointer z-50 relative;
+        @apply bg-transparent border-0 text-4xl lg:hidden cursor-pointer z-50 fixed;
     }
 }
 </style>
