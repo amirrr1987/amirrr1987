@@ -17,7 +17,8 @@ Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught 
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
 
 - 🔭 I’m currently working on **Survey module** , **Test module**
-- 🌱 I’m currently learning **Nuxt, Express, React, Flutter,**
+- 🌱 I’m currently learning **Nuxt, Express**
+- 🌱 I want to learn **React, Flutter,**
 - 👨‍💻 All of my projects are available at **[github](https://github.com/amirrr1987)**
 - 📝 I regularly write articles on **[blog](http://amirmaghami.ir/blog)**
 - 💬 Ask me about **HTML. CSS, JavaScript ...**
