@@ -15,9 +15,12 @@
 
 <script setup lang="ts">
 import useDataStore from '~~/stores';
-const { id } = useRoute().params
+const route = useRoute()
+const { id } = route.params
 const store = useDataStore()
 const singleProject = store.getSingleProject({ projectId: id })
+
+
 </script>
 
 <style lang="scss">

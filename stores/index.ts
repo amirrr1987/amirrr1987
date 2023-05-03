@@ -5,8 +5,9 @@ export interface DataModel {
   sectionClass: string;
   containerClass: string;
   mainClass: string;
-  projects: any
-  archives: any
+  projects: any;
+  skills: any;
+  archives: any;
 }
 
 export class DataStore {
@@ -32,16 +33,20 @@ export class DataStore {
   }
 
   getSingleProject({ projectId: id }: any) {
-    const projectIndex = this.state.projects.findIndex((project: { id: string; }) => {
-      return project.id === id
-    })
-    return this.state.projects[projectIndex]
+    const projectIndex = this.state.projects.findIndex(
+      (project: { id: string }) => {
+        return project.id === id;
+      }
+    );
+    return this.state.projects[projectIndex];
   }
   getSingleArchive({ archiveId: id }: any) {
-    const archiveIndex = this.state.archives.findIndex((archive: { id: string; }) => {
-      return archive.id === id
-    })
-    return this.state.archives[archiveIndex]
+    const archiveIndex = this.state.archives.findIndex(
+      (archive: { id: string }) => {
+        return archive.id === id;
+      }
+    );
+    return this.state.archives[archiveIndex];
   }
   private _init() {
     this._state = {
@@ -50,68 +55,115 @@ export class DataStore {
       mainClass: "",
       projects: [
         {
-          id: '1',
-          image: '@/assets/img/camo.png',
-          title: 'title',
-          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+          id: "1",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
         },
         {
-          id: '2',
-          image: '@/assets/img/camo.png',
-          title: 'title',
-          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+          id: "2",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
         },
         {
-          id: '3',
-          image: '@/assets/img/camo.png',
-          title: 'title',
-          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+          id: "3",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
         },
         {
-          id: '4',
-          image: '@/assets/img/camo.png',
-          title: 'title',
-          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+          id: "4",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
         },
         {
-          id: '5',
-          image: '@/assets/img/camo.png',
-          title: 'title',
-          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+          id: "5",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
+        },
+      ],
+      skills: [
+        {
+          id: "1",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
+        },
+        {
+          id: "2",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
+        },
+        {
+          id: "3",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
+        },
+        {
+          id: "4",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
+        },
+        {
+          id: "5",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
         },
       ],
       archives: [
         {
-          id: '1',
-          image: '@/assets/img/camo.png',
-          title: 'title',
-          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+          id: "1",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
         },
         {
-          id: '2',
-          image: '@/assets/img/camo.png',
-          title: 'title',
-          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+          id: "2",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
         },
         {
-          id: '3',
-          image: '@/assets/img/camo.png',
-          title: 'title',
-          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+          id: "3",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
         },
         {
-          id: '4',
-          image: '@/assets/img/camo.png',
-          title: 'title',
-          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+          id: "4",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
         },
         {
-          id: '5',
-          image: '@/assets/img/camo.png',
-          title: 'title',
-          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?',
+          id: "5",
+          image: "@/assets/img/camo.png",
+          title: "title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, odit?",
         },
-      ]
+      ],
     };
   }
 }
