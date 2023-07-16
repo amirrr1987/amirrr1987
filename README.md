@@ -16,9 +16,9 @@ Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught 
   </p>
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
 
-- 🔭 I’m currently working on **Survey module** , **Test module**
+- 🔭 I’m currently working on **Survey module** , **Test module**, **Discount module** and **ERP modules**
 - 🌱 I’m currently learning **Nuxt, Express**
-- 🌱 I want to learn **React, Flutter,**
+- 🌱 I want to learn **React, Express, Nest**
 - 👨‍💻 All of my projects are available at **[github](https://github.com/amirrr1987)**
 - 📝 I regularly write articles on **[blog](http://amirmaghami.ir/blog)**
 - 💬 Ask me about **HTML. CSS, JavaScript ...**
@@ -34,12 +34,12 @@ Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught 
 
 <!--START_SECTION:waka-->
 ```text
-HTML                          9 years     █████████████████████░░░░
-CSS                           9 years     █████████████████████░░░░
-javaScript                    5 years     ████████████░░░░░░░░░░░░░
-Vue.js                        3 years     ██████████████████░░░░░░░
-React.js                      5 Month     ████████░░░░░░░░░░░░░░░░░
-Express.js                    9 Month     ████████░░░░░░░░░░░░░░░░░
+HTML                         13 years     █████████████████████░░░░
+CSS                          13 years     █████████████████████░░░░
+javaScript                    8 years     ████████████░░░░░░░░░░░░░
+Vue.js                        5 years     ██████████████████░░░░░░░
+React.js                      8 Month     ████████░░░░░░░░░░░░░░░░░
+Express.js                    1 years     ████████░░░░░░░░░░░░░░░░░
 ```
 <!--END_SECTION:waka-->
 
@@ -75,9 +75,7 @@ Express.js                    9 Month     ████████░░░░�
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg"
       alt="nodejs" width="40" height="40" />
   </a>
-  <a href="https://dart.dev" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40" />
-  </a>
+
 </p>
 <h3 align="left">CSS Tools:</h3>
 <p align="left">
@@ -124,23 +122,15 @@ Express.js                    9 Month     ████████░░░░�
     <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Ionic_Logo.svg" alt="ionic" width="40" height="40" />
   </a>
 
-  <a href="https://flutter.dev" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40" />
-  </a>
-  <a href="https://gridsome.org/" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/gridsome/gridsome-icon.svg" alt="gridsome" width="40" height="40" />
-  </a>
+
+
   <a href="https://nuxtjs.org/" target="_blank" rel="noreferrer">
     <img src="https://www.vectorlogo.zone/logos/nuxtjs/nuxtjs-icon.svg" alt="nuxtjs" width="40" height="40" />
   </a>
   <a href="https://quasar.dev/" target="_blank" rel="noreferrer">
     <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg" alt="quasar" width="40" height="40" />
   </a>
-  <a href="https://vuepress.vuejs.org/" target="_blank" rel="noreferrer">
-    <img
-      src="https://raw.githubusercontent.com/AliasIO/wappalyzer/master/src/drivers/webextension/images/icons/VuePress.svg"
-      alt="vuepress" width="40" height="40" />
-  </a>
+
   <a href="https://vuetifyjs.com/en/" target="_blank" rel="noreferrer">
     <img src="https://bestofjs.org/logos/vuetify.svg" alt="vuetify" width="40" height="40" />
   </a>
@@ -151,31 +141,18 @@ Express.js                    9 Month     ████████░░░░�
 <h3 align="left">Tools :</h3>
 <p align="left">
 
-  <a href="https://www.chartjs.org" target="_blank" rel="noreferrer">
-    <img src="https://www.chartjs.org/media/logo-title.svg" alt="chartjs" width="40" height="40" />
-  </a>
+
 
   <a href="https://www.cypress.io" target="_blank" rel="noreferrer">
     <img
       src="https://raw.githubusercontent.com/simple-icons/simple-icons/6e46ec1fc23b60c8fd0d2f2ff46db82e16dbd75f/icons/cypress.svg"
       alt="cypress" width="40" height="40" />
   </a>
-  <a href="https://d3js.org/" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/d3js/d3js-original.svg" alt="d3js"
-      width="40" height="40" />
-  </a>
-
-  <a href="https://www.docker.com/" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg"
-      alt="docker" width="40" height="40" />
-  </a>
 
   <a href="https://www.figma.com/" target="_blank" rel="noreferrer">
     <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40" />
   </a>
-  <a href="https://firebase.google.com/" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40" />
-  </a>
+
 
   <a href="https://git-scm.com/" target="_blank" rel="noreferrer">
     <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40" />
