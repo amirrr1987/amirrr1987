@@ -17,20 +17,39 @@ Hello, This is [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught 
   </p>
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
 
-- 🔭 I’m currently working on:
-  **Survey module** , **Test module**, **Sales Service**, **Customer Panel**, **Admin Panel**, **Discount module** and **ERP modules**
-- 🌱 I’m currently learning **Nuxt, Express**
-- 🌱 I want to learn **React, Express, Nest**
-- 👨‍💻 All of my projects are available at **[github](https://github.com/amirrr1987)**
-- 📝 I regularly write articles on **[blog](http://amirmaghami.ir/blog)**
-- 💬 Ask me about **HTML. CSS, JavaScript ...**
-- 📫 How to reach me **maghami.a1987@gmail.com**
-- 📄 Know about my experiences [https://amirmaghami.ir/](https://amirmaghami.ir/)
-- 📝 Download my CV: [Resume](https://amirmaghami.ir/pdf/ResumeFrontEndVueAmirMaghami.pdf)
-- 📝 See my Profile: [Linkden](https://www.linkedin.com/in/amirrr1987/)
-- ⚡ Fun fact **I want to happy**
-- ⚡ My hobbies **Technology, Swimming, Movies, Series, Family && Friends**  
-- 😃 Ask me about anything, I am happy to help; 
+About Me:
+🔭 I’m currently working on the following projects:
+
+Survey module
+Test module
+Sales Service
+Customer Panel
+Admin Panel
+Discount module
+ERP modules
+🌱 I’m currently learning Nuxt and Express
+
+🌱 I want to learn React, Express, and Nest
+
+👨‍💻 All of my projects are available on GitHub
+
+📝 I regularly write articles on my blog
+
+💬 Ask me about HTML, CSS, JavaScript, ...
+
+📫 How to reach me: maghami.a1987@gmail.com
+
+📄 Know about my experiences on my website
+
+📝 Download my CV: Resume
+
+📝 See my Profile on LinkedIn
+
+⚡ Fun fact: I want to be happy
+
+⚡ My hobbies: Technology, Swimming, Movies, Series, Family & Friends
+
+😃 Ask me about anything, I am happy to help!
 
 <h3 align="left">My experience:</h3>
 
