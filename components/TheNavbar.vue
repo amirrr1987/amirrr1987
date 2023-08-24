@@ -7,10 +7,10 @@
                 </NuxtLink>
                 <ul class="lg:list-none lg:flex lg:gap-x-4">
                     <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/">home</NuxtLink></li>
-                    <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/about">about</NuxtLink></li>
+                    <!-- <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/about">about</NuxtLink></li> -->
                     <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/projects">projects</NuxtLink></li>
                     <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/skills">skills</NuxtLink></li>
-                    <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/archives">archives</NuxtLink></li>
+                    <!-- <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/archives">archives</NuxtLink></li> -->
                     <li class=""><NuxtLink @click.prevent="menuState = false" class="lg:decoration-none text-base lg:text-secondary" to="/contact">contact</NuxtLink></li>
                 </ul>
                 <span class="text-base">{{clock}}</span>
@@ -29,10 +29,10 @@
                     </NuxtLink>
                     <ul class="list-none text-center flex flex-col gap-y-2">
                         <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/">home</NuxtLink></li>
-                        <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/about">about</NuxtLink></li>
+                        <!-- <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/about">about</NuxtLink></li> -->
                         <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/projects">projects</NuxtLink></li>
                         <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/skills">skills</NuxtLink></li>
-                        <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/archives">archives</NuxtLink></li>
+                        <!-- <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/archives">archives</NuxtLink></li> -->
                         <li class=""><NuxtLink @click.prevent="menuState = false" class="decoration-none text-lg text-secondary" to="/contact">contact</NuxtLink></li>
                     </ul>
                     <span class="text-base">{{clock}}</span>

@@ -1,7 +1,7 @@
 <template>
     <TheNavbar />
     <main class="">
-        <div class="container mx-auto h-full grid p-4">
+        <div class="container mx-auto h-full grid p-4 gap-4 custom-container">
             <slot />
         </div>
     </main>

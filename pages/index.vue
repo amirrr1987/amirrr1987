@@ -30,8 +30,9 @@
                     {{ slide.text }}
                 </h1>
                 <h1 class="text-secondary text-2xl font-bold">developer</h1>
-                <img class="block mx-auto max-h-20 max-w-40 object-contain md:max-h-48" :class="slide.imgStyle"
-                    :src="getImgUrl(slide.img)" title="" alt="" />
+                <div class="h-20  mx-auto">
+                    <img class="block mx-auto  h-28  object-contain"  :src="getImgUrl(slide.img)" title="" alt="" />
+                </div>
             </div>
         </div>
         <div class="text-center">
