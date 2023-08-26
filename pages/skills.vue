@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="amir grid grid-cols-3 gap-16">
+    <div class="amir grid lg:grid-cols-3 gap-16">
       <figure class="effect-zoe" v-for="project in store.projects">
         <img
           class="w-full h-96 object-cover"
