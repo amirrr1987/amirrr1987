@@ -1,21 +1,19 @@
 <template>
   <div class="">
     <div class="amir grid grid-cols-3 gap-16">
-      <figure class="effect effect--layla" v-for="project in store.projects">
+      <figure class="effect-zoe" v-for="project in store.projects">
         <img
-          class="w-full"
-          src="https://tympanus.net/Development/HoverEffectIdeas/img/6.jpg"
-          alt="img06"
+          class="w-full h-96 object-cover"
+          src="/img/my.hacoupian.png"
+          alt="img25"
         />
         <figcaption>
           <h2>{{ project.title }}</h2>
-          <p>{{ project.description }}</p>
-          <NuxtLink
-            :to="`/projects/${project.id}`"
-            class="text-base leading-[17.088px] font-normal text-secondary no-underline"
-          >
-            more..</NuxtLink
-          >
+          <p class="flex justify-end gap-x-2">
+            <a href="#"><Icon name="tabler:heart" size="24" /></a>
+            <a href="#"><Icon name="tabler:eye" size="24" /></a>
+          </p>
+          <p class="description">{{ project.description }}</p>
         </figcaption>
       </figure>
     </div>
@@ -29,148 +27,197 @@ const store = useDataStore();
 </script>
 
 <style lang="scss">
-.effect {
-  position: relative;
-  float: left;
-  overflow: hidden;
-  margin: 10px 1%;
-  min-width: 320px;
-  max-width: 480px;
-  max-height: 360px;
-  width: 100%;
-  background: #3085a3;
-  text-align: center;
-  cursor: pointer;
-  h2 {
-    word-spacing: -0.15em;
-    font-weight: 300;
-    margin: 0;
-    span {
-      font-weight: 800;
-    }
-  }
-  p {
-    margin: 0;
-    letter-spacing: 1px;
-    font-size: 68.5%;
-  }
-  img {
-    position: relative;
-    display: block;
-    min-height: 100%;
-    max-width: 100%;
-    opacity: 0.8;
-  }
-  figcaption {
-    padding: 2em;
-    color: #fff;
-    // text-transform: uppercase;
-    font-size: 1em;
-    backface-visibility: hidden;
+
+
+
+/* Common style */
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin: 10px 1%;
+	min-width: 320px;
+	max-width: 480px;
+	max-height: 360px;
+	width: 100%;
+	background: #3085a3;
+	text-align: center;
+	cursor: pointer;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+	opacity: 0.8;
+}
+
+.grid figure figcaption {
+	padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+	pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+.grid figure figcaption > a {
+	z-index: 1000;
+	text-indent: 200%;
+	white-space: nowrap;
+	font-size: 0;
+	opacity: 0;
+}
+
+.grid figure h2 {
+	word-spacing: -0.15em;
+	font-weight: 300;
+}
+
+.grid figure h2 span {
+	font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+	margin: 0;
+}
+
+.grid figure p {
+	letter-spacing: 1px;
+	font-size: 68.5%;
+}
+
+
+/*---------------*/
+/***** Zoe *****/
+/*---------------*/
+
+figure.effect-zoe figcaption {
+	top: auto;
+	bottom: 0;
+	padding: 1em;
+	height: 3.75em;
+	background: #fff;
+	color: #3c4a50;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,100%,0);
+	transform: translate3d(0,100%,0);
+}
+
+figure.effect-zoe h2 {
+	float: left;
+}
+
+figure.effect-zoe p.icon-links a {
+	float: right;
+	color: #3c4a50;
+	font-size: 1.4em;
+}
+
+figure.effect-zoe:hover p.icon-links a:hover,
+figure.effect-zoe:hover p.icon-links a:focus {
+	color: #252d31;
+}
+
+figure.effect-zoe p.description {
     position: absolute;
-    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    &::before {
-      pointer-events: none;
-    }
-    &::after {
-      pointer-events: none;
-    }
-    & > a {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1000;
-      text-indent: 200%;
-      white-space: nowrap;
-      font-size: 0;
-      opacity: 0;
-    }
-  }
+    right: 0;
+    height: 359px;
+    background: #414143;
+    color: #fff;
+    text-transform: none;
+    font-size: 80%;
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    transition: opacity 0.35s;
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(100px);
+}
 
-  &--layla {
-    img {
-      height: 390px;
-      transform: translate3d(0, -30px, 0);
-      transition: opacity 0.35s, transform 0.35s;
-    }
-    h2 {
-      padding-top: 0%;
-      transition: transform 0.35s;
-      transform: translate3d(0, -30px, 0);
-    }
-    p {
-      padding: 0.5em 2em;
-      text-transform: none;
-      opacity: 0;
-      transform: translate3d(0, -10px, 0);
-      transition: opacity 0.35s, transform 0.35s;
-    }
-    figcaption {
-      padding: 3em;
-      &::before {
-        position: absolute;
-        content: "";
-        opacity: 0;
-        top: 50px;
-        right: 30px;
-        bottom: 50px;
-        left: 30px;
-        border-top: 1px solid #fff;
-        border-bottom: 1px solid #fff;
-        transform: scale(0, 1);
-        transform-origin: 0 0;
-        transition: opacity 0.35s, transform 0.35s;
-      }
-      &::after {
-        position: absolute;
-        content: "";
-        opacity: 0;
-        top: 30px;
-        right: 50px;
-        bottom: 30px;
-        left: 50px;
-        border-right: 1px solid #fff;
-        border-left: 1px solid #fff;
-        transform: scale(1, 0);
-        transform-origin: 100% 0;
-        transition: opacity 0.35s, transform 0.35s;
-      }
-    }
+figure.effect-zoe h2,
+figure.effect-zoe p.icon-links a {
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,200%,0);
+	transform: translate3d(0,200%,0);
+}
 
-    &:hover {
-      img {
-        opacity: 0.7;
-        transform: translate3d(0, 0, 0);
-        transition-delay: 0.15s;
-      }
-      h2 {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-        transition-delay: 0.15s;
-      }
-      p {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-        transition-delay: 0.15s;
-      }
+figure.effect-zoe p.icon-links a span::before {
+	display: inline-block;
+	padding: 8px 10px;
+	font-family: 'feathericons';
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 
-      figcaption {
-        &::before {
-          opacity: 1;
-          transform: scale(1);
-        }
-        ::after {
-          opacity: 1;
-          transform: scale(1);
-          transition-delay: 0.15s;
-        }
-      }
-    }
-  }
+.icon-eye::before {
+	content: '\e000';
+}
+
+.icon-paper-clip::before {
+	content: '\e001';
+}
+
+.icon-heart::before {
+	content: '\e024';
+}
+
+figure.effect-zoe h2 {
+	display: inline-block;
+}
+
+figure.effect-zoe:hover p.description {
+	opacity: 1;
+   transform: translateY(-404px);
+}
+
+figure.effect-zoe:hover figcaption,
+figure.effect-zoe:hover h2,
+figure.effect-zoe:hover p.icon-links a {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+figure.effect-zoe:hover h2 {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+figure.effect-zoe:hover p.icon-links a:nth-child(3) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+figure.effect-zoe:hover p.icon-links a:nth-child(2) {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+
+figure.effect-zoe:hover p.icon-links a:first-child {
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
 }
 </style>
