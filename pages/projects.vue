@@ -1,6 +1,6 @@
 <template>
   <div class="py-4">
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 overflow-y-auto h-[86vh] px-4 -mx-4">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 overflow-y-auto h-[86vh] px-4 -mx-4 auto-rows-max">
       <figure
         class="card"
         v-for="(project, index) in store.projects"
