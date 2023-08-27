@@ -65,6 +65,6 @@ setTimeout(function run() {
     return "img/" + imgName;
 };
 </script>
-<style lang="scss">
+<style lang="less">
 
 </style>

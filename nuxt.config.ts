@@ -2,12 +2,18 @@
 export default defineNuxtConfig({
   css: ["@unocss/reset/tailwind.css"],
   devtools: { enabled: true },
-  modules: ["nuxt-lodash", "@unocss/nuxt", "nuxt-icon", '@pinia/nuxt'],
+  modules: [
+    "nuxt-lodash",
+    "@unocss/nuxt",
+    "nuxt-icon",
+    "@pinia/nuxt",
+    "@nuxt/image",
+  ],
   pinia: {
     autoImports: [
       // automatically imports `defineStore`
-      'defineStore', // import { defineStore } from 'pinia'
-      ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
+      "defineStore", // import { defineStore } from 'pinia'
+      ["defineStore", "definePiniaStore"], // import { defineStore as definePiniaStore } from 'pinia'
     ],
   },
   app: {

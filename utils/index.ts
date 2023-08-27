@@ -1,3 +1,4 @@
 export const getImgUrl = (imgName: string) => {
-    return "img/" + imgName;
+    console.log(imgName);
+    return imgName;
 };

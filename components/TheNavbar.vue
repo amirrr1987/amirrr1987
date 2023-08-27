@@ -6,7 +6,7 @@
       >
         <NuxtLink class="no-underline" to="/">
           <img
-            class="w-12 h-12 object-contain"
+            class="w-max h-12 object-contain"
             src="@/assets/logo.png"
             :title="title"
             :alt="title"
@@ -94,7 +94,7 @@ const timeRunner = () => {
 };
 timeRunner();
 </script>
-<style lang="scss">
+<style lang="less">
 .menu-open {
   background-image: radial-gradient(
     circle farthest-corner at center,
