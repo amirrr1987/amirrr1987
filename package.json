@@ -22,7 +22,9 @@
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
     "@unocss/reset": "^0.55.3",
+    "apexcharts": "^3.42.0",
     "nuxt-lodash": "^2.5.0",
-    "pinia": "^2.1.6"
+    "pinia": "^2.1.6",
+    "vue3-apexcharts": "^1.4.4"
   }
 }

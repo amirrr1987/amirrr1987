@@ -43,7 +43,7 @@ const store = useDataStore();
 @namespace: ~"card";
 
 .@{namespace} {
-  @apply h-80 z-50 relative rounded-3xl shadow overflow-hidden;
+  @apply h-80 z-40 relative rounded-3xl shadow overflow-hidden;
 
   &__img {
     @apply absolute inset-0 m-auto w-full h-full object-cover;
@@ -59,7 +59,7 @@ const store = useDataStore();
   }
 
   &__title {
-    @apply absolute bottom-0 left-0 z-50 duration-500 h-16 flex items-center px-4;
+    @apply absolute bottom-0 left-0 z-40 duration-500 h-16 flex items-center px-4;
   }
 
   &__description {
@@ -70,15 +70,15 @@ const store = useDataStore();
     // @apply absolute bottom-0 right-0 z-50 flex gap-x-4 duration-500 translate-y-full h-16 flex items-center px-4;
   }
   &__like {
-    @apply absolute bottom-0 right-4 z-50  duration-500 translate-y-full h-16 leading-16;
+    @apply absolute bottom-0 right-4 z-40  duration-500 translate-y-full h-16 leading-16;
     transition-delay: 0.1s;
   }
   &__link {
-    @apply absolute bottom-0 right-12 z-50  duration-500 translate-y-full h-16 leading-16;
+    @apply absolute bottom-0 right-12 z-40  duration-500 translate-y-full h-16 leading-16;
     transition-delay: 0.2s;
   }
   &__view {
-    @apply absolute bottom-0 right-20 z-50  duration-500 translate-y-full h-16 leading-16;
+    @apply absolute bottom-0 right-20 z-40  duration-500 translate-y-full h-16 leading-16;
     transition-delay: 0.3s;
   }
 
