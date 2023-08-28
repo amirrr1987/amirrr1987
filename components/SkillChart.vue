@@ -3,8 +3,7 @@
     <ClientOnly>
       <apexchart
         type="radar"
-        height="100%"
-        
+        height="550"
         :options="chartOptions"
         :series="props.chartData"
       />
@@ -63,28 +62,28 @@ const series = ref([
     data: [],
   },
 ]);
-const updateChart = () => {
-  //generate array of random numbers of length 10
-  const data = Array.from({ length: 10 }, () =>
-    Math.floor(Math.random() * 100)
-  );
-  chartOptions.value = {
-    ...chartOptions.value,
-    xaxis: {
-      categories: Array.from(
-        { length: 10 },
-        (_, i) => new Date().getFullYear() - i
-      ), // array of last 10 years
-    },
-  };
-  series.value = [
-    {
-      name: "Score",
-      data: data,
-    },
-  ];
-};
-onMounted(() => {
-  updateChart();
-});
+// const updateChart = () => {
+//   //generate array of random numbers of length 10
+//   const data = Array.from({ length: 10 }, () =>
+//     Math.floor(Math.random() * 100)
+//   );
+//   chartOptions.value = {
+//     ...chartOptions.value,
+//     xaxis: {
+//       categories: Array.from(
+//         { length: 10 },
+//         (_, i) => new Date().getFullYear() - i
+//       ), // array of last 10 years
+//     },
+//   };
+//   series.value = [
+//     {
+//       name: "Score",
+//       data: data,
+//     },
+//   ];
+// };
+// onMounted(() => {
+//   updateChart();
+// });
 </script>
