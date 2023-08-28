@@ -1,7 +1,3 @@
-این کد ها برای فایل README.md اکانت گیت هابم هستش
-
-برام بهترش کن
-
 <h1 align="center">Hi 👋, I'm This is Amir Maghami</h1>
 <h3 align="center">A passionate frontend developer from Iran</h3>
 
