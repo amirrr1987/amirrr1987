@@ -229,3 +229,27 @@ https://amirrr1987.github.io/star-page/
 https://landrick-amirmaghami.netlify.app/
 </p>
 
+
+https://amirmaghami.ir/
+
+https://ipchecker-amirmaghami.netlify.app/
+https://trafalgar-amirmaghami.netlify.app/
+https://calculator-amirmaghami.netlify.app/
+https://traffic-amirmaghami.netlify.app/
+https://todo-amirmaghami.netlify.app
+https://landrick-amirmaghami.netlify.app/
+https://todo-amirmaghami.netlify.app
+https://oneex-amirmaghami.netlify.app/
+https://hakimtejarat-amirmaghami.netlify.app/
+https://cvbuilder-amirmaghami.netlify.app/
+https://themovie-amirmaghami.netlify.app/
+https://shopnuxt-amirmaghami.netlify.app/
+
+
+https://www.npmjs.com/package/console-log-advanced
+https://www.npmjs.com/package/vue-cute-button
+https://www.npmjs.com/package/araz
+
+https://amirrr1987.github.io/star-page/
+https://amirrr1987.github.io/darkawt/
+
