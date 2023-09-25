@@ -200,3 +200,11 @@ Express.js                    1 years     ████████░░░░�
 <p align="left">
   <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=amirrr1987" alt="amirrr1987" /></a>
 </p>
+
+https://ipchecker-amirmaghami.netlify.app/
+https://trafalgar-amirmaghami.netlify.app/
+https://calculator-amirmaghami.netlify.app/
+https://amirrr1987.github.io/darkawt/
+https://github.com/amirrr1987/araz
+https://amirrr1987.github.io/star-page/
+https://landrick-amirmaghami.netlify.app/
