@@ -154,14 +154,7 @@ Express.js                    2 year      ████████░░░░�
 <p>
   <img align="center" src="https://github-readme-stats.vercel.app/api?username=amirrr1987&show_icons=true&locale=en" alt="GitHub Stats" />
 </p>
-<p>
-  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=amirrr1987" alt="GitHub Streak" />
-</p>
-<p align="left">
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=amirrr1987" alt="GitHub Trophies" />
-  </a>
-</p>
+
 
 <h3 align="left">Projects:</h3>
 <p align="left">
