@@ -37,6 +37,7 @@ Hello, I am [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught Web
 HTML                         13 years     █████████████████████░░░░
 CSS                          13 years     █████████████████████░░░░
 JavaScript                   10 years     ████████████░░░░░░░░░░░░░
+TypeScript                    4 years     ██████████████████░░░░░░░
 Vue.js                        6 years     ██████████████████░░░░░░░
 Nust.js                       8 months    ████████░░░░░░░░░░░░░░░░░
 Express.js                    2 year      ████████░░░░░░░░░░░░░░░░░
