@@ -40,10 +40,11 @@ Hello, I am [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught Web
 ```text
 HTML                         13 years     █████████████████████░░░░
 CSS                          13 years     █████████████████████░░░░
-JavaScript                    8 years     ████████████░░░░░░░░░░░░░
-Vue.js                        5 years     ██████████████████░░░░░░░
-React.js                      8 months    ████████░░░░░░░░░░░░░░░░░
-Express.js                    1 year      ████████░░░░░░░░░░░░░░░░░
+JavaScript                   10 years     ████████████░░░░░░░░░░░░░
+Vue.js                        6 years     ██████████████████░░░░░░░
+Nust.js                       8 months    ████████░░░░░░░░░░░░░░░░░
+Express.js                    2 year      ████████░░░░░░░░░░░░░░░░░
+ٔNest.js                       1 year      ████████░░░░░░░░░░░░░░░░░
 ```
 <!--END_SECTION:waka-->
 
