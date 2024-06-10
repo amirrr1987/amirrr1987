@@ -17,7 +17,7 @@ Hello, I am [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught Web
 <p align="left">
 <img align="right" alt="GIF" src="https://github.com/abhisheknaiidu/abhisheknaiidu/blob/master/code.gif?raw=true" width="400" height="300" />
 </p>
-<p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="Twitter" /></a> </p>
+
 
 - 🔭 Currently working on: Survey module, Test module, Sales Service, Customer Panel, Admin Panel, Discount module, ERP modules, Open banking
 - 🌱 Learning Nuxt, Express
