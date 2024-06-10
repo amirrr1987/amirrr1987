@@ -228,9 +228,11 @@ https://amirrr1987.github.io/star-page/
 <p align="left">
 https://landrick-amirmaghami.netlify.app/
 </p>
+<p align="left">
+[https://landrick-amirmaghami.netlify.app/](https://amirmaghami.ir/)
+</p>
 
 
-https://amirmaghami.ir/
 
 https://ipchecker-amirmaghami.netlify.app/
 https://trafalgar-amirmaghami.netlify.app/
