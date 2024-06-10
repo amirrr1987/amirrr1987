@@ -19,19 +19,16 @@ Hello, I am [Amir Maghami](http://amirmaghami.ir/), a passionate self-taught Web
 </p>
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="Twitter" /></a> </p>
 
-🔭 Currently working on: Survey module, Test module, Sales Service, Customer Panel, Admin Panel, Discount module, ERP modules
-🌱 Learning Nuxt, Express
-🌱 Planning to learn React, Express, Nest
-👨‍💻 All projects on GitHub
-📝 Writing articles on my blog
-💬 Ask me about HTML, CSS, JavaScript, ...
-📫 Reach me at maghami.a1987@gmail.com
-📄 Learn more on my website
-📝 Download my Resume
-📝 Connect on LinkedIn
-⚡ Fun fact: I strive to be happy
-⚡ Hobbies: Technology, Swimming, Movies, Series, Family & Friends
-😃 Feel free to ask me anything, I am happy to help!
+- 🔭 Currently working on: Survey module, Test module, Sales Service, Customer Panel, Admin Panel, Discount module, ERP modules, Open banking
+- 🌱 Learning Nuxt, Express
+- 🌱 Planning to learn React, Nest
+- 👨‍💻 All projects on GitHub
+- 💬 Ask me about **HTML, CSS, JavaScript, ...**
+- 📫 Reach me at **maghami.a1987@gmail.com**
+- 📄 Learn more on my **[website](https://amirmaghami.ir/)**
+- 📝 Download my **[Resume](https://amirmaghami.ir/pdf/ResumeFrontEndVueAmirMaghami.pdf)**
+- 📝 Connect on **[LinkedIn Profile](https://www.linkedin.com/in/amirrr1987/)**
+
 
 <h3 align="left">My Experience:</h3>
 
