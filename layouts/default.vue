@@ -1,15 +1,22 @@
+<script setup lang="ts"></script>
+
 <template>
-    <TheNavbar />
-    <main class="">
-        <div class="h-full grid gap-4 container-row">
-            <slot />
-        </div>
-    </main>
+  <nav class="py-2 shadow">
+    <div class="container mx-auto px-4">
+      <NuxtLink>
+        <NuxtImg  />
+      </NuxtLink>
+      <ul class="list-none flex gap-x-4">
+        <li><NuxtLink class="no-underline	text-gray-600" to="/">Home</NuxtLink></li>
+        <li><NuxtLink class="no-underline	text-gray-600" to="/">Skills</NuxtLink></li>
+        <li><NuxtLink class="no-underline	text-gray-600" to="/">Projects</NuxtLink></li>
+        <li><NuxtLink class="no-underline	text-gray-600" to="/">Contact</NuxtLink></li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <slot />
+  </main>
 </template>
 
-<style lang="less">
-#__nuxt {
-    @apply grid min-h-screen text-[#35495e] bg-[#dcedf1] subpixel-antialiased overflow-hidden grid-rows-[max-content_1fr] font-body bg-primary;
-    background-image: radial-gradient(circle farthest-corner at center,#f7fbfc 0%,#add9e4 100%);
-}
-</style>
+<style scoped></style>
