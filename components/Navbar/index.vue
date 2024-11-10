@@ -7,7 +7,7 @@
           active-class="text-gray-200"
           class="text-gray-400 border-r border-[#1e2d3d] px-4 py-2"
         >
-          {{ link.label }}
+          _{{ link.label }}
         </NuxtLink>
       </li>
     </ul>
