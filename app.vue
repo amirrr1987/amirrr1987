@@ -6,6 +6,8 @@
 </template>
 <style>
 body {
-  font-family: "Fira Code", "Vazirmatn", sans-serifؤ;
+  font-family: "Fira Code", "Vazirmatn", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 </style>
