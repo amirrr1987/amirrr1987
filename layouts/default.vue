@@ -1,22 +1,24 @@
-<script setup lang="ts"></script>
-
 <template>
-  <nav class="py-2 shadow">
-    <div class="container mx-auto px-4">
-      <NuxtLink>
-        <NuxtImg  />
-      </NuxtLink>
-      <ul class="list-none flex gap-x-4">
-        <li><NuxtLink class="no-underline	text-gray-600" to="/">Home</NuxtLink></li>
-        <li><NuxtLink class="no-underline	text-gray-600" to="/">Skills</NuxtLink></li>
-        <li><NuxtLink class="no-underline	text-gray-600" to="/">Projects</NuxtLink></li>
-        <li><NuxtLink class="no-underline	text-gray-600" to="/">Contact</NuxtLink></li>
-      </ul>
-    </div>
-  </nav>
+  <Navbar />
   <main>
     <slot />
   </main>
+  <Footer />
 </template>
 
-<style scoped></style>
+<style>
+body {
+  background-color: #010c15;
+  padding: 30px;
+}
+#__nuxt {
+  --tw-bg-opacity: 1;
+  background-color: rgb(1 22 39 / var(--tw-bg-opacity));
+  height: calc(100vh - 60px);
+  @apply grid border border-[#1e2d3d] rounded-md;
+  grid-template-rows: max-content 1fr max-content;
+}
+main{
+  overflow-y: auto;
+}
+</style>
