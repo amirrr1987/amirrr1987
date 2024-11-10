@@ -23,6 +23,7 @@
   </section>
 </template>
 <script setup lang="ts">
+useHead({});
 const skills = reactive([
   {
     title: "Basic",
