@@ -6,6 +6,6 @@
 </template>
 <style>
 body {
-  font-family: "Poppins", "Vazirmatn", sans-serifؤ;
+  font-family: "Fira Code", "Vazirmatn", sans-serifؤ;
 }
 </style>
