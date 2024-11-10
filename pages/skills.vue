@@ -23,7 +23,9 @@
   </section>
 </template>
 <script setup lang="ts">
-useHead({});
+useHead({
+  title: `Amir Maghami | Skills`,
+});
 const skills = reactive([
   {
     title: "Basic",
