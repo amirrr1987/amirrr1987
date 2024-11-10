@@ -1,7 +1,7 @@
 <template>
   <nav class="border-b border-[#1e2d3d] py-2">
     <UButton  variant="link"  icon="i-heroicons-solid:menu" />
-    <ul class="flex">
+    <ul class="md:flex">
       <li v-for="link in links" :key="link.url">
         <NuxtLink
           :to="link.url"
