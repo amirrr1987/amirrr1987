@@ -88,7 +88,7 @@
 <script setup>
 import { ref } from "vue";
 useHead({
-  title: `Amir Maghami | Conatc`,
+  title: `Amir Maghami | Contact`,
 });
 const form = ref({
   name: "",
