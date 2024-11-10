@@ -22,6 +22,9 @@
   </section>
 </template>
 <script setup lang="ts">
+useHead({
+  title: `Amir Maghami | experiences`,
+});
 const experience = reactive([
   {
     id: 10,
