@@ -21,6 +21,9 @@
   </section>
 </template>
 <script setup lang="ts">
+useHead({
+  title: `Amir Maghami | Projects`,
+});
 const projectUi = {};
 interface Project {
   id: number;
