@@ -19,3 +19,8 @@
     </ClientOnly>
   </section>
 </template>
+<script setup lang="ts">
+useHead({
+  title: `Amir Maghami | Front-end developer`,
+});
+</script>
