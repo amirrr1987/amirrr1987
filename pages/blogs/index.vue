@@ -12,6 +12,9 @@
   </section>
 </template>
 <script setup lang="ts">
+useHead({
+  title: `Amir Maghami | blogs`,
+});
 const blogs = [
   {
     id: 1,
