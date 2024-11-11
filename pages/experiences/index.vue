@@ -1,7 +1,9 @@
 <template>
-  <section class="p-4 sm:p-6 lg:p-8 text-gray-400">
-    <h2 class="section-title">Experience</h2>
-    <div class="grid md:grid-cols-6 gap-4 sm:gap-6 lg:gap-8">
+  <section class="text-gray-400 grid grid-cols-[288px,1fr]">
+    <div class="p-4 sm:p-6 lg:p-8"></div>
+    <div
+      class="py-8 pr-8 sm:py-12 sm:pr-12 lg:py-16 lg:pr-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16"
+    >
       <template v-for="(exp, _index) in experience" :key="_index">
         <UCard>
           <template #header>
@@ -14,7 +16,7 @@
           <UDivider class="my-4" />
           <h4>{{ exp.companyName }}</h4>
           <template #footer>
-            <NuxtLink :to="`experiences/${exp.id}`">View-more</NuxtLink>
+            <NuxtLink class="text-primary" :to="`experiences/${exp.id}`">View-more</NuxtLink>
           </template>
         </UCard>
       </template>
