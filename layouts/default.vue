@@ -28,7 +28,7 @@ body {
 }
 #__nuxt {
   @apply grid border rounded-md;
-  height: calc(100vh - 2rem);
+  height: calc(100svh - 2rem);
   grid-template-rows: max-content 1fr max-content;
   main {
     overflow-y: auto;
