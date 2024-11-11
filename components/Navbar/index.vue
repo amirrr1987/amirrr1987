@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="border-b border-[#1e2d3d] grid grid-cols-[max-content,max-content] justify-between"
+    class="border-b border-[#1e2d3d] grid grid-cols-[max-content,max-content] justify-between items-center p-4"
   >
     <div>
       <UButton
@@ -31,18 +31,6 @@
         class="w-max"
       />
     </div>
-
-    <!-- <ul class="absolute inset-0 lg:static lg:flex space-y-4 py-4 bg-[#1e2d3d] z-40" v-show="isOpen === true">
-      <li v-for="link in links" :key="link.url" class="border-[#1e2d3d]">
-        <NuxtLink
-          :to="link.url"
-          active-class="text-gray-50"
-          class="text-gray-400 p-8"
-        >
-          _{{ link.label }}
-        </NuxtLink>
-      </li>
-    </ul> -->
   </nav>
 </template>
 
