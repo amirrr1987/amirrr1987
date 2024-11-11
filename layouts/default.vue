@@ -30,5 +30,8 @@ body {
   @apply grid border rounded-md;
   height: calc(100vh - 2rem);
   grid-template-rows: max-content 1fr max-content;
+  main {
+    overflow-y: auto;
+  }
 }
 </style>
