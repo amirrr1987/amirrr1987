@@ -6,7 +6,7 @@
         <NuxtLink
           :to="link.url"
           active-class="text-gray-50"
-          class="text-gray-400 px-4 py-2"
+          class="text-gray-400 p-8"
         >
           _{{ link.label }}
         </NuxtLink>
