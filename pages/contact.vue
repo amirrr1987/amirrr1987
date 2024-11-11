@@ -29,12 +29,12 @@
       </div>
 
       <UForm @submit.prevent="handleSubmit">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <UFormGroup :ui="formGroup" label="Full name">
+        <div class="grid lg:grid-cols-2 gap-6">
+          <UFormGroup :ui="formGroup" label="Full name" class="col-span-2 lg:col-span-1">
             <UInput placeholder="Enter full name.." :ui="input" />
           </UFormGroup>
 
-          <UFormGroup :ui="formGroup" label="Email">
+          <UFormGroup :ui="formGroup" label="Email" class="col-span-2 lg:col-span-1">
             <UInput placeholder="Enter email.." :ui="input" />
           </UFormGroup>
 
