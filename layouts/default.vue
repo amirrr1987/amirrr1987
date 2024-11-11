@@ -6,20 +6,29 @@
   <Footer />
 </template>
 
-<style>
+<style lang="less">
 body {
   @apply p-4 sm:p-6 lg:p-8;
-  background-color: #010c15;
+}
+.dark {
+  body {
+    @apply bg-gray-950;
+    #__nuxt {
+      @apply bg-cool-900 border-cool-900 text-gray-400;
+    }
+  }
+}
+.light {
+  body {
+    @apply bg-gray-100;
+    #__nuxt {
+      @apply bg-cool-50 border-cool-300;
+    }
+  }
 }
 #__nuxt {
-  /* --tw-bg-opacity: 1; */
-  /* background-color: rgb(1 22 39 / var(--tw-bg-opacity)); */
-  @apply bg-cool-900;
-  height: calc(100vh - 60px);
-  @apply grid border border-[#1e2d3d] rounded-md;
+  @apply grid border rounded-md;
+  height: calc(100vh - 2rem);
   grid-template-rows: max-content 1fr max-content;
-}
-main{
-  overflow-y: auto;
 }
 </style>

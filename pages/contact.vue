@@ -1,33 +1,35 @@
 <template>
-  <section class="p-4 sm:p-6 lg:p-8 text-gray-400 bg-gray-900">
-    <h2 class="text-2xl font-bold text-white mb-6">Contact Me</h2>
+  <section class="text-gray-400 grid grid-cols-[288px,1fr]">
+    <div class="p-4 sm:p-6 lg:p-8"></div>
+    <div class="py-8 pr-8 sm:py-12 sm:pr-12 lg:py-16 lg:pr-16">
+      <h2 class="text-2xl font-bold text-white mb-6">Contact Me</h2>
 
-    <div class="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-      <UForm>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <UFormGroup :ui="formGroup" label="Full name">
-            <UInput placeholder="Enter full name.." :ui="input" />
-          </UFormGroup>
+      <div class="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+        <UForm>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <UFormGroup :ui="formGroup" label="Full name">
+              <UInput placeholder="Enter full name.." :ui="input" />
+            </UFormGroup>
 
-          <UFormGroup :ui="formGroup" label="Email">
-            <UInput placeholder="Enter email.." :ui="input" />
-          </UFormGroup>
+            <UFormGroup :ui="formGroup" label="Email">
+              <UInput placeholder="Enter email.." :ui="input" />
+            </UFormGroup>
 
-          <UFormGroup :ui="formGroup" label="Message" class="col-span-2">
-            <UTextarea
-              :ui="textarea"
-              placeholder="Enter message.."
-              autoresize
-              resize
-              :rows="10"
-            />
-          </UFormGroup>
-          <div class="col-span-2">
-            <UButton label="Send message" />
+            <UFormGroup :ui="formGroup" label="Message" class="col-span-2">
+              <UTextarea
+                :ui="textarea"
+                placeholder="Enter message.."
+                autoresize
+                resize
+                :rows="10"
+              />
+            </UFormGroup>
+            <div class="col-span-2">
+              <UButton label="Send message" />
+            </div>
           </div>
-        </div>
-      </UForm>
-      <form
+        </UForm>
+        <!-- <form
         @submit.prevent="handleSubmit"
         class="bg-gray-800 p-6 rounded-lg shadow-lg"
       >
@@ -79,30 +81,31 @@
             Send Message
           </button>
         </div>
-      </form>
+      </form> -->
 
-      <!-- Contact Info -->
-      <div class="mt-12 max-w-4xl mx-auto text-center">
-        <h3 class="text-xl font-bold text-white mb-4">
-          Alternatively, you can reach me at:
-        </h3>
+        <!-- Contact Info -->
+        <div class="mt-12 max-w-4xl mx-auto text-center">
+          <h3 class="text-xl font-bold text-white mb-4">
+            Alternatively, you can reach me at:
+          </h3>
 
-        <div class="text-sm text-gray-300">
-          <p class="mb-2">
-            <strong>Email:</strong>
-            <a
-              href="mailto:example@example.com"
-              class="text-blue-400 hover:underline"
-              >maghami.a1987@gmail.com</a
-            >
-          </p>
-          <p class="mb-2">
-            <strong>Phone:</strong>
-            <a href="tel:+1234567890" class="text-blue-400 hover:underline"
-              >+989198881400</a
-            >
-          </p>
-          <p><strong>Address:</strong>Tehran, Tehran, Iran</p>
+          <div class="text-sm text-gray-300">
+            <p class="mb-2">
+              <strong>Email:</strong>
+              <a
+                href="mailto:example@example.com"
+                class="text-blue-400 hover:underline"
+                >maghami.a1987@gmail.com</a
+              >
+            </p>
+            <p class="mb-2">
+              <strong>Phone:</strong>
+              <a href="tel:+1234567890" class="text-blue-400 hover:underline"
+                >+989198881400</a
+              >
+            </p>
+            <p><strong>Address:</strong>Tehran, Tehran, Iran</p>
+          </div>
         </div>
       </div>
     </div>

@@ -26,5 +26,8 @@
     "three": "^0.170.0",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "less": "^4.2.0"
   }
 }
