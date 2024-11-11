@@ -8,13 +8,13 @@ export default defineEventHandler(async (event) => {
   const $ = cheerio.load(html);
 
   // Define an array to store the articles' data
-  const articles: any[] = [];
+  const article: any[] = [];
 
   $(".article-content").each((index, element) => {
-    console.log("🚀 ~ $ ~ element:", element);
     const tag = $(element);
-    console.log("🚀 ~ $ ~ tag:", tag);
+    article.push(tag);
   });
 
-  return articles;
+  console.log("🚀 ~ defineEventHandler ~ article:", article);
+  return article;
 });
