@@ -1,12 +1,12 @@
 <template>
   <nav class="border-b border-[#1e2d3d] py-2">
-    <UButton  variant="link"  icon="i-heroicons-solid:menu" />
-    <ul class="lg:flex">
-      <li v-for="link in links" :key="link.url">
+    <UButton class="hidden" variant="link" icon="i-heroicons-solid:menu" />
+    <ul class="absolutea inset-0 lg:static lg:flex">
+      <li v-for="link in links" :key="link.url" class="border-[#1e2d3d]">
         <NuxtLink
           :to="link.url"
-          active-class="text-gray-200"
-          class="text-gray-400 border-r border-[#1e2d3d] px-4 py-2"
+          active-class="text-gray-50"
+          class="text-gray-400 px-4 py-2"
         >
           _{{ link.label }}
         </NuxtLink>
@@ -16,7 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import type { RouteLocationRaw } from "vue-router";
 interface Link {
   url: string;
   label: string;
@@ -48,3 +47,17 @@ const links: Link[] = [
   },
 ];
 </script>
+<style>
+ul li:nth-child(1) {
+  @apply w-72;
+}
+ul li:nth-child(5) {
+  @apply flex-1;
+}
+ul li:nth-child(6) {
+  @apply border-l;
+}
+ul li:not(:nth-child(6)) {
+  @apply border-r;
+}
+</style>

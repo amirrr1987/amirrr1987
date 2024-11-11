@@ -2,7 +2,7 @@
   <section class="p-4 sm:p-6 lg:p-8 text-gray-400 bg-gray-900">
     <h2 class="text-2xl font-bold text-white mb-6">Contact Me</h2>
 
-    <div class="grid grid-cols-2">
+    <div class="grid md:grid-cols-2">
       <form
         @submit.prevent="handleSubmit"
         class="bg-gray-800 p-6 rounded-lg shadow-lg"
