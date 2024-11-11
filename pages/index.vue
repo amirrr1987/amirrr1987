@@ -1,7 +1,9 @@
 <template>
-  <section class="text-gray-400 grid grid-cols-[288px,1fr]">
-    <div class="p-4 sm:p-6 lg:p-8"></div>
-    <div class="py-8 pr-8 sm:py-12 sm:pr-12 lg:py-16 lg:pr-16 grid md:grid-cols-2">
+  <section class="text-gray-400 grid md:grid-cols-[288px,1fr]">
+    <div class="hidden md:block md:p-6 lg:p-8"></div>
+    <div
+      class="p-8 md:pl-4 md:py-12 md:pr-12 lg:py-16 lg:pr-16 grid md:grid-cols-2"
+    >
       <div>
         <div>Hi all, I am</div>
         <h1>Amir Maghami</h1>
@@ -17,9 +19,11 @@
         </p>
         const githubLink = "https://github.com/username"
       </div>
-      <ClientOnly>
-        <TheThree />
-      </ClientOnly>
+      <div class="hidden">
+        <ClientOnly>
+          <TheThree />
+        </ClientOnly>
+      </div>
     </div>
   </section>
 </template>
