@@ -1,7 +1,8 @@
 <template>
-  <section class="p-4 sm:p-6 lg:p-8 text-gray-400">
+  <section class="text-gray-400 grid grid-cols-[288px,1fr]">
+    <div class="p-4 sm:p-6 lg:p-8"></div>
     <div
-      class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
+      class="py-8 pr-8 sm:py-12 sm:pr-12 lg:py-16 lg:pr-16 grid md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16"
     >
       <template v-for="blog in data" :key="blog.id">
         <div>
@@ -14,9 +15,11 @@
 
             <template #footer>
               <NuxtLink
+                class="text-primary"
                 :to="`blogs/${useChangeCase(blog.title, 'kebabCase').value}`"
-                >View more</NuxtLink
               >
+                View more
+              </NuxtLink>
             </template>
           </UCard>
         </div>
@@ -28,7 +31,7 @@
 import { useChangeCase } from "@vueuse/integrations/useChangeCase";
 
 useHead({
-  title: `Amir Maghami | blogs`,
+  title: `Amir Maghami | Blogs`,
 });
 
 const { data } = await useFetch("/api/blogs");
