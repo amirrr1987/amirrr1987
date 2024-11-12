@@ -1,7 +1,7 @@
 <template>
   <footer class="border-t border-cool-300 dark:border-cool-700 p-2 flex justify-end items-center">
     <ClientOnly>
-      <UButton variant="solid" class="fixed start-2 bottom-10 w-10 h-10 flex items-enter justify-center" @click="toggleColorMode">
+      <UButton variant="solid" class="fixed start-3 bottom-3 w-10 h-10 flex items-enter justify-center" @click="toggleColorMode">
         <UIcon :name="icon" :size="20" />
       </UButton>
     </ClientOnly>
