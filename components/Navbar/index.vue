@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="border-b border-cool-300 dark:border-cool-700 p-4 flex justify-between items-center lg:justify-start"
+    class="border-b border-cool-300 dark:border-cool-700 p-2 sm:p-4 flex justify-between items-center lg:justify-start"
   >
     <NuxtLink to="/">
       <AppLogo class="w-12 h-12 object-contain" />
