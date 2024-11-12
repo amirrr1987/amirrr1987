@@ -14,15 +14,15 @@ body {
   body {
     @apply bg-gray-950;
     #__nuxt {
-      @apply bg-cool-900 border-cool-900 text-gray-400;
+      @apply bg-cool-900 border-cool-700 text-gray-300 leading-8 text-base font-normal;
     }
   }
 }
 .light {
   body {
-    @apply bg-gray-100;
+    @apply bg-gray-50;
     #__nuxt {
-      @apply bg-cool-50 border-cool-300;
+      @apply bg-cool-100 border-cool-300 text-gray-700 leading-8 text-base font-normal;
     }
   }
 }
