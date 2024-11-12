@@ -14,7 +14,9 @@
       @click="toggleMenu"
     />
 
-    <NavbarList v-show="isOpen" @opened="toggleMenu" />
+    <Transition name="fade">
+      <NavbarList v-show="isOpen" @opened="toggleMenu" />
+    </Transition>
 
     <!-- <ul
       v-show="isOpen"
@@ -41,3 +43,14 @@ const toggleMenu = () => {
   isOpen.value = !isOpen.value;
 };
 </script>
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
