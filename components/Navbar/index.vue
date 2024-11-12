@@ -43,7 +43,9 @@ watch(width, (newValue) => {
 });
 
 const toggleMenu = () => {
-  isOpen.value = !isOpen.value;
+  if (width.value <= 1024) {
+    isOpen.value = !isOpen.value;
+  }
 };
 </script>
 <style>
