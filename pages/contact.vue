@@ -1,117 +1,59 @@
 <template>
-  <section class="text-gray-400 grid md:grid-cols-[288px,1fr]">
-    <!-- <div class="hidden md:block md:p-6 lg:p-8"></div> -->
-    <div class="p-4 md:p-6 lg:p-8">
-      <h2 class="text-2xl font-bold text-white mb-12">Contact Me</h2>
+  <section class="p-4 md:p-6 lg:p-8 grid md:grid-cols-2 md:gap-6 lg:gap-8">
+    <h2 class="text-2xl font-bold mb-12 md:col-span-2">Contact Me</h2>
+    <div class="mb-12">
+      <h3 class="text-xl font-bold mb-4">
+        Alternatively, you can reach me at:
+      </h3>
+      <p class="mb-2">
+        <strong>Email: </strong>
+        <a
+          href="mailto:example@example.com"
+          class="text-blue-400 hover:underline"
+          >maghami.a1987@gmail.com</a
+        >
+      </p>
+      <p class="mb-2">
+        <strong>Phone: </strong>
+        <a href="tel:+1234567890" class="text-blue-400 hover:underline"
+          >+989198881400</a
+        >
+      </p>
+      <p class=""><strong>Address: </strong>Tehran, Tehran, Iran</p>
+    </div>
 
-      <div class="text-center mb-12">
-        <h3 class="text-xl font-bold text-white mb-4">
-          Alternatively, you can reach me at:
-        </h3>
+    <UForm @submit.prevent="handleSubmit" class="mb-12">
+      <div class="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+        <UFormGroup
+          :ui="formGroup"
+          label="Full name"
+          class="col-span-2 lg:col-span-1"
+        >
+          <UInput placeholder="Enter full name.." :ui="input" />
+        </UFormGroup>
 
-        <div class="text-sm text-gray-300">
-          <p class="mb-2">
-            <strong>Email:</strong>
-            <a
-              href="mailto:example@example.com"
-              class="text-blue-400 hover:underline"
-              >maghami.a1987@gmail.com</a
-            >
-          </p>
-          <p class="mb-2">
-            <strong>Phone:</strong>
-            <a href="tel:+1234567890" class="text-blue-400 hover:underline"
-              >+989198881400</a
-            >
-          </p>
-          <p><strong>Address:</strong>Tehran, Tehran, Iran</p>
+        <UFormGroup
+          :ui="formGroup"
+          label="Email"
+          class="col-span-2 lg:col-span-1"
+        >
+          <UInput placeholder="Enter email.." :ui="input" />
+        </UFormGroup>
+
+        <UFormGroup :ui="formGroup" label="Message" class="col-span-2">
+          <UTextarea
+            :ui="textarea"
+            placeholder="Enter message.."
+            autoresize
+            resize
+            :rows="10"
+          />
+        </UFormGroup>
+        <div class="col-span-2">
+          <UButton label="Send message" />
         </div>
       </div>
-
-      <UForm @submit.prevent="handleSubmit">
-        <div class="grid lg:grid-cols-2 gap-6">
-          <UFormGroup :ui="formGroup" label="Full name" class="col-span-2 lg:col-span-1">
-            <UInput placeholder="Enter full name.." :ui="input" />
-          </UFormGroup>
-
-          <UFormGroup :ui="formGroup" label="Email" class="col-span-2 lg:col-span-1">
-            <UInput placeholder="Enter email.." :ui="input" />
-          </UFormGroup>
-
-          <UFormGroup :ui="formGroup" label="Message" class="col-span-2">
-            <UTextarea
-              :ui="textarea"
-              placeholder="Enter message.."
-              autoresize
-              resize
-              :rows="10"
-            />
-          </UFormGroup>
-          <div class="col-span-2">
-            <UButton label="Send message" />
-          </div>
-        </div>
-      </UForm>
-
-      <!-- <div class="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8"> -->
-
-      <!-- <form
-        @submit.prevent="handleSubmit"
-        class="bg-gray-800 p-6 rounded-lg shadow-lg"
-      >
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label for="name" class="block text-sm font-medium text-gray-300"
-              >Full Name</label
-            >
-            <input
-              v-model="form.name"
-              id="name"
-              type="text"
-              class="w-full mt-1 p-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-300"
-              >Email</label
-            >
-            <input
-              v-model="form.email"
-              id="email"
-              type="email"
-              class="w-full mt-1 p-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-        </div>
-
-        <div class="mt-6">
-          <label for="message" class="block text-sm font-medium text-gray-300"
-            >Message</label
-          >
-          <textarea
-            v-model="form.message"
-            id="message"
-            rows="4"
-            class="w-full mt-1 p-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          ></textarea>
-        </div>
-
-        <div class="mt-6 text-center">
-          <button
-            type="submit"
-            class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
-          >
-            Send Message
-          </button>
-        </div>
-      </form> -->
-
-      <!-- Contact Info -->
-    </div>
-    <!-- </div> -->
+    </UForm>
   </section>
 </template>
 
