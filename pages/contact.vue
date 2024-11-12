@@ -15,7 +15,7 @@
       </p>
       <p class="mb-2">
         <strong>Phone: </strong>
-        <a href="tel:+1234567890" class="text-blue-400 hover:underline"
+        <a href="tel:+989198881400" class="text-blue-400 hover:underline"
           >+989198881400</a
         >
       </p>
