@@ -1,14 +1,21 @@
 <template>
   <section class="p-4 sm:p-6 lg:p-8">
-    <img class="w-56 h-56 object-contain ms-auto" src="@/assets/images/me.png" alt="" />
+    <img
+      class="w-56 h-56 object-contain ms-auto"
+      src="@/assets/images/me.png"
+      alt=""
+    />
     <div class="mb-4">
       <div>Hello world,</div>
-      <div>This is <h1 class="inline font-bold">Amir Maghami</h1></div>
+      <div>
+        This is
+        <h1 class="inline font-bold">Amir Maghami</h1>
+      </div>
       <h2 class="font-medium">Front-end developer</h2>
     </div>
     <p class="">Width a 5 years of experience in web development</p>
 
-    <ULink to="" is="a">Download CV</ULink>
+    <a href="/asd">Download CV</a>
   </section>
   <!-- <section class="grid md:grid-cols-[288px,1fr]">
     <div class="hidden md:block md:p-6 lg:p-8"></div>
