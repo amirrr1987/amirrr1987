@@ -6,16 +6,18 @@
       <template #header>
         <img :src="blog.img" alt="" />
       </template>
-      <h3 class="font-medium mb-2">{{ blog.title }}</h3>
-      <p class="">{{ blog.excerpt }}</p>
+      <h3 class="font-medium tracking-tight mb-2">{{ blog.title }}</h3>
+      <p class="font-normal tracking-tighter leading-7">{{ blog.excerpt }}</p>
 
       <template #footer>
-        <NuxtLink
+        <ULink
           class="text-primary"
+          as="a"
+          target="_blank"
           :to="`blogs/${useChangeCase(blog.title, 'kebabCase').value}`"
         >
           View more
-        </NuxtLink>
+        </ULink>
       </template>
     </UCard>
   </section>
