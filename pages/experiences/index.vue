@@ -1,17 +1,17 @@
 <template>
   <section
-    class="p-4 sm:p-6 lg:p-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
+    class="p-4 sm:p-6 lg:p-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8"
   >
     <UCard v-for="(exp, index) in experience" :key="index">
       <template #header>
         <img class="w-full" :src="exp.logo" :alt="exp.companyName" />
       </template>
 
-      <h3 class="text-base">
-        {{ exp.title }}
-      </h3>
-      <UDivider class="my-4" />
-      <h4>{{ exp.companyName }}</h4>
+      <div class="text-  font-normal tracking-tighter leading-7">
+        <h3 class="inline">{{ exp.title }} </h3>
+         as
+        <h4 class="inline">{{ exp.companyName }}</h4>
+      </div>
       <template #footer>
         <ULink
           class="text-primary"
