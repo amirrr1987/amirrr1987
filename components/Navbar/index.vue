@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="border-b border-[#1e2d3d] grid grid-cols-[max-content,max-content] justify-between items-center p-4"
+    class="border-b border-cool-300 dark:border-cool-700 grid grid-cols-[max-content,max-content] justify-between items-center p-4"
   >
     <div>
       <UButton
