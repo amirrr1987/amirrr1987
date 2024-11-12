@@ -1,31 +1,33 @@
 <template>
-  <section class="text-gray-400 grid grid-cols-[288px,1fr]">
-    <div class="p-4 sm:p-6 lg:p-8"></div>
-    <div
-      class="py-8 pr-8 sm:py-12 sm:pr-12 lg:py-16 lg:pr-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16"
-    >
-      <template v-for="(exp, _index) in experience" :key="_index">
-        <UCard>
-          <template #header>
-            <img class="w-full" :src="exp.logo" :alt="exp.companyName" />
-          </template>
-
-          <h3 class="text-base">
-            {{ exp.title }}
-          </h3>
-          <UDivider class="my-4" />
-          <h4>{{ exp.companyName }}</h4>
-          <template #footer>
-            <NuxtLink class="text-primary" :to="`experiences/${exp.id}`">View-more</NuxtLink>
-          </template>
-        </UCard>
+  <section
+    class="p-4 sm:p-6 lg:p-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
+  >
+    <UCard v-for="(exp, index) in experience" :key="index">
+      <template #header>
+        <img class="w-full" :src="exp.logo" :alt="exp.companyName" />
       </template>
-    </div>
+
+      <h3 class="text-base">
+        {{ exp.title }}
+      </h3>
+      <UDivider class="my-4" />
+      <h4>{{ exp.companyName }}</h4>
+      <template #footer>
+        <ULink
+          class="text-primary"
+          as="a"
+          target="_blank"
+          :to="`experiences/${exp.id}`"
+        >
+          View more
+        </ULink>
+      </template>
+    </UCard>
   </section>
 </template>
 <script setup lang="ts">
 useHead({
-  title: `Amir Maghami | experiences`,
+  title: `Amir Maghami | Experiences`,
 });
 const experience = reactive([
   {
