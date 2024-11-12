@@ -1,19 +1,14 @@
 <template>
   <section class="p-4 sm:p-6 lg:p-8">
-    <div>
-      <div>Hi all, I am</div>
-      <h1>Amir Maghami</h1>
-      <h2>Front-end developer</h2>
-      <p>
-        About me I have 5 years of experience in web development lorem ipsum
-        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      </p>
-      const githubLink = "https://github.com/username"
+    <img class="w-56 h-56 object-contain ms-auto" src="@/assets/images/me.png" alt="" />
+    <div class="mb-4">
+      <div>Hello world,</div>
+      <div>This is <h1 class="inline font-bold">Amir Maghami</h1></div>
+      <h2 class="font-medium">Front-end developer</h2>
     </div>
+    <p class="">Width a 5 years of experience in web development</p>
+
+    <ULink to="" is="a">Download CV</ULink>
   </section>
   <!-- <section class="grid md:grid-cols-[288px,1fr]">
     <div class="hidden md:block md:p-6 lg:p-8"></div>
