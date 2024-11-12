@@ -1,13 +1,13 @@
 <template>
   <nav
-    class="border-b border-cool-300 dark:border-cool-700 p-4 sm:p-6 lg:p-8 flex justify-between items-center"
+    class="border-b border-cool-300 dark:border-cool-700 p-4 sm:p-6 lg:p-8 flex justify-between items-center lg:justify-start"
   >
     <NuxtLink to="/">
       <AppLogo class="w-12 h-12 object-contain" />
     </NuxtLink>
 
     <UButton
-      :ui="{ base: 'md:hidden', inline: 'flex z-50' }"
+      :ui="{ base: 'lg:hidden', inline: 'flex z-50' }"
       :class="{ 'fixed end-8 sm:end-12': isOpen }"
       variant="soft"
       icon="i-heroicons-solid:menu"
@@ -37,8 +37,19 @@
 
 <script setup lang="ts">
 const colorMode = useColorMode();
+import { useWindowSize } from "@vueuse/core";
+const { width, height } = useWindowSize();
 
 const isOpen = ref<boolean>(false);
+watch(width, (newValue) => {
+  if (width.value >= 1024) {
+    isOpen.value = true;
+  }
+  else {
+    isOpen.value = false
+  }
+});
+
 const toggleMenu = () => {
   isOpen.value = !isOpen.value;
 };
