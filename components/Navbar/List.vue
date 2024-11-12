@@ -1,6 +1,6 @@
 <template>
   <ul
-    class="fixed bg-cool-900 inset-0 h-screen flex flex-col justify-center items-center gap-y-4 z-40"
+    class="fixed bg-cool-100 dark:bg-cool-900 inset-0 h-screen flex flex-col justify-center items-center gap-y-4 z-40"
   >
     <AppLogo class="w-32 h-32 mb-8" />
     <li
