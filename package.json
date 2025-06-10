@@ -9,6 +9,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "engines": {
+    "node": ">=22.16.0"
+  },
   "dependencies": {
     "@nuxt/content": "3.5.1",
     "@nuxt/eslint": "1.4.1",
