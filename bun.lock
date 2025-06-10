@@ -20,6 +20,7 @@
         "@vueuse/nuxt": "13.3.0",
         "cheerio": "^1.1.0",
         "eslint": "^9.0.0",
+        "lodash": "^4.17.21",
         "nuxt": "^3.17.5",
         "pinia": "^3.0.3",
         "three": "^0.177.0",
@@ -27,6 +28,9 @@
         "v-gsap-nuxt": "1.4.2",
         "vue": "^3.5.16",
         "vue-router": "^4.5.1",
+      },
+      "devDependencies": {
+        "@types/lodash": "^4.17.17",
       },
     },
   },
@@ -526,6 +530,8 @@
     "@types/hast": ["@types/hast@3.0.4", "", { "dependencies": { "@types/unist": "*" } }, "sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ=="],
 
     "@types/json-schema": ["@types/json-schema@7.0.15", "", {}, "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA=="],
+
+    "@types/lodash": ["@types/lodash@4.17.17", "", {}, "sha512-RRVJ+J3J+WmyOTqnz3PiBLA501eKwXl2noseKOrNo/6+XEHjTAxO4xHvxQB6QuNm+s4WRbn6rSiap8+EA+ykFQ=="],
 
     "@types/mdast": ["@types/mdast@4.0.4", "", { "dependencies": { "@types/unist": "*" } }, "sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA=="],
 

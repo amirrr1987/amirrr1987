@@ -11,7 +11,7 @@
     <!-- Blog Grid -->
     <UContainer :ui="{ padding: 'py-8 px-4 sm:px-6 lg:px-10' }"
       class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
-      <UCard v-for="blog in [{ id: 1, img: '', title: '', excerpt : ''}]" :key="blog.id"
+      <UCard v-for="blog in data" :key="blog.id"
         class="group relative overflow-hidden transition-all duration-300 hover:scale-[1.02]">
         <!-- Blog Image -->
         <div class="relative h-48 overflow-hidden rounded-t-lg">
@@ -26,7 +26,7 @@
         <div class="p-6 space-y-4">
           <h3 class="text-xl font-bold text-gray-100">{{ blog.title }}</h3>
           <p class="text-gray-300">{{ blog.excerpt }}</p>
-          <ULink :to="`/blogs/${useChangeCase(blog.title, 'kebabCase').value}`" target="_blank"
+          <ULink :to="`/blogs/${kebabCase(blog.title)}`" target="_blank"
             class="text-primary font-medium transition-transform duration-300 hover:scale-105">
             Read More
           </ULink>
@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { useChangeCase } from "@vueuse/integrations/useChangeCase";
+import { kebabCase } from "lodash";
 
 import { onMounted } from 'vue';
 import gsap from 'gsap';
@@ -58,7 +58,7 @@ useHead({
 });
 
 // Fetch Data
-// const { data } = await useFetch('/api/blogs');
+const { data } = await useFetch('/api/blogs');
 
 // GSAP Animations
 onMounted(() => {
