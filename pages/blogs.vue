@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { kebabCase } from "lodash";
+import { kebabCase } from "lodash-es";
 
 import { onMounted } from 'vue';
 import gsap from 'gsap';
