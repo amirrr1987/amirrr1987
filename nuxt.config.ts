@@ -1,39 +1,39 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
+  compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  modules: [
-    "@nuxt/content",
-    "@nuxtjs/i18n",
-    "@nuxt/ui",
-    "@nuxt/image",
-    "@nuxtjs/color-mode",
-    "@nuxt/fonts",
-    "nuxt-typed-router",
-    "@tresjs/nuxt",
-  ],
-  i18n: {
-    locales: [
-      {
-        code: "en",
-        iso: "en-US",
-        name: "English(US)",
-        file: "en-US.json",
-      },
-      {
-        code: "fa",
-        iso: "fa-IR",
-        name: "فارسی",
-        file: "fa-IR.json",
-      },
+
+
+
+    modules: [
+      '@nuxt/content',
+      '@nuxt/eslint',
+      '@nuxt/fonts',
+      '@nuxt/icon',
+      '@nuxt/image',
+      '@nuxt/scripts',
+      '@nuxt/ui',
+      '@pinia/nuxt',
+      'v-gsap-nuxt',
+      '@nuxtjs/color-mode',
+      '@vueuse/nuxt'
     ],
-    lazy: true,
-    defaultLocale: "en",
-    strategy: "prefix_except_default",
-  },
-  tres: {
-    devtools: true,
-    glsl: true,
-  },
-});
+    css: ['~/assets/css/main.css'],
+    app: {
+      head: {
+        title: 'Amir Maghami - Frontend Developer',
+        meta: [
+          { name: 'description', content: 'Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.' },
+          { name: 'theme-color', content: '#8B5CF6' }
+        ],
+        link: [
+          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+          { rel: 'canonical', href: 'https://amirmaghami.ir/' }
+        ],
+        htmlAttrs: {
+          lang: 'en',
+          class: 'scroll-smooth'
+        }
+      }
+    }
+  })

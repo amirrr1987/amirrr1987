@@ -1,223 +1,101 @@
 <template>
-  <section class="p-4 md:p-6 lg:p-8 grid md:grid-cols-2 md:gap-6 lg:gap-8">
-    <h2 class="text-2xl font-bold mb-12 md:col-span-2">Contact Me</h2>
-    <div class="mb-12">
-      <h3 class="text-xl font-bold mb-4">
-        Alternatively, you can reach me at:
-      </h3>
-      <p class="mb-2">
-        <strong>Email: </strong>
-        <a
-          href="mailto:example@example.com"
-          class="text-blue-400 hover:underline"
-          >maghami.a1987@gmail.com</a
-        >
-      </p>
-      <p class="mb-2">
-        <strong>Phone: </strong>
-        <a href="tel:+989198881400" class="text-blue-400 hover:underline"
-          >+989198881400</a
-        >
-      </p>
-      <p class=""><strong>Address: </strong>Tehran, Tehran, Iran</p>
-    </div>
-
-    <UForm @submit.prevent="handleSubmit" class="mb-12">
-      <div class="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
-        <UFormGroup
-          :ui="formGroup"
-          label="Full name"
-          class="col-span-2 lg:col-span-1"
-        >
-          <UInput placeholder="Enter full name.." :ui="input" />
-        </UFormGroup>
-
-        <UFormGroup
-          :ui="formGroup"
-          label="Email"
-          class="col-span-2 lg:col-span-1"
-        >
-          <UInput placeholder="Enter email.." :ui="input" />
-        </UFormGroup>
-
-        <UFormGroup :ui="formGroup" label="Message" class="col-span-2">
-          <UTextarea
-            :ui="textarea"
-            placeholder="Enter message.."
-            autoresize
-            resize
-            :rows="10"
-          />
-        </UFormGroup>
-        <div class="col-span-2">
-          <UButton label="Send message" />
-        </div>
+  <section id="contact" class="relative z-10 flex flex-col justify-center items-center text-center">
+    <!-- Contact Header -->
+    <UContainer :ui="{ padding: 'py-12 px-4 sm:px-6 lg:px-10' }">
+      <div class="space-y-4 animate-fade-in">
+        <h1 class="text-4xl sm:text-5xl font-bold text-primary">Get in Touch</h1>
+        <p class="text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
+          Feel free to reach out to me for collaborations, projects, or just to say hello!
+        </p>
       </div>
-    </UForm>
+    </UContainer>
+
+    <!-- Contact Form -->
+    <UContainer :ui="{ padding: 'py-8 px-4 sm:px-6 lg:px-10' }" class="w-full max-w-2xl mt-8 animate-fade-in-up">
+      <form @submit.prevent="handleSubmit" class="space-y-6">
+        <!-- Name Field -->
+        <UInput v-model="formData.name" type="text" placeholder="Your Name" icon="i-heroicons-user" required size="lg"
+          class="w-full transition-all duration-300 hover:ring-primary/50" />
+
+        <!-- Email Field -->
+        <UInput v-model="formData.email" type="email" placeholder="Your Email" icon="i-heroicons-envelope" required
+          size="lg" class="w-full transition-all duration-300 hover:ring-primary/50" />
+
+        <!-- Message Field -->
+        <UTextarea v-model="formData.message" placeholder="Your Message" :rows="5" required size="lg"
+          class="w-full transition-all duration-300 hover:ring-primary/50" />
+
+        <!-- Submit Button -->
+        <UButton type="submit" color="primary" size="lg"
+          class="w-full sm:w-auto transition-transform duration-300 hover:scale-105">
+          Send Message
+        </UButton>
+      </form>
+    </UContainer>
+
+    <!-- Social Links -->
+    <UContainer :ui="{ padding: 'py-8 px-4 sm:px-6 lg:px-10' }"
+      class="flex justify-center gap-6 mt-8 animate-fade-in-up">
+      <ULink v-for="(link, index) in socialLinks" :key="index" :to="link.url" target="_blank" aria-label="Social Link"
+        class="transition-transform duration-300 hover:scale-110">
+        <UIcon :name="link.icon" class="w-6 h-6 text-gray-300 hover:text-primary" />
+      </ULink>
+    </UContainer>
   </section>
 </template>
 
-<script setup>
-import { ref } from "vue";
-useHead({
-  title: `Amir Maghami | Contact`,
-});
-const form = ref({
-  name: "",
-  email: "",
-  message: "",
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import gsap from 'gsap';
+
+// Form Data
+const formData = ref({
+  name: '',
+  email: '',
+  message: '',
 });
 
-const handleSubmit = () => {
-  alert("Message sent!");
-  // Handle form submission logic here (e.g., send the form data to an API)
-  form.value.name = "";
-  form.value.email = "";
-  form.value.message = "";
-};
-const input = {
-  base: "h-12 bg-red-500 aaaaaaaaaaaaa",
-};
+// Social Links
+const socialLinks = [
+  { icon: 'i-simple-icons-github', url: 'https://github.com/amirrr1987' },
+  { icon: 'i-simple-icons-linkedin', url: 'https://www.linkedin.com/in/amirrr1987/' },
+  { icon: 'i-simple-icons-telegram', url: 'https://chat.telegram.dev' },
+];
 
-const textarea = {
-  wrapper: "relative",
-  base: "relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0",
-  form: "form-textarea",
-  rounded: "rounded-md",
-  placeholder: "placeholder-gray-400 dark:placeholder-gray-500",
-  file: {
-    base: "file:mr-1.5 file:font-medium file:text-gray-500 dark:file:text-gray-400 file:bg-transparent file:border-0 file:p-0 file:outline-none",
-  },
-  size: {
-    "2xs": "text-xs",
-    xs: "text-xs",
-    sm: "text-sm",
-    md: "text-sm",
-    lg: "text-sm",
-    xl: "text-base",
-  },
-  gap: {
-    "2xs": "gap-x-1",
-    xs: "gap-x-1.5",
-    sm: "gap-x-1.5",
-    md: "gap-x-2",
-    lg: "gap-x-2.5",
-    xl: "gap-x-2.5",
-  },
-  padding: {
-    "2xs": "px-2 py-1",
-    xs: "px-2.5 py-1.5",
-    sm: "px-2.5 py-1.5",
-    md: "px-3 py-2",
-    lg: "px-3.5 py-2.5",
-    xl: "px-3.5 py-2.5",
-  },
-  leading: {
-    padding: {
-      "2xs": "ps-7",
-      xs: "ps-8",
-      sm: "ps-9",
-      md: "ps-10",
-      lg: "ps-11",
-      xl: "ps-12",
-    },
-  },
-  trailing: {
-    padding: {
-      "2xs": "pe-7",
-      xs: "pe-8",
-      sm: "pe-9",
-      md: "pe-10",
-      lg: "pe-11",
-      xl: "pe-12",
-    },
-  },
-  color: {
-    white: {
-      outline:
-        "shadow-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400",
-    },
-    gray: {
-      outline:
-        "shadow-sm bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400",
-    },
-  },
-  variant: {
-    outline:
-      "shadow-sm bg-transparent text-gray-900 dark:text-white ring-1 ring-inset ring-{color}-500 dark:ring-{color}-400 focus:ring-2 focus:ring-{color}-500 dark:focus:ring-{color}-400",
-    none: "bg-transparent focus:ring-0 focus:shadow-none",
-  },
-  icon: {
-    base: "flex-shrink-0 text-gray-400 dark:text-gray-500",
-    color: "text-{color}-500 dark:text-{color}-400",
-    loading: "animate-spin",
-    size: {
-      "2xs": "h-4 w-4",
-      xs: "h-4 w-4",
-      sm: "h-5 w-5",
-      md: "h-5 w-5",
-      lg: "h-5 w-5",
-      xl: "h-6 w-6",
-    },
-    leading: {
-      wrapper: "absolute inset-y-0 start-0 flex items-center",
-      pointer: "pointer-events-none",
-      padding: {
-        "2xs": "px-2",
-        xs: "px-2.5",
-        sm: "px-2.5",
-        md: "px-3",
-        lg: "px-3.5",
-        xl: "px-3.5",
-      },
-    },
-    trailing: {
-      wrapper: "absolute inset-y-0 end-0 flex items-center",
-      pointer: "pointer-events-none",
-      padding: {
-        "2xs": "px-2",
-        xs: "px-2.5",
-        sm: "px-2.5",
-        md: "px-3",
-        lg: "px-3.5",
-        xl: "px-3.5",
-      },
-    },
-  },
-  default: {
-    size: "sm",
-    color: "white",
-    variant: "outline",
-  },
-};
-const formGroup = {
-  wrapper: "",
-  inner: "",
-  label: {
-    wrapper: "flex content-center items-center justify-between",
-    base: "block font-medium text-gray-700 dark:text-gray-200",
-    required:
-      "after:content-['*'] after:ms-0.5 after:text-red-500 dark:after:text-red-400",
-  },
-  size: {
-    "2xs": "text-xs",
-    xs: "text-xs",
-    sm: "text-sm",
-    md: "text-sm",
-    lg: "text-sm",
-    xl: "text-base",
-  },
-  container: "mt-2 relative",
-  description: "text-gray-500 dark:text-gray-400",
-  hint: "text-gray-500 dark:text-gray-400",
-  help: "mt-2 text-gray-500 dark:text-gray-400",
-  error: "mt-2 text-red-500 dark:text-red-400",
-  default: {
-    size: "sm",
-  },
-};
+// Handle Form Submission
+function handleSubmit() {
+  alert('Thank you for reaching out! I will get back to you soon.');
+  formData.value = { name: '', email: '', message: '' };
+}
+
+// GSAP Animations
+onMounted(() => {
+  gsap.from('.animate-fade-in', {
+    opacity: 0,
+    y: 20,
+    duration: 1,
+    delay: 0.2,
+    stagger: 0.2,
+    ease: 'power3.out',
+  });
+
+  gsap.from('.animate-fade-in-up', {
+    opacity: 0,
+    y: 20,
+    duration: 1,
+    delay: 0.4,
+    stagger: 0.2,
+    ease: 'power3.out',
+  });
+});
 </script>
 
 <style scoped>
-/* Optional additional styling */
+.animate-fade-in {
+  opacity: 1;
+}
+
+.animate-fade-in-up {
+  opacity: 1;
+}
 </style>
