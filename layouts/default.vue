@@ -7,7 +7,7 @@
       <nav class="flex items-center gap-5 justify-evenly md:justify-start">
         <ULink v-for="link in navigationLinks" :key="link.to" :to="link.to"
           class="flex items-center gap-2 text-sm font-medium text-gray-200 hover:text-primary">
-          <UIcon :name="link.icon" class="w-6 h-6" />
+          <UIcon :name="link.icon" class="!w-8 !h-8" />
           <span class="hidden md:inline">{{ link.label }}</span>
         </ULink>
       </nav>
