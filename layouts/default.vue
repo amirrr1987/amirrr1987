@@ -1,6 +1,6 @@
 <template>
   <header :class="headerUI.wrapper">
-    <div :class="headerUI.container" class="flex items-center justify-between gap-x-4">
+    <div :class="headerUI.container" class="flex items-center  md:justify-between gap-x-4">
       <ULink to="/" class="flex items-center gap-2">
         <TheLogo />
       </ULink>
