@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   ui: {
-    colorMode: false
+    colorMode: true
   },
   modules: [
     '@nuxt/content',
