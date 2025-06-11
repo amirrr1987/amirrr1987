@@ -29,7 +29,7 @@ onMounted(() => {
 
     // Particles
     const particleGeometry = new THREE.BufferGeometry();
-    const count = 5000;
+    const count = 6000;
     const positions = new Float32Array(count * 3);
 
     for (let i = 0; i < count * 3; i++) {

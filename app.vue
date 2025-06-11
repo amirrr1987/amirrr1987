@@ -53,8 +53,8 @@ useSeoMeta({
 
 * {
   scroll-behavior: smooth;
-  /* font-family: 'Silkscreen'; */
-  font-family: 'B612 Mono';
+    /* font-family: 'B612 Mono'; */
+  font-family: 'Silkscreen';
 }
 /* 
 
