@@ -1,19 +1,19 @@
 <template>
   <header :class="headerUI.wrapper">
-    <div :class="headerUI.container" class="flex items-center justify-between">
+    <div :class="headerUI.container" class="flex items-center justify-between gap-x-4">
       <ULink to="/" class="flex items-center gap-2">
         <TheLogo />
       </ULink>
-      <nav class="hidden md:flex items-center gap-5">
+      <nav class="flex items-center gap-5 justify-evenly md:justify-start">
         <ULink v-for="link in navigationLinks" :key="link.to" :to="link.to"
           class="flex items-center gap-2 text-sm font-medium text-gray-200 hover:text-primary">
-          <UIcon :name="link.icon" class="w-4 h-4" />
-          {{ link.label }}
+          <UIcon :name="link.icon" class="w-6 h-6" />
+          <span class="hidden md:inline">{{ link.label }}</span>
         </ULink>
       </nav>
 
       <UButton to="/contact" size="xl" color="secondary" variant="outline" icon="i-heroicons-envelope"
-        class="w-full sm:w-auto transition-transform duration-300 hover:scale-105">
+        class="hidden md:flex w-full sm:w-auto transition-transform duration-300 hover:scale-105">
         Get in Touch
       </UButton>
     </div>
