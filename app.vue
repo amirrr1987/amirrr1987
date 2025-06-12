@@ -13,6 +13,10 @@
 </template>
 
 <script setup lang="ts">
+
+const colorMode = useColorMode()
+colorMode.value = 'dark'
+// colorMode.preference()'
   const appConfig = {
     base: 'min-h-screen',
 
