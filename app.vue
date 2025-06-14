@@ -60,9 +60,15 @@ colorMode.value = 'dark'
 
   * {
     scroll-behavior: smooth;
-    font-family: 'Silkscreen';
     /*
-  font-family: 'B612 Mono';
-  */
+    */
+  }
+   * {
+    
+    font-family: 'B612 Mono';
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-family: 'Silkscreen';
+
   }
 </style>

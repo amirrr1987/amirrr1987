@@ -2,7 +2,6 @@
   <section class="text-white flex items-center ">
     <UContainer class="text-center px-4 sm:px-8" :ui="{ constrained: 'max-w-3xl' }">
       <div class="flex flex-col items-center justify-center space-y-6">
-
         <!-- Animated SVG -->
         <svg
           ref="logoSvg"
@@ -122,10 +121,23 @@ onMounted(() => {
   const masterTL = gsap.timeline()
 
   // SVG animation - draw in effect
-  masterTL.fromTo(logoSvg.value, 
-    { opacity: 0, scale: 0.8 },
-    { opacity: 1, scale: 1, duration: 1.2, ease: "elastic.out(1, 0.3)" }
-  )
+masterTL.fromTo(logoSvg.value,
+  {
+    opacity: 0,
+    scale: 0.5,
+    rotation: -30,
+    filter: "blur(8px)"
+  },
+  {
+    opacity: 1,
+    scale: 1,
+    rotation: 0,
+    filter: "blur(0px)",
+    duration: 1.6,
+    ease: "elastic.out(1, 0.4)"
+  }
+)
+
 
   // Name typewriter effect
   masterTL.to(nameText.value, {
