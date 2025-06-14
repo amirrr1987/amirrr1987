@@ -5,7 +5,8 @@
         <div class="text-center">
           <h1
             class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-500 to-purple-400 bg-clip-text text-transparent pb-2">
-            About Me
+            <span ref="titleText"></span>
+            <span class="typewriter-cursor" ref="titleCursor">|</span>
           </h1>
           <UDivider class="max-w-xs mx-auto my-4" />
         </div>
@@ -24,15 +25,17 @@
 
           <div class="w-full md:w-2/3 space-y-6 animate-fade-in-right delay-150">
             <div>
-              <h2 class="text-2xl md:text-3xl font-bold">Amir Maghami</h2>
-              <p class="text-lg text-primary-500 font-medium">Senior Front-End Developer (Vue.js/Nuxt.js)</p>
+              <h2 class="text-2xl md:text-3xl font-bold">
+                <span ref="nameText"></span>
+              </h2>
+              <p class="text-lg text-primary-500 font-medium">
+                <span ref="titleSubText"></span>
+              </p>
             </div>
 
             <UCard class="border-primary/20">
               <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-                A results-driven and detail-oriented Senior Front-End Developer with over 6 years of comprehensive
-                experience in designing, developing, and optimizing high-performance, responsive web applications.
-                Expert in the Vue.js ecosystem and modern front-end architecture.
+                <span ref="descriptionText"></span>
               </p>
             </UCard>
 
@@ -51,7 +54,7 @@
         <div class="animate-fade-in-up delay-300">
           <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
             <UIcon name="i-heroicons-light-bulb" class="w-6 h-6 text-primary-500" />
-            Key Skills
+            <span ref="skillsTitleText"></span>
           </h3>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -66,7 +69,7 @@
         <div class="animate-fade-in-up delay-450">
           <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
             <UIcon name="i-heroicons-code-bracket" class="w-5 h-5 text-primary-500" />
-            Additional Skills
+            <span ref="additionalSkillsTitleText"></span>
           </h3>
 
           <div class="flex flex-wrap gap-2">
@@ -82,10 +85,17 @@
 </template>
 
 <script setup lang="ts">
-// Note: This component uses hardcoded skills for presentation.
-// For a fully dynamic approach, you would import and use the cvStore.
-// import { useCvStore } from '~/stores/cv.store';
-// const cvStore = useCvStore();
+import { onMounted, ref } from 'vue'
+import gsap from 'gsap'
+
+// Refs for GSAP animation
+const titleText = ref(null)
+const titleCursor = ref(null)
+const nameText = ref(null)
+const titleSubText = ref(null)
+const descriptionText = ref(null)
+const skillsTitleText = ref(null)
+const additionalSkillsTitleText = ref(null)
 
 // Key skills with icons
 const keySkills = [
@@ -94,7 +104,7 @@ const keySkills = [
   { name: 'TypeScript', icon: 'i-simple-icons-typescript' },
   { name: 'UI/UX Design', icon: 'i-heroicons-paint-brush' },
   { name: 'Three.js', icon: 'i-simple-icons-threedotjs' },
-];
+]
 
 // Additional skills from CV store
 const additionalSkills = [
@@ -108,7 +118,72 @@ const additionalSkills = [
   'Git',
   'RESTful APIs',
   'Responsive Design',
-];
+]
+
+// Content for typewriter effects
+const content = {
+  title: "About Me",
+  name: "Amir Maghami",
+  titleSub: "Senior Front-End Developer (Vue.js/Nuxt.js)",
+  description: "A results-driven and detail-oriented Senior Front-End Developer with over 6 years of comprehensive experience in designing, developing, and optimizing high-performance, responsive web applications. Expert in the Vue.js ecosystem and modern front-end architecture.",
+  skillsTitle: "Key Skills",
+  additionalSkillsTitle: "Additional Skills"
+}
+
+onMounted(() => {
+  // Typewriter effect sequence
+  const tl = gsap.timeline()
+  
+  // Title animation
+  tl.to(titleText.value, {
+    duration: 0.8,
+    text: content.title,
+    ease: "none",
+  })
+  
+  // Name animation
+  tl.to(nameText.value, {
+    duration: 0.6,
+    text: content.name,
+    ease: "none",
+  }, "+=0.3")
+  
+  // Title/subtitle animation
+  tl.to(titleSubText.value, {
+    duration: 1.0,
+    text: content.titleSub,
+    ease: "none",
+  }, "+=0.2")
+  
+  // Description animation
+  tl.to(descriptionText.value, {
+    duration: 2.5,
+    text: content.description,
+    ease: "none",
+  }, "+=0.3")
+  
+  // Skills title animation
+  tl.to(skillsTitleText.value, {
+    duration: 0.6,
+    text: content.skillsTitle,
+    ease: "none",
+  }, "+=0.2")
+  
+  // Additional skills title animation
+  tl.to(additionalSkillsTitleText.value, {
+    duration: 0.6,
+    text: content.additionalSkillsTitle,
+    ease: "none",
+  })
+  
+  // Continuous cursor blink for the last element
+  tl.to(titleCursor.value, {
+    opacity: 0,
+    duration: 0.5,
+    repeat: -1,
+    yoyo: true
+  }, "-=0.5")
+})
 </script>
 
 <style scoped>
@@ -128,7 +203,6 @@ const additionalSkills = [
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -139,7 +213,6 @@ const additionalSkills = [
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -151,7 +224,6 @@ const additionalSkills = [
     opacity: 0;
     transform: translateX(-20px);
   }
-
   to {
     opacity: 1;
     transform: translateX(0);
@@ -168,5 +240,19 @@ const additionalSkills = [
 
 .delay-450 {
   animation-delay: 450ms;
+}
+
+/* Typewriter cursor styles */
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  font-weight: normal;
+  color: var(--primary-500);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
 }
 </style>
