@@ -3,8 +3,8 @@
     <!-- Contact Header -->
     <UContainer :ui="{ padding: 'py-12 px-4 sm:px-6 lg:px-10' }">
       <div class="space-y-4 animate-fade-in">
-        <h1 class="text-4xl sm:text-5xl font-bold text-primary">Get in Touch</h1>
-        <p class="text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
+        <h1 class="font-mono text-4xl sm:text-5xl font-bold text-primary">Get in Touch</h1>
+        <p class="font-mono text-gray-300 text-md sm:text-xl max-w-md mx-auto">
           Feel free to reach out to me for collaborations, projects, or just to say hello!
         </p>
       </div>
@@ -27,7 +27,7 @@
 
         <!-- Submit Button -->
         <UButton type="submit" color="primary" size="lg"
-          class="w-full sm:w-auto transition-transform duration-300 hover:scale-105">
+          class="font-mono w-full sm:w-auto transition-transform duration-300 hover:scale-105">
           Send Message
         </UButton>
       </form>

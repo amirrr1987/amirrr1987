@@ -1,9 +1,9 @@
 <template>
-  <section class="relative z-10 min-h-screen flex flex-col justify-center">
+  <section class="relative z-10 flex flex-col justify-center">
     <UContainer :ui="{ padding: 'py-12 px-4 sm:px-6 lg:px-10' }">
       <!-- Header -->
       <div class="text-center animate-fade-in">
-        <h1 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Professional Experience</h1>
+        <h1 class="font-mono text-4xl sm:text-5xl font-bold text-primary mb-4">Professional Experience</h1>
         <p class="text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
           A journey through my career highlights and contributions.
         </p>
@@ -20,14 +20,14 @@
 
           <!-- Experience Details -->
           <div class="flex-1 space-y-2">
-            <h3 class="text-xl font-bold">{{ exp.role }}</h3>
-            <p class="text-primary-500 font-medium">{{ exp.company }} - {{ exp.location }}</p>
-            <p class="text-sm text-gray-400">{{ exp.period }}</p>
-            <ul class="list-disc list-inside text-gray-300">
+            <h3 class="font-mono text-xl font-bold">{{ exp.role }}</h3>
+            <p class="font-mono text-primary-500 font-medium">{{ exp.company }} - {{ exp.location }}</p>
+            <p class="font-mono text-sm text-gray-400">{{ exp.period }}</p>
+            <ul class="ms-8 list-disc list-inside text-gray-300">
               <li v-for="(responsibility, idx) in exp.responsibilities" :key="idx">{{ responsibility }}</li>
             </ul>
             <div class="flex flex-wrap gap-2 mt-2">
-              <UBadge v-for="tech in exp.technologies" :key="tech" color="secondary" variant="soft">
+              <UBadge v-for="tech in exp.technologies" :key="tech" color="secondary" variant="soft" class="font-mono ">
                 {{ tech }}
               </UBadge>
             </div>

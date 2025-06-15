@@ -2,8 +2,8 @@
   <section id="projects" class="relative z-10 flex flex-col justify-center">
     <!-- Header -->
     <UContainer :ui="{ padding: 'py-12 px-4 sm:px-6 lg:px-10' }" class="text-center animate-fade-in">
-      <h1 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Projects</h1>
-      <p class="text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
+      <h1 class="font-mono text-4xl sm:text-5xl font-bold text-primary mb-4">Projects</h1>
+      <p class="font-mono text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
         A showcase of my creative and technical work.
       </p>
     </UContainer>
@@ -24,16 +24,16 @@
 
         <!-- Project Details -->
         <div class="p-6 space-y-4">
-          <h3 class="text-xl font-bold text-gray-100">{{ project.name }}</h3>
-          <p class="text-gray-300">{{ project.description }}</p>
-          <div class="flex flex-wrap gap-2">
+          <h3 class="font-mono text-xl font-bold text-gray-100">{{ project.name }}</h3>
+          <p class="text-gray-300 mb-6">{{ project.description }}</p>
+          <div class="flex flex-wrap gap-2 mb-8">
             <UBadge v-for="(tech, idx) in project.technologies" :key="idx" color="primary" variant="soft" size="sm"
               class="transition-transform duration-300 hover:scale-105">
               {{ tech }}
             </UBadge>
           </div>
           <UButton :to="project.url" target="_blank" size="sm" color="primary" variant="soft"
-            icon="i-heroicons-arrow-top-right-on-square" class="transition-transform duration-300 hover:scale-105">
+            icon="i-heroicons-arrow-top-right-on-square" class="font-mono transition-transform duration-300 hover:scale-105">
             View Project
           </UButton>
         </div>

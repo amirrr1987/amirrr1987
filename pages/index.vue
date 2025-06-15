@@ -47,7 +47,7 @@
         <!-- Name with Typewriter Effect -->
         <h1
           ref="nameText"
-          class="text-5xl sm:text-6xl font-extrabold tracking-tight leading-tight bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent opacity-0"
+          class="font-mono text-5xl sm:text-6xl font-extrabold tracking-tight leading-tight bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent opacity-0"
         >
           <span ref="nameCursor" class="typewriter-cursor">|</span>
         </h1>
@@ -55,7 +55,7 @@
         <!-- Title with Typewriter Effect -->
         <h2 
           ref="titleText"
-          class="text-xl sm:text-2xl font-medium text-primary opacity-0"
+          class="font-mono text-xl sm:text-2xl font-medium text-primary opacity-0"
         >
           <span ref="titleCursor" class="typewriter-cursor">|</span>
         </h2>
@@ -75,7 +75,7 @@
             size="xl"
             icon="i-heroicons-rocket-launch"
             color="primary"
-            class="w-full sm:w-auto transition-transform duration-300 hover:scale-105"
+            class="font-mono w-full sm:w-auto transition-transform duration-300 hover:scale-105"
           >
             View My Work
           </UButton>
@@ -85,7 +85,7 @@
             color="secondary"
             variant="outline"
             icon="i-heroicons-envelope"
-            class="w-full sm:w-auto transition-transform duration-300 hover:scale-105"
+            class="font-mono w-full sm:w-auto transition-transform duration-300 hover:scale-105"
           >
             Get in Touch
           </UButton>

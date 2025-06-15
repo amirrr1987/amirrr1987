@@ -31,7 +31,7 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#8B5CF6' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: '/logo.svg' },
         { rel: 'canonical', href: 'https://amirmaghami.ir/' }
       ],
       htmlAttrs: {
