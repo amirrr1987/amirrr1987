@@ -1,33 +1,23 @@
 <template>
-  <header :class="headerUI.wrapper">
-    <div :class="headerUI.container" class="flex items-center justify-between gap-4">
+
+  <header :class="headerUI.wrapper" class="bg-slate-900/75 shadow-md	">
+    <div :class="headerUI.container" class="flex items-center  md:justify-between gap-x-4">
       <ULink to="/" class="flex items-center gap-2">
         <TheLogo />
       </ULink>
-      <nav class="flex-1 flex md:flex items-center justify-evenly md:justify-start gap-5">
-        <ULink
-          v-for="link in navigationLinks"
-          :key="link.to"
-          :to="link.to"
-          active-class="text-primary"
-          exact-active-class="text-primary"
-          class="flex items-center gap-2 text-sm font-medium text-gray-200 hover:text-primary"
-        >
+      <nav class="flex-1 flex items-center gap-4 justify-around md:justify-start">
+        <ULink v-for="link in navigationLinks" :key="link.to" :to="link.to"
+          class="flex items-center gap-2 text-sm font-medium text-gray-200 hover:text-primary">
           <UIcon :name="link.icon" class="!w-6 !h-6" />
           <span class="hidden md:inline">{{ link.label }}</span>
         </ULink>
       </nav>
 
-      <UButton
-        to="/contact"
-        size="xl"
-        color="secondary"
-        variant="outline"
-        icon="i-heroicons-envelope"
-        class="hidden md:flex w-full sm:w-auto transition-transform duration-300 hover:scale-105"
-      >
+      <UButton to="/contact" size="xl" color="secondary" variant="outline" icon="i-heroicons-envelope"
+        class="hidden md:flex w-full sm:w-auto transition-transform duration-300 hover:scale-105">
         Get in Touch
       </UButton>
+
     </div>
   </header>
 

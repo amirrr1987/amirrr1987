@@ -10,8 +10,8 @@
       </div>
 
       <!-- Experience List -->
-      <div class="mt-12 space-y-8 animate-fade-in-up">
-        <div v-for="(exp, index) in cvStore.professionalExperience" :key="index" class="flex gap-6 items-start">
+      <div class="mt-12 space-y-8 ">
+        <div v-for="(exp, index) in cvStore.professionalExperience" :key="index" class="flex gap-6 items-start animate-fade-in-up">
           <!-- Timeline Dot -->
           <div class="relative w-2 h-2 bg-primary rounded-full mt-4">
             <div v-if="index !== cvStore.professionalExperience.length - 1"
