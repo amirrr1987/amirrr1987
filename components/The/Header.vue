@@ -4,16 +4,8 @@
       <ULink to="/" class="flex items-center gap-2">
         <TheLogo />
       </ULink>
-      <UButton
-        size="xl"
-        color="secondary"
-        variant="outline"
-        icon="i-heroicons-envelope"
-        class="flex w-full sm:w-auto transition-transform duration-300 hover:scale-105"
-        @click="toggleMenu"
-      >
-      </UButton>
-      <NavBar :isOpen="isOpen" />
+  
+      <NavBar />
 
       <UButton
         to="/contact"
@@ -35,8 +27,5 @@
     container: 'py-3 px-4 sm:px-6 lg:px-10'
   }
 
-  const isOpen = ref(false)
-  const toggleMenu = () => {
-    isOpen.value = !isOpen.value
-  }
+ 
 </script>

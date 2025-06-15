@@ -3,6 +3,9 @@ export default defineAppConfig({
     colorMode: 'true',
     container: {
       base: '!container'
+    },
+    icons: {
+      
     }
   }
 })
