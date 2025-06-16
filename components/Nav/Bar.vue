@@ -14,20 +14,26 @@
   import { useWindowSize } from '@vueuse/core'
 
   const windowSize = useWindowSize()
-  const orientation = computed(() => (windowSize.width.value < 768 ? 'vertical' : 'horizontal'))
+  const isMobile = computed(() => (windowSize.width.value < 768 ? true : false))
+  const orientation = computed(() => (isMobile.value ? 'vertical' : 'horizontal'))
 
   const isOpen = ref(false)
-
-  const navClass = computed(() => {
-    if (isOpen.value && orientation.value === 'vertical') {
-      return 'fixed top-0 start-0 w-full h-full bg-slate-950/95 flex items-center justify-center z-40'
-    } else if (!isOpen.value && orientation.value === 'vertical') {
-      return 'fixed top-0 start-0 w-full h-full bg-slate-950/95 flex items-center justify-center z-40 hidden'
-    } else if (isOpen.value && orientation.value === 'horizontal') {
-      return 'fixed top-0 left-0 w-full bg-slate-950/95 flex items-center justify-center z-40'
+  const getClass = () => {
+    if (isMobile.value === true) {
+      if (isOpen.value) {
+        return 'fixed top-0 left-0 w-full h-full bg-slate-950/95 flex items-center justify-center z-40 translate-0'
+      }
+      if (isOpen.value === false) {
+        return 'fixed top-0 left-0 w-full h-full bg-slate-950/95 flex items-center justify-center z-40 -translate-full'
+      }
     } else {
       return 'relative'
     }
+  }
+  const navClass = computed(() => getClass())
+  onMounted(() => {
+    isOpen.value = false
+    getClass()
   })
   const toggleHandler = () => {
     isOpen.value = !isOpen.value
