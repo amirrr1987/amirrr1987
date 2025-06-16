@@ -49,7 +49,7 @@
               size="lg"
               color="primary"
               variant="soft"
-              to="/amir-maghami-cv.pdf"
+              to="/AmirMagjami-Resume.pdf"
               download
               target="_blank"
               class="font-mono group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
