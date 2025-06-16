@@ -1,9 +1,9 @@
 <template>
   <header :class="headerUI.wrapper" class="bg-slate-900/75 shadow-md">
     <div :class="headerUI.container" class="flex items-center md:justify-between gap-x-4">
-      <ULink to="/" class="flex items-center gap-2">
-        <TheLogo />
-      </ULink>
+      <!-- <ULink to="/" class="flex items-center gap-2">
+        <TheLogo class="h-12 w-12" />
+      </ULink> -->
   
       <NavBar />
 

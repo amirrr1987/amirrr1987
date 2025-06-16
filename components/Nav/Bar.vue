@@ -1,34 +1,42 @@
 <template>
-  <UNavigationMenu :items="navigationLinks" :orientation="windowSize.width.value > 768 ? 'vertical' : 'horizontal'" />
+  <UButton @click="toggleHandler" class="z-50 relative">=</UButton>
+  <UNavigationMenu
+    class="bg-red-400"
+    :class="navClass"
+    :items="navigationLinks"
+    :orientation="orientation"
+  >
+    <template #item="{ item }">
+      <template v-if="item.to === '/'">
+        <TheLogo class="h-4 w-4" />
+        {{ item.label }}
+      </template>
+    </template>
+  </UNavigationMenu>
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted, onUnmounted } from 'vue'
   import { useWindowSize } from '@vueuse/core'
 
   const windowSize = useWindowSize()
+  const orientation = computed(() => (windowSize.width.value < 768 ? 'vertical' : 'horizontal'))
+
   const isOpen = ref(false)
-  const toggleMenu = () => {
-    isOpen.value = !isOpen.value
-  }
 
-  const isDesktop = ref(window.innerWidth > 768)
-  const handleResize = () => {
-    isDesktop.value = window.innerWidth > 768
-    if (isDesktop.value) {
-      isOpen.value = false
+  const navClass = computed(() => {
+    if (isOpen.value && orientation.value === 'vertical') {
+      return 'fixed top-0 start-0 w-full h-full bg-gray-800/75 flex items-center justify-center z-50'
+    } else if (isOpen.value && orientation.value === 'horizontal') {
+      return 'fixed top-0 left-0 w-full bg-gray-800/75 flex items-center justify-center z-50'
+    } else {
+      return 'hidden'
     }
+  })
+  const toggleHandler = () => {
+    console.log('🚀 ~ toggleHandler ~ isOpen.value:', isOpen.value)
+    isOpen.value = !isOpen.value
+    console.log('🚀 ~ toggleHandler ~ isOpen.value:', isOpen.value)
   }
-
-  onMounted(() => {
-    window.addEventListener('resize', handleResize)
-    handleResize()
-  })
-
-  onUnmounted(() => {
-    window.removeEventListener('resize', handleResize)
-  })
-
   const navigationLinks = [
     { label: 'Home', to: '/', icon: 'i-heroicons-home' },
     { label: 'About', to: '/about', icon: 'i-heroicons-user' },

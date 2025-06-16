@@ -1,7 +1,7 @@
 <template>
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="456.000000pt" height="815.000000pt"
         viewBox="0 0 456.000000 815.000000" preserveAspectRatio="xMidYMid meet"
-        class="fill-cool-700 dark:fill-gray-300 w-12 h-12 object-contain">
+        class="fill-cool-700 dark:fill-gray-300  object-contain">
         <g transform="translate(0.000000,815.000000) scale(0.100000,-0.100000)" stroke="none">
             <path d="M1363 8093 c-7 -2 -13 -20 -13 -39 l0 -34 78 0 c238 -1 432 -135 504
 -350 22 -63 23 -82 26 -541 l3 -476 202 5 c204 5 470 -7 762 -33 88 -8 172
