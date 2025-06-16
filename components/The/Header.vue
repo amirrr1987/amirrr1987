@@ -1,6 +1,6 @@
 <template>
   <header :class="headerUI.wrapper" class="bg-slate-900/75 shadow-md">
-    <div :class="headerUI.container" class="flex items-center md:justify-between gap-x-4">
+    <div :class="headerUI.container" class="flex items-center justify-between gap-x-4">
       <!-- <ULink to="/" class="flex items-center gap-2">
         <TheLogo class="h-12 w-12" />
       </ULink> -->
@@ -13,7 +13,7 @@
         color="secondary"
         variant="outline"
         icon="i-heroicons-envelope"
-        class="hidden md:flex w-full sm:w-auto transition-transform duration-300 hover:scale-105"
+        class=" md:flex md:w-full sm:w-auto transition-transform duration-300 hover:scale-105"
       >
         Get in Touch
       </UButton>
