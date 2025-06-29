@@ -1,10 +1,12 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   colorMode: {
     preference: 'dark'
   },
+
+  css: ['~/assets/css/main.css'],
+
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
@@ -17,74 +19,115 @@ export default defineNuxtConfig({
     'v-gsap-nuxt',
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/site-config',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
+    '@nuxtjs/schema-org',
+    '@nuxtjs/seo-utils',
+    '@nuxtjs/og-image',
+    '@nuxtjs/link-checker'
   ],
-  site: {
+
+  siteConfig: {
     url: 'https://amirmaghami.ir',
-    name: 'Amir Maghami'
+    name: 'Amir Maghami - Full stack Developer',
+    description: 'Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.',
+    language: 'en',
+    ogImage: {
+      url: '/og-image.jpg',
+      alt: 'Amir Maghami - Full stack Developer'
+    }
   },
 
-  //   siteUrl: 'https://amirmaghami.ir',
-  // trailingSlash: false,
-  // sitemapName: 'sitemap.xml',
-  // defaults: {
-  //   changefreq: 'monthly',
-  //   priority: 0.8,
-  //   lastmod: true
-  // },
-  // exclude: ['/secret', '/admin'] // صفحات محرمانه
-  css: ['~/assets/css/main.css'],
   app: {
     head: {
       title: 'Amir Maghami - Full stack Developer',
+      htmlAttrs: {
+        lang: 'en',
+        class: 'scroll-smooth'
+      },
       meta: [
-        {
-          name: 'description',
-          content:
-            'Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.'
-        },
         { name: 'theme-color', content: '#8B5CF6' },
-
-        // SEO Tags
-        { name: 'author', content: 'Amir Maghami' },
-        {
-          name: 'keywords',
-          content:
-            'Amir Maghami, frontend developer, Vue.js developer, Nuxt.js portfolio, TypeScript developer, JavaScript, Nuxt 3, Nuxt UI, creative developer, Iran developer portfolio'
-        },
-        { name: 'robots', content: 'index, follow' },
-
-        // Open Graph / Facebook
-        { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: 'Amir Maghami - Full stack Developer' },
-        {
-          property: 'og:description',
-          content:
-            'Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.'
-        },
-        { property: 'og:image', content: 'https://amirmaghami.ir/og-image.jpg' },
-        { property: 'og:url', content: 'https://amirmaghami.ir/' },
-        { property: 'og:site_name', content: 'Amir Maghami Portfolio' },
-
-        // Twitter Card
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Amir Maghami - Full stack Developer' },
-        {
-          name: 'twitter:description',
-          content:
-            'Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.'
-        },
-        { name: 'twitter:image', content: 'https://amirmaghami.ir/og-image.jpg' },
-        { name: 'twitter:creator', content: '@amirrr1987' }
+        { name: 'robots', content: 'index, follow' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/logo.svg' },
         { rel: 'canonical', href: 'https://amirmaghami.ir/' }
-      ],
-      htmlAttrs: {
-        lang: 'en',
-        class: 'scroll-smooth'
+      ]
+    }
+  },
+
+  sitemap: {
+    enabled: true,
+    autoI18n: true,
+    sitemaps: {
+      default: {
+        includeAppSources: true,
+        chunks: 2000,
+        sitemapName: 'main-sitemap.xml'
+      }
+    },
+    defaultSitemapsChunkSize: 2000,
+    excludeAppSources: ['nuxt:prerender', '@nuxt/content:document-driven'],
+    runtimeCacheStorage: {
+      driver: 'redis',
+      host: 'localhost',
+      port: 6379
+    },
+    xsl: '/custom-style.xsl',
+    xslTips: false
+  },
+
+  robots: {
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        sitemap: 'https://amirmaghami.ir/sitemap.xml'
+      }
+    ]
+  },
+
+  schemaOrg: {
+    host: 'https://amirmaghami.ir',
+    canonicalHost: 'https://amirmaghami.ir',
+    defaultEntity: {
+      '@type': 'Person',
+      name: 'Amir Maghami',
+      jobTitle: 'Full Stack Developer',
+      url: 'https://amirmaghami.ir',
+      image: {
+        '@type': 'ImageObject',
+        url: 'https://amirmaghami.ir/og-image.jpg'
+      },
+      sameAs: [
+        'https://github.com/amirrr1987',
+        'https://www.linkedin.com/in/amirrr1987',
+        'https://stackoverflow.com/users/amirrr1987'
+      ]
+    }
+  },
+
+  ogImage: {
+    // تنظیمات پیش‌فرض Open Graph image
+    provider: 'twemoji',
+    fonts: ['Inter'],
+    presets: {
+      default: {
+        title: 'Amir Maghami',
+        description: 'Frontend Developer | Vue.js | Nuxt.js',
+        theme: 'dark'
       }
     }
+  },
+
+  seoUtils: {
+    // Auto meta generation, canonical, etc.
+    canonicalHost: 'https://amirmaghami.ir'
+  },
+
+  linkChecker: {
+    failOn404: false,
+    failOnRedirect: false
   }
 })
