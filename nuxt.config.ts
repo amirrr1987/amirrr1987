@@ -16,25 +16,52 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'v-gsap-nuxt',
     '@nuxtjs/color-mode',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    '@nuxtjs/sitemap'
   ],
+  site: {
+    url: 'https://amirmaghami.ir',
+    name: 'Amir Maghami'
+  },
+
+  //   siteUrl: 'https://amirmaghami.ir',
+  // trailingSlash: false,
+  // sitemapName: 'sitemap.xml',
+  // defaults: {
+  //   changefreq: 'monthly',
+  //   priority: 0.8,
+  //   lastmod: true
+  // },
+  // exclude: ['/secret', '/admin'] // صفحات محرمانه
   css: ['~/assets/css/main.css'],
   app: {
     head: {
       title: 'Amir Maghami - Full stack Developer',
       meta: [
-        { name: 'description', content: 'Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.' },
+        {
+          name: 'description',
+          content:
+            'Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.'
+        },
         { name: 'theme-color', content: '#8B5CF6' },
 
         // SEO Tags
         { name: 'author', content: 'Amir Maghami' },
-        { name: 'keywords', content: 'Amir Maghami, frontend developer, Vue.js developer, Nuxt.js portfolio, TypeScript developer, JavaScript, Nuxt 3, Nuxt UI, creative developer, Iran developer portfolio' },
+        {
+          name: 'keywords',
+          content:
+            'Amir Maghami, frontend developer, Vue.js developer, Nuxt.js portfolio, TypeScript developer, JavaScript, Nuxt 3, Nuxt UI, creative developer, Iran developer portfolio'
+        },
         { name: 'robots', content: 'index, follow' },
 
         // Open Graph / Facebook
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: 'Amir Maghami - Full stack Developer' },
-        { property: 'og:description', content: 'Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.' },
+        {
+          property: 'og:description',
+          content:
+            'Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.'
+        },
         { property: 'og:image', content: 'https://amirmaghami.ir/og-image.jpg' },
         { property: 'og:url', content: 'https://amirmaghami.ir/' },
         { property: 'og:site_name', content: 'Amir Maghami Portfolio' },
@@ -42,7 +69,11 @@ export default defineNuxtConfig({
         // Twitter Card
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'Amir Maghami - Full stack Developer' },
-        { name: 'twitter:description', content: 'Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.' },
+        {
+          name: 'twitter:description',
+          content:
+            'Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.'
+        },
         { name: 'twitter:image', content: 'https://amirmaghami.ir/og-image.jpg' },
         { name: 'twitter:creator', content: '@amirrr1987' }
       ],
