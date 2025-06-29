@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   app: {
     head: {
-      title: 'Amir Maghami - Frontend Developer',
+      title: 'Amir Maghami - Full stack Developer',
       meta: [
         {
           name: 'description',
