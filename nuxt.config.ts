@@ -14,23 +14,17 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/ui',
     '@pinia/nuxt',
-    'v-gsap-nuxt',
     '@nuxtjs/color-mode',
-    '@vueuse/nuxt',
-    '@nuxtjs/site-config',
     '@nuxtjs/sitemap',
-    '@nuxtjs/robots',
-    '@nuxtjs/schema-org',
-    '@nuxtjs/seo-utils',
-    '@nuxtjs/og-image',
-    '@nuxtjs/link-checker'
+    '@vueuse/nuxt',
+    'v-gsap-nuxt',
   ],
 
   site: {
     url: 'https://amirmaghami.ir/',
     name: 'Amir Maghami | Full stack Developer'
   },
-
+  
   css: ['~/assets/css/main.css'],
   app: {
     head: {

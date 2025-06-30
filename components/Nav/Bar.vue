@@ -1,6 +1,6 @@
 <template>
-  <UButton @click="toggleHandler" class="z-50 relative md:hidden">=</UButton>
-  <UNavigationMenu :class="navClass" :items="navigationLinks" :orientation="orientation">
+  <UButton @click="toggleHandler" class="z-50 relative  md:hidden">=</UButton>
+  <UNavigationMenu class="" :class="navClass" :items="navigationLinks" :orientation="orientation">
     <template #item="{ item }">
       <template v-if="item.to === '/'">
         <TheLogo class="h-4 w-4" />
@@ -27,7 +27,7 @@
         return 'fixed top-0 left-0 w-full h-full bg-slate-950/95 flex items-center justify-center z-40 -translate-full'
       }
     } else {
-      return 'relative'
+      return 'relative flex-1'
     }
   }
   const navClass = computed(() => getClass())

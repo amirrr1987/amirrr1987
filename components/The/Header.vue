@@ -1,31 +1,19 @@
 <template>
-  <header :class="headerUI.wrapper" class="bg-slate-900/75 shadow-md">
-    <div :class="headerUI.container" class="flex items-center justify-between gap-x-4">
-      <!-- <ULink to="/" class="flex items-center gap-2">
-        <TheLogo class="h-12 w-12" />
-      </ULink> -->
-  
+  <header class="bg-slate-900/95 shadow-md sticky top-0 z-50 border-b border-gray-800/50">
+    <UContainer class="flex justify-between py-2">
       <NavBar />
 
       <UButton
         to="/contact"
-        size="xl"
         color="secondary"
         variant="outline"
         icon="i-heroicons-envelope"
-        class=" md:flex md:w-full sm:w-auto transition-transform duration-300 hover:scale-105"
+        class="md:flex sm:w-auto transition-transform duration-300 hover:scale-105"
       >
         Get in Touch
       </UButton>
-    </div>
+    </UContainer>
   </header>
 </template>
 
-<script setup lang="ts">
-  const headerUI = {
-    wrapper: 'sticky top-0 z-50  border-b border-gray-800/50',
-    container: 'py-3 px-4 sm:px-6 lg:px-10'
-  }
-
- 
-</script>
+<script setup lang="ts"></script>
