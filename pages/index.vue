@@ -47,7 +47,7 @@
         <!-- Name with Typewriter Effect -->
         <h1
           ref="nameText"
-          class="font-mono text-5xl sm:text-6xl font-extrabold tracking-tight leading-tight bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent opacity-0"
+          class="font-mono text-5xl sm:text-6xl font-extrabold tracking-tight leading-tight bg-gradient-to-br from-primary to-purple-400 bg-clip-text text-transparent opacity-0"
         >
           <span ref="nameCursor" class="typewriter-cursor">|</span>
         </h1>
