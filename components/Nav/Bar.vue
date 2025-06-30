@@ -1,5 +1,9 @@
 <template>
-  <UButton @click="toggleHandler" class="z-50 relative  md:hidden">=</UButton>
+  <UButton
+    @click="toggleHandler"
+    class="z-50 relative w-8 h-8 flex justify-center items-center md:hidden bg-gradient-to-br from-primary to-purple-400"
+    icon="i-heroicons-bars-2"
+  ></UButton>
   <UNavigationMenu class="" :class="navClass" :items="navigationLinks" :orientation="orientation">
     <template #item="{ item }">
       <template v-if="item.to === '/'">
@@ -27,7 +31,7 @@
         return 'fixed top-0 left-0 w-full h-full bg-slate-950/95 flex items-center justify-center z-40 -translate-full'
       }
     } else {
-      return 'relative flex-1'
+      return 'relative'
     }
   }
   const navClass = computed(() => getClass())
