@@ -42,7 +42,7 @@ export const useCvStore = defineStore('cv', () => {
     frontEnd: {
       languagesAndStyling: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'TypeScript', 'SCSS', 'Less', 'BEM'],
       frameworksAndLibraries: ['Vue.js (v2/v3)', 'Nuxt.js', 'React.js', 'Angular', 'Three.js', 'Lodash', 'Day.js', 'Axios'],
-      uiFrameworks: ['Ant Design Vue', 'Vuetify', 'TailwindCSS', 'UnoCSS', 'WindiCSS', 'Bootstrap'],
+      uiFrameworks: ['Ant Design Vue', 'Vuetify', 'TailwindCSS', 'UnoCSS',  'Bootstrap'],
       stateManagement: ['Vuex', 'Pinia'],
     },
     backEnd: {
