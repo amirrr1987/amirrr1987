@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+@theme {
+  --font-mono: "Silkscreen", sans-serif;
+  --font-sans: "B612 Mono", sans-serif;
+}
