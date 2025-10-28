@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     "@nuxt/test-utils",
     "@nuxt/ui",
     "@vueuse/nuxt",
-    "@pinia/nuxt"
+    "@pinia/nuxt",
   ],
 
   css: ["~/assets/css/main.css"],
@@ -33,6 +33,25 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en",
         class: "scroll-smooth",
+      },
+    },
+  },
+  vite: {
+    build: {
+      sourcemap: false,
+      minify: true,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              if (id.includes("three")) return "three";
+              if (id.includes("gsap")) return "gsap";
+              if (id.includes("lodash-es")) return "lodash";
+              if (id.includes("vue")) return "vue";
+              return "vendor";
+            }
+          },
+        },
       },
     },
   },
