@@ -30,10 +30,10 @@
             :src="blog.img"
             :alt="blog.title"
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-          />
+          >
           <div
             class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 group-hover:bg-black/50 transition-opacity duration-300"
-          ></div>
+          />
         </div>
 
         <!-- Blog Content -->
