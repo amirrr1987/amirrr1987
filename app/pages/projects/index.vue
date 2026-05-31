@@ -2,32 +2,36 @@
   <section id="projects" class="relative z-10 flex flex-col justify-center">
     <!-- Header -->
     <UContainer
-      :ui="{ padding: 'py-12 px-4 sm:px-6 lg:px-10' }"
+      :ui="{ padding: 'px-4 sm:px-6 lg:px-8' }"
       class="text-center animate-fade-in"
     >
-      <h1 class="font-mono text-4xl sm:text-5xl font-bold text-primary mb-4">
+      <h1
+        class="mb-4 font-mono text-3xl font-bold text-primary sm:text-4xl md:text-5xl"
+      >
         Projects
       </h1>
-      <p class="font-mono text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
+      <p
+        class="mx-auto max-w-2xl text-pretty font-mono text-base leading-7 text-gray-300 sm:text-lg"
+      >
         A showcase of my creative and technical work.
       </p>
     </UContainer>
 
     <!-- Project Grid -->
     <UContainer
-      :ui="{ padding: 'py-8 px-4 sm:px-6 lg:px-10' }"
-      class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up"
+      :ui="{ padding: 'px-4 sm:px-6 lg:px-8' }"
+      class="mt-8 grid grid-cols-1 gap-5 animate-fade-in-up sm:gap-6 md:grid-cols-2 lg:mt-12 lg:grid-cols-3"
     >
       <UCard
         v-for="(project, index) in cvStore.projects"
         :key="index"
-        class="group relative overflow-hidden transition-all duration-300 hover:scale-[1.02]"
+        class="group relative h-full overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10"
       >
         <!-- Project Image -->
-        <div class="relative h-48 overflow-hidden rounded-t-lg">
+        <div class="relative h-44 overflow-hidden rounded-t-lg sm:h-48">
           <NuxtImg
             src="/placeholder.jpg"
-            alt="Project Image"
+            :alt="project.name"
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
           />
           <div
@@ -36,12 +40,14 @@
         </div>
 
         <!-- Project Details -->
-        <div class="p-6 space-y-4">
-          <h3 class="font-mono text-xl font-bold text-gray-100">
+        <div class="flex min-h-72 flex-col p-5 sm:p-6">
+          <h3 class="font-mono text-lg font-bold text-gray-100 sm:text-xl">
             {{ project.name }}
           </h3>
-          <p class="text-gray-300 mb-6">{{ project.description }}</p>
-          <div class="flex flex-wrap gap-2 mb-8">
+          <p class="mt-3 text-sm leading-7 text-gray-300 sm:text-base">
+            {{ project.description }}
+          </p>
+          <div class="mb-6 mt-5 flex flex-wrap gap-2">
             <UBadge
               v-for="(tech, idx) in project.technologies"
               :key="idx"
@@ -60,7 +66,7 @@
             color="primary"
             variant="soft"
             icon="i-heroicons-arrow-top-right-on-square"
-            class="font-mono transition-transform duration-300 hover:scale-105"
+            class="mt-auto w-full justify-center font-mono transition-transform duration-300 hover:scale-105 sm:w-auto"
           >
             View Project
           </UButton>

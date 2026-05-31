@@ -1,19 +1,23 @@
 <template>
   <section id="skills" class="relative z-10 flex flex-col justify-center">
-    <UContainer :ui="{ padding: 'py-12 px-4 sm:px-6 lg:px-10' }">
+    <UContainer :ui="{ padding: 'px-4 sm:px-6 lg:px-8' }">
       <!-- Header -->
       <div class="text-center animate-fade-in">
-        <h1 class="font-mono text-4xl sm:text-5xl font-bold text-primary mb-4">
+        <h1
+          class="mb-4 font-mono text-3xl font-bold text-primary sm:text-4xl md:text-5xl"
+        >
           Technical Skills
         </h1>
-        <p class="text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
+        <p
+          class="mx-auto max-w-2xl text-pretty text-base leading-7 text-gray-300 sm:text-lg"
+        >
           A snapshot of the technologies, frameworks, and tools I work with.
         </p>
       </div>
 
       <!-- Skill Grid -->
       <div
-        class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+        class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:mt-12 lg:grid-cols-4 xl:grid-cols-5"
       >
         <UBadge
           v-for="(skill, index) in cvStore.allSkills"
@@ -22,7 +26,7 @@
           color="primary"
           variant="soft"
           size="lg"
-          class="font-mono flex items-center justify-center h-12 transition-transform duration-300 hover:scale-105 animate-fade-in-up"
+          class="flex min-h-12 items-center justify-center rounded-xl px-4 py-3 text-center font-mono transition-transform duration-300 hover:scale-105 animate-fade-in-up"
         >
           {{ skill }}
         </UBadge>

@@ -1,9 +1,11 @@
 <template>
-  <section>
-    <UContainer>
-      <div class="space-y-8 animate-fade-in">
-        <div class="flex flex-col md:flex-row gap-8 items-center">
-          <div class="w-full md:w-1/3 flex justify-center animate-fade-in-up">
+  <section class="relative z-10">
+    <UContainer :ui="{ padding: 'px-4 sm:px-6 lg:px-8' }">
+      <div class="space-y-8 animate-fade-in sm:space-y-10">
+        <div
+          class="grid items-center gap-8 rounded-3xl border border-white/10 bg-slate-950/60 p-5 shadow-2xl shadow-slate-950/30 backdrop-blur md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.5fr)] md:p-8"
+        >
+          <div class="flex justify-center animate-fade-in-up">
             <div class="relative group">
               <div
                 class="absolute -inset-1 rounded-full bg-linear-to-r from-primary-500 to-purple-400 opacity-70 blur-sm group-hover:opacity-100 transition duration-300"
@@ -14,35 +16,41 @@
                 placeholder
                 width="250"
                 height="250"
-                class="w-40 h-40 p-4 rounded-full relative ring-2 ring-primary-500/50 shadow-xl transition-transform duration-300 group-hover:scale-105"
+                class="relative h-36 w-36 rounded-full p-4 ring-2 ring-primary-500/50 shadow-xl transition-transform duration-300 group-hover:scale-105 sm:h-44 sm:w-44"
                 alt="Amir Maghami"
               />
             </div>
           </div>
 
           <div
-            class="w-full md:w-2/3 space-y-6 animate-fade-in-right delay-150"
+            class="space-y-6 text-center animate-fade-in-right delay-150 md:text-left"
           >
             <div>
               <div class="font-mono mb-4">
                 <h1
-                  class="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary-500 to-purple-400 bg-clip-text text-transparent pb-2"
+                  class="break-words bg-linear-to-r from-primary-500 to-purple-400 bg-clip-text pb-2 text-3xl font-bold text-transparent sm:text-4xl md:text-5xl"
                 >
                   <span ref="titleText" />
                   <span ref="titleCursor" class="typewriter-cursor">|</span>
                 </h1>
-                <USeparator class="max-w-xs mx-auto my-4" />
+                <USeparator class="mx-auto my-4 max-w-xs md:mx-0" />
               </div>
-              <h2 class="font-mono mb-2 text-2xl md:text-3xl font-bold">
+              <h2
+                class="mb-2 font-mono text-xl font-bold sm:text-2xl md:text-3xl"
+              >
                 <span ref="nameText" />
               </h2>
-              <p class="font-mono text-lg text-primary-500 font-medium">
+              <p
+                class="font-mono text-base font-medium text-primary-500 sm:text-lg"
+              >
                 <span ref="titleSubText" />
               </p>
             </div>
 
             <UCard class="border-primary/20">
-              <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p
+                class="text-pretty text-sm leading-7 text-gray-600 dark:text-gray-300 sm:text-base"
+              >
                 <span ref="descriptionText" />
               </p>
             </UCard>
@@ -54,7 +62,7 @@
               to="/AmirMagjami-Resume.pdf"
               download
               target="_blank"
-              class="font-mono group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+              class="group w-full justify-center font-mono transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 sm:w-auto"
               icon="i-heroicons-document-arrow-down"
             >
               Download CV
@@ -69,7 +77,9 @@
         </div>
 
         <div class="animate-fade-in-up delay-300">
-          <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
+          <h3
+            class="mb-4 flex items-center justify-center gap-2 text-2xl font-bold sm:justify-start"
+          >
             <UIcon
               name="i-heroicons-light-bulb"
               class="w-6 h-6 text-primary-500"
@@ -78,7 +88,7 @@
           </h3>
 
           <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+            class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
           >
             <UBadge
               v-for="skill in keySkills"
@@ -86,7 +96,7 @@
               color="primary"
               variant="soft"
               size="lg"
-              class="font-mono p-4 flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-md hover:scale-105"
+              class="flex items-center justify-center gap-2 p-4 text-center font-mono transition-all duration-300 hover:scale-105 hover:shadow-md"
             >
               <UIcon :name="skill.icon" class="w-5 h-5" />
               {{ skill.name }}
@@ -95,7 +105,9 @@
         </div>
 
         <div class="animate-fade-in-up delay-450">
-          <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <h3
+            class="mb-4 flex items-center justify-center gap-2 text-xl font-bold sm:justify-start"
+          >
             <UIcon
               name="i-heroicons-code-bracket"
               class="w-5 h-5 text-primary-500"
@@ -103,7 +115,7 @@
             <span ref="additionalSkillsTitleText" />
           </h3>
 
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap justify-center gap-2 sm:justify-start">
             <UBadge
               v-for="(skill, index) in additionalSkills"
               :key="index"
@@ -190,7 +202,7 @@ onMounted(() => {
       text: content.name,
       ease: "none",
     },
-    "+=0.3"
+    "+=0.3",
   );
 
   // Title/subtitle animation
@@ -201,7 +213,7 @@ onMounted(() => {
       text: content.titleSub,
       ease: "none",
     },
-    "+=0.2"
+    "+=0.2",
   );
 
   // Description animation
@@ -212,7 +224,7 @@ onMounted(() => {
       text: content.description,
       ease: "none",
     },
-    "+=0.3"
+    "+=0.3",
   );
 
   // Skills title animation
@@ -223,7 +235,7 @@ onMounted(() => {
       text: content.skillsTitle,
       ease: "none",
     },
-    "+=0.2"
+    "+=0.2",
   );
 
   // Additional skills title animation
@@ -242,7 +254,7 @@ onMounted(() => {
       repeat: -1,
       yoyo: true,
     },
-    "-=0.5"
+    "-=0.5",
   );
 });
 </script>

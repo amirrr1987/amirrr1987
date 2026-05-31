@@ -1,19 +1,9 @@
 <template>
   <header
-    class="bg-slate-900/95 shadow-md sticky top-0 z-50 border-b border-gray-800/50"
+    class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 shadow-lg shadow-slate-950/30 backdrop-blur-xl"
   >
-    <UContainer class="flex justify-between py-2">
+    <UContainer class="flex items-center py-3 sm:py-4">
       <NavBar />
-
-      <UButton
-        to="/contact"
-        color="secondary"
-        variant="outline"
-        icon="i-heroicons-envelope"
-        class="hidden md:flex sm:w-auto transition-transform duration-300 hover:scale-105"
-      >
-        Get in Touch
-      </UButton>
     </UContainer>
   </header>
 </template>

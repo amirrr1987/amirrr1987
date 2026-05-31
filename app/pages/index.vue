@@ -1,10 +1,11 @@
 <template>
-  <section class="text-white flex items-center">
-    <UContainer
-      class="text-center px-4 sm:px-8"
-      :ui="{ constrained: 'max-w-3xl' }"
-    >
-      <div class="flex flex-col items-center justify-center space-y-6">
+  <section
+    class="flex min-h-[calc(100svh-11rem)] items-center text-white sm:min-h-[calc(100svh-12rem)]"
+  >
+    <UContainer class="mx-auto max-w-4xl px-4 text-center sm:px-8">
+      <div
+        class="flex flex-col items-center justify-center gap-5 py-6 sm:gap-6 lg:py-10"
+      >
         <!-- Animated SVG -->
         <svg
           ref="logoSvg"
@@ -14,7 +15,7 @@
           height="815.000000pt"
           viewBox="0 0 456.000000 815.000000"
           preserveAspectRatio="xMidYMid meet"
-          class="fill-primary-700 dark:fill-primary-500 w-38 h-38 object-contain opacity-0"
+          class="h-32 w-auto object-contain opacity-0 drop-shadow-2xl drop-shadow-primary/20 sm:h-44 lg:h-56"
         >
           <!-- SVG paths remain the same -->
           <g
@@ -66,7 +67,7 @@
         <!-- Name with Typewriter Effect -->
         <h1
           ref="nameText"
-          class="font-mono text-5xl sm:text-6xl font-extrabold tracking-tight leading-tight bg-gradient-to-br from-primary to-purple-400 bg-clip-text text-transparent opacity-0"
+          class="max-w-full break-words bg-gradient-to-br from-primary to-purple-300 bg-clip-text font-mono text-4xl font-extrabold leading-tight tracking-tight text-transparent opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
         >
           <span ref="nameCursor" class="typewriter-cursor">|</span>
         </h1>
@@ -74,7 +75,7 @@
         <!-- Title with Typewriter Effect -->
         <h2
           ref="titleText"
-          class="font-mono text-xl sm:text-2xl font-medium text-primary opacity-0"
+          class="font-mono text-lg font-medium text-primary opacity-0 sm:text-xl md:text-2xl"
         >
           <span ref="titleCursor" class="typewriter-cursor">|</span>
         </h2>
@@ -82,7 +83,7 @@
         <!-- Description with Typewriter Effect -->
         <p
           ref="descriptionText"
-          class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto opacity-0"
+          class="mx-auto max-w-2xl text-pretty text-sm leading-7 text-gray-300 opacity-0 sm:text-base md:text-lg"
         >
           <span ref="descCursor" class="typewriter-cursor">|</span>
         </p>
@@ -90,14 +91,15 @@
         <!-- Buttons -->
         <div
           ref="buttonsContainer"
-          class="flex flex-col sm:flex-row items-center gap-4 opacity-0"
+          class="grid w-full max-w-sm gap-3 opacity-0 sm:max-w-none sm:grid-flow-col sm:auto-cols-max sm:justify-center sm:gap-4"
         >
           <UButton
             to="/projects"
             size="xl"
             icon="i-heroicons-rocket-launch"
             color="primary"
-            class="font-mono w-full sm:w-auto transition-transform duration-300 hover:scale-105"
+            block
+            class="justify-center font-mono transition-transform duration-300 hover:scale-105 sm:w-auto"
           >
             View My Work
           </UButton>
@@ -107,7 +109,8 @@
             color="secondary"
             variant="outline"
             icon="i-heroicons-envelope"
-            class="font-mono w-full sm:w-auto transition-transform duration-300 hover:scale-105"
+            block
+            class="justify-center font-mono transition-transform duration-300 hover:scale-105 sm:w-auto"
           >
             Get in Touch
           </UButton>
@@ -126,14 +129,14 @@ import { TextPlugin } from "gsap/TextPlugin";
 gsap.registerPlugin(TextPlugin);
 
 // Refs for GSAP animations
-const logoSvg = ref(null);
-const nameText = ref(null);
-const nameCursor = ref(null);
-const titleText = ref(null);
-const titleCursor = ref(null);
-const descriptionText = ref(null);
-const descCursor = ref(null);
-const buttonsContainer = ref(null);
+const logoSvg = ref<SVGElement | null>(null);
+const nameText = ref<HTMLElement | null>(null);
+const nameCursor = ref<HTMLElement | null>(null);
+const titleText = ref<HTMLElement | null>(null);
+const titleCursor = ref<HTMLElement | null>(null);
+const descriptionText = ref<HTMLElement | null>(null);
+const descCursor = ref<HTMLElement | null>(null);
+const buttonsContainer = ref<HTMLElement | null>(null);
 
 // Content for typewriter effects
 const content = {
@@ -163,7 +166,7 @@ onMounted(() => {
       filter: "blur(0px)",
       duration: 1.6,
       ease: "elastic.out(1, 0.4)",
-    }
+    },
   );
 
   // Name typewriter effect
@@ -184,7 +187,7 @@ onMounted(() => {
         });
       },
     },
-    "+=0.3"
+    "+=0.3",
   );
 
   // Title typewriter effect
@@ -204,7 +207,7 @@ onMounted(() => {
         });
       },
     },
-    "+=0.2"
+    "+=0.2",
   );
 
   // Description typewriter effect
@@ -224,7 +227,7 @@ onMounted(() => {
         });
       },
     },
-    "+=0.2"
+    "+=0.2",
   );
 
   // Buttons animation
@@ -236,7 +239,7 @@ onMounted(() => {
       duration: 0.8,
       ease: "back.out(1.7)",
     },
-    "+=0.3"
+    "+=0.3",
   );
 
   // Continuous cursor blink for the last element
@@ -248,11 +251,11 @@ onMounted(() => {
       repeat: -1,
       yoyo: true,
     },
-    "-=0.5"
+    "-=0.5",
   );
 
   // Button hover effects
-  const buttons = buttonsContainer.value.querySelectorAll("button");
+  const buttons = buttonsContainer.value?.querySelectorAll("a, button") ?? [];
   buttons.forEach((button) => {
     button.addEventListener("mouseenter", () => {
       gsap.to(button, {

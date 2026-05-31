@@ -1,5 +1,5 @@
 <template>
-  <div class="py-12">
+  <div class="mx-auto w-full max-w-4xl px-4 py-6 sm:px-6 lg:px-8">
     <UButton
       to="/projects"
       icon="i-heroicons-arrow-left"
@@ -10,17 +10,23 @@
       Back to Projects
     </UButton>
     <ContentDoc v-slot="{ doc }">
-      <article>
-        <h1 class="text-5xl font-bold mb-2">{{ doc.title }}</h1>
-        <p class="text-gray-400 mb-8">{{ doc.description }}</p>
+      <article
+        class="rounded-3xl border border-white/10 bg-slate-950/60 p-5 shadow-2xl shadow-slate-950/30 backdrop-blur sm:p-8"
+      >
+        <h1 class="mb-3 break-words text-3xl font-bold sm:text-4xl md:text-5xl">
+          {{ doc.title }}
+        </h1>
+        <p class="mb-8 text-pretty leading-7 text-gray-400">
+          {{ doc.description }}
+        </p>
         <div v-if="doc.image" class="mb-8">
           <NuxtImg
             :src="doc.image"
             :alt="doc.title"
-            class="w-full h-auto rounded-lg shadow-lg"
+            class="h-auto w-full rounded-2xl shadow-lg"
           />
         </div>
-        <div class="prose prose-invert prose-lg max-w-none">
+        <div class="prose prose-invert max-w-none sm:prose-lg">
           <ContentRenderer :value="doc" />
         </div>
       </article>

@@ -3,49 +3,58 @@
     <!-- Header -->
     <UContainer
       :ui="{
-        padding: 'py-12 px-4 sm:px-6 lg:px-10',
+        padding: 'px-4 sm:px-6 lg:px-8',
         base: '!container',
       }"
       class="text-center animate-fade-in"
     >
-      <h1 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Blogs</h1>
-      <p class="text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
+      <h1 class="mb-4 text-3xl font-bold text-primary sm:text-4xl md:text-5xl">
+        Blogs
+      </h1>
+      <p
+        class="mx-auto max-w-2xl text-pretty text-base leading-7 text-gray-300 sm:text-lg"
+      >
         A collection of my thoughts, tutorials, and insights on web development.
       </p>
     </UContainer>
 
     <!-- Blog Grid -->
     <UContainer
-      :ui="{ padding: 'py-8 px-4 sm:px-6 lg:px-10' }"
-      class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up"
+      :ui="{ padding: 'px-4 sm:px-6 lg:px-8' }"
+      class="mt-8 grid grid-cols-1 gap-5 animate-fade-in-up sm:gap-6 md:grid-cols-2 lg:mt-12 lg:grid-cols-3"
     >
       <UCard
         v-for="blog in data"
         :key="blog.id"
-        class="group relative overflow-hidden transition-all duration-300 hover:scale-[1.02]"
+        class="group relative h-full overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10"
       >
         <!-- Blog Image -->
-        <div class="relative h-48 overflow-hidden rounded-t-lg">
+        <div class="relative h-44 overflow-hidden rounded-t-lg sm:h-48">
           <img
             :src="blog.img"
             :alt="blog.title"
-            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-          >
+            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
           <div
             class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 group-hover:bg-black/50 transition-opacity duration-300"
           />
         </div>
 
         <!-- Blog Content -->
-        <div class="p-6 space-y-4">
-          <h3 class="text-xl font-bold text-gray-100">{{ blog.title }}</h3>
-          <p class="text-gray-300">{{ blog.excerpt }}</p>
+        <div class="flex min-h-56 flex-col p-5 sm:p-6">
+          <h3 class="text-lg font-bold text-gray-100 sm:text-xl">
+            {{ blog.title }}
+          </h3>
+          <p class="mt-3 text-sm leading-7 text-gray-300 sm:text-base">
+            {{ blog.excerpt }}
+          </p>
           <ULink
             :to="`/blogs/${kebabCase(blog.title)}`"
             target="_blank"
-            class="text-primary font-medium transition-transform duration-300 hover:scale-105"
+            class="mt-auto inline-flex items-center gap-2 pt-6 font-medium text-primary transition-transform duration-300 hover:translate-x-1"
           >
             Read More
+            <UIcon name="i-heroicons-arrow-right" class="h-4 w-4" />
           </ULink>
         </div>
       </UCard>
