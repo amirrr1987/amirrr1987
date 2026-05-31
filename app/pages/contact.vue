@@ -1,15 +1,19 @@
 <template>
   <section
     id="contact"
-    class="relative z-10 flex flex-col justify-center items-center text-center"
+    class="relative z-10 flex flex-col items-center justify-center text-center"
   >
     <!-- Contact Header -->
-    <UContainer :ui="{ padding: 'py-12 px-4 sm:px-6 lg:px-10' }">
+    <UContainer :ui="{ padding: 'px-4 sm:px-6 lg:px-8' }">
       <div class="space-y-4 animate-fade-in">
-        <h1 class="font-mono text-4xl sm:text-5xl font-bold text-primary">
+        <h1
+          class="font-mono text-3xl font-bold text-primary sm:text-4xl md:text-5xl"
+        >
           Get in Touch
         </h1>
-        <p class="font-mono text-gray-300 text-md sm:text-xl max-w-md mx-auto">
+        <p
+          class="mx-auto max-w-2xl text-pretty font-mono text-base leading-7 text-gray-300 sm:text-lg"
+        >
           Feel free to reach out to me for collaborations, projects, or just to
           say hello!
         </p>
@@ -18,72 +22,74 @@
 
     <!-- Contact Form -->
     <UContainer
-      :ui="{ padding: 'py-8 px-4 sm:px-6 lg:px-10' }"
-      class="w-full max-w-2xl mt-8 animate-fade-in-up"
+      :ui="{ padding: 'px-4 sm:px-6 lg:px-8' }"
+      class="mt-8 w-full max-w-2xl animate-fade-in-up"
     >
-      <form class="space-y-6" @submit.prevent="handleSubmit">
-        <!-- Name Field -->
-        <UInput
-          v-model="formData.name"
-          type="text"
-          placeholder="Your Name"
-          icon="i-heroicons-user"
-          required
-          size="lg"
-          class="w-full transition-all duration-300 hover:ring-primary/50"
-        />
+      <UCard class="border-white/10 bg-slate-950/70 text-left backdrop-blur">
+        <form class="space-y-5" @submit.prevent="handleSubmit">
+          <!-- Name Field -->
+          <UInput
+            v-model="formData.name"
+            type="text"
+            placeholder="Your Name"
+            icon="i-heroicons-user"
+            required
+            size="lg"
+            class="w-full transition-all duration-300 hover:ring-primary/50"
+          />
 
-        <!-- Email Field -->
-        <UInput
-          v-model="formData.email"
-          type="email"
-          placeholder="Your Email"
-          icon="i-heroicons-envelope"
-          required
-          size="lg"
-          class="w-full transition-all duration-300 hover:ring-primary/50"
-        />
+          <!-- Email Field -->
+          <UInput
+            v-model="formData.email"
+            type="email"
+            placeholder="Your Email"
+            icon="i-heroicons-envelope"
+            required
+            size="lg"
+            class="w-full transition-all duration-300 hover:ring-primary/50"
+          />
 
-        <!-- Message Field -->
-        <UTextarea
-          v-model="formData.message"
-          placeholder="Your Message"
-          :rows="5"
-          required
-          size="lg"
-          class="w-full transition-all duration-300 hover:ring-primary/50"
-        />
+          <!-- Message Field -->
+          <UTextarea
+            v-model="formData.message"
+            placeholder="Your Message"
+            :rows="6"
+            required
+            size="lg"
+            class="w-full transition-all duration-300 hover:ring-primary/50"
+          />
 
-        <!-- Submit Button -->
-        <UButton
-          type="submit"
-          color="primary"
-          size="lg"
-          class="font-mono w-full sm:w-auto transition-transform duration-300 hover:scale-105"
-        >
-          Send Message
-        </UButton>
-      </form>
+          <!-- Submit Button -->
+          <UButton
+            type="submit"
+            color="primary"
+            size="lg"
+            icon="i-heroicons-paper-airplane"
+            class="w-full justify-center font-mono transition-transform duration-300 hover:scale-[1.02] sm:w-auto"
+          >
+            Send Message
+          </UButton>
+        </form>
+      </UCard>
     </UContainer>
 
     <!-- Social Links -->
     <UContainer
-      :ui="{ padding: 'py-8 px-4 sm:px-6 lg:px-10' }"
-      class="flex justify-center gap-6 mt-8 animate-fade-in-up"
+      :ui="{ padding: 'px-4 sm:px-6 lg:px-8' }"
+      class="mt-8 flex flex-wrap justify-center gap-3 animate-fade-in-up"
     >
-      <ULink
+      <UButton
         v-for="(link, index) in socialLinks"
         :key="index"
         :to="link.url"
         target="_blank"
-        aria-label="Social Link"
-        class="transition-transform duration-300 hover:scale-110"
-      >
-        <UIcon
-          :name="link.icon"
-          class="w-6 h-6 text-gray-300 hover:text-primary"
-        />
-      </ULink>
+        :aria-label="link.label"
+        :icon="link.icon"
+        color="neutral"
+        variant="soft"
+        size="lg"
+        class="transition-transform duration-300 hover:scale-110 hover:text-primary"
+      />
     </UContainer>
   </section>
 </template>
@@ -98,20 +104,35 @@ const formData = ref({
   email: "",
   message: "",
 });
+const toast = useToast();
 
 // Social Links
 const socialLinks = [
-  { icon: "i-simple-icons-github", url: "https://github.com/amirrr1987" },
   {
+    label: "GitHub",
+    icon: "i-simple-icons-github",
+    url: "https://github.com/amirrr1987",
+  },
+  {
+    label: "LinkedIn",
     icon: "i-simple-icons-linkedin",
     url: "https://www.linkedin.com/in/amirrr1987/",
   },
-  { icon: "i-simple-icons-telegram", url: "https://chat.telegram.dev" },
+  {
+    label: "Telegram",
+    icon: "i-simple-icons-telegram",
+    url: "https://chat.telegram.dev",
+  },
 ];
 
 // Handle Form Submission
 function handleSubmit() {
-  alert("Thank you for reaching out! I will get back to you soon.");
+  toast.add({
+    title: "Message ready",
+    description: "Thank you for reaching out. I will get back to you soon.",
+    color: "primary",
+    icon: "i-heroicons-check-circle",
+  });
   formData.value = { name: "", email: "", message: "" };
 }
 

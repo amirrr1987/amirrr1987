@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="canvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+  <canvas ref="canvas" class="fixed inset-0 -z-10 h-dvh w-full" />
 </template>
 <script setup lang="ts">
 import * as THREE from "three";
@@ -15,6 +15,10 @@ let animationFrameId: number;
 
 onMounted(() => {
   if (canvas.value) {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
     // Scene
     scene = new THREE.Scene();
 
@@ -28,13 +32,17 @@ onMounted(() => {
     camera.position.z = 5;
 
     // Renderer
-    renderer = new THREE.WebGLRenderer({ canvas: canvas.value, alpha: true });
+    renderer = new THREE.WebGLRenderer({
+      canvas: canvas.value,
+      alpha: true,
+      powerPreference: "low-power",
+    });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     // Particles
     const particleGeometry = new THREE.BufferGeometry();
-    const count = 6000;
+    const count = window.innerWidth < 768 ? 1800 : 4200;
     const positions = new Float32Array(count * 3);
 
     for (let i = 0; i < count * 3; i++) {
@@ -56,10 +64,12 @@ onMounted(() => {
     const clock = new THREE.Clock();
     const animate = () => {
       const elapsedTime = clock.getElapsedTime();
-      particles.rotation.y = elapsedTime * 0.1;
+      particles.rotation.y = prefersReducedMotion ? 0 : elapsedTime * 0.1;
 
       renderer.render(scene, camera);
-      animationFrameId = window.requestAnimationFrame(animate);
+      if (!prefersReducedMotion) {
+        animationFrameId = window.requestAnimationFrame(animate);
+      }
     };
     animate();
 
@@ -79,6 +89,10 @@ onUnmounted(() => {
 });
 
 function onWindowResize() {
+  if (!camera || !renderer) {
+    return;
+  }
+
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);

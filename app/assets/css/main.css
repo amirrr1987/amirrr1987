@@ -4,3 +4,40 @@
   --font-mono: "Silkscreen", sans-serif;
   --font-sans: "B612 Mono", sans-serif;
 }
+
+@layer base {
+  html {
+    background: #020617;
+  }
+
+  body {
+    min-width: 320px;
+    overflow-x: hidden;
+    background:
+      radial-gradient(
+        circle at top left,
+        rgb(88 28 135 / 0.24),
+        transparent 28rem
+      ),
+      radial-gradient(
+        circle at bottom right,
+        rgb(30 64 175 / 0.18),
+        transparent 24rem
+      ),
+      #020617;
+    color: #f8fafc;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: rgb(168 85 247 / 0.35);
+  }
+
+  button,
+  a,
+  input,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
