@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="canvas" class="fixed inset-0 -z-10 h-dvh w-full"></canvas>
+  <canvas ref="canvas" class="fixed inset-0 -z-10 h-dvh w-full" />
 </template>
 <script setup lang="ts">
 import * as THREE from "three";

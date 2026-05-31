@@ -1,9 +1,11 @@
 <template>
-  <TheHeader />
-  <main :class="[mainUI.base, mainUI.container]">
-    <slot />
-  </main>
-  <TheFooter />
+  <div class="grid min-h-svh grid-rows-[auto_1fr_auto]">
+    <TheHeader />
+    <main :class="[mainUI.base, mainUI.container]">
+      <slot />
+    </main>
+    <TheFooter />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -12,10 +14,3 @@ const mainUI = {
   base: "relative z-10 grid min-h-[calc(100svh-9rem)] overflow-x-hidden",
 };
 </script>
-<style>
-#__nuxt {
-  min-height: 100svh;
-  display: grid;
-  grid-template-rows: max-content 1fr max-content;
-}
-</style>

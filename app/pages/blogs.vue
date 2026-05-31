@@ -30,7 +30,7 @@
       >
         <!-- Blog Image -->
         <div class="relative h-44 overflow-hidden rounded-t-lg sm:h-48">
-          <img
+          <NuxtImg
             :src="blog.img"
             :alt="blog.title"
             class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
