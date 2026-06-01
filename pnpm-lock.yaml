@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/b612-mono':
+        specifier: ^5.2.5
+        version: 5.2.7
+      '@fontsource/silkscreen':
+        specifier: ^5.2.5
+        version: 5.2.8
       '@nuxt/icon':
         specifier: ^2.2.2
         version: 2.2.2(magicast@0.5.3)(vite@7.3.3(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(yaml@2.9.0))(vue@3.5.35(typescript@6.0.3))
@@ -582,6 +588,12 @@ packages:
 
   '@floating-ui/vue@1.1.11':
     resolution: {integrity: sha512-HzHKCNVxnGS35r9fCHBc3+uCnjw9IWIlCPL683cGgM9Kgj2BiAl8x1mS7vtvP6F9S/e/q4O6MApwSHj8hNLGfw==}
+
+  '@fontsource/b612-mono@5.2.7':
+    resolution: {integrity: sha512-nIHFyzEhYQxkLW18njXzIbOD94g1fy0yboCLd3jLGd78kXwKP1uErTfdMDFljbt1FNzGyTxWphXeRqpWMjsI7g==}
+
+  '@fontsource/silkscreen@5.2.8':
+    resolution: {integrity: sha512-PfVe2BRZdjY/UIEXsrpzCo/W8FIGo6jEEMHuQiKfma+E5LXb6WfFFBfCEsO89ZWOSwl2mLE1Yq0d8gagmcaBpQ==}
 
   '@iconify/collections@1.0.691':
     resolution: {integrity: sha512-n6dqyILpgspOZ0vCgfAKlh2vKaCNxKHMCZlQnZZoi5cygpPlNBHbxlJ4MKTzVRMXAa7aTKV2M8ZiEjIX3B++rw==}
@@ -5116,6 +5128,10 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+
+  '@fontsource/b612-mono@5.2.7': {}
+
+  '@fontsource/silkscreen@5.2.8': {}
 
   '@iconify/collections@1.0.691':
     dependencies:

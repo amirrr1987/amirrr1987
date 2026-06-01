@@ -1,5 +1,10 @@
+@import "@fontsource/silkscreen/400.css";
+@import "@fontsource/silkscreen/700.css";
+@import "@fontsource/b612-mono/400.css";
+@import "@fontsource/b612-mono/700.css";
 @import "tailwindcss";
 @import "@nuxt/ui";
+
 @theme {
   --font-mono: "Silkscreen", sans-serif;
   --font-sans: "B612 Mono", sans-serif;

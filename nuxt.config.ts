@@ -14,4 +14,12 @@ export default defineNuxtConfig({
     fallback: 'dark',
     classSuffix: '',
   },
+  ui: {
+    fonts: false,
+  },
+  vite: {
+    build: {
+      sourcemap: false,
+    },
+  },
 })
