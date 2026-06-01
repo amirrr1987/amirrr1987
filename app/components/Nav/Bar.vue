@@ -30,6 +30,17 @@
     />
 
     <div class="hidden items-center gap-2 lg:flex">
+      <UButton
+        variant="ghost"
+        color="neutral"
+        class="gap-1.5 font-mono text-muted hover:text-primary"
+        aria-label="Open command menu"
+        @click="toggle()"
+      >
+        <UIcon name="i-heroicons-magnifying-glass" class="size-4" />
+        <UKbd>Ctrl</UKbd>
+        <UKbd>K</UKbd>
+      </UButton>
       <UColorModeButton variant="ghost" color="neutral" />
       <UButton
         to="/contact"
@@ -123,6 +134,7 @@
 <script setup lang="ts">
 const route = useRoute();
 const isOpen = ref(false);
+const { toggle } = useCommandPalette();
 
 const navigationLinks = [
   { label: "Home", to: "/", icon: "i-heroicons-home" },

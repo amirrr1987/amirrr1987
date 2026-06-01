@@ -15,6 +15,17 @@
     background: #f8fafc;
   }
 
+  @media (min-width: 1024px) {
+    body.custom-cursor-active {
+      cursor: none;
+    }
+
+    body.custom-cursor-active a,
+    body.custom-cursor-active button {
+      cursor: none;
+    }
+  }
+
   body {
     min-width: 320px;
     overflow-x: hidden;
@@ -93,6 +104,92 @@
 
   .hero-glow-ring {
     @apply pointer-events-none absolute inset-0 -z-10 rounded-full bg-primary/25 blur-3xl;
+  }
+
+  .hero-pulse-ring {
+    position: absolute;
+    inset: -12%;
+    border-radius: 9999px;
+    border: 1px solid rgb(66 184 131 / 0.35);
+    animation: hero-pulse 3.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .bento-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: minmax(12rem, auto);
+    }
+
+    .bento-span-featured {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+
+  .bento-card {
+    position: relative;
+    height: 100%;
+    min-height: 12rem;
+    overflow: hidden;
+    border-radius: calc(1.5rem - 1px);
+    background: rgb(15 23 42 / 0.65);
+    transition: box-shadow 0.35s ease;
+  }
+
+  .bento-card:hover {
+    box-shadow: 0 0 48px rgb(66 184 131 / 0.18);
+  }
+
+  .bento-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.45;
+    background: radial-gradient(
+      circle at 80% 0%,
+      rgb(66 184 131 / 0.35),
+      transparent 55%
+    );
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  .bento-card:hover .bento-glow {
+    opacity: 0.85;
+  }
+
+  .bento-accent-0 .bento-glow {
+    background: radial-gradient(circle at 20% 100%, rgb(66 184 131 / 0.4), transparent 60%);
+  }
+
+  .bento-accent-1 .bento-glow {
+    background: radial-gradient(circle at 100% 50%, rgb(45 212 191 / 0.35), transparent 55%);
+  }
+
+  .bento-accent-2 .bento-glow {
+    background: radial-gradient(circle at 0% 0%, rgb(53 162 235 / 0.3), transparent 55%);
+  }
+
+  .cta-band-bg {
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(
+      from 0deg at 50% 50%,
+      rgb(66 184 131 / 0.15),
+      transparent 30%,
+      rgb(45 212 191 / 0.12),
+      transparent 70%
+    );
+    animation: gradient-spin 8s linear infinite;
+    opacity: 0.9;
+    pointer-events: none;
   }
 
   .tech-pill {
@@ -198,16 +295,17 @@
     z-index: 2;
     background: linear-gradient(
       105deg,
-      transparent 40%,
-      rgb(255 255 255 / 0.12) 50%,
-      transparent 60%
+      transparent 35%,
+      rgb(66 184 131 / 0.25) 48%,
+      rgb(255 255 255 / 0.2) 52%,
+      transparent 65%
     );
-    transform: translateX(-120%);
-    transition: transform 0.65s ease;
+    transform: translateX(-130%);
+    transition: transform 0.55s ease;
   }
 
   .shine-hover:hover .shine-sweep {
-    transform: translateX(120%);
+    transform: translateX(130%);
   }
 
   .tech-pill-interactive {
@@ -415,6 +513,18 @@
   }
   50% {
     box-shadow: 0 0 0 8px rgb(66 184 131 / 0);
+  }
+}
+
+@keyframes hero-pulse {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
   }
 }
 

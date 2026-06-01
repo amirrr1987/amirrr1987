@@ -28,6 +28,7 @@ export function useHeroEntrance(refs: () => HeroRefs, content: HeroContent) {
 
     const r = refs();
     gsap.set(r.revealTargets, { opacity: 0, y: 28 });
+    if (r.titleText) gsap.set(r.titleText, { opacity: 0, y: 16 });
 
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
@@ -56,11 +57,9 @@ export function useHeroEntrance(refs: () => HeroRefs, content: HeroContent) {
 
     tl.call(() => splitTextPop(r.nameText), undefined, "+=0.05");
 
-    tl.to(
-      r.titleText,
-      { duration: 0.85, text: content.title, ease: "none", opacity: 1 },
-      "+=0.15",
-    );
+    if (r.titleText) {
+      tl.to(r.titleText, { opacity: 1, y: 0, duration: 0.65 }, "+=0.15");
+    }
 
     tl.to(
       r.descriptionText,
@@ -75,7 +74,7 @@ export function useHeroEntrance(refs: () => HeroRefs, content: HeroContent) {
     );
 
     tl.to(
-      [r.nameCursor, r.titleCursor, r.descCursor],
+      [r.nameCursor, r.descCursor].filter(Boolean),
       { opacity: 0, duration: 0.45, repeat: -1, yoyo: true },
       "-=0.35",
     );

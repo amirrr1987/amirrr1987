@@ -2,7 +2,8 @@
   <UApp>
     <ClientOnly>
       <EffectsScrollProgress />
-      <EffectsCursorSpotlight />
+      <EffectsCustomCursor />
+      <EffectsCommandMenu />
     </ClientOnly>
     <NuxtLayout>
       <ClientOnly>

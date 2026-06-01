@@ -9,12 +9,14 @@
         show-separator
       />
 
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <UiProjectCard
+      <div class="bento-grid">
+        <div
           v-for="(project, index) in cvStore.projects"
-          :key="index"
-          :project="project"
-        />
+          :key="project.name"
+          :class="index === 0 ? 'bento-span-featured' : ''"
+        >
+          <UiProjectCard :project="project" />
+        </div>
       </div>
     </UContainer>
   </UiGradientSection>
