@@ -1,5 +1,5 @@
 <template>
-  <section class="relative z-10">
+  <UiGradientSection class="relative z-10">
     <UContainer class="space-y-8 sm:space-y-10">
       <UiPageHeader
         title="Technical Skills"
@@ -15,34 +15,33 @@
         variant="pill"
         class="w-full"
         :ui="{
-          list: 'bg-slate-950/50 ring-1 ring-white/10 backdrop-blur p-1 rounded-2xl',
-          trigger: 'font-mono text-sm',
+          list: 'glass-panel p-1.5 ring-0',
+          trigger: 'font-mono text-sm data-[state=active]:shadow-md data-[state=active]:shadow-primary/20',
         }"
       >
-        <template
-          v-for="tab in skillTabs"
-          :key="tab.slot"
-          #[tab.slot]
-        >
+        <template v-for="tab in skillTabs" :key="tab.slot" #[tab.slot]>
           <div
-            class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+            class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
           >
-            <UCard
+            <UiTiltCard
               v-for="(skill, index) in tab.skills"
               :key="`${tab.slot}-${skill}-${index}`"
               data-reveal
-              class="transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
-              :ui="{ body: 'flex min-h-14 items-center justify-center p-4 text-center' }"
             >
-              <span class="font-mono text-sm font-medium text-highlighted">
-                {{ skill }}
-              </span>
-            </UCard>
+              <UCard
+                class="glass-panel !rounded-[calc(1.5rem-1px)] !bg-slate-950/50 !shadow-none ring-0"
+                :ui="{ body: 'flex min-h-14 items-center justify-center p-4 text-center' }"
+              >
+                <span class="font-mono text-sm font-medium text-highlighted">
+                  {{ skill }}
+                </span>
+              </UCard>
+            </UiTiltCard>
           </div>
         </template>
       </UTabs>
     </UContainer>
-  </section>
+  </UiGradientSection>
 </template>
 
 <script setup lang="ts">
@@ -85,5 +84,5 @@ const skillTabs = computed(() => [
   },
 ]);
 
-useGsapReveal();
+useGsapScrollReveal({ stagger: 0.06 });
 </script>

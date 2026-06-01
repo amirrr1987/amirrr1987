@@ -1,11 +1,11 @@
 <template>
-  <header class="text-center" data-reveal>
+  <header class="text-center" data-reveal data-parallax>
     <p v-if="eyebrow" class="page-eyebrow mx-auto mb-4">
       <UIcon v-if="icon" :name="icon" class="size-4" />
       {{ eyebrow }}
     </p>
     <h1
-      class="font-mono text-3xl font-bold text-gradient-primary sm:text-4xl md:text-5xl"
+      class="text-gradient-primary text-shimmer font-mono text-3xl font-bold sm:text-4xl md:text-5xl"
     >
       {{ title }}
     </h1>

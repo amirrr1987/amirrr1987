@@ -1,6 +1,6 @@
 <template>
-  <section id="projects" class="relative z-10">
-    <UContainer class="space-y-8 sm:space-y-10">
+  <UiGradientSection class="relative z-10">
+    <UContainer class="space-y-10 sm:space-y-12">
       <UiPageHeader
         title="Projects"
         eyebrow="Portfolio"
@@ -9,7 +9,7 @@
         show-separator
       />
 
-      <div class="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <UiProjectCard
           v-for="(project, index) in cvStore.projects"
           :key="index"
@@ -17,13 +17,12 @@
         />
       </div>
     </UContainer>
-  </section>
+  </UiGradientSection>
 </template>
 
 <script setup lang="ts">
 import { useCvStore } from "~/stores/cv.store";
 
 const cvStore = useCvStore();
-
-useGsapReveal();
+useGsapScrollReveal({ stagger: 0.14 });
 </script>

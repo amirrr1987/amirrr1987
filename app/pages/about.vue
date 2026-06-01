@@ -1,36 +1,36 @@
 <template>
-  <section class="relative z-10">
-    <UContainer class="space-y-10 sm:space-y-12">
+  <UiGradientSection class="relative z-10">
+    <UContainer class="space-y-12 sm:space-y-14">
       <UiGlassPanel
         padding="lg"
         class="grid items-center gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]"
         data-reveal
       >
         <div class="flex justify-center">
-          <div class="group relative">
-            <span
-              class="absolute -inset-2 rounded-full bg-linear-to-r from-primary to-emerald-300 opacity-60 blur-md transition duration-300 group-hover:opacity-100"
-            />
-            <NuxtImg
-              src="/logo.svg"
-              placeholder
-              width="250"
-              height="250"
-              class="relative size-36 rounded-full bg-slate-950/80 p-4 ring-2 ring-primary/40 shadow-2xl transition-transform duration-300 group-hover:scale-105 sm:size-44"
-              alt="Amir Maghami"
-            />
-          </div>
+          <UiTiltCard class="inline-block">
+            <div class="group relative">
+              <span
+                class="absolute -inset-3 rounded-full bg-linear-to-r from-primary to-emerald-300 opacity-60 blur-lg transition duration-300 group-hover:opacity-100"
+              />
+              <NuxtImg
+                src="/logo.svg"
+                placeholder
+                width="250"
+                height="250"
+                class="relative size-36 rounded-full bg-slate-950/80 p-4 ring-2 ring-primary/40 shadow-2xl transition-transform duration-500 group-hover:scale-105 sm:size-44"
+                alt="Amir Maghami"
+              />
+            </div>
+          </UiTiltCard>
         </div>
 
         <div class="space-y-6 text-center md:text-left">
-          <div>
-            <p class="page-eyebrow mb-4 md:mx-0">Profile</p>
-            <h1 class="text-gradient-primary font-mono text-3xl font-bold sm:text-4xl md:text-5xl">
-              <span ref="titleText" />
-              <span ref="titleCursor" class="typewriter-cursor">|</span>
-            </h1>
-            <USeparator class="mx-auto my-4 max-w-xs md:mx-0" />
-          </div>
+          <p class="page-eyebrow mb-4 md:mx-0">Profile</p>
+          <h1 class="text-gradient-primary font-mono text-3xl font-bold sm:text-4xl md:text-5xl">
+            <span ref="titleText" />
+            <span ref="titleCursor" class="typewriter-cursor">|</span>
+          </h1>
+          <USeparator class="mx-auto my-4 max-w-xs md:mx-0" />
           <h2 class="font-mono text-xl font-bold text-highlighted sm:text-2xl md:text-3xl">
             <span ref="nameText" />
           </h2>
@@ -38,7 +38,11 @@
             <span ref="titleSubText" />
           </p>
 
-          <UCard variant="subtle" :ui="{ root: 'ring-1 ring-white/10 bg-primary/5' }">
+          <UCard
+            variant="subtle"
+            class="glass-panel ring-0"
+            :ui="{ root: 'bg-primary/5', body: 'p-5' }"
+          >
             <p class="text-pretty text-sm leading-7 text-muted sm:text-base">
               <span ref="descriptionText" />
             </p>
@@ -54,7 +58,7 @@
               target="_blank"
               icon="i-heroicons-document-arrow-down"
               trailing
-              class="justify-center shadow-lg shadow-primary/15 sm:w-auto"
+              class="btn-premium justify-center shadow-lg shadow-primary/20 sm:w-auto"
             >
               Download CV
             </UButton>
@@ -64,7 +68,7 @@
               variant="outline"
               to="/contact"
               icon="i-heroicons-envelope"
-              class="justify-center sm:w-auto"
+              class="btn-premium justify-center sm:w-auto"
             >
               Contact me
             </UButton>
@@ -79,18 +83,21 @@
           Key Skills
         </h3>
         <div
-          class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+          class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
         >
-          <UCard
+          <UiTiltCard
             v-for="skill in keySkills"
             :key="skill.name"
             data-reveal
-            class="transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10"
-            :ui="{ body: 'flex flex-col items-center gap-3 p-5 text-center' }"
           >
-            <UIcon :name="skill.icon" class="size-8 text-primary" />
-            <span class="font-mono text-sm font-semibold">{{ skill.name }}</span>
-          </UCard>
+            <UCard
+              class="glass-panel h-full !rounded-[calc(1.5rem-1px)] !shadow-none ring-0"
+              :ui="{ body: 'flex flex-col items-center gap-3 p-5 text-center' }"
+            >
+              <UIcon :name="skill.icon" class="size-8 text-primary" />
+              <span class="font-mono text-sm font-semibold">{{ skill.name }}</span>
+            </UCard>
+          </UiTiltCard>
         </div>
       </div>
 
@@ -106,14 +113,14 @@
             color="secondary"
             variant="soft"
             size="lg"
-            class="font-mono transition-transform hover:scale-105"
+            class="font-mono transition-all hover:scale-105 hover:shadow-md hover:shadow-primary/15"
           >
             {{ skill }}
           </UBadge>
         </div>
       </div>
     </UContainer>
-  </section>
+  </UiGradientSection>
 </template>
 
 <script setup lang="ts">
@@ -157,7 +164,7 @@ const content = {
     "A results-driven and detail-oriented Senior Front-End Developer with over 6 years of comprehensive experience in designing, developing, and optimizing high-performance, responsive web applications. Expert in the Vue.js ecosystem and modern front-end architecture.",
 };
 
-useGsapReveal();
+useGsapScrollReveal({ stagger: 0.1 });
 
 onMounted(() => {
   const tl = gsap.timeline();

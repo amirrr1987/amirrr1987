@@ -1,6 +1,9 @@
 <template>
-  <div :class="['glass-panel', paddingClass, props.class]">
-    <slot />
+  <div :class="['glass-panel relative', paddingClass, props.class]">
+    <span class="noise-overlay absolute inset-0 rounded-[inherit]" aria-hidden="true" />
+    <div class="relative z-[1]">
+      <slot />
+    </div>
   </div>
 </template>
 

@@ -6,7 +6,7 @@
       <div
         class="flex flex-col items-center justify-center gap-6 py-8 sm:gap-7 lg:py-12"
       >
-        <div class="relative flex items-center justify-center">
+        <div ref="logoParallaxWrap" class="relative flex items-center justify-center">
           <div class="hero-orbit" aria-hidden="true">
             <UBadge
               v-for="(orbit, i) in orbitTech"
@@ -25,9 +25,9 @@
         </div>
 
         <div ref="availabilityWrap" class="opacity-0">
-          <UBadge color="primary" variant="subtle" size="md" class="font-mono">
+          <UBadge color="primary" variant="subtle" size="md" class="status-ping font-mono">
             <span class="relative flex items-center gap-2">
-              <span class="size-2 animate-pulse rounded-full bg-primary" />
+              <span class="size-2 rounded-full bg-primary shadow-[0_0_10px_var(--ui-primary)]" />
               Available for new projects
             </span>
           </UBadge>
@@ -35,7 +35,7 @@
 
         <h1
           ref="nameText"
-          class="max-w-full break-words text-gradient-primary font-mono text-4xl font-extrabold leading-tight tracking-tight opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
+          class="text-gradient-primary text-shimmer max-w-full break-words font-mono text-4xl font-extrabold leading-tight tracking-tight opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
         >
           <span ref="nameCursor" class="typewriter-cursor">|</span>
         </h1>
@@ -61,9 +61,9 @@
           <span
             v-for="tech in coreTech"
             :key="tech.label"
-            class="tech-pill"
+            class="tech-pill-interactive"
           >
-            <UIcon :name="tech.icon" class="size-5" />
+            <UIcon :name="tech.icon" class="icon-spin-target size-5" />
             {{ tech.label }}
           </span>
         </div>
@@ -72,48 +72,50 @@
           ref="statsContainer"
           class="grid w-full max-w-2xl grid-cols-3 gap-3 opacity-0"
         >
-          <UiGlassPanel
+          <UiStatCounter
             v-for="stat in heroStats"
             :key="stat.label"
-            padding="sm"
-            class="group text-center transition-colors hover:border-primary/40"
-          >
-            <UIcon
-              :name="stat.icon"
-              class="mx-auto mb-2 size-6 text-primary opacity-80 transition-transform group-hover:scale-110"
-            />
-            <p class="font-mono text-xl font-bold text-primary sm:text-2xl">
-              {{ stat.value }}
-            </p>
-            <p class="mt-1 text-xs text-muted sm:text-sm">{{ stat.label }}</p>
-          </UiGlassPanel>
+            :value="stat.value"
+            :suffix="stat.suffix"
+            :label="stat.label"
+            :icon="stat.icon"
+            immediate
+          />
         </div>
 
         <div
           ref="buttonsContainer"
           class="grid w-full max-w-md gap-3 opacity-0 sm:max-w-none sm:grid-flow-col sm:auto-cols-max sm:justify-center sm:gap-4"
         >
-          <UButton
-            to="/projects"
-            size="xl"
-            icon="i-heroicons-rocket-launch"
-            color="primary"
-            block
-            class="justify-center shadow-xl shadow-primary/30 transition-transform duration-300 hover:scale-105 sm:w-auto"
-          >
-            View My Work
-          </UButton>
-          <UButton
-            to="/contact"
-            size="xl"
-            color="neutral"
-            variant="outline"
-            icon="i-heroicons-envelope"
-            block
-            class="justify-center border-primary/30 bg-primary/5 backdrop-blur transition-transform duration-300 hover:scale-105 hover:border-primary/60 hover:bg-primary/10 sm:w-auto"
-          >
-            Get in Touch
-          </UButton>
+          <UiMagneticWrap class="w-full sm:w-auto">
+            <div ref="ctaPrimaryWrap" class="w-full">
+              <UButton
+                to="/projects"
+                size="xl"
+                icon="i-heroicons-rocket-launch"
+                color="primary"
+                block
+                class="btn-premium justify-center shadow-xl shadow-primary/35 hover:shadow-[0_0_28px_rgba(66,184,131,0.45)]"
+              >
+                View My Work
+              </UButton>
+            </div>
+          </UiMagneticWrap>
+          <UiMagneticWrap class="w-full sm:w-auto">
+            <div ref="ctaSecondaryWrap" class="w-full">
+              <UButton
+                to="/contact"
+                size="xl"
+                color="neutral"
+                variant="outline"
+                icon="i-heroicons-envelope"
+                block
+                class="btn-premium justify-center border-primary/30 bg-primary/5 backdrop-blur hover:border-primary/60 hover:bg-primary/10"
+              >
+                Get in Touch
+              </UButton>
+            </div>
+          </UiMagneticWrap>
         </div>
 
         <div
@@ -134,11 +136,12 @@
           </UButton>
         </div>
 
-        <div
-          ref="socialRow"
-          class="flex items-center gap-2 opacity-0"
-        >
-          <UTooltip v-for="social in socialLinks" :key="social.label" :text="social.label">
+        <div ref="socialRow" class="flex items-center gap-2 opacity-0">
+          <UTooltip
+            v-for="social in socialLinks"
+            :key="social.label"
+            :text="social.label"
+          >
             <UButton
               :to="social.url"
               target="_blank"
@@ -147,7 +150,7 @@
               variant="ghost"
               size="lg"
               :aria-label="social.label"
-              class="hover:text-primary"
+              class="hover:text-primary hover:drop-shadow-[0_0_8px_rgba(66,184,131,0.5)]"
             />
           </UTooltip>
         </div>
@@ -171,12 +174,14 @@
 </template>
 
 <script setup lang="ts">
-import gsap from "gsap";
-import { TextPlugin } from "gsap/TextPlugin";
-
-gsap.registerPlugin(TextPlugin);
-
 const heroLogoRef = ref<{ logoSvg: Ref<SVGElement | null> } | null>(null);
+const logoParallaxWrap = ref<HTMLElement | null>(null);
+const ctaPrimaryWrap = ref<HTMLElement | null>(null);
+const ctaSecondaryWrap = ref<HTMLElement | null>(null);
+
+useMouseParallax(logoParallaxWrap, 14);
+useButtonRipple(ctaPrimaryWrap);
+useButtonRipple(ctaSecondaryWrap);
 const availabilityWrap = ref<HTMLElement | null>(null);
 const nameText = ref<HTMLElement | null>(null);
 const nameCursor = ref<HTMLElement | null>(null);
@@ -206,9 +211,9 @@ const orbitTech = [
 ];
 
 const heroStats = [
-  { value: "6+", label: "Years exp.", icon: "i-heroicons-briefcase" },
-  { value: "15+", label: "Technologies", icon: "i-heroicons-cpu-chip" },
-  { value: "3", label: "Live projects", icon: "i-heroicons-rocket-launch" },
+  { value: 6, suffix: "+", label: "Years exp.", icon: "i-heroicons-briefcase" },
+  { value: 15, suffix: "+", label: "Technologies", icon: "i-heroicons-cpu-chip" },
+  { value: 3, suffix: "", label: "Live projects", icon: "i-heroicons-rocket-launch" },
 ];
 
 const heroQuickLinks = [
@@ -230,83 +235,33 @@ const content = {
     "I craft beautiful, intuitive, and high-performance web experiences — merging elegant design with clean, scalable code to build amazing things for the web.",
 };
 
-function revealTargets() {
-  return [
-    availabilityWrap.value,
-    techRow.value,
-    statsContainer.value,
-    buttonsContainer.value,
-    quickLinksEl.value,
-    socialRow.value,
-    scrollCue.value,
-  ].filter(Boolean) as HTMLElement[];
-}
-
-onMounted(() => {
-  const logoSvg = heroLogoRef.value?.logoSvg;
-  const logoEl = logoSvg && "value" in logoSvg ? logoSvg.value : logoSvg;
-
-  gsap.set(revealTargets(), { opacity: 0, y: 24 });
-
-  const masterTL = gsap.timeline();
-
-  if (logoEl) {
-    masterTL.fromTo(
-      logoEl,
-      { opacity: 0, scale: 0.5, rotation: -30, filter: "blur(8px)" },
-      {
-        opacity: 1,
-        scale: 1,
-        rotation: 0,
-        filter: "blur(0px)",
-        duration: 1.6,
-        ease: "elastic.out(1, 0.4)",
-      },
-    );
-  }
-
-  masterTL.to(availabilityWrap.value, {
-    opacity: 1,
-    y: 0,
-    duration: 0.5,
-    ease: "power2.out",
-  }, "-=0.7");
-
-  masterTL.to(nameText.value, {
-    duration: 1.2,
-    text: content.name,
-    ease: "none",
-    opacity: 1,
-  }, "+=0.15");
-
-  masterTL.to(titleText.value, {
-    duration: 0.9,
-    text: content.title,
-    ease: "none",
-    opacity: 1,
-  }, "+=0.15");
-
-  masterTL.to(descriptionText.value, {
-    duration: 2.2,
-    text: content.description,
-    ease: "none",
-    opacity: 1,
-  }, "+=0.15");
-
-  masterTL.to(revealTargets(), {
-    opacity: 1,
-    y: 0,
-    duration: 0.75,
-    stagger: 0.1,
-    ease: "back.out(1.35)",
-  }, "+=0.2");
-
-  masterTL.to(
-    [nameCursor.value, titleCursor.value, descCursor.value],
-    { opacity: 0, duration: 0.5, repeat: -1, yoyo: true },
-    "-=0.4",
-  );
-});
+useHeroEntrance(
+  () => {
+    const logoSvg = heroLogoRef.value?.logoSvg;
+    const logoEl = logoSvg && "value" in logoSvg ? logoSvg.value : logoSvg;
+    return {
+      logoWrap: logoParallaxWrap.value,
+      logoEl: logoEl ?? undefined,
+      availabilityWrap: availabilityWrap.value,
+      nameText: nameText.value,
+      nameCursor: nameCursor.value,
+      titleText: titleText.value,
+      titleCursor: titleCursor.value,
+      descriptionText: descriptionText.value,
+      descCursor: descCursor.value,
+      revealTargets: [
+        availabilityWrap.value,
+        techRow.value,
+        statsContainer.value,
+        buttonsContainer.value,
+        quickLinksEl.value,
+        socialRow.value,
+        scrollCue.value,
+      ].filter(Boolean) as HTMLElement[],
+    };
+  },
+  content,
+);
 </script>
 
 <style scoped>

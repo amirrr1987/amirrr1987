@@ -84,7 +84,9 @@ onUnmounted(() => {
   if (animationFrameId) {
     window.cancelAnimationFrame(animationFrameId);
   }
-  timer?.disconnect?.(document);
+  if (timer && "disconnect" in timer) {
+    (timer as THREE.Timer & { disconnect: (d: Document) => void }).disconnect(document);
+  }
   renderer?.dispose();
 });
 

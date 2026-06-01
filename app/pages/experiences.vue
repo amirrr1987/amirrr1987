@@ -1,5 +1,5 @@
 <template>
-  <section class="relative z-10">
+  <UiGradientSection class="relative z-10">
     <UContainer>
       <UiPageHeader
         title="Professional Experience"
@@ -10,13 +10,12 @@
       />
       <UiExperienceTimeline :experiences="cvStore.professionalExperience" />
     </UContainer>
-  </section>
+  </UiGradientSection>
 </template>
 
 <script setup lang="ts">
 import { useCvStore } from "~/stores/cv.store";
 
 const cvStore = useCvStore();
-
-useGsapReveal();
+useGsapScrollReveal({ stagger: 0.12 });
 </script>

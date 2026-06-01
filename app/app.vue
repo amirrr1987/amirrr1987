@@ -1,5 +1,9 @@
 <template>
   <UApp>
+    <ClientOnly>
+      <EffectsScrollProgress />
+      <EffectsCursorSpotlight />
+    </ClientOnly>
     <NuxtLayout>
       <ClientOnly>
         <CanvasBackground />
@@ -39,11 +43,11 @@ useSeoMeta({
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(139 92 246 / 0.5);
+  background: rgb(66 184 131 / 0.55);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(139 92 246 / 0.75);
+  background: rgb(66 184 131 / 0.8);
 }
 </style>

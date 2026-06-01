@@ -87,7 +87,7 @@
             />
           </div>
 
-          <nav class="grid flex-1 content-center gap-2 py-10">
+          <nav ref="mobileNav" class="grid flex-1 content-center gap-2 py-10">
             <UButton
               v-for="item in navigationLinks"
               :key="item.to"
@@ -95,7 +95,7 @@
               color="neutral"
               variant="ghost"
               size="xl"
-              class="justify-start rounded-2xl px-4 py-4 font-mono text-base transition-colors hover:bg-primary/10 hover:text-primary"
+              class="mobile-nav-item justify-start rounded-2xl px-4 py-4 font-mono text-base transition-colors hover:bg-primary/10 hover:text-primary"
               :icon="item.icon"
               @click="isOpen = false"
             >
@@ -141,10 +141,21 @@ watch(
   },
 );
 
-watch(isOpen, (open) => {
+const mobileNav = ref<HTMLElement | null>(null);
+
+watch(isOpen, async (open) => {
   if (import.meta.client) {
     document.body.style.overflow = open ? "hidden" : "";
   }
+  if (!open || !import.meta.client || !mobileNav.value) return;
+
+  const { default: gsap } = await import("gsap");
+  const items = mobileNav.value.querySelectorAll(".mobile-nav-item");
+  gsap.fromTo(
+    items,
+    { opacity: 0, x: -24 },
+    { opacity: 1, x: 0, duration: 0.45, stagger: 0.07, ease: "back.out(1.4)" },
+  );
 });
 
 onBeforeUnmount(() => {

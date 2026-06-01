@@ -15,7 +15,7 @@
       <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
         <div class="flex shrink-0 items-start gap-3 sm:w-48 sm:flex-col">
           <div
-            class="relative z-10 mt-1 flex size-3 shrink-0 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/40 ring-4 ring-primary/20"
+            class="timeline-pulse relative z-10 mt-1 flex size-3 shrink-0 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/40 ring-4 ring-primary/20"
           />
           <div>
             <p class="font-mono text-xs uppercase tracking-wider text-primary">
