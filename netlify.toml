@@ -1,7 +1,0 @@
-[build]
-  publish = ".output/public"
-
-[build.environment]
-  NODE_VERSION = "22"
-  # Using Ubuntu 22.04 LTS (Jammy) - replaces deprecated Focal (20.04)
-  BUILD_IMAGE = "jammy"
