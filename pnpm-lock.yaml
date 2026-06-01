@@ -51,6 +51,12 @@ importers:
         specifier: ^5.0.7
         version: 5.1.0(@vue/compiler-sfc@3.5.35)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.35(typescript@6.0.3)))(vite@7.3.3(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(yaml@2.9.0))(vue@3.5.35(typescript@6.0.3))
     devDependencies:
+      '@iconify-json/heroicons':
+        specifier: ^1.2.2
+        version: 1.2.3
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.48
+        version: 1.2.84
       '@types/lodash-es':
         specifier: ^4.17.12
         version: 4.17.12
@@ -594,6 +600,12 @@ packages:
 
   '@fontsource/silkscreen@5.2.8':
     resolution: {integrity: sha512-PfVe2BRZdjY/UIEXsrpzCo/W8FIGo6jEEMHuQiKfma+E5LXb6WfFFBfCEsO89ZWOSwl2mLE1Yq0d8gagmcaBpQ==}
+
+  '@iconify-json/heroicons@1.2.3':
+    resolution: {integrity: sha512-n+vmCEgTesRsOpp5AB5ILB6srsgsYK+bieoQBNlafvoEhjVXLq8nIGN4B0v/s4DUfa0dOrjwE/cKJgIKdJXOEg==}
+
+  '@iconify-json/simple-icons@1.2.84':
+    resolution: {integrity: sha512-v4JVu6xIewGoETD4mm2k6UAdFAbTlY1duw5ZNSxYORfs2yFsHDhoU9Omn/BgrV0nR/ptWkF3ZIr/ZHoYXI/6Jw==}
 
   '@iconify/collections@1.0.691':
     resolution: {integrity: sha512-n6dqyILpgspOZ0vCgfAKlh2vKaCNxKHMCZlQnZZoi5cygpPlNBHbxlJ4MKTzVRMXAa7aTKV2M8ZiEjIX3B++rw==}
@@ -5132,6 +5144,14 @@ snapshots:
   '@fontsource/b612-mono@5.2.7': {}
 
   '@fontsource/silkscreen@5.2.8': {}
+
+  '@iconify-json/heroicons@1.2.3':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/simple-icons@1.2.84':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/collections@1.0.691':
     dependencies:

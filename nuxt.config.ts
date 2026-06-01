@@ -17,9 +17,22 @@ export default defineNuxtConfig({
   ui: {
     fonts: false,
   },
+  icon: {
+    serverBundle: {
+      collections: ['heroicons', 'simple-icons'],
+    },
+  },
   vite: {
     build: {
       sourcemap: false,
+    },
+    optimizeDeps: {
+      include: [
+        'gsap',
+        'gsap/ScrollTrigger',
+        'gsap/TextPlugin',
+        'three',
+      ],
     },
   },
 })
