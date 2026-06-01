@@ -94,6 +94,161 @@
     @apply inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-[0.2em] text-primary;
   }
 
+  .label-mono {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.22em] text-primary;
+  }
+
+  .display-name {
+    @apply font-mono text-3xl font-bold leading-[1.12] tracking-tight sm:text-4xl md:text-5xl lg:text-[3.25rem];
+  }
+
+  .display-section {
+    @apply font-mono text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl;
+  }
+
+  .body-copy {
+    @apply font-sans text-sm leading-7 sm:text-base sm:leading-8;
+  }
+
+  .hero-meta {
+    @apply border-l-2 border-primary/40 pl-4;
+  }
+
+  .tech-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/50 px-3 py-1.5 font-mono text-xs text-muted backdrop-blur-sm transition-colors hover:border-primary/35 hover:text-highlighted;
+  }
+
+  html.light .tech-chip {
+    @apply border-emerald-200/70 bg-white/70;
+  }
+
+  .project-preview {
+    @apply relative h-full w-full overflow-hidden rounded-[inherit];
+  }
+
+  .project-preview--hero {
+    min-height: 16rem;
+  }
+
+  @media (min-width: 768px) {
+    .project-preview--hero {
+      min-height: 20rem;
+    }
+  }
+
+  .project-preview-chrome {
+    @apply flex items-center gap-2 border-b border-white/10 px-4 py-2.5 font-mono text-[10px] text-muted;
+    background: rgb(2 6 23 / 0.85);
+  }
+
+  .project-preview-dot {
+    @apply size-2 rounded-full bg-white/20;
+  }
+
+  .project-preview-url {
+    @apply ml-2 truncate opacity-70;
+  }
+
+  .project-preview-body {
+    @apply relative flex h-full min-h-[inherit] flex-col justify-end p-4 sm:p-6;
+  }
+
+  .project-preview--compact .project-preview-body {
+    @apply p-3;
+  }
+
+  .project-preview--emerald .project-preview-body {
+    background: linear-gradient(145deg, rgb(6 78 59 / 0.9), rgb(15 23 42 / 0.95));
+  }
+
+  .project-preview--violet .project-preview-body {
+    background: linear-gradient(145deg, rgb(76 29 149 / 0.85), rgb(15 23 42 / 0.95));
+  }
+
+  .project-preview--sky .project-preview-body {
+    background: linear-gradient(145deg, rgb(3 105 161 / 0.85), rgb(15 23 42 / 0.95));
+  }
+
+  .project-preview--amber .project-preview-body {
+    background: linear-gradient(145deg, rgb(180 83 9 / 0.8), rgb(15 23 42 / 0.95));
+  }
+
+  .project-preview--rose .project-preview-body {
+    background: linear-gradient(145deg, rgb(190 24 93 / 0.75), rgb(15 23 42 / 0.95));
+  }
+
+  html.light .project-preview--emerald .project-preview-body {
+    background: linear-gradient(145deg, rgb(167 243 208 / 0.5), rgb(248 250 252 / 1));
+  }
+
+  html.light .project-preview--violet .project-preview-body {
+    background: linear-gradient(145deg, rgb(221 214 254 / 0.55), rgb(248 250 252 / 1));
+  }
+
+  html.light .project-preview--sky .project-preview-body {
+    background: linear-gradient(145deg, rgb(186 230 253 / 0.55), rgb(248 250 252 / 1));
+  }
+
+  html.light .project-preview--amber .project-preview-body {
+    background: linear-gradient(145deg, rgb(253 230 138 / 0.55), rgb(248 250 252 / 1));
+  }
+
+  html.light .project-preview--rose .project-preview-body {
+    background: linear-gradient(145deg, rgb(251 207 232 / 0.55), rgb(248 250 252 / 1));
+  }
+
+  .project-preview-ui {
+    @apply flex gap-3 opacity-90;
+  }
+
+  .project-preview-sidebar {
+    @apply hidden w-16 shrink-0 rounded-lg bg-white/10 sm:block;
+    min-height: 5rem;
+  }
+
+  .project-preview-main {
+    @apply flex flex-1 flex-col gap-2;
+  }
+
+  .project-preview-line {
+    @apply h-2 rounded-full bg-white/15;
+    width: 88%;
+  }
+
+  .project-preview-line--lg {
+    @apply h-3 w-2/3 bg-white/25;
+  }
+
+  .project-preview-line--sm {
+    @apply w-1/2;
+  }
+
+  .project-preview-blocks {
+    @apply mt-2 flex gap-2;
+  }
+
+  .project-preview-blocks span {
+    @apply h-10 flex-1 rounded-lg bg-white/10;
+  }
+
+  .project-preview-label {
+    @apply mt-4 text-right text-xs text-white/50;
+  }
+
+  html.light .project-preview-label {
+    @apply text-slate-500;
+  }
+
+  html.light .project-preview-chrome {
+    @apply border-emerald-200/60 bg-white/90 text-slate-600;
+  }
+
+  html.light .project-preview-line,
+  html.light .project-preview-blocks span,
+  html.light .project-preview-sidebar {
+    @apply bg-slate-300/60;
+  }
+
   .typewriter-cursor {
     display: inline-block;
     margin-left: 2px;
@@ -125,6 +280,17 @@
     .bento-grid {
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: minmax(12rem, auto);
+    }
+
+    .bento-span-featured {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .bento-span-featured {

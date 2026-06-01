@@ -1,5 +1,7 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
+import { portfolioProjects } from "~/data/portfolio-projects";
+import type { Project } from "~/types/project";
 
 interface Experience {
   role: string;
@@ -8,13 +10,6 @@ interface Experience {
   period: string;
   responsibilities: string[];
   technologies: string[];
-}
-
-interface Project {
-  name: string;
-  description: string;
-  technologies: string[];
-  url: string;
 }
 
 interface Education {
@@ -188,28 +183,7 @@ export const useCvStore = defineStore("cv", () => {
     },
   ]);
 
-  const projects = ref<Project[]>([
-    {
-      name: "CV Builder",
-      description:
-        "A dynamic web application for creating, customizing, and exporting professional resumes.",
-      technologies: ["Vue.js", "Pinia", "TailwindCSS", "Vite"],
-      url: "https://cvbuilder-amirmaghami.netlify.app/",
-    },
-    {
-      name: "DongDong App",
-      description: "A real-time, interactive group-play game application.",
-      technologies: ["Vue.js", "Socket.IO", "UnoCSS"],
-      url: "https://dongdong-amirmaghami.netlify.app/",
-    },
-    {
-      name: "The Movie Database",
-      description:
-        "A responsive web application for Browse and discovering movie information using a third-party API.",
-      technologies: ["Vue.js", "Axios", "CSS Grid/Flexbox"],
-      url: "https://themovie-amirmaghami.netlify.app/",
-    },
-  ]);
+  const projects = ref<Project[]>(portfolioProjects);
 
   const education = ref<Education[]>([
     {

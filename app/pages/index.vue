@@ -3,173 +3,124 @@
     <section
       class="relative flex min-h-[calc(100svh-11rem)] items-center sm:min-h-[calc(100svh-12rem)]"
     >
-      <UContainer class="relative mx-auto max-w-5xl px-4 sm:px-8">
+      <UContainer class="relative mx-auto max-w-6xl px-4 sm:px-8">
         <div
-          class="flex flex-col items-center justify-center gap-6 py-8 sm:gap-7 lg:py-12"
+          class="grid items-center gap-10 py-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14 lg:py-14"
         >
-          <div ref="logoParallaxWrap" class="relative flex items-center justify-center">
-            <span class="hero-glow-ring scale-110 opacity-80" aria-hidden="true" />
-            <span class="hero-pulse-ring" aria-hidden="true" />
-            <HeroLogo ref="heroLogoRef" />
-          </div>
-
-          <div ref="availabilityWrap" class="opacity-0">
-            <UBadge color="primary" variant="subtle" size="md" class="status-ping font-mono">
+          <div ref="heroContent" class="order-2 flex flex-col gap-6 opacity-0 lg:order-1">
+            <UBadge color="primary" variant="subtle" size="md" class="status-ping w-fit font-mono">
               <span class="relative flex items-center gap-2">
-                <span class="size-2 rounded-full bg-primary shadow-[0_0_10px_var(--ui-primary)]" />
-                Available for new projects
+                <span class="size-2 rounded-full bg-primary" />
+                Open to freelance & full-time
               </span>
             </UBadge>
-          </div>
 
-          <h1
-            ref="nameText"
-            class="text-gradient-primary text-shimmer max-w-full break-words text-center font-mono text-4xl font-extrabold leading-tight tracking-tight opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            <span ref="nameCursor" class="typewriter-cursor">|</span>
-          </h1>
+            <div class="space-y-3">
+              <p class="label-mono">Amir Maghami</p>
+              <h1 class="display-name text-highlighted">
+                I build
+                <span class="text-gradient-primary">Vue & Nuxt</span>
+                products people actually use.
+              </h1>
+            </div>
 
-          <h2
-            ref="titleText"
-            class="text-center font-mono text-lg font-medium text-muted opacity-0 sm:text-xl md:text-2xl"
-          >
-            <span class="text-highlighted">I'm a </span>
-            <span
-              ref="roleWord"
-              class="text-gradient-primary inline-block min-w-[7ch] font-bold"
-            >Vue.js</span>
-            <span class="text-highlighted"> Specialist</span>
-          </h2>
+            <p class="body-copy max-w-xl text-muted">
+              Senior front-end · 6+ years · Tehran & remote.
+              <span ref="roleWord" class="text-primary font-semibold">Vue.js</span>
+              specialist shipping dashboards, tools, and polished marketing sites.
+            </p>
 
-          <p
-            ref="descriptionText"
-            class="mx-auto max-w-2xl text-pretty text-center font-sans text-sm leading-7 text-gray-300 opacity-0 sm:text-base md:text-lg"
-          >
-            <span ref="descCursor" class="typewriter-cursor">|</span>
-          </p>
+            <p class="hero-meta font-mono text-xs text-muted sm:text-sm">
+              6+ years experience · {{ liveCount }}+ Netlify live demos · Nuxt & Vue specialist
+            </p>
 
-          <div
-            ref="statsContainer"
-            class="grid w-full max-w-2xl grid-cols-3 gap-3 opacity-0"
-          >
-            <UiStatCounter
-              v-for="stat in heroStats"
-              :key="stat.label"
-              :value="stat.value"
-              :suffix="stat.suffix"
-              :label="stat.label"
-              :icon="stat.icon"
-              immediate
-            />
-          </div>
-
-          <div
-            ref="buttonsContainer"
-            class="grid w-full max-w-md gap-3 opacity-0 sm:max-w-none sm:grid-flow-col sm:auto-cols-max sm:justify-center sm:gap-4"
-          >
-            <UiMagneticWrap class="w-full sm:w-auto">
-              <div ref="ctaPrimaryWrap" class="w-full">
-                <UButton
-                  to="#showcase"
-                  size="xl"
-                  icon="i-heroicons-sparkles"
-                  color="primary"
-                  block
-                  class="btn-premium justify-center shadow-xl shadow-primary/35 hover:shadow-[0_0_32px_rgba(66,184,131,0.5)]"
-                >
-                  See Featured Work
-                </UButton>
-              </div>
-            </UiMagneticWrap>
-            <UiMagneticWrap class="w-full sm:w-auto">
-              <div ref="ctaSecondaryWrap" class="w-full">
-                <UButton
-                  to="/contact"
-                  size="xl"
-                  color="neutral"
-                  variant="outline"
-                  icon="i-heroicons-envelope"
-                  block
-                  class="btn-premium justify-center border-primary/30 bg-primary/5 backdrop-blur hover:border-primary/60 hover:bg-primary/10"
-                >
-                  Get in Touch
-                </UButton>
-              </div>
-            </UiMagneticWrap>
-          </div>
-
-          <div ref="socialRow" class="flex items-center gap-2 opacity-0">
-            <UTooltip
-              v-for="social in socialLinks"
-              :key="social.label"
-              :text="social.label"
-            >
+            <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <UButton
-                :to="social.url"
-                target="_blank"
-                :icon="social.icon"
+                to="#flagship"
+                size="xl"
+                color="primary"
+                icon="i-heroicons-sparkles"
+                class="btn-premium justify-center font-mono shadow-lg shadow-primary/25"
+              >
+                Flagship project
+              </UButton>
+              <UButton
+                to="/contact"
+                size="xl"
                 color="neutral"
-                variant="ghost"
-                size="lg"
-                :aria-label="social.label"
-                class="hover:text-primary hover:drop-shadow-[0_0_8px_rgba(66,184,131,0.5)]"
-              />
-            </UTooltip>
+                variant="outline"
+                icon="i-heroicons-envelope"
+                class="btn-premium justify-center font-mono"
+              >
+                Get in touch
+              </UButton>
+            </div>
+
+            <div ref="socialRow" class="flex items-center gap-1 opacity-0">
+              <UTooltip
+                v-for="social in socialLinks"
+                :key="social.label"
+                :text="social.label"
+              >
+                <UButton
+                  :to="social.url"
+                  target="_blank"
+                  :icon="social.icon"
+                  color="neutral"
+                  variant="ghost"
+                  size="md"
+                  :aria-label="social.label"
+                  class="hover:text-primary"
+                />
+              </UTooltip>
+            </div>
+          </div>
+
+          <div
+            ref="logoWrap"
+            class="order-1 flex justify-center lg:order-2 lg:justify-end"
+          >
+            <div class="relative">
+              <span class="hero-glow-ring opacity-50" aria-hidden="true" />
+              <HeroLogo ref="heroLogoRef" class="hero-logo-size" />
+            </div>
           </div>
         </div>
 
-        <div ref="scrollCue" class="mt-6 flex justify-center opacity-0">
-        <NuxtLink
-          to="#showcase"
-          class="flex flex-col items-center gap-1 transition-colors hover:text-primary"
-          aria-label="Scroll to featured projects"
-        >
-          <span class="font-mono text-xs uppercase tracking-widest text-muted">
-            Scroll
-          </span>
-          <UIcon
-            name="i-heroicons-chevron-down"
-            class="size-6 animate-bounce text-primary"
-          />
-        </NuxtLink>
+        <div ref="scrollCue" class="flex justify-center pb-4 opacity-0 lg:pb-0">
+          <NuxtLink
+            to="#flagship"
+            class="flex flex-col items-center gap-1 text-muted transition-colors hover:text-primary"
+            aria-label="Scroll to flagship project"
+          >
+            <span class="font-mono text-xs uppercase tracking-widest">Scroll</span>
+            <UIcon name="i-heroicons-chevron-down" class="size-5 text-primary" />
+          </NuxtLink>
         </div>
       </UContainer>
     </section>
 
-    <HomeTechMarquee />
+    <HomeFlagshipCase />
     <HomeBentoShowcase />
+    <HomeTechStack />
     <HomeServicesBento />
     <HomeCtaBand />
   </div>
 </template>
 
 <script setup lang="ts">
+import { liveProjectCount } from "~/data/portfolio-projects";
+
 const heroLogoRef = ref<{ logoSvg: Ref<SVGElement | null> } | null>(null);
-const logoParallaxWrap = ref<HTMLElement | null>(null);
-const ctaPrimaryWrap = ref<HTMLElement | null>(null);
-const ctaSecondaryWrap = ref<HTMLElement | null>(null);
-const availabilityWrap = ref<HTMLElement | null>(null);
-const nameText = ref<HTMLElement | null>(null);
-const nameCursor = ref<HTMLElement | null>(null);
-const titleText = ref<HTMLElement | null>(null);
-const roleWord = ref<HTMLElement | null>(null);
-const descriptionText = ref<HTMLElement | null>(null);
-const descCursor = ref<HTMLElement | null>(null);
-const statsContainer = ref<HTMLElement | null>(null);
-const buttonsContainer = ref<HTMLElement | null>(null);
+const heroContent = ref<HTMLElement | null>(null);
+const logoWrap = ref<HTMLElement | null>(null);
 const socialRow = ref<HTMLElement | null>(null);
 const scrollCue = ref<HTMLElement | null>(null);
+const roleWord = ref<HTMLElement | null>(null);
 
-useMouseParallax(logoParallaxWrap, 14);
-useButtonRipple(ctaPrimaryWrap);
-useButtonRipple(ctaSecondaryWrap);
 useRotatingRole(roleWord);
 
-const heroStats = [
-  { value: 6, suffix: "+", label: "Years exp.", icon: "i-heroicons-briefcase" },
-  { value: 15, suffix: "+", label: "Technologies", icon: "i-heroicons-cpu-chip" },
-  { value: 3, suffix: "", label: "Live projects", icon: "i-heroicons-rocket-launch" },
-];
+const liveCount = liveProjectCount;
 
 const socialLinks = [
   { label: "GitHub", icon: "i-simple-icons-github", url: "https://github.com/amirrr1987" },
@@ -177,36 +128,26 @@ const socialLinks = [
   { label: "Telegram", icon: "i-simple-icons-telegram", url: "https://chat.telegram.dev" },
 ];
 
-const content = {
-  name: "Amir Maghami",
-  title: "",
-  description:
-    "I craft beautiful, intuitive, and high-performance web experiences — merging elegant design with clean, scalable code.",
-};
-
-useHeroEntrance(
-  () => {
-    const logoSvg = heroLogoRef.value?.logoSvg;
-    const logoEl = logoSvg && "value" in logoSvg ? logoSvg.value : logoSvg;
-    return {
-      logoWrap: logoParallaxWrap.value,
-      logoEl: logoEl ?? undefined,
-      availabilityWrap: availabilityWrap.value,
-      nameText: nameText.value,
-      nameCursor: nameCursor.value,
-      titleText: titleText.value,
-      titleCursor: null,
-      descriptionText: descriptionText.value,
-      descCursor: descCursor.value,
-      revealTargets: [
-        availabilityWrap.value,
-        statsContainer.value,
-        buttonsContainer.value,
-        socialRow.value,
-        scrollCue.value,
-      ].filter(Boolean) as HTMLElement[],
-    };
-  },
-  content,
-);
+useHeroEntrance(() => {
+  const logoSvg = heroLogoRef.value?.logoSvg;
+  const logoEl = logoSvg && "value" in logoSvg ? logoSvg.value : logoSvg;
+  return {
+    logoEl: logoEl ?? undefined,
+    heroContent: heroContent.value,
+    revealTargets: [socialRow.value, scrollCue.value].filter(Boolean) as HTMLElement[],
+  };
+});
 </script>
+
+<style scoped>
+.hero-logo-size :deep(svg) {
+  width: min(72vw, 16rem);
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  .hero-logo-size :deep(svg) {
+    width: 18rem;
+  }
+}
+</style>

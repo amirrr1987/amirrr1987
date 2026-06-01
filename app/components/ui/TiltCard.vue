@@ -11,8 +11,11 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ class?: string }>();
+const props = withDefaults(
+  defineProps<{ class?: string; tilt?: boolean }>(),
+  { tilt: true },
+);
 const tiltRoot = ref<HTMLElement | null>(null);
 
-useCardTilt(tiltRoot, { max: 8, scale: 1.015 });
+useCardTilt(tiltRoot, { max: 8, scale: 1.015, enabled: props.tilt });
 </script>

@@ -1,6 +1,6 @@
 import gsap from "gsap";
 
-const ROLES = ["Vue.js", "Nuxt", "TypeScript", "UI Motion", "Three.js"];
+const ROLES = ["Vue.js", "Nuxt", "TypeScript", "Pinia", "design systems"];
 
 export function useRotatingRole(el: Ref<HTMLElement | null>) {
   let timer: ReturnType<typeof setInterval> | null = null;

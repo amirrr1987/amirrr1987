@@ -2,7 +2,7 @@
   <section class="relative z-10 pb-16">
     <UContainer>
       <p class="page-eyebrow mb-3" data-reveal>What I do</p>
-      <h2 class="text-gradient-primary mb-8 font-mono text-2xl font-bold sm:text-3xl" data-reveal>
+      <h2 class="display-section mb-8 text-highlighted" data-reveal>
         Build · Ship · Polish
       </h2>
 
@@ -11,10 +11,10 @@
           v-for="item in services"
           :key="item.title"
           padding="md"
-          class="group transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_40px_rgba(66,184,131,0.12)]"
+          class="transition-colors duration-300 hover:border-primary/35"
         >
           <div
-            class="mb-4 flex size-12 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            class="mb-4 flex size-12 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10"
           >
             <UIcon :name="item.icon" class="size-6 text-primary" />
           </div>

@@ -4,13 +4,14 @@ type TiltOptions = {
   max?: number;
   perspective?: number;
   scale?: number;
+  enabled?: boolean;
 };
 
 export function useCardTilt(
   target: Ref<HTMLElement | null | undefined>,
   options: TiltOptions = {},
 ) {
-  const { max = 10, perspective = 900, scale = 1.02 } = options;
+  const { max = 10, perspective = 900, scale = 1.02, enabled = true } = options;
   let quickX: gsap.QuickToFunc;
   let quickY: gsap.QuickToFunc;
 
@@ -43,6 +44,8 @@ export function useCardTilt(
   onMounted(() => {
     const el = target.value;
     if (!el || import.meta.server) return;
+
+    if (!enabled) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) return;

@@ -5,26 +5,45 @@
         title="Projects"
         eyebrow="Portfolio"
         icon="i-heroicons-rocket-launch"
-        description="A showcase of my creative and technical work."
+        description="Each project maps to a GitHub repo and, when available, a Netlify live URL (*-amirmaghami.netlify.app or amirmaghami.ir)."
         show-separator
       />
 
-      <div class="bento-grid">
-        <div
-          v-for="(project, index) in cvStore.projects"
-          :key="project.name"
-          :class="index === 0 ? 'bento-span-featured' : ''"
-        >
-          <UiProjectCard :project="project" />
+      <UiGlassPanel padding="md" class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center" data-reveal>
+        <p class="body-copy text-sm text-muted">
+          Also on GitHub:
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <UButton
+            v-for="org in githubOrgs"
+            :key="org.name"
+            :to="org.url"
+            target="_blank"
+            color="neutral"
+            variant="soft"
+            size="sm"
+            icon="i-simple-icons-github"
+            class="font-mono"
+          >
+            {{ org.label }}
+          </UButton>
         </div>
+      </UiGlassPanel>
+
+      <div class="bento-grid">
+        <UiProjectCard
+          v-for="(project, index) in projects"
+          :key="project.slug"
+          :project="project"
+          :variant="index === 0 ? 'featured' : 'default'"
+          :tilt="index > 0"
+        />
       </div>
     </UContainer>
   </UiGradientSection>
 </template>
 
 <script setup lang="ts">
-import { useCvStore } from "~/stores/cv.store";
-
-const cvStore = useCvStore();
-useGsapScrollReveal({ stagger: 0.14 });
+const { projects, githubOrgs } = useProjects();
+useGsapScrollReveal({ stagger: 0.1 });
 </script>
