@@ -8,6 +8,10 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/icon',
   ],
-  css: ['~/assets/css/main.css']
-
+  css: ['~/assets/css/main.css'],
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
+    classSuffix: '',
+  },
 })

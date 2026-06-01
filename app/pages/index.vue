@@ -1,78 +1,45 @@
 <template>
   <section
-    class="flex min-h-[calc(100svh-11rem)] items-center text-white sm:min-h-[calc(100svh-12rem)]"
+    class="relative flex min-h-[calc(100svh-11rem)] items-center sm:min-h-[calc(100svh-12rem)]"
   >
-    <UContainer class="mx-auto max-w-4xl px-4 text-center sm:px-8">
+    <UContainer class="relative mx-auto max-w-5xl px-4 sm:px-8">
       <div
-        class="flex flex-col items-center justify-center gap-5 py-6 sm:gap-6 lg:py-10"
+        class="flex flex-col items-center justify-center gap-6 py-8 sm:gap-7 lg:py-12"
       >
-        <!-- Animated SVG -->
-        <svg
-          ref="logoSvg"
-          version="1.0"
-          xmlns="http://www.w3.org/2000/svg"
-          width="456.000000pt"
-          height="815.000000pt"
-          viewBox="0 0 456.000000 815.000000"
-          preserveAspectRatio="xMidYMid meet"
-          class="h-32 w-auto object-contain opacity-0 drop-shadow-2xl drop-shadow-primary/20 sm:h-44 lg:h-56"
-        >
-          <!-- SVG paths remain the same -->
-          <g
-            transform="translate(0.000000,815.000000) scale(0.100000,-0.100000)"
-            stroke="none"
-          >
-            <path
-              class="fill-purple-300"
-              d="M1363 8093 c-7 -2 -13 -20 -13 -39 l0 -34 78 0 c238 -1 432 -135 504
--350 22 -63 23 -82 26 -541 l3 -476 202 5 c204 5 470 -7 762 -33 88 -8 172
--15 188 -15 l27 0 0 493 c0 421 2 501 16 548 66 227 265 369 516 369 l68 0 0
-34 c0 22 -6 36 -16 40 -19 7 -2343 7 -2361 -1z"
-            />
-            <path
-              d="M1950 6425 c-718 -96 -1198 -511 -1330 -1148 -104 -508 18 -956 359
--1311 120 -124 233 -213 492 -386 133 -89 248 -164 255 -167 12 -4 14 109 14
-714 l0 719 -51 49 c-73 72 -135 162 -164 240 -85 225 0 532 196 710 197 178
-458 265 798 265 493 0 862 -189 1032 -529 39 -78 79 -219 79 -277 0 -17 3 -46
-6 -63 6 -27 10 -31 40 -31 19 0 34 1 34 3 0 2 20 244 45 538 25 294 45 551 45
-572 l0 37 -232 0 c-166 0 -284 6 -408 20 -474 53 -1003 73 -1210 45z"
-            />
-            <path
-              class="fill-purple-300"
-              d="M2290 5874 c-92 -17 -222 -61 -285 -97 l-40 -23 -6 -1574 c-4 -1137
--9 -1597 -17 -1655 -63 -423 -148 -675 -310 -925 -67 -103 -83 -124 -180 -224
--99 -101 -204 -180 -320 -239 -88 -46 -92 -49 -92 -82 l0 -33 97 -7 c174 -13
-421 13 623 66 641 169 1131 635 1304 1239 34 117 54 234 66 375 11 140 14
-3014 2 3031 -23 37 -190 105 -342 140 -99 23 -394 27 -500 8z"
-            />
-            <path
-              d="M3360 3279 c0 -601 -12 -759 -76 -987 l-26 -93 30 -57 c204 -384 185
--818 -51 -1167 -49 -72 -191 -216 -268 -273 -234 -170 -527 -264 -874 -279
--559 -24 -1103 196 -1435 579 -419 483 -511 1134 -246 1750 40 93 108 226 147
-286 13 21 12 24 -16 47 -17 13 -34 23 -39 21 -15 -4 -136 -177 -190 -271 -91
--160 -176 -373 -220 -550 -34 -140 -41 -214 -41 -425 0 -183 4 -232 23 -327
-174 -863 933 -1439 1954 -1481 523 -22 955 62 1362 265 338 168 629 422 821
-718 365 559 394 1237 78 1825 -161 301 -417 566 -781 809 -68 45 -129 84 -137
-88 -13 4 -15 -59 -15 -478z"
-            />
-            <path
-              class="fill-purple-300"
-              d="M3105 1853 c-342 -615 -1008 -1015 -1760 -1056 l-50 -2 50 -24 c187
--86 422 -131 686 -131 593 0 1051 299 1160 758 28 115 23 317 -11 432 -12 41
--25 79 -29 83 -5 5 -26 -22 -46 -60z"
-            />
-          </g>
-        </svg>
+        <div class="relative flex items-center justify-center">
+          <div class="hero-orbit" aria-hidden="true">
+            <UBadge
+              v-for="(orbit, i) in orbitTech"
+              :key="orbit.icon"
+              :class="['tech-pill absolute animate-tech-float', orbit.position]"
+              :style="{ animationDelay: `${i * 0.4}s` }"
+              variant="subtle"
+              color="primary"
+            >
+              <UIcon :name="orbit.icon" class="size-4" />
+              {{ orbit.label }}
+            </UBadge>
+          </div>
+          <span class="hero-glow-ring opacity-70" aria-hidden="true" />
+          <HeroLogo ref="heroLogoRef" />
+        </div>
 
-        <!-- Name with Typewriter Effect -->
+        <div ref="availabilityWrap" class="opacity-0">
+          <UBadge color="primary" variant="subtle" size="md" class="font-mono">
+            <span class="relative flex items-center gap-2">
+              <span class="size-2 animate-pulse rounded-full bg-primary" />
+              Available for new projects
+            </span>
+          </UBadge>
+        </div>
+
         <h1
           ref="nameText"
-          class="max-w-full break-words bg-gradient-to-br from-primary to-purple-300 bg-clip-text font-mono text-4xl font-extrabold leading-tight tracking-tight text-transparent opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
+          class="max-w-full break-words text-gradient-primary font-mono text-4xl font-extrabold leading-tight tracking-tight opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
         >
           <span ref="nameCursor" class="typewriter-cursor">|</span>
         </h1>
 
-        <!-- Title with Typewriter Effect -->
         <h2
           ref="titleText"
           class="font-mono text-lg font-medium text-primary opacity-0 sm:text-xl md:text-2xl"
@@ -80,18 +47,51 @@
           <span ref="titleCursor" class="typewriter-cursor">|</span>
         </h2>
 
-        <!-- Description with Typewriter Effect -->
         <p
           ref="descriptionText"
-          class="mx-auto max-w-2xl text-pretty text-sm leading-7 text-gray-300 opacity-0 sm:text-base md:text-lg"
+          class="mx-auto max-w-2xl text-pretty font-sans text-sm leading-7 text-gray-300 opacity-0 sm:text-base md:text-lg"
         >
           <span ref="descCursor" class="typewriter-cursor">|</span>
         </p>
 
-        <!-- Buttons -->
+        <div
+          ref="techRow"
+          class="flex flex-wrap items-center justify-center gap-2 opacity-0"
+        >
+          <span
+            v-for="tech in coreTech"
+            :key="tech.label"
+            class="tech-pill"
+          >
+            <UIcon :name="tech.icon" class="size-5" />
+            {{ tech.label }}
+          </span>
+        </div>
+
+        <div
+          ref="statsContainer"
+          class="grid w-full max-w-2xl grid-cols-3 gap-3 opacity-0"
+        >
+          <UiGlassPanel
+            v-for="stat in heroStats"
+            :key="stat.label"
+            padding="sm"
+            class="group text-center transition-colors hover:border-primary/40"
+          >
+            <UIcon
+              :name="stat.icon"
+              class="mx-auto mb-2 size-6 text-primary opacity-80 transition-transform group-hover:scale-110"
+            />
+            <p class="font-mono text-xl font-bold text-primary sm:text-2xl">
+              {{ stat.value }}
+            </p>
+            <p class="mt-1 text-xs text-muted sm:text-sm">{{ stat.label }}</p>
+          </UiGlassPanel>
+        </div>
+
         <div
           ref="buttonsContainer"
-          class="grid w-full max-w-sm gap-3 opacity-0 sm:max-w-none sm:grid-flow-col sm:auto-cols-max sm:justify-center sm:gap-4"
+          class="grid w-full max-w-md gap-3 opacity-0 sm:max-w-none sm:grid-flow-col sm:auto-cols-max sm:justify-center sm:gap-4"
         >
           <UButton
             to="/projects"
@@ -99,206 +99,226 @@
             icon="i-heroicons-rocket-launch"
             color="primary"
             block
-            class="justify-center font-mono transition-transform duration-300 hover:scale-105 sm:w-auto"
+            class="justify-center shadow-xl shadow-primary/30 transition-transform duration-300 hover:scale-105 sm:w-auto"
           >
             View My Work
           </UButton>
           <UButton
             to="/contact"
             size="xl"
-            color="secondary"
+            color="neutral"
             variant="outline"
             icon="i-heroicons-envelope"
             block
-            class="justify-center font-mono transition-transform duration-300 hover:scale-105 sm:w-auto"
+            class="justify-center border-primary/30 bg-primary/5 backdrop-blur transition-transform duration-300 hover:scale-105 hover:border-primary/60 hover:bg-primary/10 sm:w-auto"
           >
             Get in Touch
           </UButton>
         </div>
+
+        <div
+          ref="quickLinksEl"
+          class="flex flex-wrap items-center justify-center gap-2 opacity-0"
+        >
+          <UButton
+            v-for="link in heroQuickLinks"
+            :key="link.to"
+            :to="link.to"
+            size="sm"
+            color="primary"
+            variant="soft"
+            :icon="link.icon"
+            class="font-mono"
+          >
+            {{ link.label }}
+          </UButton>
+        </div>
+
+        <div
+          ref="socialRow"
+          class="flex items-center gap-2 opacity-0"
+        >
+          <UTooltip v-for="social in socialLinks" :key="social.label" :text="social.label">
+            <UButton
+              :to="social.url"
+              target="_blank"
+              :icon="social.icon"
+              color="neutral"
+              variant="ghost"
+              size="lg"
+              :aria-label="social.label"
+              class="hover:text-primary"
+            />
+          </UTooltip>
+        </div>
+      </div>
+
+      <div
+        ref="scrollCue"
+        class="mt-6 flex flex-col items-center gap-1 opacity-0"
+        aria-hidden="true"
+      >
+        <span class="font-mono text-xs uppercase tracking-widest text-muted">
+          Explore
+        </span>
+        <UIcon
+          name="i-heroicons-chevron-down"
+          class="size-6 animate-bounce text-primary"
+        />
       </div>
     </UContainer>
   </section>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 
-// Register GSAP plugins
 gsap.registerPlugin(TextPlugin);
 
-// Refs for GSAP animations
-const logoSvg = ref<SVGElement | null>(null);
+const heroLogoRef = ref<{ logoSvg: Ref<SVGElement | null> } | null>(null);
+const availabilityWrap = ref<HTMLElement | null>(null);
 const nameText = ref<HTMLElement | null>(null);
 const nameCursor = ref<HTMLElement | null>(null);
 const titleText = ref<HTMLElement | null>(null);
 const titleCursor = ref<HTMLElement | null>(null);
 const descriptionText = ref<HTMLElement | null>(null);
 const descCursor = ref<HTMLElement | null>(null);
+const techRow = ref<HTMLElement | null>(null);
+const statsContainer = ref<HTMLElement | null>(null);
 const buttonsContainer = ref<HTMLElement | null>(null);
+const quickLinksEl = ref<HTMLElement | null>(null);
+const socialRow = ref<HTMLElement | null>(null);
+const scrollCue = ref<HTMLElement | null>(null);
 
-// Content for typewriter effects
+const coreTech = [
+  { label: "Vue.js", icon: "i-simple-icons-vuedotjs" },
+  { label: "Nuxt", icon: "i-simple-icons-nuxtdotjs" },
+  { label: "TypeScript", icon: "i-simple-icons-typescript" },
+  { label: "Pinia", icon: "i-simple-icons-pinia" },
+  { label: "Tailwind", icon: "i-simple-icons-tailwindcss" },
+];
+
+const orbitTech = [
+  { label: "Three.js", icon: "i-simple-icons-threedotjs", position: "-left-2 top-8 sm:-left-16" },
+  { label: "GSAP", icon: "i-heroicons-bolt", position: "-right-2 top-12 sm:-right-14" },
+  { label: "Vite", icon: "i-simple-icons-vite", position: "bottom-4 -left-6 sm:-left-20" },
+];
+
+const heroStats = [
+  { value: "6+", label: "Years exp.", icon: "i-heroicons-briefcase" },
+  { value: "15+", label: "Technologies", icon: "i-heroicons-cpu-chip" },
+  { value: "3", label: "Live projects", icon: "i-heroicons-rocket-launch" },
+];
+
+const heroQuickLinks = [
+  { label: "About", to: "/about", icon: "i-heroicons-user" },
+  { label: "Skills", to: "/skills", icon: "i-heroicons-light-bulb" },
+  { label: "Experience", to: "/experiences", icon: "i-heroicons-briefcase" },
+];
+
+const socialLinks = [
+  { label: "GitHub", icon: "i-simple-icons-github", url: "https://github.com/amirrr1987" },
+  { label: "LinkedIn", icon: "i-simple-icons-linkedin", url: "https://www.linkedin.com/in/amirrr1987/" },
+  { label: "Telegram", icon: "i-simple-icons-telegram", url: "https://chat.telegram.dev" },
+];
+
 const content = {
   name: "Amir Maghami",
-  title: "Fullstack Developer",
+  title: "Fullstack Developer · Vue / Nuxt",
   description:
     "I craft beautiful, intuitive, and high-performance web experiences — merging elegant design with clean, scalable code to build amazing things for the web.",
 };
 
+function revealTargets() {
+  return [
+    availabilityWrap.value,
+    techRow.value,
+    statsContainer.value,
+    buttonsContainer.value,
+    quickLinksEl.value,
+    socialRow.value,
+    scrollCue.value,
+  ].filter(Boolean) as HTMLElement[];
+}
+
 onMounted(() => {
-  // Create master timeline
+  const logoSvg = heroLogoRef.value?.logoSvg;
+  const logoEl = logoSvg && "value" in logoSvg ? logoSvg.value : logoSvg;
+
+  gsap.set(revealTargets(), { opacity: 0, y: 24 });
+
   const masterTL = gsap.timeline();
 
-  // SVG animation - draw in effect
-  masterTL.fromTo(
-    logoSvg.value,
-    {
-      opacity: 0,
-      scale: 0.5,
-      rotation: -30,
-      filter: "blur(8px)",
-    },
-    {
-      opacity: 1,
-      scale: 1,
-      rotation: 0,
-      filter: "blur(0px)",
-      duration: 1.6,
-      ease: "elastic.out(1, 0.4)",
-    },
-  );
-
-  // Name typewriter effect
-  masterTL.to(
-    nameText.value,
-    {
-      duration: 1.2,
-      text: content.name,
-      ease: "none",
-      opacity: 1,
-      onUpdate: () => {
-        // Blink cursor during typing
-        gsap.to(nameCursor.value, {
-          opacity: 0,
-          duration: 0.3,
-          repeat: 1,
-          yoyo: true,
-        });
+  if (logoEl) {
+    masterTL.fromTo(
+      logoEl,
+      { opacity: 0, scale: 0.5, rotation: -30, filter: "blur(8px)" },
+      {
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        filter: "blur(0px)",
+        duration: 1.6,
+        ease: "elastic.out(1, 0.4)",
       },
-    },
-    "+=0.3",
-  );
+    );
+  }
 
-  // Title typewriter effect
-  masterTL.to(
-    titleText.value,
-    {
-      duration: 0.8,
-      text: content.title,
-      ease: "none",
-      opacity: 1,
-      onUpdate: () => {
-        gsap.to(titleCursor.value, {
-          opacity: 0,
-          duration: 0.3,
-          repeat: 1,
-          yoyo: true,
-        });
-      },
-    },
-    "+=0.2",
-  );
+  masterTL.to(availabilityWrap.value, {
+    opacity: 1,
+    y: 0,
+    duration: 0.5,
+    ease: "power2.out",
+  }, "-=0.7");
 
-  // Description typewriter effect
-  masterTL.to(
-    descriptionText.value,
-    {
-      duration: 2.5,
-      text: content.description,
-      ease: "none",
-      opacity: 1,
-      onUpdate: () => {
-        gsap.to(descCursor.value, {
-          opacity: 0,
-          duration: 0.3,
-          repeat: 1,
-          yoyo: true,
-        });
-      },
-    },
-    "+=0.2",
-  );
+  masterTL.to(nameText.value, {
+    duration: 1.2,
+    text: content.name,
+    ease: "none",
+    opacity: 1,
+  }, "+=0.15");
 
-  // Buttons animation
-  masterTL.to(
-    buttonsContainer.value,
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: "back.out(1.7)",
-    },
-    "+=0.3",
-  );
+  masterTL.to(titleText.value, {
+    duration: 0.9,
+    text: content.title,
+    ease: "none",
+    opacity: 1,
+  }, "+=0.15");
 
-  // Continuous cursor blink for the last element
+  masterTL.to(descriptionText.value, {
+    duration: 2.2,
+    text: content.description,
+    ease: "none",
+    opacity: 1,
+  }, "+=0.15");
+
+  masterTL.to(revealTargets(), {
+    opacity: 1,
+    y: 0,
+    duration: 0.75,
+    stagger: 0.1,
+    ease: "back.out(1.35)",
+  }, "+=0.2");
+
   masterTL.to(
     [nameCursor.value, titleCursor.value, descCursor.value],
-    {
-      opacity: 0,
-      duration: 0.5,
-      repeat: -1,
-      yoyo: true,
-    },
-    "-=0.5",
+    { opacity: 0, duration: 0.5, repeat: -1, yoyo: true },
+    "-=0.4",
   );
-
-  // Button hover effects
-  const buttons = buttonsContainer.value?.querySelectorAll("a, button") ?? [];
-  buttons.forEach((button) => {
-    button.addEventListener("mouseenter", () => {
-      gsap.to(button, {
-        scale: 1.05,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    });
-    button.addEventListener("mouseleave", () => {
-      gsap.to(button, {
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    });
-  });
 });
 </script>
 
 <style scoped>
-/* Typewriter cursor styles */
-.typewriter-cursor {
-  display: inline-block;
-  margin-left: 2px;
-  font-weight: normal;
-  color: var(--primary-500);
+.hero-orbit {
+  width: min(100%, 22rem);
+  height: 14rem;
 }
 
-/* SVG animation styles */
-svg path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: draw 5s ease-in-out forwards;
-}
-
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
+@media (min-width: 640px) {
+  .hero-orbit {
+    width: 26rem;
+    height: 16rem;
   }
-}
-
-/* Button animation styles */
-button {
-  transform-origin: center;
 }
 </style>

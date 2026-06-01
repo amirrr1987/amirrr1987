@@ -1,10 +1,10 @@
 <template>
-  <UApp :ui="appConfig">
+  <UApp>
     <NuxtLayout>
       <ClientOnly>
         <CanvasBackground />
       </ClientOnly>
-      <NuxtLoadingIndicator color="primary" />
+      <NuxtLoadingIndicator color="primary" :height="3" />
       <NuxtRouteAnnouncer />
       <NuxtPage />
     </NuxtLayout>
@@ -13,16 +13,6 @@
 </template>
 
 <script setup lang="ts">
-const colorMode = useColorMode();
-colorMode.value = "dark";
-// colorMode.preference()'
-const appConfig = {
-  base: "min-h-screen",
-
-  colors: {
-    primary: "purple",
-  },
-};
 useSeoMeta({
   title: "Amir Maghami - Frontend Developer",
   ogTitle: "Amir Maghami - Frontend Developer",
@@ -45,19 +35,15 @@ useSeoMeta({
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(31, 41, 55, 0.5);
+  background: rgb(15 23 42 / 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.5);
+  background: rgb(139 92 246 / 0.5);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.7);
-}
-
-* {
-  scroll-behavior: smooth;
+  background: rgb(139 92 246 / 0.75);
 }
 </style>

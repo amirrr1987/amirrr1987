@@ -8,6 +8,11 @@
 @layer base {
   html {
     background: #020617;
+    scroll-behavior: smooth;
+  }
+
+  html.light {
+    background: #f8fafc;
   }
 
   body {
@@ -15,23 +20,42 @@
     overflow-x: hidden;
     background:
       radial-gradient(
-        circle at top left,
-        rgb(88 28 135 / 0.24),
-        transparent 28rem
+        circle at 12% 8%,
+        rgb(66 184 131 / 0.22),
+        transparent 32rem
       ),
       radial-gradient(
-        circle at bottom right,
-        rgb(30 64 175 / 0.18),
-        transparent 24rem
+        circle at 88% 92%,
+        rgb(53 162 235 / 0.14),
+        transparent 28rem
       ),
       #020617;
     color: #f8fafc;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 0.35s ease,
+      color 0.35s ease;
+  }
+
+  html.light body {
+    background:
+      radial-gradient(
+        circle at 12% 8%,
+        rgb(66 184 131 / 0.14),
+        transparent 32rem
+      ),
+      radial-gradient(
+        circle at 88% 92%,
+        rgb(53 162 235 / 0.1),
+        transparent 28rem
+      ),
+      #f8fafc;
+    color: #0f172a;
   }
 
   ::selection {
-    background: rgb(168 85 247 / 0.35);
+    background: rgb(66 184 131 / 0.35);
   }
 
   button,
@@ -40,4 +64,66 @@
   textarea {
     -webkit-tap-highlight-color: transparent;
   }
+}
+
+@layer components {
+  .glass-panel {
+    @apply rounded-3xl border border-white/10 bg-slate-950/55 shadow-2xl shadow-emerald-950/30 backdrop-blur-xl;
+  }
+
+  html.light .glass-panel {
+    @apply border-emerald-200/60 bg-white/80 shadow-emerald-100/80;
+  }
+
+  .text-gradient-primary {
+    @apply bg-linear-to-br from-emerald-400 via-primary to-teal-300 bg-clip-text text-transparent;
+  }
+
+  .page-eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-[0.2em] text-primary;
+  }
+
+  .typewriter-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    font-weight: normal;
+    color: var(--ui-primary);
+    animation: cursor-blink 1s step-end infinite;
+  }
+
+  .hero-glow-ring {
+    @apply pointer-events-none absolute inset-0 -z-10 rounded-full bg-primary/25 blur-3xl;
+  }
+
+  .tech-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-2 font-mono text-sm text-primary shadow-md shadow-primary/10 backdrop-blur transition-all duration-300 hover:scale-105 hover:border-primary/50 hover:bg-primary/15;
+  }
+
+  .hero-orbit {
+    @apply pointer-events-none absolute inset-0 -z-10;
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes tech-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-tech-float {
+  animation: tech-float 4s ease-in-out infinite;
 }

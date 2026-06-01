@@ -1,112 +1,146 @@
 <template>
-  <section
-    id="contact"
-    class="relative z-10 flex flex-col items-center justify-center text-center"
-  >
-    <!-- Contact Header -->
-    <UContainer :ui="{ padding: 'px-4 sm:px-6 lg:px-8' }">
-      <div class="space-y-4 animate-fade-in">
-        <h1
-          class="font-mono text-3xl font-bold text-primary sm:text-4xl md:text-5xl"
-        >
-          Get in Touch
-        </h1>
-        <p
-          class="mx-auto max-w-2xl text-pretty font-mono text-base leading-7 text-gray-300 sm:text-lg"
-        >
-          Feel free to reach out to me for collaborations, projects, or just to
-          say hello!
-        </p>
-      </div>
-    </UContainer>
-
-    <!-- Contact Form -->
-    <UContainer
-      :ui="{ padding: 'px-4 sm:px-6 lg:px-8' }"
-      class="mt-8 w-full max-w-2xl animate-fade-in-up"
-    >
-      <UCard class="border-white/10 bg-slate-950/70 text-left backdrop-blur">
-        <form class="space-y-5" @submit.prevent="handleSubmit">
-          <!-- Name Field -->
-          <UInput
-            v-model="formData.name"
-            type="text"
-            placeholder="Your Name"
-            icon="i-heroicons-user"
-            required
-            size="lg"
-            class="w-full transition-all duration-300 hover:ring-primary/50"
-          />
-
-          <!-- Email Field -->
-          <UInput
-            v-model="formData.email"
-            type="email"
-            placeholder="Your Email"
-            icon="i-heroicons-envelope"
-            required
-            size="lg"
-            class="w-full transition-all duration-300 hover:ring-primary/50"
-          />
-
-          <!-- Message Field -->
-          <UTextarea
-            v-model="formData.message"
-            placeholder="Your Message"
-            :rows="6"
-            required
-            size="lg"
-            class="w-full transition-all duration-300 hover:ring-primary/50"
-          />
-
-          <!-- Submit Button -->
-          <UButton
-            type="submit"
-            color="primary"
-            size="lg"
-            icon="i-heroicons-paper-airplane"
-            class="w-full justify-center font-mono transition-transform duration-300 hover:scale-[1.02] sm:w-auto"
-          >
-            Send Message
-          </UButton>
-        </form>
-      </UCard>
-    </UContainer>
-
-    <!-- Social Links -->
-    <UContainer
-      :ui="{ padding: 'px-4 sm:px-6 lg:px-8' }"
-      class="mt-8 flex flex-wrap justify-center gap-3 animate-fade-in-up"
-    >
-      <UButton
-        v-for="(link, index) in socialLinks"
-        :key="index"
-        :to="link.url"
-        target="_blank"
-        :aria-label="link.label"
-        :icon="link.icon"
-        color="neutral"
-        variant="soft"
-        size="lg"
-        class="transition-transform duration-300 hover:scale-110 hover:text-primary"
+  <section id="contact" class="relative z-10">
+    <UContainer class="space-y-8 sm:space-y-10">
+      <UiPageHeader
+        title="Get in Touch"
+        eyebrow="Contact"
+        icon="i-heroicons-envelope"
+        description="Feel free to reach out for collaborations, projects, or just to say hello!"
+        show-separator
       />
+
+      <div class="grid gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-8">
+        <div class="space-y-4" data-reveal>
+          <UiGlassPanel padding="md" class="space-y-4">
+            <h2 class="font-mono text-lg font-bold text-highlighted">
+              Let's build something great
+            </h2>
+            <p class="text-sm leading-7 text-muted">
+              I typically respond within 1–2 business days. You can also reach me
+              directly through the channels below.
+            </p>
+            <USeparator />
+            <div class="space-y-3">
+              <UButton
+                v-for="channel in contactChannels"
+                :key="channel.label"
+                :to="channel.href"
+                :icon="channel.icon"
+                variant="ghost"
+                color="neutral"
+                class="w-full justify-start font-mono"
+                :target="channel.external ? '_blank' : undefined"
+              >
+                {{ channel.label }}
+              </UButton>
+            </div>
+          </UiGlassPanel>
+
+          <div class="flex flex-wrap gap-2">
+            <UButton
+              v-for="link in socialLinks"
+              :key="link.label"
+              :to="link.url"
+              target="_blank"
+              :icon="link.icon"
+              color="primary"
+              variant="soft"
+              size="lg"
+              :aria-label="link.label"
+              class="transition-transform hover:scale-110"
+            />
+          </div>
+        </div>
+
+        <UCard
+          data-reveal
+          class="text-left"
+          :ui="{
+            root: 'glass-panel ring-1 ring-white/10',
+            body: 'space-y-5 p-5 sm:p-6',
+          }"
+        >
+          <form class="space-y-5" @submit.prevent="handleSubmit">
+            <UFormField label="Name" name="name" required>
+              <UInput
+                v-model="formData.name"
+                type="text"
+                placeholder="Your name"
+                icon="i-heroicons-user"
+                size="lg"
+                class="w-full"
+              />
+            </UFormField>
+
+            <UFormField label="Email" name="email" required>
+              <UInput
+                v-model="formData.email"
+                type="email"
+                placeholder="you@example.com"
+                icon="i-heroicons-envelope"
+                size="lg"
+                class="w-full"
+              />
+            </UFormField>
+
+            <UFormField label="Message" name="message" required>
+              <UTextarea
+                v-model="formData.message"
+                placeholder="Tell me about your project..."
+                :rows="6"
+                size="lg"
+                class="w-full"
+              />
+            </UFormField>
+
+            <UButton
+              type="submit"
+              color="primary"
+              size="lg"
+              icon="i-heroicons-paper-airplane"
+              block
+              class="justify-center shadow-lg shadow-primary/20 sm:w-auto"
+            >
+              Send Message
+            </UButton>
+          </form>
+        </UCard>
+      </div>
     </UContainer>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import gsap from "gsap";
+const toast = useToast();
+const cvStore = useCvStore();
 
-// Form Data
 const formData = ref({
   name: "",
   email: "",
   message: "",
 });
-const toast = useToast();
 
-// Social Links
+const contactChannels = computed(() => [
+  {
+    label: cvStore.personalInfo.email,
+    href: `mailto:${cvStore.personalInfo.email}`,
+    icon: "i-heroicons-envelope",
+    external: false,
+  },
+  {
+    label: cvStore.personalInfo.phone,
+    href: `tel:${cvStore.personalInfo.phone.replace(/\s/g, "")}`,
+    icon: "i-heroicons-phone",
+    external: false,
+  },
+  {
+    label: "LinkedIn",
+    href: `https://${cvStore.personalInfo.linkedin}`,
+    icon: "i-simple-icons-linkedin",
+    external: true,
+  },
+]);
+
 const socialLinks = [
   {
     label: "GitHub",
@@ -125,45 +159,15 @@ const socialLinks = [
   },
 ];
 
-// Handle Form Submission
 function handleSubmit() {
   toast.add({
-    title: "Message ready",
+    title: "Message sent",
     description: "Thank you for reaching out. I will get back to you soon.",
-    color: "primary",
+    color: "success",
     icon: "i-heroicons-check-circle",
   });
   formData.value = { name: "", email: "", message: "" };
 }
 
-// GSAP Animations
-onMounted(() => {
-  gsap.from(".animate-fade-in", {
-    opacity: 0,
-    y: 20,
-    duration: 1,
-    delay: 0.2,
-    stagger: 0.2,
-    ease: "power3.out",
-  });
-
-  gsap.from(".animate-fade-in-up", {
-    opacity: 0,
-    y: 20,
-    duration: 1,
-    delay: 0.4,
-    stagger: 0.2,
-    ease: "power3.out",
-  });
-});
+useGsapReveal();
 </script>
-
-<style scoped>
-.animate-fade-in {
-  opacity: 1;
-}
-
-.animate-fade-in-up {
-  opacity: 1;
-}
-</style>

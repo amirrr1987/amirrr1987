@@ -3,18 +3,20 @@
     <NuxtLink
       to="/"
       aria-label="Go to home page"
-      class="group flex min-w-0 items-center gap-2 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+      class="group flex min-w-0 items-center gap-3 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
       @click="isOpen = false"
     >
       <span
-        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 shadow-lg shadow-primary/10 transition-transform duration-300 group-hover:scale-105"
+        class="relative flex size-11 shrink-0 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 shadow-lg shadow-primary/15 transition-all duration-300 group-hover:scale-105 group-hover:border-primary/50"
       >
-        <TheLogo class="h-6 w-6 text-primary" />
+        <span class="hero-glow-ring scale-75 opacity-0 transition-opacity group-hover:opacity-100" />
+        <TheLogo class="relative z-10 size-6 text-primary" />
       </span>
-      <span
-        class="truncate text-base font-bold tracking-tight text-white sm:text-lg"
-      >
-        Amir Maghami
+      <span class="min-w-0 truncate">
+        <span class="block font-mono text-sm font-bold tracking-tight text-highlighted sm:text-base">
+          Amir Maghami
+        </span>
+        <span class="hidden text-xs text-muted sm:block">Fullstack Developer</span>
       </span>
     </NuxtLink>
 
@@ -22,33 +24,37 @@
       class="hidden flex-1 justify-center lg:flex"
       :items="navigationLinks"
       :ui="{
-        link: 'px-3 py-2 text-sm font-medium text-gray-300 hover:text-white data-[active=true]:text-primary',
+        link: 'px-3 py-2 font-mono text-sm font-medium text-muted hover:text-highlighted data-[active=true]:text-primary',
+        linkLeadingIcon: 'text-primary/80',
       }"
     />
 
     <div class="hidden items-center gap-2 lg:flex">
+      <UColorModeButton variant="ghost" color="neutral" />
       <UButton
         to="/contact"
-        color="secondary"
-        variant="outline"
+        color="primary"
+        variant="soft"
         icon="i-heroicons-envelope"
-        class="transition-transform duration-300 hover:scale-105"
+        class="font-mono shadow-lg shadow-primary/10 transition-transform duration-300 hover:scale-105"
       >
         Get in Touch
       </UButton>
     </div>
 
-    <UButton
-      class="lg:hidden"
-      color="primary"
-      variant="soft"
-      size="lg"
-      :icon="isOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'"
-      :aria-label="isOpen ? 'Close navigation menu' : 'Open navigation menu'"
-      :aria-expanded="isOpen"
-      aria-controls="mobile-navigation"
-      @click="isOpen = !isOpen"
-    />
+    <div class="flex items-center gap-1 lg:hidden">
+      <UColorModeButton variant="ghost" color="neutral" size="sm" />
+      <UButton
+        color="primary"
+        variant="soft"
+        size="lg"
+        :icon="isOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'"
+        :aria-label="isOpen ? 'Close navigation menu' : 'Open navigation menu'"
+        :aria-expanded="isOpen"
+        aria-controls="mobile-navigation"
+        @click="isOpen = !isOpen"
+      />
+    </div>
 
     <Transition name="mobile-menu">
       <div
@@ -66,8 +72,8 @@
               class="flex min-w-0 items-center gap-2"
               @click="isOpen = false"
             >
-              <TheLogo class="h-8 w-8 text-primary" />
-              <span class="truncate text-lg font-bold text-white">
+              <TheLogo class="size-8 text-primary" />
+              <span class="truncate font-mono text-lg font-bold text-highlighted">
                 Amir Maghami
               </span>
             </NuxtLink>
@@ -81,7 +87,7 @@
             />
           </div>
 
-          <nav class="grid flex-1 content-center gap-3 py-10">
+          <nav class="grid flex-1 content-center gap-2 py-10">
             <UButton
               v-for="item in navigationLinks"
               :key="item.to"
@@ -89,7 +95,7 @@
               color="neutral"
               variant="ghost"
               size="xl"
-              class="justify-start rounded-2xl px-4 py-4 text-base transition-colors duration-200 hover:bg-white/10 hover:text-primary"
+              class="justify-start rounded-2xl px-4 py-4 font-mono text-base transition-colors hover:bg-primary/10 hover:text-primary"
               :icon="item.icon"
               @click="isOpen = false"
             >
@@ -103,7 +109,7 @@
             size="xl"
             color="primary"
             icon="i-heroicons-envelope"
-            class="mb-4 justify-center"
+            class="mb-4 justify-center font-mono"
             @click="isOpen = false"
           >
             Start a conversation
