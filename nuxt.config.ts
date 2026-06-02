@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/image',
     '@nuxt/icon',
+    '@netlify/nuxt',
   ],
   build: {
     transpile: ['pinia'],

@@ -13,6 +13,7 @@
   "dependencies": {
     "@fontsource/b612-mono": "^5.2.5",
     "@fontsource/silkscreen": "^5.2.5",
+    "@netlify/nuxt": "0.3.7",
     "@nuxt/icon": "^2.2.2",
     "@nuxt/image": "^2.0.0",
     "@nuxt/ui": "^4.8.1",
