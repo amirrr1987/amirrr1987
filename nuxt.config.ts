@@ -8,6 +8,15 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/icon',
   ],
+  build: {
+    transpile: ['pinia'],
+  },
+  nitro: {
+    preset: 'netlify',
+  },
+  routeRules: {
+    '/api/**': { cors: true },
+  },
   css: ['~/assets/css/main.css'],
   colorMode: {
     preference: 'dark',
