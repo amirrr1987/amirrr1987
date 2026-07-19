@@ -1,53 +1,77 @@
-<template>
-  <UApp>
-    <ClientOnly>
-      <EffectsScrollProgress />
-      <EffectsCommandMenu />
-    </ClientOnly>
-    <NuxtLayout>
-      <ClientOnly>
-        <CanvasBackground />
-      </ClientOnly>
-      <NuxtLoadingIndicator color="primary" :height="3" />
-      <NuxtRouteAnnouncer />
-      <NuxtPage />
-    </NuxtLayout>
-    <UToaster position="top-right" />
-  </UApp>
-</template>
+<script setup>
+useHead({
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+  ],
+  link: [
+    { rel: 'icon', href: '/favicon.ico' }
+  ],
+  htmlAttrs: {
+    lang: 'en'
+  }
+})
 
-<script setup lang="ts">
+const title = 'Nuxt Starter Template'
+const description = 'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
+
 useSeoMeta({
-  title: "Amir Maghami - Frontend Developer",
-  ogTitle: "Amir Maghami - Frontend Developer",
-  description:
-    "Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.",
-  ogDescription:
-    "Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.",
-  ogImage: "/social-preview.jpg",
-  twitterCard: "summary_large_image",
-  twitterTitle: "Amir Maghami - Frontend Developer",
-  twitterDescription:
-    "Creative modern spatial portfolio of Amir Maghami, a Frontend Developer specializing in Vue.js and Nuxt.js.",
-  twitterImage: "/social-preview.jpg",
-});
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
+  twitterCard: 'summary_large_image'
+})
 </script>
 
-<style>
-::-webkit-scrollbar {
-  width: 8px;
-}
+<template>
+  <UApp>
+    <UHeader>
+      <template #left>
+        <NuxtLink to="/">
+          <AppLogo class="w-auto h-6 shrink-0" />
+        </NuxtLink>
 
-::-webkit-scrollbar-track {
-  background: rgb(15 23 42 / 0.5);
-}
+        <TemplateMenu />
+      </template>
 
-::-webkit-scrollbar-thumb {
-  background: rgb(66 184 131 / 0.55);
-  border-radius: 4px;
-}
+      <template #right>
+        <UColorModeButton />
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(66 184 131 / 0.8);
-}
-</style>
+        <UButton
+          to="https://github.com/nuxt-ui-templates/starter"
+          target="_blank"
+          icon="i-simple-icons-github"
+          aria-label="GitHub"
+          color="neutral"
+          variant="ghost"
+        />
+      </template>
+    </UHeader>
+
+    <UMain>
+      <NuxtPage />
+    </UMain>
+
+    <USeparator icon="i-simple-icons-nuxtdotjs" />
+
+    <UFooter>
+      <template #left>
+        <p class="text-sm text-muted">
+          Built with Nuxt UI • © {{ new Date().getFullYear() }}
+        </p>
+      </template>
+
+      <template #right>
+        <UButton
+          to="https://github.com/nuxt-ui-templates/starter"
+          target="_blank"
+          icon="i-simple-icons-github"
+          aria-label="GitHub"
+          color="neutral"
+          variant="ghost"
+        />
+      </template>
+    </UFooter>
+  </UApp>
+</template>

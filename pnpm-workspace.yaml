@@ -1,5 +1,9 @@
 allowBuilds:
-  '@parcel/watcher': true
-  esbuild: true
+  '@parcel/watcher': false
+  '@tailwindcss/oxide': false
+  esbuild: false
   sharp: true
-  vue-demi: true
+  unrs-resolver: false
+  vue-demi: false
+minimumReleaseAgeExclude:
+  - '@netlify/nuxt@0.3.9'
