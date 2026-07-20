@@ -1,8 +1,14 @@
+@import "@fontsource/silkscreen/400.css";
+@import "@fontsource/silkscreen/700.css";
+@import "@fontsource/b612-mono/400.css";
+@import "@fontsource/b612-mono/700.css";
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
+  --font-mono: "Silkscreen", sans-serif;
+  --font-sans: "B612 Mono", sans-serif;
 
   --color-green-50: #EFFDF5;
   --color-green-100: #D9FBE8;

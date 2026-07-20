@@ -25,6 +25,9 @@ useSeoMeta({
 </script>
 
 <template>
+  <ClientOnly>
+    <CanvasBackground />
+  </ClientOnly>
   <UApp>
     <UHeader>
       <template #left>
@@ -32,7 +35,10 @@ useSeoMeta({
           <AppLogo class="w-auto h-6 shrink-0" />
         </NuxtLink>
 
-        <TemplateMenu />
+        <!-- <TemplateMenu /> -->
+      </template>
+      <template #body>
+        sadasd
       </template>
 
       <template #right>
