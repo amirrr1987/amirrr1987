@@ -1,9 +1,9 @@
-import gsap from "gsap";
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { TextPlugin } from 'gsap/TextPlugin'
 
 export default defineNuxtPlugin(() => {
-  return {
-    provide: {
-      gsap: gsap,
-    },
-  };
-});
+  if (import.meta.client) {
+    gsap.registerPlugin(ScrollTrigger, TextPlugin)
+  }
+})
