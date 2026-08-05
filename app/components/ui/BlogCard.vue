@@ -9,11 +9,13 @@
         :ui="{ body: 'p-0' }"
       >
         <div class="relative h-44 overflow-hidden sm:h-48">
-          <NuxtImg
+          <img
             :src="blog.img"
             :alt="blog.title"
+            loading="lazy"
+            decoding="async"
             class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
+          >
           <div
             class="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/25 to-transparent"
           />
@@ -47,7 +49,7 @@ type Blog = {
   id?: number | string
   title: string
   excerpt: string
-  img: string
+  img?: string
 }
 
 defineProps<{

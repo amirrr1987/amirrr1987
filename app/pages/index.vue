@@ -139,7 +139,7 @@
 <script setup lang="ts">
 import { liveProjectCount } from '~/data/portfolio-projects'
 
-const heroLogoRef = ref<{ logoSvg: Ref<SVGElement | null> } | null>(null)
+const heroLogoRef = ref<{ logoSvg: SVGElement | null } | null>(null)
 const heroContent = ref<HTMLElement | null>(null)
 const logoWrap = ref<HTMLElement | null>(null)
 const socialRow = ref<HTMLElement | null>(null)
@@ -157,10 +157,8 @@ const socialLinks = [
 ]
 
 useHeroEntrance(() => {
-  const logoSvg = heroLogoRef.value?.logoSvg
-  const logoEl = logoSvg && 'value' in logoSvg ? logoSvg.value : logoSvg
   return {
-    logoEl: logoEl ?? undefined,
+    logoEl: heroLogoRef.value?.logoSvg ?? undefined,
     heroContent: heroContent.value,
     revealTargets: [socialRow.value, scrollCue.value].filter(Boolean) as HTMLElement[]
   }

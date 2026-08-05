@@ -5,7 +5,6 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui',
     '@pinia/nuxt',
-    '@nuxt/image',
     '@nuxt/icon',
     '@vueuse/nuxt',
     '@netlify/nuxt'
@@ -33,9 +32,15 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2026-06-30',
 
-  // Netlify SSR: Nitro Netlify preset (publish .output/public + functions)
   nitro: {
-    preset: 'netlify'
+    preset: 'netlify',
+    // Every page is prerendered to static HTML, so the CDN serves the site
+    // even if the serverless function is unavailable.
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/200.html', '/404.html'],
+      failOnError: false
+    }
   },
 
   vite: {
@@ -75,11 +80,5 @@ export default defineNuxtConfig({
         'heroicons:computer-desktop'
       ]
     }
-  },
-
-  image: {
-    // Portfolio uses few local images; keep Netlify function leaner
-    quality: 80,
-    format: ['webp']
   }
 })

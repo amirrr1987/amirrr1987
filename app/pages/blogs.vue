@@ -12,7 +12,7 @@
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <UiBlogCard
           v-for="blog in data ?? []"
-          :key="blog.id"
+          :key="blog.title"
           :blog="blog"
           :slug="kebabCase(blog.title)"
         />
@@ -35,6 +35,7 @@ useHead({
   ]
 })
 
-const { data } = await useFetch('/api/blogs')
+// Fetched on the client so prerendering never depends on the upstream scrape
+const { data } = await useFetch('/api/blogs', { server: false, lazy: true })
 useGsapScrollReveal({ stagger: 0.14 })
 </script>
