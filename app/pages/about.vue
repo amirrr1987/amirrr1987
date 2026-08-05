@@ -12,14 +12,13 @@
               <span
                 class="absolute -inset-3 rounded-full bg-linear-to-r from-primary to-emerald-300 opacity-60 blur-lg transition duration-300 group-hover:opacity-100"
               />
-              <NuxtImg
+              <img
                 src="/logo.svg"
-                placeholder
                 width="250"
                 height="250"
                 class="relative size-36 rounded-full bg-slate-950/80 p-4 ring-2 ring-primary/40 shadow-2xl transition-transform duration-500 group-hover:scale-105 sm:size-44"
                 alt="Amir Maghami"
-              />
+              >
             </div>
           </UiTiltCard>
         </div>

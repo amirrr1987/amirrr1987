@@ -23,17 +23,19 @@ export function useCardTilt(
     const x = (e.clientX - rect.left) / rect.width - 0.5
     const y = (e.clientY - rect.top) / rect.height - 0.5
 
-    quickX((-y * max).toFixed(2))
-    quickY((x * max).toFixed(2))
+    quickX(Number((-y * max).toFixed(2)))
+    quickY(Number((x * max).toFixed(2)))
   }
 
   const onEnter = () => {
+    if (!target.value) return
     gsap.to(target.value, { scale, duration: 0.35, ease: 'power2.out' })
   }
 
   const onLeave = () => {
     quickX(0)
     quickY(0)
+    if (!target.value) return
     gsap.to(target.value, {
       scale: 1,
       duration: 0.45,

@@ -33,7 +33,8 @@ export function useAnimatedCounter(
     }
 
     const onComplete = () => {
-      target.value?.classList.add('counter-done')
+      if (!target.value) return
+      target.value.classList.add('counter-done')
       gsap.fromTo(
         target.value,
         { scale: 1 },

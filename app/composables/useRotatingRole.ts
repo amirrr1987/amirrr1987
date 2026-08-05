@@ -15,7 +15,7 @@ export function useRotatingRole(el: Ref<HTMLElement | null>) {
       if (!node) return
 
       index = (index + 1) % ROLES.length
-      const next = ROLES[index]
+      const next = ROLES[index] ?? ''
 
       gsap.to(node, {
         opacity: 0,

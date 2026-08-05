@@ -23,7 +23,6 @@
     "@iconify-json/simple-icons": "1.2.92",
     "@netlify/nuxt": "0.3.9",
     "@nuxt/icon": "2.4.1",
-    "@nuxt/image": "2.1.0",
     "@nuxt/ui": "4.10.0",
     "@pinia/nuxt": "1.0.1",
     "@vueuse/nuxt": "14.4.0",
