@@ -1,83 +1,82 @@
-<script setup>
+<template>
+  <UApp>
+    <ClientOnly>
+      <EffectsScrollProgress />
+      <EffectsCommandMenu />
+    </ClientOnly>
+
+    <NuxtLayout>
+      <ClientOnly>
+        <CanvasBackground />
+      </ClientOnly>
+      <NuxtLoadingIndicator
+        color="var(--ui-primary)"
+        :height="3"
+      />
+      <NuxtRouteAnnouncer />
+      <NuxtPage />
+    </NuxtLayout>
+  </UApp>
+</template>
+
+<script setup lang="ts">
 useHead({
-  meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-  ],
-  link: [
-    { rel: 'icon', href: '/favicon.ico' }
-  ],
   htmlAttrs: {
     lang: 'en'
-  }
+  },
+  link: [
+    { rel: 'icon', href: '/favicon.ico' }
+  ]
 })
 
-const title = 'Nuxt Starter Template'
-const description = 'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
-
 useSeoMeta({
-  title,
-  description,
-  ogTitle: title,
-  ogDescription: description,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-  twitterCard: 'summary_large_image'
+  title: 'Amir Maghami — Frontend Developer',
+  ogTitle: 'Amir Maghami — Frontend Developer',
+  description:
+    'Senior front-end developer specializing in Vue.js and Nuxt. Dashboards, tools, and polished product UI — Tehran & remote.',
+  ogDescription:
+    'Senior front-end developer specializing in Vue.js and Nuxt. Dashboards, tools, and polished product UI — Tehran & remote.',
+  ogImage: '/logo.svg',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Amir Maghami — Frontend Developer',
+  twitterDescription:
+    'Senior front-end developer specializing in Vue.js and Nuxt. Dashboards, tools, and polished product UI — Tehran & remote.',
+  twitterImage: '/logo.svg'
 })
 </script>
 
-<template>
-  <ClientOnly>
-    <CanvasBackground />
-  </ClientOnly>
-  <UApp>
-    <UHeader>
-      <template #left>
-        <NuxtLink to="/">
-          <AppLogo class="w-auto h-6 shrink-0" />
-        </NuxtLink>
+<style>
+::-webkit-scrollbar {
+  width: 8px;
+}
 
-        <!-- <TemplateMenu /> -->
-      </template>
-      <template #body>
-        sadasd
-      </template>
+::-webkit-scrollbar-track {
+  background: rgb(15 23 42 / 0.5);
+}
 
-      <template #right>
-        <UColorModeButton />
+::-webkit-scrollbar-thumb {
+  background: rgb(66 184 131 / 0.55);
+  border-radius: 4px;
+}
 
-        <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
-          target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
-          color="neutral"
-          variant="ghost"
-        />
-      </template>
-    </UHeader>
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(66 184 131 / 0.8);
+}
 
-    <UMain>
-      <NuxtPage />
-    </UMain>
+html.light ::-webkit-scrollbar-track {
+  background: rgb(241 245 249 / 0.8);
+}
 
-    <USeparator icon="i-simple-icons-nuxtdotjs" />
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
 
-    <UFooter>
-      <template #left>
-        <p class="text-sm text-muted">
-          Built with Nuxt UI • © {{ new Date().getFullYear() }}
-        </p>
-      </template>
-
-      <template #right>
-        <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
-          target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
-          color="neutral"
-          variant="ghost"
-        />
-      </template>
-    </UFooter>
-  </UApp>
-</template>
+.page-fade-enter-from,
+.page-fade-leave-to {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+</style>
