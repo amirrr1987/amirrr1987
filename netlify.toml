@@ -10,9 +10,9 @@
   NPM_CONFIG_PRODUCTION = "false"
   NODE_OPTIONS = "--max-old-space-size=4096"
 
-[functions]
-  directory = ".netlify/functions-internal"
-  node_bundler = "esbuild"
+# No [functions] block on purpose: Nitro emits its own function config in
+# .netlify/functions-internal with nodeBundler "none" and ships node_modules
+# itself. Forcing a bundler here breaks module resolution at runtime.
 
 # Long-lived cache for hashed Nuxt assets
 [[headers]]
