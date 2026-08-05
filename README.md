@@ -1,41 +1,75 @@
-# Amir Maghami — Portfolio
+# Nuxt Minimal Starter
 
-Personal portfolio built with **Nuxt 4**, **Nuxt UI**, and GSAP/Three.js motion. Deployed on **Netlify** (SSR + prerendered home).
-
-## Stack
-
-- Nuxt `4.5.1` + Vue `3.5` + Vue Router `5`
-- `@nuxt/ui`, `@pinia/nuxt`, `@nuxt/image`, `@nuxt/icon`, `@vueuse/nuxt`, `@netlify/nuxt`
-- GSAP + Three.js for motion / background
-- Node `>=22.12` (see `engines` + `.node-version`)
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
 
+Make sure to install dependencies:
+
 ```bash
+# npm
+npm install
+
+# pnpm
 pnpm install
+
+# yarn
+yarn install
+
+# bun
+bun install
+```
+
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
+npm run dev
+
+# pnpm
 pnpm dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
 ```
 
 ## Production
 
+Build the application for production:
+
 ```bash
+# npm
+npm run build
+
+# pnpm
 pnpm build
-pnpm preview
+
+# yarn
+yarn build
+
+# bun
+bun run build
 ```
 
-Netlify uses `netlify.toml`:
+Locally preview production build:
 
-- Build: `pnpm run build`
-- Publish: `dist`
-- Functions: `.netlify/functions-internal`
-- Node: `22`
+```bash
+# npm
+npm run preview
 
-## Scripts
+# pnpm
+pnpm preview
 
-| Script | Description |
-| --- | --- |
-| `pnpm dev` | Local development |
-| `pnpm build` | Production build (Netlify preset) |
-| `pnpm preview` | Preview production build |
-| `pnpm lint` | ESLint |
-| `pnpm typecheck` | Vue / Nuxt typecheck |
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

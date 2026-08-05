@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+<<<<<<< Updated upstream
 
   modules: [
     '@nuxt/eslint',
@@ -81,4 +82,8 @@ export default defineNuxtConfig({
       ]
     }
   }
+=======
+  compatibilityDate: '2025-07-15',
+  devtools: { enabled: true }
+>>>>>>> Stashed changes
 })
