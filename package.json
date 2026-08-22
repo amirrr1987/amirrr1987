@@ -10,37 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-<<<<<<< Updated upstream
-    "@fontsource/b612-mono": "5.3.0",
-    "@fontsource/silkscreen": "5.3.0",
-    "@iconify-json/heroicons": "1.2.3",
-    "@iconify-json/simple-icons": "1.2.92",
-    "@netlify/nuxt": "0.3.9",
-    "@nuxt/icon": "2.4.1",
-    "@nuxt/ui": "4.10.0",
-    "@pinia/nuxt": "1.0.1",
-    "@vueuse/nuxt": "14.4.0",
-    "cheerio": "1.2.0",
-    "gsap": "3.15.0",
-    "lodash-es": "4.18.1",
-    "nuxt": "4.5.1",
-    "pinia": "4.0.2",
-    "tailwindcss": "4.3.3",
-    "three": "0.184.0",
-    "vue": "3.5.35",
-    "vue-router": "5.0.7"
-  },
-  "devDependencies": {
-    "@nuxt/eslint": "1.16.0",
-    "@types/lodash-es": "4.17.12",
-    "@types/three": "0.184.1",
-    "eslint": "10.8.0",
-    "typescript": "6.0.3",
-    "vue-tsc": "3.3.9"
-=======
-    "nuxt": "^4.5.1",
-    "vue": "^3.5.40",
+    "nuxt": "^4.5.2",
+    "vue": "^3.5.41",
     "vue-router": "^5.2.0"
->>>>>>> Stashed changes
   }
 }
