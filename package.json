@@ -10,16 +10,31 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@fontsource/b612-mono": "^5.3.0",
+    "@fontsource/silkscreen": "^5.3.0",
     "@nuxt/fonts": "0.14.0",
     "@nuxt/icon": "2.5.0",
     "@nuxt/image": "2.1.0",
     "@nuxt/ui": "4.11.0",
+    "@pinia/nuxt": "1.0.2",
     "@unhead/vue": "^3.3.2",
+    "@vueuse/integrations": "^14.4.0",
     "@vueuse/motion": "^3.0.3",
     "@vueuse/nuxt": "14.4.0",
     "@vueuse/router": "^14.4.0",
+    "cheerio": "^1.2.0",
+    "gsap": "^3.15.0",
+    "lodash-es": "^4.18.1",
     "nuxt": "^4.5.2",
+    "pinia": "^4.0.3",
+    "three": "^0.185.1",
     "vue": "^3.5.41",
     "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@iconify-json/heroicons": "^1.2.3",
+    "@iconify-json/simple-icons": "^1.2.93",
+    "@types/lodash-es": "^4.17.12",
+    "@types/three": "^0.185.4"
   }
 }
