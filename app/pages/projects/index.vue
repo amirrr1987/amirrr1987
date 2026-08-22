@@ -1,53 +1,112 @@
 <template>
-  <UiGradientSection class="relative z-10">
-    <UContainer class="space-y-10 sm:space-y-12">
-      <UiPageHeader
-        title="Projects"
-        eyebrow="Portfolio"
-        icon="i-heroicons-rocket-launch"
-        description="Each project maps to a GitHub repo and, when available, a Netlify live URL (*-amirmaghami.netlify.app or amirmaghami.ir)."
-        show-separator
-      />
+  <section
+    id="projects"
+    class="relative z-10 flex flex-col justify-center"
+  >
+    <!-- Header -->
+    <UContainer
+      :ui="{ base: 'py-12 px-4 sm:px-6 lg:px-10' }"
+      class="text-center animate-fade-in"
+    >
+      <h1 class="font-mono text-4xl sm:text-5xl font-bold text-primary mb-4">
+        Projects
+      </h1>
+      <p class="font-mono text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
+        A showcase of my creative and technical work.
+      </p>
+    </UContainer>
 
-      <UiGlassPanel
-        padding="md"
-        class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center"
-        data-reveal
+    <!-- Project Grid -->
+    <UContainer
+      :ui="{ base: 'py-8 px-4 sm:px-6 lg:px-10' }"
+      class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up"
+    >
+      <UCard
+        v-for="(project, index) in cvStore.projects"
+        :key="index"
+        class="group relative overflow-hidden transition-all duration-300 hover:scale-[1.02]"
       >
-        <p class="body-copy text-sm text-muted">
-          Also on GitHub:
-        </p>
-        <div class="flex flex-wrap gap-2">
+        <!-- Project Image -->
+        <div class="relative h-48 overflow-hidden rounded-t-lg">
+          <NuxtImg
+            src="/placeholder.jpg"
+            alt="Project Image"
+            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-linear-to-b from-transparent to-black/70 group-hover:bg-black/50 transition-opacity duration-300"
+          />
+        </div>
+
+        <!-- Project Details -->
+        <div class="p-6 space-y-4">
+          <h3 class="font-mono text-xl font-bold text-gray-100">
+            {{ project.name }}
+          </h3>
+          <p class="text-gray-300 mb-6">{{ project.description }}</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <UBadge
+              v-for="(tech, idx) in project.technologies"
+              :key="idx"
+              color="primary"
+              variant="soft"
+              size="sm"
+              class="transition-transform duration-300 hover:scale-105"
+            >
+              {{ tech }}
+            </UBadge>
+          </div>
           <UButton
-            v-for="org in githubOrgs"
-            :key="org.name"
-            :to="org.url"
+            :to="project.url"
             target="_blank"
-            color="neutral"
-            variant="soft"
             size="sm"
-            icon="i-simple-icons-github"
-            class="font-mono"
+            color="primary"
+            variant="soft"
+            icon="i-heroicons-arrow-top-right-on-square"
+            class="font-mono transition-transform duration-300 hover:scale-105"
           >
-            {{ org.label }}
+            View Project
           </UButton>
         </div>
-      </UiGlassPanel>
-
-      <div class="bento-grid">
-        <UiProjectCard
-          v-for="(project, index) in projects"
-          :key="project.slug"
-          :project="project"
-          :variant="index === 0 ? 'featured' : 'default'"
-          :tilt="index > 0"
-        />
-      </div>
+      </UCard>
     </UContainer>
-  </UiGradientSection>
+  </section>
 </template>
 
 <script setup lang="ts">
-const { projects, githubOrgs } = useProjects();
-useGsapScrollReveal({ stagger: 0.1 });
+import { onMounted } from "vue";
+import gsap from "gsap";
+import { useCvStore } from "@/stores/cv.store";
+
+const cvStore = useCvStore();
+
+// GSAP Animations
+onMounted(() => {
+  gsap.from(".animate-fade-in", {
+    opacity: 0,
+    y: 20,
+    duration: 1,
+    delay: 0.2,
+    ease: "power3.out",
+  });
+
+  gsap.from(".animate-fade-in-up", {
+    opacity: 0,
+    y: 20,
+    duration: 1,
+    delay: 0.4,
+    stagger: 0.2,
+    ease: "power3.out",
+  });
+});
 </script>
+
+<style scoped>
+.animate-fade-in {
+  opacity: 1;
+}
+
+.animate-fade-in-up {
+  opacity: 1;
+}
+</style>

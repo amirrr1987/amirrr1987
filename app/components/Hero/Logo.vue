@@ -7,23 +7,35 @@
     height="815.000000pt"
     viewBox="0 0 456.000000 815.000000"
     preserveAspectRatio="xMidYMid meet"
-    :class="[
-      'h-32 w-auto object-contain opacity-0 drop-shadow-2xl drop-shadow-primary/25 sm:h-44 lg:h-56',
-      props.class,
-    ]"
+    :class="['w-auto object-contain', props.class]"
+    aria-hidden="true"
   >
+    <defs>
+      <linearGradient
+        id="hero-logo-gradient"
+        x1="0%"
+        y1="100%"
+        x2="100%"
+        y2="0%"
+      >
+        <stop offset="0%" stop-color="var(--ui-primary, #42b883)" />
+        <stop offset="100%" stop-color="#c084fc" />
+      </linearGradient>
+    </defs>
+
     <g
       transform="translate(0.000000,815.000000) scale(0.100000,-0.100000)"
       stroke="none"
     >
       <path
-        class="fill-emerald-400"
+        fill="url(#hero-logo-gradient)"
         d="M1363 8093 c-7 -2 -13 -20 -13 -39 l0 -34 78 0 c238 -1 432 -135 504
 -350 22 -63 23 -82 26 -541 l3 -476 202 5 c204 5 470 -7 762 -33 88 -8 172
 -15 188 -15 l27 0 0 493 c0 421 2 501 16 548 66 227 265 369 516 369 l68 0 0
 34 c0 22 -6 36 -16 40 -19 7 -2343 7 -2361 -1z"
       />
       <path
+        class="fill-fuchsia-300"
         d="M1950 6425 c-718 -96 -1198 -511 -1330 -1148 -104 -508 18 -956 359
 -1311 120 -124 233 -213 492 -386 133 -89 248 -164 255 -167 12 -4 14 109 14
 714 l0 719 -51 49 c-73 72 -135 162 -164 240 -85 225 0 532 196 710 197 178
@@ -32,7 +44,7 @@
 572 l0 37 -232 0 c-166 0 -284 6 -408 20 -474 53 -1003 73 -1210 45z"
       />
       <path
-        class="fill-emerald-400"
+        fill="url(#hero-logo-gradient)"
         d="M2290 5874 c-92 -17 -222 -61 -285 -97 l-40 -23 -6 -1574 c-4 -1137
 -9 -1597 -17 -1655 -63 -423 -148 -675 -310 -925 -67 -103 -83 -124 -180 -224
 -99 -101 -204 -180 -320 -239 -88 -46 -92 -49 -92 -82 l0 -33 97 -7 c174 -13
@@ -40,6 +52,7 @@
 3014 2 3031 -23 37 -190 105 -342 140 -99 23 -394 27 -500 8z"
       />
       <path
+        class="fill-fuchsia-300"
         d="M3360 3279 c0 -601 -12 -759 -76 -987 l-26 -93 30 -57 c204 -384 185
 -818 -51 -1167 -49 -72 -191 -216 -268 -273 -234 -170 -527 -264 -874 -279
 -559 -24 -1103 196 -1435 579 -419 483 -511 1134 -246 1750 40 93 108 226 147
@@ -50,7 +63,7 @@
 88 -13 4 -15 -59 -15 -478z"
       />
       <path
-        class="fill-emerald-400"
+        fill="url(#hero-logo-gradient)"
         d="M3105 1853 c-342 -615 -1008 -1015 -1760 -1056 l-50 -2 50 -24 c187
 -86 422 -131 686 -131 593 0 1051 299 1160 758 28 115 23 317 -11 432 -12 41
 -25 79 -29 83 -5 5 -26 -22 -46 -60z"
@@ -65,17 +78,3 @@ const logoSvg = ref<SVGElement | null>(null);
 
 defineExpose({ logoSvg });
 </script>
-
-<style scoped>
-svg path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: hero-draw 5s ease-in-out forwards;
-}
-
-@keyframes hero-draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-</style>

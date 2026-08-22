@@ -1,88 +1,69 @@
 <template>
-  <UiGradientSection class="relative z-10">
-    <UContainer class="space-y-8 sm:space-y-10">
-      <UiPageHeader
-        title="Technical Skills"
-        eyebrow="Stack"
-        icon="i-heroicons-cpu-chip"
-        description="A snapshot of the technologies, frameworks, and tools I work with."
-        show-separator
-      />
+  <section
+    id="skills"
+    class="relative z-10 flex flex-col justify-center"
+  >
+    <UContainer :ui="{ base: 'py-12 px-4 sm:px-6 lg:px-10' }">
+      <!-- Header -->
+      <div class="text-center animate-fade-in">
+        <h1 class="font-mono text-4xl sm:text-5xl font-bold text-primary mb-4">
+          Technical Skills
+        </h1>
+        <p class="text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
+          A snapshot of the technologies, frameworks, and tools I work with.
+        </p>
+      </div>
 
-      <UTabs
-        :items="skillTabs"
-        color="primary"
-        variant="pill"
-        class="w-full"
-        :ui="{
-          list: 'glass-panel p-1.5 ring-0',
-          trigger: 'font-mono text-sm data-[state=active]:shadow-md data-[state=active]:shadow-primary/20',
-        }"
-      >
-        <template v-for="tab in skillTabs" :key="tab.slot" #[tab.slot]>
-          <div
-            class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-          >
-            <UiTiltCard
-              v-for="(skill, index) in tab.skills"
-              :key="`${tab.slot}-${skill}-${index}`"
-              data-reveal
-            >
-              <UCard
-                class="glass-panel !rounded-[calc(1.5rem-1px)] !bg-slate-950/50 !shadow-none ring-0"
-                :ui="{ body: 'flex min-h-14 items-center justify-center p-4 text-center' }"
-              >
-                <span class="font-mono text-sm font-medium text-highlighted">
-                  {{ skill }}
-                </span>
-              </UCard>
-            </UiTiltCard>
-          </div>
-        </template>
-      </UTabs>
+      <!-- Skill Grid -->
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        <UBadge
+          v-for="(skill, index) in cvStore.allSkills"
+          :key="index"
+          :label="skill"
+          color="primary"
+          variant="soft"
+          size="lg"
+          class="font-mono flex items-center justify-center h-12 transition-transform duration-300 hover:scale-105 animate-fade-in-up"
+        >
+          {{ skill }}
+        </UBadge>
+      </div>
     </UContainer>
-  </UiGradientSection>
+  </section>
 </template>
 
 <script setup lang="ts">
+import gsap from "gsap";
+import { onMounted } from "vue";
 import { useCvStore } from "~/stores/cv.store";
 
 const cvStore = useCvStore();
 
-const skillTabs = computed(() => [
-  {
-    label: "Frontend",
-    icon: "i-heroicons-code-bracket",
-    slot: "frontend",
-    skills: [
-      ...cvStore.coreCompetencies.frontEnd.languagesAndStyling,
-      ...cvStore.coreCompetencies.frontEnd.frameworksAndLibraries,
-      ...cvStore.coreCompetencies.frontEnd.uiFrameworks,
-      ...cvStore.coreCompetencies.frontEnd.stateManagement,
-    ],
-  },
-  {
-    label: "Backend",
-    icon: "i-heroicons-server",
-    slot: "backend",
-    skills: [
-      ...cvStore.coreCompetencies.backEnd.frameworks,
-      ...cvStore.coreCompetencies.backEnd.databasesAndOrms,
-    ],
-  },
-  {
-    label: "Tools",
-    icon: "i-heroicons-wrench-screwdriver",
-    slot: "tools",
-    skills: [
-      ...cvStore.coreCompetencies.toolsAndMethodologies.versionControl,
-      ...cvStore.coreCompetencies.toolsAndMethodologies.testing,
-      ...cvStore.coreCompetencies.toolsAndMethodologies.buildToolsAndPlatforms,
-      ...cvStore.coreCompetencies.toolsAndMethodologies.projectManagement,
-      ...cvStore.coreCompetencies.toolsAndMethodologies.devOpsAndOthers,
-    ],
-  },
-]);
+// GSAP Animations
+onMounted(() => {
+  gsap.from(".animate-fade-in", {
+    opacity: 0,
+    y: 20,
+    duration: 1,
+    ease: "power3.out",
+  });
 
-useGsapScrollReveal({ stagger: 0.06 });
+  gsap.from(".animate-fade-in-up", {
+    opacity: 0,
+    duration: 0.1,
+    delay: 0.1,
+    stagger: 0.2,
+    ease: "power3.out",
+  });
+});
 </script>
+
+<style scoped>
+.animate-fade-in {
+  opacity: 1;
+}
+
+.animate-fade-in-up {
+  opacity: 1;
+}
+</style>
