@@ -1,69 +1,84 @@
 <template>
-  <section
-    id="skills"
-    class="relative z-10 flex flex-col justify-center"
-  >
-    <UContainer :ui="{ base: 'py-12 px-4 sm:px-6 lg:px-10' }">
-      <!-- Header -->
-      <div class="text-center animate-fade-in">
-        <h1 class="font-mono text-4xl sm:text-5xl font-bold text-primary mb-4">
-          Technical Skills
-        </h1>
-        <p class="text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
-          A snapshot of the technologies, frameworks, and tools I work with.
-        </p>
-      </div>
+  <UContainer class="space-y-10">
+    <UiPageHeader
+      title="Skills"
+      description="Technologies and tools I use in production work."
+    />
 
-      <!-- Skill Grid -->
-      <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-        <UBadge
-          v-for="(skill, index) in cvStore.allSkills"
-          :key="index"
-          :label="skill"
-          color="primary"
-          variant="soft"
-          size="lg"
-          class="font-mono flex items-center justify-center h-12 transition-transform duration-300 hover:scale-105 animate-fade-in-up"
+    <UTabs
+      :items="tabs"
+      color="primary"
+      variant="pill"
+      class="w-full"
+      :ui="{
+        list: 'glass-panel p-1.5 ring-0',
+        trigger:
+          'font-tab text-sm data-[state=active]:shadow-md data-[state=active]:shadow-primary/20',
+      }"
+    >
+      <template
+        v-for="tab in tabs"
+        :key="tab.slot"
+        #[tab.slot]
+      >
+        <div
+          class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
         >
-          {{ skill }}
-        </UBadge>
-      </div>
-    </UContainer>
-  </section>
+          <UBadge
+            v-for="(skill, index) in tab.skills"
+            :key="`${tab.slot}-${skill}-${index}`"
+            color="primary"
+            variant="soft"
+            size="lg"
+            class="flex h-12 items-center justify-center transition-transform duration-300 hover:scale-105"
+          >
+            {{ skill }}
+          </UBadge>
+        </div>
+      </template>
+    </UTabs>
+  </UContainer>
 </template>
 
 <script setup lang="ts">
-import gsap from "gsap";
-import { onMounted } from "vue";
 import { useCvStore } from "~/stores/cv.store";
 
 const cvStore = useCvStore();
 
-// GSAP Animations
-onMounted(() => {
-  gsap.from(".animate-fade-in", {
-    opacity: 0,
-    y: 20,
-    duration: 1,
-    ease: "power3.out",
-  });
-
-  gsap.from(".animate-fade-in-up", {
-    opacity: 0,
-    duration: 0.1,
-    delay: 0.1,
-    stagger: 0.2,
-    ease: "power3.out",
-  });
+useSeoMeta({
+  title: "Skills — Amir Maghami",
+  description: "Frontend, backend, and tooling skills.",
 });
+
+const tabs = computed(() => [
+  {
+    label: "Frontend",
+    slot: "frontend",
+    skills: [
+      ...cvStore.coreCompetencies.frontEnd.languagesAndStyling,
+      ...cvStore.coreCompetencies.frontEnd.frameworksAndLibraries,
+      ...cvStore.coreCompetencies.frontEnd.uiFrameworks,
+      ...cvStore.coreCompetencies.frontEnd.stateManagement,
+    ],
+  },
+  {
+    label: "Backend",
+    slot: "backend",
+    skills: [
+      ...cvStore.coreCompetencies.backEnd.frameworks,
+      ...cvStore.coreCompetencies.backEnd.databasesAndOrms,
+    ],
+  },
+  {
+    label: "Tools",
+    slot: "tools",
+    skills: [
+      ...cvStore.coreCompetencies.toolsAndMethodologies.versionControl,
+      ...cvStore.coreCompetencies.toolsAndMethodologies.testing,
+      ...cvStore.coreCompetencies.toolsAndMethodologies.buildToolsAndPlatforms,
+      ...cvStore.coreCompetencies.toolsAndMethodologies.projectManagement,
+      ...cvStore.coreCompetencies.toolsAndMethodologies.devOpsAndOthers,
+    ],
+  },
+]);
 </script>
-
-<style scoped>
-.animate-fade-in {
-  opacity: 1;
-}
-
-.animate-fade-in-up {
-  opacity: 1;
-}
-</style>

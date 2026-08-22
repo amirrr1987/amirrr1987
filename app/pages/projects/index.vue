@@ -1,112 +1,88 @@
 <template>
-  <section
-    id="projects"
-    class="relative z-10 flex flex-col justify-center"
-  >
-    <!-- Header -->
-    <UContainer
-      :ui="{ base: 'py-12 px-4 sm:px-6 lg:px-10' }"
-      class="text-center animate-fade-in"
-    >
-      <h1 class="font-mono text-4xl sm:text-5xl font-bold text-primary mb-4">
-        Projects
-      </h1>
-      <p class="font-mono text-gray-300 text-lg sm:text-xl max-w-md mx-auto">
-        A showcase of my creative and technical work.
-      </p>
-    </UContainer>
+  <UContainer class="space-y-10">
+    <UiPageHeader
+      title="Projects"
+      description="Selected work with live demos and open-source repositories."
+    />
 
-    <!-- Project Grid -->
-    <UContainer
-      :ui="{ base: 'py-8 px-4 sm:px-6 lg:px-10' }"
-      class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up"
-    >
+    <div class="grid gap-5 md:grid-cols-2">
       <UCard
-        v-for="(project, index) in cvStore.projects"
-        :key="index"
-        class="group relative overflow-hidden transition-all duration-300 hover:scale-[1.02]"
+        v-for="project in projects"
+        :key="project.slug"
+        class="border border-white/10 bg-slate-950/40"
+        :ui="{ body: 'space-y-4' }"
       >
-        <!-- Project Image -->
-        <div class="relative h-48 overflow-hidden rounded-t-lg">
-          <NuxtImg
-            src="/placeholder.jpg"
-            alt="Project Image"
-            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-          />
-          <div
-            class="absolute inset-0 bg-linear-to-b from-transparent to-black/70 group-hover:bg-black/50 transition-opacity duration-300"
-          />
+        <div class="flex items-start justify-between gap-3">
+          <h2 class="font-card text-lg text-highlighted">
+            {{ project.name }}
+          </h2>
+          <span
+            v-if="project.year"
+            class="font-label shrink-0 text-xs text-muted"
+          >
+            {{ project.year }}
+          </span>
         </div>
 
-        <!-- Project Details -->
-        <div class="p-6 space-y-4">
-          <h3 class="font-mono text-xl font-bold text-gray-100">
-            {{ project.name }}
-          </h3>
-          <p class="text-gray-300 mb-6">{{ project.description }}</p>
-          <div class="flex flex-wrap gap-2 mb-8">
-            <UBadge
-              v-for="(tech, idx) in project.technologies"
-              :key="idx"
-              color="primary"
-              variant="soft"
-              size="sm"
-              class="transition-transform duration-300 hover:scale-105"
-            >
-              {{ tech }}
-            </UBadge>
-          </div>
-          <UButton
-            :to="project.url"
-            target="_blank"
+        <p class="text-sm text-primary">
+          {{ project.tagline }}
+        </p>
+        <p class="text-sm leading-relaxed text-muted">
+          {{ project.description }}
+        </p>
+
+        <div class="flex flex-wrap gap-2">
+          <UBadge
+            v-for="tech in project.technologies.slice(0, 5)"
+            :key="tech"
+            color="neutral"
+            variant="subtle"
             size="sm"
-            color="primary"
-            variant="soft"
-            icon="i-heroicons-arrow-top-right-on-square"
-            class="font-mono transition-transform duration-300 hover:scale-105"
           >
-            View Project
+            {{ tech }}
+          </UBadge>
+        </div>
+
+        <div class="flex flex-wrap gap-2 pt-1">
+          <UButton
+            v-if="project.caseStudy"
+            :to="`/projects/${project.slug}`"
+            color="primary"
+            size="sm"
+          >
+            Case study
+          </UButton>
+          <UButton
+            :to="project.liveUrl ?? project.url"
+            target="_blank"
+            color="neutral"
+            variant="outline"
+            size="sm"
+            trailing-icon="i-heroicons-arrow-top-right-on-square"
+          >
+            Live demo
+          </UButton>
+          <UButton
+            :to="project.githubUrl"
+            target="_blank"
+            color="neutral"
+            variant="ghost"
+            size="sm"
+            icon="i-simple-icons-github"
+          >
+            Code
           </UButton>
         </div>
       </UCard>
-    </UContainer>
-  </section>
+    </div>
+  </UContainer>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
-import gsap from "gsap";
-import { useCvStore } from "@/stores/cv.store";
+const { projects } = useProjects();
 
-const cvStore = useCvStore();
-
-// GSAP Animations
-onMounted(() => {
-  gsap.from(".animate-fade-in", {
-    opacity: 0,
-    y: 20,
-    duration: 1,
-    delay: 0.2,
-    ease: "power3.out",
-  });
-
-  gsap.from(".animate-fade-in-up", {
-    opacity: 0,
-    y: 20,
-    duration: 1,
-    delay: 0.4,
-    stagger: 0.2,
-    ease: "power3.out",
-  });
+useSeoMeta({
+  title: "Projects — Amir Maghami",
+  description: "Portfolio projects with live demos and source code.",
 });
 </script>
-
-<style scoped>
-.animate-fade-in {
-  opacity: 1;
-}
-
-.animate-fade-in-up {
-  opacity: 1;
-}
-</style>

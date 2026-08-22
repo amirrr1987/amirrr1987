@@ -18,10 +18,10 @@
             class="timeline-pulse relative z-10 mt-1 flex size-3 shrink-0 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/40 ring-4 ring-primary/20"
           />
           <div>
-            <p class="font-mono text-xs uppercase tracking-wider text-primary">
+            <p class="font-label text-xs uppercase tracking-wider text-primary">
               {{ exp.period }}
             </p>
-            <p class="mt-1 font-mono text-sm font-semibold text-highlighted">
+            <p class="font-card mt-1 text-sm text-highlighted">
               {{ exp.company }}
             </p>
             <p class="text-sm text-muted">{{ exp.location }}</p>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="min-w-0 flex-1 space-y-3">
-          <h3 class="font-mono text-lg font-bold text-highlighted sm:text-xl">
+          <h3 class="font-section text-lg text-highlighted sm:text-xl">
             {{ exp.role }}
           </h3>
           <ul
@@ -53,7 +53,6 @@
               :key="tech"
               color="secondary"
               variant="soft"
-              class="font-mono"
             >
               {{ tech }}
             </UBadge>

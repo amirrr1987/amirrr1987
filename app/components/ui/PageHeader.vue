@@ -1,25 +1,16 @@
 <template>
-  <header class="text-center" data-reveal data-parallax>
-    <p v-if="eyebrow" class="page-eyebrow mx-auto mb-4">
-      <UIcon v-if="icon" :name="icon" class="size-4" />
-      {{ eyebrow }}
-    </p>
+  <header class="page-header text-center">
     <h1
-      class="text-gradient-primary text-shimmer font-mono text-3xl font-bold sm:text-4xl md:text-5xl"
+      class="bg-linear-to-br from-primary to-purple-400 bg-clip-text font-page text-4xl text-transparent sm:text-5xl"
     >
       {{ title }}
     </h1>
     <p
       v-if="description"
-      class="mx-auto mt-4 max-w-2xl text-pretty font-sans text-base leading-7 text-muted sm:text-lg"
+      class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
     >
       {{ description }}
     </p>
-    <USeparator
-      v-if="showSeparator"
-      class="mx-auto mt-6 max-w-xs"
-      :ui="{ border: 'border-primary/30' }"
-    />
   </header>
 </template>
 
@@ -27,8 +18,5 @@
 defineProps<{
   title: string;
   description?: string;
-  eyebrow?: string;
-  icon?: string;
-  showSeparator?: boolean;
 }>();
 </script>

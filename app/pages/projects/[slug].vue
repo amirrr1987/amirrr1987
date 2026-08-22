@@ -1,65 +1,132 @@
 <template>
-  <div class="py-12">
+  <UContainer
+    v-if="study"
+    class="max-w-3xl space-y-8"
+  >
     <UButton
       to="/projects"
-      icon="i-heroicons-arrow-left"
-      color="secondary"
+      color="neutral"
       variant="ghost"
-      class="mb-8"
+      icon="i-heroicons-arrow-left"
+      size="sm"
     >
-      Back to Projects
+      All projects
     </UButton>
-    <ContentDoc v-slot="{ doc }">
-      <article>
-        <h1 class="text-5xl font-bold mb-2">{{ doc.title }}</h1>
-        <p class="text-gray-400 mb-8">{{ doc.description }}</p>
-        <div
-          v-if="doc.image"
-          class="mb-8"
+
+    <header class="space-y-3">
+      <p class="font-label text-sm text-muted">
+        Case study · {{ study.year }}
+      </p>
+      <h1
+        class="bg-linear-to-br from-primary to-purple-400 bg-clip-text font-page text-3xl text-transparent sm:text-4xl"
+      >
+        {{ study.name }}
+      </h1>
+      <p class="font-subtitle text-primary">
+        {{ study.tagline }}
+      </p>
+      <p class="text-sm text-muted">
+        {{ study.role }}
+      </p>
+    </header>
+
+    <UCard
+      class="border border-white/10 bg-slate-950/40"
+      :ui="{ body: 'space-y-3' }"
+    >
+      <h2 class="font-section text-highlighted">
+        Problem
+      </h2>
+      <p class="text-sm leading-7 text-muted">
+        {{ study.problem }}
+      </p>
+    </UCard>
+
+    <UCard
+      class="border border-white/10 bg-slate-950/40"
+      :ui="{ body: 'space-y-3' }"
+    >
+      <h2 class="font-section text-highlighted">
+        Solution
+      </h2>
+      <p class="text-sm leading-7 text-muted">
+        {{ study.solution }}
+      </p>
+    </UCard>
+
+    <div class="space-y-4">
+      <h2 class="font-section text-lg text-highlighted">
+        Highlights
+      </h2>
+      <div class="grid gap-4 sm:grid-cols-3">
+        <UCard
+          v-for="item in study.highlights"
+          :key="item.title"
+          class="border border-white/10 bg-slate-950/40"
+          :ui="{ body: 'space-y-2' }"
         >
-          <NuxtImg
-            :src="doc.image"
-            :alt="doc.title"
-            class="w-full h-auto rounded-lg shadow-lg"
-          />
-        </div>
-        <div class="prose prose-invert prose-lg max-w-none">
-          <ContentRenderer :value="doc" />
-        </div>
-      </article>
-    </ContentDoc>
-  </div>
+          <h3 class="font-card text-highlighted">
+            {{ item.title }}
+          </h3>
+          <p class="text-sm leading-relaxed text-muted">
+            {{ item.text }}
+          </p>
+        </UCard>
+      </div>
+    </div>
+
+    <UCard
+      class="border border-white/10 bg-slate-950/40"
+      :ui="{ body: 'space-y-4' }"
+    >
+      <h2 class="font-section text-highlighted">
+        Stack
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        <UBadge
+          v-for="tech in study.technologies"
+          :key="tech"
+          color="primary"
+          variant="soft"
+        >
+          {{ tech }}
+        </UBadge>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <UButton
+          :to="study.url"
+          target="_blank"
+          color="primary"
+          trailing-icon="i-heroicons-arrow-top-right-on-square"
+        >
+          Open live app
+        </UButton>
+        <UButton
+          to="/contact"
+          color="neutral"
+          variant="outline"
+          icon="i-heroicons-envelope"
+        >
+          Work with me
+        </UButton>
+      </div>
+    </UCard>
+  </UContainer>
 </template>
 
-<style>
-/* Basic styles for the rendered markdown content */
-.prose {
-  color: #d1d5db;
-  /* gray-300 */
+<script setup lang="ts">
+const route = useRoute();
+const { getCaseStudy } = useProjects();
+
+const slug = String(route.params.slug);
+const study = getCaseStudy(slug);
+
+if (!study) {
+  await navigateTo("/projects");
 }
 
-.prose h1,
-.prose h2,
-.prose h3 {
-  color: #ffffff;
-}
-
-.prose a {
-  color: #4ade80;
-  /* green-400 */
-}
-
-.prose code {
-  background-color: #1f2937;
-  /* gray-800 */
-  color: #f9fafb;
-  /* gray-50 */
-  padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
-}
-
-.prose pre {
-  background-color: #111827;
-  /* gray-900 */
-}
-</style>
+useSeoMeta({
+  title: `${study!.name} — Case study`,
+  description: study!.tagline,
+});
+</script>

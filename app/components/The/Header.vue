@@ -1,6 +1,6 @@
 <template>
   <header
-    class="glass-nav sticky top-0 z-40 border-b border-white/10 bg-slate-950/55 backdrop-blur-xl"
+    class="glass-nav sticky top-0 z-40 border-b border-white/10 bg-slate-950/55 font-menu backdrop-blur-xl"
   >
     <UContainer class="py-3 sm:py-4">
       <NavBar />

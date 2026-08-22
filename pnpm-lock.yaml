@@ -8,10 +8,52 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/bitcount-single':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/gluten':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/tektur':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/audiowide':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource/b612-mono':
         specifier: ^5.3.0
         version: 5.3.0
+      '@fontsource/faster-one':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/flavors':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/fugaz-one':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/jersey-10':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/nosifer':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/poor-story':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/press-start-2p':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource/silkscreen':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/single-day':
+        specifier: ^5.3.1
+        version: 5.3.1
+      '@fontsource/space-grotesk':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/wallpoet':
         specifier: ^5.3.0
         version: 5.3.0
       '@nuxt/fonts':
@@ -599,11 +641,53 @@ packages:
   '@floating-ui/vue@1.1.11':
     resolution: {integrity: sha512-HzHKCNVxnGS35r9fCHBc3+uCnjw9IWIlCPL683cGgM9Kgj2BiAl8x1mS7vtvP6F9S/e/q4O6MApwSHj8hNLGfw==}
 
+  '@fontsource-variable/bitcount-single@5.3.0':
+    resolution: {integrity: sha512-Dtmh0PBPeJvBVMRr76ADgTQKayn3crDFGx/LL9cz+i3RMFRobenhcZQSNZ4MmL9FAxdv1xJH2T5W6cbIcaUdZA==}
+
+  '@fontsource-variable/gluten@5.3.0':
+    resolution: {integrity: sha512-KAM805JpelkgHTlDa93o/IoHk3ARBfGqHPbtplsV0c4XPHJr1BL6SSEcVEXBx/UmN/1PDta7BhzJvvZ52pFuew==}
+
+  '@fontsource-variable/tektur@5.3.0':
+    resolution: {integrity: sha512-aTiP3FWurF3A7kIr3PyHib27A9PLurrkHfu6UwCv1eCHyi7k9AyPBhIspGH8n6fDWrpqFXqpWZ+zev/MbPZ/4A==}
+
+  '@fontsource/audiowide@5.3.0':
+    resolution: {integrity: sha512-ECBdWgQPaCSuwlFyeXzV0i2DAGq0SKID7jxD1oHhYTObx3wz26YKs3F9Ic/EO369Anzld9IqxflRukJm6nVxpw==}
+
   '@fontsource/b612-mono@5.3.0':
     resolution: {integrity: sha512-G0Ihm+ekqqP5PZJ1zrx6GbeS2q4GDmYnM01zrNrPARRg64GoG0D2pTf+FsbDWvbg/9tVWFRmFIz8xYLjgFrUpg==}
 
+  '@fontsource/faster-one@5.3.0':
+    resolution: {integrity: sha512-AG7vzKG4+OvXm64giAt3lZ3IQRhAcblxmVuRGvXyAXNjuAyn+PE7QK2y3cG5wTBTWS/1vRY3EPLHfr3GF57QKg==}
+
+  '@fontsource/flavors@5.3.0':
+    resolution: {integrity: sha512-DATL/Wb9GYb0mACTGb9QaupPHu9TR2olaM6OrtBq2iGm+pCCIr946wNjM9KekaUYE4HbL+8DoAextiiRm9qFbg==}
+
+  '@fontsource/fugaz-one@5.3.0':
+    resolution: {integrity: sha512-KmS+yUDCgoShtLcGdYfgWqkjTSrUkgAxMVCDI/BYuRP1m2locOog+L7BTDbrU1Q7aTO8+/2H9K8RMtvVrc8qFA==}
+
+  '@fontsource/jersey-10@5.3.0':
+    resolution: {integrity: sha512-1dOTUg3JXm/Ls6j4BEPLRF5DHGadCGQy/sIHS7L0SWauB2rEd2W6614Xufxoc+TVXtrt8kVR6IWh3RFkXmy/Cw==}
+
+  '@fontsource/nosifer@5.3.0':
+    resolution: {integrity: sha512-Skc2HV+WdwWDqbAhbRwqFIrIhDxZDlA1fKa8gVlUkapruvy031DSJVRUlJCV9J+s5iu77GKViXTNxT/uxSQJSw==}
+
+  '@fontsource/poor-story@5.3.0':
+    resolution: {integrity: sha512-L6FR+YlMi++oUpL59d9I3WrhPR8puj/LKGJtYWfpIZteQR/gLjaVHmohlXjMGoXR3pNtKrDFeP2xbmykBRo6HA==}
+
+  '@fontsource/press-start-2p@5.3.0':
+    resolution: {integrity: sha512-gxWFxdeDglPhEYSwEeooomcaFK8kSQYLQwVxfnOJeYRj2sPEHXjpVtFgEaYfqzOjuAJGrIcJOipu2KY5YkbyuQ==}
+
   '@fontsource/silkscreen@5.3.0':
     resolution: {integrity: sha512-M1NQ3LQH0LFNvyFPd/piHEGMImPPtpLglNnLC6Vdcq9kL0jNIOtTQmksAWCc4enbDnw1OnIpZtjNEfRqYm/QmA==}
+
+  '@fontsource/single-day@5.3.1':
+    resolution: {integrity: sha512-6RFVF1vwMlJyEWBo/0XfZW57jRYbihIxbtBJze6sfWBhFZZRZ3t1fZbzm85JwKG5bsNZmggQuqckkIUTGJrIow==}
+
+  '@fontsource/space-grotesk@5.3.0':
+    resolution: {integrity: sha512-ksnGizDPXIDuvqcTYTSrmZ+evx9sDlS8rp7+42BQ7wU+spt3twEoXfbJz672C+5CLg6VeUQwRy5RXshWb67LcQ==}
+
+  '@fontsource/wallpoet@5.3.0':
+    resolution: {integrity: sha512-wuL6pysXoBSqvUsiwfWb7eJspWEGAr04ntnCYlN/F+o7hZRQOOTkkfx4D734EsDAjp3eEmos4cDO+WOfRg1MhQ==}
 
   '@iconify-json/heroicons@1.2.3':
     resolution: {integrity: sha512-n+vmCEgTesRsOpp5AB5ILB6srsgsYK+bieoQBNlafvoEhjVXLq8nIGN4B0v/s4DUfa0dOrjwE/cKJgIKdJXOEg==}
@@ -5109,9 +5193,37 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
+  '@fontsource-variable/bitcount-single@5.3.0': {}
+
+  '@fontsource-variable/gluten@5.3.0': {}
+
+  '@fontsource-variable/tektur@5.3.0': {}
+
+  '@fontsource/audiowide@5.3.0': {}
+
   '@fontsource/b612-mono@5.3.0': {}
 
+  '@fontsource/faster-one@5.3.0': {}
+
+  '@fontsource/flavors@5.3.0': {}
+
+  '@fontsource/fugaz-one@5.3.0': {}
+
+  '@fontsource/jersey-10@5.3.0': {}
+
+  '@fontsource/nosifer@5.3.0': {}
+
+  '@fontsource/poor-story@5.3.0': {}
+
+  '@fontsource/press-start-2p@5.3.0': {}
+
   '@fontsource/silkscreen@5.3.0': {}
+
+  '@fontsource/single-day@5.3.1': {}
+
+  '@fontsource/space-grotesk@5.3.0': {}
+
+  '@fontsource/wallpoet@5.3.0': {}
 
   '@iconify-json/heroicons@1.2.3':
     dependencies:

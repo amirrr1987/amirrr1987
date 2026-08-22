@@ -17,7 +17,7 @@
       </div>
 
       <div class="flex min-h-56 flex-col p-5 sm:p-6">
-        <h3 class="font-mono text-lg font-bold text-highlighted sm:text-xl">
+        <h3 class="font-card text-lg text-highlighted sm:text-xl">
           {{ blog.title }}
         </h3>
         <p class="mt-3 flex-1 text-sm leading-7 text-muted sm:text-base">
@@ -29,7 +29,7 @@
           variant="link"
           color="primary"
           trailing-icon="i-heroicons-arrow-right"
-          class="btn-premium mt-6 justify-start px-0 font-mono"
+          class="btn-premium mt-6 justify-start px-0"
         >
           Read More
         </UButton>

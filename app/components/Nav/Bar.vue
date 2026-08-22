@@ -11,7 +11,7 @@
         <span class="block text-sm font-semibold tracking-tight text-highlighted sm:text-base">
           Amir Maghami
         </span>
-        <span class="hidden text-xs text-muted sm:block">Front-End Developer</span>
+        <span class="hidden text-xs text-muted sm:block">Fullstack Developer</span>
       </span>
     </NuxtLink>
 
@@ -20,19 +20,14 @@
         v-for="link in navigationLinks"
         :key="link.to"
         :to="link.to"
-        class="rounded-lg px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:text-highlighted xl:px-3"
+        class="rounded-lg px-2.5 py-2 text-sm text-muted transition-colors hover:text-highlighted xl:px-3"
         active-class="!text-primary"
       >
         {{ link.label }}
       </ULink>
     </nav>
 
-    <div class="hidden items-center gap-1 lg:flex">
-      <UColorModeButton variant="ghost" color="neutral" />
-    </div>
-
-    <div class="flex items-center gap-1 lg:hidden">
-      <UColorModeButton variant="ghost" color="neutral" size="sm" />
+    <div class="lg:hidden">
       <UButton
         color="neutral"
         variant="ghost"
@@ -81,7 +76,7 @@
               v-for="item in navigationLinks"
               :key="item.to"
               :to="item.to"
-              class="rounded-xl px-4 py-4 text-base font-medium text-muted transition-colors hover:bg-white/5 hover:text-highlighted"
+              class="rounded-xl px-4 py-4 text-base text-muted transition-colors hover:bg-white/5 hover:text-highlighted"
               active-class="!text-primary !bg-primary/10"
               @click="isOpen = false"
             >
@@ -103,8 +98,8 @@ const navigationLinks = [
   { label: "About", to: "/about" },
   { label: "Skills", to: "/skills" },
   { label: "Projects", to: "/projects" },
-  { label: "Experiences", to: "/experiences" },
-  { label: "Blogs", to: "/blogs" },
+  { label: "Experience", to: "/experiences" },
+  { label: "Blog", to: "/blogs" },
   { label: "Contact", to: "/contact" },
 ];
 

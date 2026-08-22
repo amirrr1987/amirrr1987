@@ -1,40 +1,35 @@
 <template>
-  <UiGradientSection class="relative z-10">
-    <UContainer class="space-y-10 sm:space-y-12">
-      <UiPageHeader
-        title="Blogs"
-        eyebrow="Writing"
-        icon="i-heroicons-document-text"
-        description="A collection of my thoughts, tutorials, and insights on web development."
-        show-separator
-      />
+  <UContainer class="max-w-xl space-y-8 text-center">
+    <UiPageHeader
+      title="Blog"
+      description="Writing is on the way. For now, find updates on GitHub and LinkedIn."
+    />
 
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <UiBlogCard
-          v-for="blog in data ?? []"
-          :key="blog.id"
-          :blog="blog"
-          :slug="kebabCase(blog.title)"
-        />
-      </div>
-    </UContainer>
-  </UiGradientSection>
+    <div class="flex flex-col justify-center gap-3 sm:flex-row">
+      <UButton
+        to="https://github.com/amirrr1987"
+        target="_blank"
+        color="primary"
+        icon="i-simple-icons-github"
+      >
+        GitHub
+      </UButton>
+      <UButton
+        to="https://www.linkedin.com/in/amirrr1987/"
+        target="_blank"
+        color="neutral"
+        variant="outline"
+        icon="i-simple-icons-linkedin"
+      >
+        LinkedIn
+      </UButton>
+    </div>
+  </UContainer>
 </template>
 
 <script setup lang="ts">
-import { kebabCase } from "lodash-es";
-
-useHead({
-  title: "Amir Maghami | Blogs",
-  meta: [
-    {
-      name: "description",
-      content:
-        "A collection of my thoughts, tutorials, and insights on web development.",
-    },
-  ],
+useSeoMeta({
+  title: "Blog — Amir Maghami",
+  description: "Blog and writing — coming soon.",
 });
-
-const { data } = await useFetch("/api/blogs");
-useGsapScrollReveal({ stagger: 0.14 });
 </script>

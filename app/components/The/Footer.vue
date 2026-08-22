@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative z-10 border-t border-white/10 bg-slate-950/80">
+  <footer class="font-footer relative z-10 border-t border-white/10 bg-slate-950/80">
     <UContainer class="py-6">
       <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
         <p class="text-center text-sm text-muted sm:text-left">

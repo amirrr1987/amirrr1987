@@ -1,151 +1,76 @@
 <template>
-  <section
-    id="contact"
-    class="relative z-10 flex flex-col justify-center items-center text-center"
-  >
-    <!-- Contact Header -->
-    <UContainer :ui="{ base: 'py-12 px-4 sm:px-6 lg:px-10' }">
-      <div class="space-y-4 animate-fade-in">
-        <h1 class="font-mono text-4xl sm:text-5xl font-bold text-primary">
-          Get in Touch
-        </h1>
-        <p class="font-mono text-gray-300 text-md sm:text-xl max-w-md mx-auto">
-          Feel free to reach out to me for collaborations, projects, or just to
-          say hello!
-        </p>
-      </div>
-    </UContainer>
+  <UContainer class="max-w-xl space-y-10">
+    <UiPageHeader
+      title="Contact"
+      description="Open to collaborations, freelance work, and interesting product teams."
+    />
 
-    <!-- Contact Form -->
-    <UContainer
-      :ui="{ base: 'py-8 px-4 sm:px-6 lg:px-10' }"
-      class="w-full max-w-2xl mt-8 animate-fade-in-up"
-    >
-      <form
-        class="space-y-6"
-        @submit.prevent="handleSubmit"
+    <div class="space-y-4 text-center">
+      <UButton
+        :to="mailtoLink"
+        color="primary"
+        size="lg"
+        block
+        icon="i-heroicons-envelope"
       >
-        <!-- Name Field -->
-        <UInput
-          v-model="formData.name"
-          type="text"
-          placeholder="Your Name"
-          icon="i-heroicons-user"
-          required
-          size="lg"
-          class="w-full transition-all duration-300 hover:ring-primary/50"
-        />
+        Email me
+      </UButton>
 
-        <!-- Email Field -->
-        <UInput
-          v-model="formData.email"
-          type="email"
-          placeholder="Your Email"
-          icon="i-heroicons-envelope"
-          required
-          size="lg"
-          class="w-full transition-all duration-300 hover:ring-primary/50"
-        />
-
-        <!-- Message Field -->
-        <UTextarea
-          v-model="formData.message"
-          placeholder="Your Message"
-          :rows="5"
-          required
-          size="lg"
-          class="w-full transition-all duration-300 hover:ring-primary/50"
-        />
-
-        <!-- Submit Button -->
-        <UButton
-          type="submit"
-          color="primary"
-          size="lg"
-          class="font-mono w-full sm:w-auto transition-transform duration-300 hover:scale-105"
+      <p class="text-sm text-muted">
+        Or reach out directly:
+        <ULink
+          :to="mailtoLink"
+          class="text-primary hover:underline"
         >
-          Send Message
-        </UButton>
-      </form>
-    </UContainer>
+          maghami.a1987@gmail.com
+        </ULink>
+      </p>
+    </div>
 
-    <!-- Social Links -->
-    <UContainer
-      :ui="{ base: 'py-8 px-4 sm:px-6 lg:px-10' }"
-      class="flex justify-center gap-6 mt-8 animate-fade-in-up"
-    >
-      <ULink
-        v-for="(link, index) in socialLinks"
-        :key="index"
+    <USeparator />
+
+    <div class="flex justify-center gap-2">
+      <UButton
+        v-for="link in socialLinks"
+        :key="link.label"
+        :icon="link.icon"
         :to="link.url"
-        target="_blank"
-        aria-label="Social Link"
-        class="transition-transform duration-300 hover:scale-110"
-      >
-        <UIcon
-          :name="link.icon"
-          class="w-6 h-6 text-gray-300 hover:text-primary"
-        />
-      </ULink>
-    </UContainer>
-  </section>
+        :target="link.external ? '_blank' : undefined"
+        variant="soft"
+        color="neutral"
+        :aria-label="link.label"
+      />
+    </div>
+  </UContainer>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import gsap from "gsap";
-
-// Form Data
-const formData = ref({
-  name: "",
-  email: "",
-  message: "",
+useSeoMeta({
+  title: "Contact — Amir Maghami",
+  description: "Get in touch for collaborations and project inquiries.",
 });
 
-// Social Links
+const mailtoLink =
+  "mailto:maghami.a1987@gmail.com?subject=Hello%20Amir&body=Hi%20Amir%2C%0A%0A";
+
 const socialLinks = [
-  { icon: "i-simple-icons-github", url: "https://github.com/amirrr1987" },
   {
+    label: "GitHub",
+    icon: "i-simple-icons-github",
+    url: "https://github.com/amirrr1987",
+    external: true,
+  },
+  {
+    label: "LinkedIn",
     icon: "i-simple-icons-linkedin",
     url: "https://www.linkedin.com/in/amirrr1987/",
+    external: true,
   },
-  { icon: "i-simple-icons-telegram", url: "https://chat.telegram.dev" },
+  {
+    label: "Email",
+    icon: "i-heroicons-envelope",
+    url: mailtoLink,
+    external: false,
+  },
 ];
-
-// Handle Form Submission
-function handleSubmit() {
-  alert("Thank you for reaching out! I will get back to you soon.");
-  formData.value = { name: "", email: "", message: "" };
-}
-
-// GSAP Animations
-onMounted(() => {
-  gsap.from(".animate-fade-in", {
-    opacity: 0,
-    y: 20,
-    duration: 1,
-    delay: 0.2,
-    stagger: 0.2,
-    ease: "power3.out",
-  });
-
-  gsap.from(".animate-fade-in-up", {
-    opacity: 0,
-    y: 20,
-    duration: 1,
-    delay: 0.4,
-    stagger: 0.2,
-    ease: "power3.out",
-  });
-});
 </script>
-
-<style scoped>
-.animate-fade-in {
-  opacity: 1;
-}
-
-.animate-fade-in-up {
-  opacity: 1;
-}
-</style>

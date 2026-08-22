@@ -19,23 +19,23 @@
             <UBadge
               color="primary"
               variant="subtle"
-              class="absolute left-4 top-4 z-[2] font-mono"
+              class="absolute left-4 top-4 z-[2]"
             >
               {{ badge }}
             </UBadge>
             <span
               v-if="project.year"
-              class="absolute right-4 top-4 z-[2] font-mono text-xs text-muted"
+              class="font-label absolute right-4 top-4 z-[2] text-xs text-muted"
             >
               {{ project.year }}
             </span>
           </div>
 
           <div :class="bodyClass">
-            <h3 class="font-mono text-lg font-bold text-highlighted sm:text-xl">
+            <h3 class="font-card text-lg text-highlighted sm:text-xl">
               {{ project.name }}
             </h3>
-            <p class="mt-1 text-sm font-medium text-primary/90">
+            <p class="font-subtitle mt-1 text-sm text-primary/90">
               {{ project.tagline }}
             </p>
             <p class="mt-3 text-sm leading-7 text-muted">
@@ -48,7 +48,6 @@
                 color="primary"
                 variant="soft"
                 size="sm"
-                class="font-mono"
               >
                 {{ tech }}
               </UBadge>
@@ -61,7 +60,7 @@
                 color="primary"
                 variant="solid"
                 icon="i-heroicons-document-magnifying-glass"
-                class="btn-premium font-mono"
+                class="btn-premium"
               >
                 Case study
               </UButton>
@@ -73,7 +72,7 @@
                 :variant="project.caseStudy ? 'outline' : 'soft'"
                 :icon="primaryIcon"
                 trailing
-                class="btn-premium font-mono"
+                class="btn-premium"
               >
                 {{ primaryLabel }}
               </UButton>
@@ -84,7 +83,7 @@
                 color="neutral"
                 variant="ghost"
                 icon="i-simple-icons-github"
-                class="btn-premium font-mono"
+                class="btn-premium"
               >
                 Code
               </UButton>
