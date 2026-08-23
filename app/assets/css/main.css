@@ -7,7 +7,6 @@
 @import "@fontsource/faster-one/400.css";
 @import "@fontsource/fugaz-one/400.css";
 @import "@fontsource/jersey-10/400.css";
-@import "@fontsource/nosifer/400.css";
 @import "@fontsource/press-start-2p/400.css";
 @import "@fontsource/silkscreen/400.css";
 @import "@fontsource/silkscreen/700.css";
@@ -18,22 +17,21 @@
 @import "@nuxt/ui";
 
 /*
-  Font roles — swap values here to test
-  hero title     → Nosifer
-  hero subtitle  → Faster One
+  Font roles
+  hero title     → Tektur Variable (readable + tech)
+  hero subtitle  → Audiowide
   page title     → Tektur Variable
   section title  → Fugaz One
   card title     → Audiowide
   body           → Space Grotesk
   menu           → Silkscreen
-  badge          → B612 Mono
+  badge/label    → B612 Mono
   tab            → Gluten Variable
-  label/meta     → Press Start 2P
   footer         → Jersey 10
 */
 @theme {
-  --font-title: "Nosifer", cursive;
-  --font-subtitle: "Faster One", cursive;
+  --font-title: "Tektur Variable", sans-serif;
+  --font-subtitle: "Audiowide", sans-serif;
   --font-page: "Tektur Variable", sans-serif;
   --font-section: "Fugaz One", cursive;
   --font-card: "Audiowide", sans-serif;
@@ -41,7 +39,7 @@
   --font-menu: "Silkscreen", cursive;
   --font-badge: "B612 Mono", monospace;
   --font-tab: "Gluten Variable", cursive;
-  --font-label: "Press Start 2P", cursive;
+  --font-label: "B612 Mono", monospace;
   --font-button: "Space Grotesk", sans-serif;
   --font-footer: "Jersey 10", sans-serif;
   --font-mono: "B612 Mono", monospace;
@@ -49,8 +47,19 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
   body {
     font-family: var(--font-body);
+    @apply bg-slate-950 text-default antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--ui-primary) 35%, transparent);
+    color: white;
   }
 
   .font-title,
@@ -66,5 +75,185 @@
   .font-page,
   .font-tab {
     font-weight: 600;
+  }
+}
+
+@layer components {
+  /* ── Glass & surfaces ── */
+  .glass-panel {
+    @apply rounded-2xl border border-white/10 bg-slate-950/55 backdrop-blur-xl;
+    box-shadow:
+      0 4px 32px rgb(0 0 0 / 0.35),
+      inset 0 1px 0 rgb(255 255 255 / 0.06);
+  }
+
+  .glass-nav {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .noise-overlay {
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .page-vignette {
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgb(66 184 131 / 0.08), transparent 55%),
+      radial-gradient(ellipse 60% 50% at 100% 100%, rgb(139 92 246 / 0.06), transparent 50%),
+      radial-gradient(ellipse 50% 40% at 0% 80%, rgb(66 184 131 / 0.04), transparent 45%);
+  }
+
+  /* ── Typography utilities ── */
+  .page-eyebrow {
+    @apply font-badge text-xs uppercase tracking-[0.22em] text-primary;
+  }
+
+  .display-section {
+    @apply font-section text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl;
+  }
+
+  .body-copy {
+    @apply text-sm leading-relaxed sm:text-base;
+  }
+
+  .label-mono {
+    @apply font-badge text-xs uppercase tracking-wider text-muted;
+  }
+
+  .gradient-text {
+    @apply bg-linear-to-br from-primary via-emerald-300 to-violet-400 bg-clip-text text-transparent;
+  }
+
+  /* ── Interactive ── */
+  .btn-premium {
+    @apply transition-all duration-300;
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgb(66 184 131 / 0.2);
+  }
+
+  .tech-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/25 bg-slate-950/60 px-4 py-2.5 text-sm text-muted backdrop-blur-md transition-all duration-300;
+  }
+
+  .tech-chip:hover {
+    @apply border-primary/45 text-highlighted;
+    transform: translateY(-2px);
+  }
+
+  /* ── Bento grid ── */
+  .bento-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bento-span-featured {
+      grid-column: span 2;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .bento-span-featured {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+
+  /* ── CTA band glow ── */
+  .cta-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      ellipse 70% 80% at 50% 100%,
+      rgb(66 184 131 / 0.14),
+      transparent 65%
+    );
+    pointer-events: none;
+  }
+
+  /* ── Timeline ── */
+  .timeline-pulse {
+    animation: timeline-pulse 2.5s ease-out infinite;
+  }
+
+  @keyframes timeline-pulse {
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 0 rgb(66 184 131 / 0.45),
+        0 0 12px rgb(66 184 131 / 0.35);
+    }
+
+    50% {
+      box-shadow:
+        0 0 0 6px rgb(66 184 131 / 0),
+        0 0 16px rgb(66 184 131 / 0.5);
+    }
+  }
+
+  /* ── Scroll hint ── */
+  .scroll-hint {
+    animation: scroll-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.6;
+    }
+
+    50% {
+      transform: translateY(6px);
+      opacity: 1;
+    }
+  }
+
+  /* ── Nav active pill ── */
+  .nav-link-active {
+    @apply relative text-primary;
+  }
+
+  .nav-link-active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 9999px;
+    background: var(--ui-primary);
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .scroll-hint,
+  .timeline-pulse,
+  .tech-chip:hover,
+  .btn-premium:hover {
+    animation: none;
+    transform: none;
   }
 }

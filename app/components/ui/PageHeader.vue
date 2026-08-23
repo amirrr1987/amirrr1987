@@ -1,13 +1,14 @@
 <template>
-  <header class="page-header text-center">
-    <h1
-      class="bg-linear-to-br from-primary to-purple-400 bg-clip-text font-page text-4xl text-transparent sm:text-5xl"
-    >
+  <header class="page-header text-center" data-reveal>
+    <p v-if="eyebrow" class="page-eyebrow mb-4">
+      {{ eyebrow }}
+    </p>
+    <h1 class="gradient-text font-page text-4xl sm:text-5xl">
       {{ title }}
     </h1>
     <p
       v-if="description"
-      class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
+      class="body-copy mx-auto mt-4 max-w-2xl text-muted"
     >
       {{ description }}
     </p>
@@ -18,5 +19,6 @@
 defineProps<{
   title: string;
   description?: string;
+  eyebrow?: string;
 }>();
 </script>

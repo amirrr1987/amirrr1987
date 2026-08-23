@@ -3,10 +3,12 @@
     <NuxtLink
       to="/"
       aria-label="Go to home page"
-      class="flex min-w-0 items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+      class="group flex min-w-0 items-center gap-3 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
       @click="isOpen = false"
     >
-      <TheLogo class="size-8 shrink-0 text-primary sm:size-9" />
+      <TheLogo
+        class="size-8 shrink-0 text-primary transition-transform duration-300 group-hover:scale-105 sm:size-9"
+      />
       <span class="min-w-0 truncate">
         <span class="block text-sm font-semibold tracking-tight text-highlighted sm:text-base">
           Amir Maghami
@@ -21,13 +23,32 @@
         :key="link.to"
         :to="link.to"
         class="rounded-lg px-2.5 py-2 text-sm text-muted transition-colors hover:text-highlighted xl:px-3"
-        active-class="!text-primary"
+        :class="{ 'nav-link-active': isActive(link.to) }"
+        active-class="!text-primary nav-link-active"
       >
         {{ link.label }}
       </ULink>
+      <UButton
+        to="/contact"
+        size="sm"
+        color="primary"
+        variant="soft"
+        class="btn-premium ml-2 hidden xl:inline-flex"
+        icon="i-heroicons-paper-airplane"
+      >
+        Hire me
+      </UButton>
     </nav>
 
-    <div class="lg:hidden">
+    <div class="flex items-center gap-1 lg:hidden">
+      <UButton
+        to="/contact"
+        size="sm"
+        color="primary"
+        variant="soft"
+        icon="i-heroicons-envelope"
+        aria-label="Contact"
+      />
       <UButton
         color="neutral"
         variant="ghost"
@@ -83,6 +104,18 @@
               {{ item.label }}
             </ULink>
           </nav>
+
+          <UButton
+            to="/contact"
+            block
+            size="xl"
+            color="primary"
+            icon="i-heroicons-paper-airplane"
+            class="btn-premium"
+            @click="isOpen = false"
+          >
+            Start a project
+          </UButton>
         </div>
       </div>
     </Transition>
@@ -102,6 +135,11 @@ const navigationLinks = [
   { label: "Blog", to: "/blogs" },
   { label: "Contact", to: "/contact" },
 ];
+
+function isActive(path: string) {
+  if (path === "/") return route.path === "/";
+  return route.path.startsWith(path);
+}
 
 watch(
   () => route.fullPath,
@@ -126,7 +164,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .mobile-menu-enter-active,
 .mobile-menu-leave-active {
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
 }
 
 .mobile-menu-enter-from,

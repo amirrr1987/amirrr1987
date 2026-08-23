@@ -1,6 +1,9 @@
 <template>
-  <section class="relative z-10 py-10 sm:py-12" aria-label="Tech stack">
-    <div class="marquee-mask overflow-hidden">
+  <section
+    class="relative z-10 w-full max-w-screen-2xl mx-auto overflow-x-hidden py-10 sm:py-12"
+    aria-label="Tech stack"
+  >
+    <div class="marquee-mask">
       <div class="marquee-track">
         <div v-for="pass in 2" :key="pass" class="marquee-group">
           <span
@@ -34,7 +37,11 @@ const stack = [
 
 <style scoped>
 .marquee-mask {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
 
 .marquee-track {

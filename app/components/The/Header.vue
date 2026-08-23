@@ -10,6 +10,7 @@
 
 <style scoped>
 .glass-nav {
+  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
 </style>

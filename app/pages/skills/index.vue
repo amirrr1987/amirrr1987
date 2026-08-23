@@ -1,43 +1,46 @@
 <template>
-  <UContainer class="space-y-10">
-    <UiPageHeader
-      title="Skills"
-      description="Technologies and tools I use in production work."
-    />
+  <div class="px-4 py-10 sm:px-6 sm:py-12 lg:px-10">
+    <UContainer class="space-y-10">
+      <UiPageHeader
+        title="Skills"
+        description="Technologies and tools I use in production work."
+      />
 
-    <UTabs
-      :items="tabs"
-      color="primary"
-      variant="pill"
-      class="w-full"
-      :ui="{
-        list: 'glass-panel p-1.5 ring-0',
-        trigger:
-          'font-tab text-sm data-[state=active]:shadow-md data-[state=active]:shadow-primary/20',
-      }"
-    >
-      <template
-        v-for="tab in tabs"
-        :key="tab.slot"
-        #[tab.slot]
+      <UTabs
+        :items="tabs"
+        color="primary"
+        variant="pill"
+        class="w-full"
+        :ui="{
+          list: 'glass-panel p-1.5 ring-0',
+          trigger:
+            'font-tab text-sm data-[state=active]:shadow-md data-[state=active]:shadow-primary/20',
+        }"
       >
-        <div
-          class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+        <template
+          v-for="tab in tabs"
+          :key="tab.slot"
+          #[tab.slot]
         >
-          <UBadge
-            v-for="(skill, index) in tab.skills"
-            :key="`${tab.slot}-${skill}-${index}`"
-            color="primary"
-            variant="soft"
-            size="lg"
-            class="flex h-12 items-center justify-center transition-transform duration-300 hover:scale-105"
+          <div
+            class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+            data-reveal
           >
-            {{ skill }}
-          </UBadge>
-        </div>
-      </template>
-    </UTabs>
-  </UContainer>
+            <UBadge
+              v-for="(skill, index) in tab.skills"
+              :key="`${tab.slot}-${skill}-${index}`"
+              color="primary"
+              variant="soft"
+              size="lg"
+              class="flex h-12 items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-md hover:shadow-primary/15"
+            >
+              {{ skill }}
+            </UBadge>
+          </div>
+        </template>
+      </UTabs>
+    </UContainer>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -49,6 +52,8 @@ useSeoMeta({
   title: "Skills — Amir Maghami",
   description: "Frontend, backend, and tooling skills.",
 });
+
+useGsapScrollReveal({ stagger: 0.03 });
 
 const tabs = computed(() => [
   {

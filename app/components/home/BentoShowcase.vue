@@ -40,4 +40,6 @@
 <script setup lang="ts">
 const { featured, projects } = useProjects();
 const totalCount = computed(() => projects.value.length);
+
+useGsapScrollReveal({ stagger: 0.08 });
 </script>

@@ -1,7 +1,7 @@
 <template>
   <TheHeader />
 
-  <main class="relative z-10 px-4 py-10 sm:px-6 sm:py-12 lg:px-10">
+  <main class="relative z-10">
     <slot />
   </main>
 

@@ -11,7 +11,12 @@ export default defineAppConfig({
     },
     button: {
       slots: {
-        base: "font-button",
+        base: "font-button rounded-xl",
+      },
+    },
+    card: {
+      slots: {
+        root: "rounded-2xl",
       },
     },
   },
