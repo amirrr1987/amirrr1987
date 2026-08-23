@@ -25,7 +25,6 @@
         </p>
         <UButton
           :to="`/blogs/${slug}`"
-          target="_blank"
           variant="link"
           color="primary"
           trailing-icon="i-heroicons-arrow-right"

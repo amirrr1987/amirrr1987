@@ -28,16 +28,7 @@
       >
         {{ link.label }}
       </ULink>
-      <UButton
-        to="/contact"
-        size="sm"
-        color="primary"
-        variant="soft"
-        class="btn-premium ml-2 hidden xl:inline-flex"
-        icon="i-heroicons-paper-airplane"
-      >
-        Hire me
-      </UButton>
+      
     </nav>
 
     <div class="flex items-center gap-1 lg:hidden">

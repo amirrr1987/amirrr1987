@@ -1,110 +1,133 @@
 <template>
-  <div class="relative space-y-0">
-    <!-- Center rail (desktop) -->
-    <div
-      class="career-rail pointer-events-none absolute bottom-8 left-1/2 top-8 hidden w-px -translate-x-1/2 lg:block"
-      aria-hidden="true"
-    />
+  <div
+    class="git-log overflow-hidden rounded-2xl border border-white/10 bg-slate-950/80"
+    data-reveal
+  >
+    <!-- Terminal chrome -->
+    <div class="flex items-center gap-2 border-b border-white/8 bg-black/40 px-4 py-2.5">
+      <span class="size-2.5 rounded-full bg-rose-500/90" />
+      <span class="size-2.5 rounded-full bg-amber-400/90" />
+      <span class="size-2.5 rounded-full bg-emerald-500/90" />
+      <p class="font-mono ml-2 truncate text-[11px] text-muted">
+        amir@portfolio ~ <span class="text-primary">git log --graph --career</span>
+      </p>
+    </div>
 
-    <article
-      v-for="(exp, index) in experiences"
-      :key="`${exp.company}-${exp.period}`"
-      class="career-step relative py-6 sm:py-8 lg:py-10"
-      :class="index % 2 === 0 ? 'lg:pr-[52%]' : 'lg:pl-[52%]'"
-      data-reveal
-    >
-      <!-- Node on rail -->
-      <div
-        class="absolute left-0 top-10 z-10 hidden lg:left-1/2 lg:block lg:-translate-x-1/2"
-        aria-hidden="true"
+    <div class="grid lg:grid-cols-[minmax(0,24rem)_1fr]">
+      <!-- Commit list -->
+      <nav
+        class="border-b border-white/8 lg:border-b-0 lg:border-r lg:border-white/8"
+        aria-label="Career commits"
       >
-        <span
-          class="flex size-10 items-center justify-center rounded-full border border-primary/40 bg-slate-950 font-badge text-xs text-primary shadow-[0_0_24px_rgb(66_184_131_/0.35)]"
-          :class="index === 0 ? 'timeline-pulse ring-4 ring-primary/15' : ''"
-        >
-          {{ String(index + 1).padStart(2, "0") }}
-        </span>
-      </div>
-
-      <div
-        class="career-card group relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950/50 p-5 backdrop-blur-xl transition-all duration-400 sm:p-7"
-        :class="[
-          index === 0 && 'career-card--current',
-          index % 2 === 0 ? 'lg:mr-6' : 'lg:ml-6',
-        ]"
-      >
-        <span
-          class="noise-overlay absolute inset-0 rounded-[inherit] opacity-[0.04]"
-          aria-hidden="true"
-        />
-
-        <div class="relative z-1">
-          <div class="flex flex-wrap items-start justify-between gap-3">
-            <div class="min-w-0">
-              <div class="mb-3 flex flex-wrap items-center gap-2 lg:hidden">
-                <span class="font-badge text-xs text-primary">
-                  {{ String(index + 1).padStart(2, "0") }}
-                </span>
-                <span
-                  v-if="index === 0"
-                  class="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 font-badge text-[10px] uppercase tracking-wider text-primary"
-                >
-                  <span class="size-1.5 animate-pulse rounded-full bg-primary" />
-                  Now
-                </span>
-              </div>
-
-              <p class="font-label text-xs uppercase tracking-[0.18em] text-primary">
-                {{ exp.period }}
-              </p>
-              <h3 class="font-section mt-2 text-xl text-highlighted sm:text-2xl">
-                {{ exp.role }}
-              </h3>
-              <p class="font-subtitle mt-1 text-sm text-primary/85 sm:text-base">
-                {{ exp.company }}
-                <span class="text-muted"> · </span>
-                <span class="text-muted">{{ exp.location }}</span>
-              </p>
-            </div>
-
-            <span
-              v-if="index === 0"
-              class="hidden items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-badge text-[10px] uppercase tracking-wider text-primary lg:inline-flex"
+        <ul class="max-h-48 overflow-y-auto p-2 lg:max-h-none lg:p-3">
+          <li v-for="(exp, index) in experiences" :key="`${exp.company}-${exp.period}`">
+            <button
+              type="button"
+              class="group flex w-full items-start gap-1.5 rounded-lg px-2 py-2 text-left font-mono text-[11px] leading-relaxed transition-colors sm:text-xs"
+              :class="
+                activeIndex === index
+                  ? 'bg-primary/15 text-primary'
+                  : 'text-muted hover:bg-white/5 hover:text-highlighted'
+              "
+              @click="activeIndex = index"
             >
-              <span class="size-1.5 animate-pulse rounded-full bg-primary" />
-              Current
-            </span>
-          </div>
+              <span class="shrink-0 text-primary/50" aria-hidden="true">
+                {{ index === 0 ? '*' : '|' }}
+              </span>
+              <span class="min-w-0">
+                <span class="text-violet-300">{{ commitHash(index, exp.company) }}</span>
+                <span v-if="index === 0" class="text-primary"> (HEAD)</span>
+                <span class="mt-0.5 block truncate text-muted group-hover:text-highlighted">
+                  {{ commitMessage(exp) }}
+                </span>
+              </span>
+            </button>
+          </li>
 
-          <ul class="mt-5 space-y-3 border-t border-white/5 pt-5">
+          <li
+            v-if="education"
+            class="mt-1 border-t border-white/5 pt-2"
+          >
+            <button
+              type="button"
+              class="flex w-full items-start gap-1.5 rounded-lg px-2 py-2 text-left font-mono text-[11px] text-muted transition-colors hover:bg-white/5 sm:text-xs"
+              :class="activeIndex === -1 ? 'bg-primary/15 text-primary' : ''"
+              @click="activeIndex = -1"
+            >
+              <span class="shrink-0 text-primary/30" aria-hidden="true">|</span>
+              <span>
+                <span class="text-violet-300/70">0000001</span>
+                <span class="mt-0.5 block truncate">init(education): first commit</span>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Commit detail -->
+      <div class="min-h-0 p-4 sm:p-5">
+        <article v-if="activeIndex >= 0 && active" :key="activeIndex">
+          <p class="font-mono text-[11px] leading-6 text-muted sm:text-xs">
+            <span class="text-violet-300">commit</span>
+            {{ commitHash(activeIndex, active.company) }}
+            <span v-if="activeIndex === 0" class="text-primary"> (HEAD -&gt; main)</span>
+          </p>
+          <p class="font-mono text-[11px] leading-6 text-muted sm:text-xs">
+            <span class="text-violet-300">Author:</span> Amir Maghami
+          </p>
+          <p class="font-mono text-[11px] leading-6 text-muted sm:text-xs">
+            <span class="text-violet-300">Date:</span> {{ active.period }}
+          </p>
+          <p class="font-mono text-[11px] leading-6 text-muted sm:text-xs">
+            <span class="text-violet-300">Location:</span> {{ active.location }}
+          </p>
+
+          <div class="my-3 border-t border-white/5" />
+
+          <p class="font-mono text-sm text-highlighted">
+            {{ active.role }} @ {{ active.company }}
+          </p>
+
+          <ul class="mt-3 space-y-2 overflow-y-auto h-48">
             <li
-              v-for="(responsibility, idx) in exp.responsibilities"
+              v-for="(item, idx) in active.responsibilities"
               :key="idx"
-              class="flex gap-3 text-sm leading-7 text-muted sm:text-[0.95rem]"
+              class="font-mono text-xs leading-relaxed text-muted"
             >
-              <span
-                class="mt-2.5 size-1.5 shrink-0 rounded-full bg-primary/70"
-                aria-hidden="true"
-              />
-              <span>{{ responsibility }}</span>
+              <span class="text-primary">+</span> {{ item }}
             </li>
           </ul>
+     
 
-          <div class="mt-5 flex flex-wrap gap-1.5">
-            <UBadge
-              v-for="tech in exp.technologies"
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            <span
+              v-for="tech in active.technologies.slice(0, 6)"
               :key="tech"
-              color="neutral"
-              variant="soft"
-              size="sm"
-              class="border border-white/5 transition-colors group-hover:border-primary/20"
+              class="rounded-md border border-primary/20 bg-primary/8 px-2 py-0.5 font-mono text-[10px] text-primary"
             >
               {{ tech }}
-            </UBadge>
+            </span>
           </div>
-        </div>
+        </article>
+
+        <article v-else-if="education">
+          <p class="font-mono text-[11px] leading-6 text-muted sm:text-xs">
+            <span class="text-violet-300">commit</span> 0000001
+            <span class="text-muted"> (root)</span>
+          </p>
+          <p class="font-mono text-[11px] leading-6 text-muted sm:text-xs">
+            <span class="text-violet-300">Date:</span> {{ education.years }}
+          </p>
+          <div class="my-3 border-t border-white/5" />
+          <p class="font-mono text-sm text-highlighted">
+            {{ education.degree }}
+          </p>
+          <p class="mt-1 font-mono text-xs text-muted">
+            {{ education.institution }} · {{ education.location }}
+          </p>
+        </article>
       </div>
-    </article>
+    </div>
   </div>
 </template>
 
@@ -118,7 +141,60 @@ type Experience = {
   technologies: string[];
 };
 
-defineProps<{
+type Education = {
+  degree: string;
+  institution: string;
+  location: string;
+  years: string;
+};
+
+const props = defineProps<{
   experiences: Experience[];
+  education?: Education | null;
 }>();
+
+const activeIndex = ref(0);
+
+const active = computed(() => props.experiences[activeIndex.value] ?? null);
+
+function commitHash(index: number, company: string) {
+  let hash = index * 2654435761;
+  for (let i = 0; i < company.length; i++) {
+    hash = (hash + company.charCodeAt(i) * (i + 1)) >>> 0;
+  }
+  return hash.toString(16).slice(0, 7).padStart(7, "0");
+}
+
+function commitMessage(exp: Experience) {
+  const slug = exp.company
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 12);
+  const verb = /lead|architect/i.test(exp.role) ? "feat" : "refactor";
+  return `${verb}(${slug}): ${exp.role.toLowerCase()}`;
+}
+
+function onKeydown(e: KeyboardEvent) {
+  const max = props.experiences.length - 1;
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    activeIndex.value = Math.min(activeIndex.value + 1, max);
+  } else if (e.key === "ArrowUp") {
+    e.preventDefault();
+    activeIndex.value = Math.max(activeIndex.value - 1, 0);
+  }
+}
+
+onMounted(() => {
+  if (import.meta.client) {
+    window.addEventListener("keydown", onKeydown);
+  }
+});
+
+onUnmounted(() => {
+  if (import.meta.client) {
+    window.removeEventListener("keydown", onKeydown);
+  }
+});
 </script>

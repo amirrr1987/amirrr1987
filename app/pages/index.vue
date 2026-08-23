@@ -1,49 +1,34 @@
 <template>
-  <div class="">
-    <!-- Hero -->
+  <div>
     <section
-      class="relative flex min-h-[calc(100svh-5rem)] items-center text-white"
+      class="relative flex min-h-[calc(100svh-5rem)] items-center justify-center overflow-hidden text-white"
     >
-      <UContainer
-        class="px-4 text-center sm:px-8"
-        :ui="{ base: 'max-w-4xl' }"
-      >
-        <div
-          ref="heroRoot"
-          class="flex flex-col items-center justify-center space-y-6"
-        >
+      <SceneHeroOrbit />
+
+      <UContainer class="relative z-1 px-4 text-center sm:px-8" :ui="{ base: 'max-w-3xl' }">
+        <div ref="heroRoot" class="flex flex-col items-center space-y-5 sm:space-y-6">
           <UBadge
             color="primary"
             variant="subtle"
             size="lg"
-            class="opacity-0"
+            class="opacity-0 backdrop-blur-sm"
             data-hero-item
           >
             <span class="relative flex size-2">
-              <span
-                class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-60"
-              />
+              <span class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-60" />
               <span class="relative inline-flex size-2 rounded-full bg-primary" />
             </span>
-            Available for freelance & full-time
+            Available for work
           </UBadge>
 
-          <HeroLogo
-            ref="heroLogo"
-            class="h-32 w-auto opacity-0 sm:h-40"
-          />
+          <HeroLogo ref="heroLogo" class="h-28 w-auto opacity-0 sm:h-36" />
 
-          <h1
-            class="gradient-text font-title text-5xl leading-[1.1] tracking-tight sm:text-6xl md:text-7xl"
-          >
+          <h1 class="gradient-text font-title text-4xl leading-[1.08] tracking-tight sm:text-6xl md:text-7xl">
             <span ref="nameText" />
-            <span
-              ref="nameCursor"
-              class="typewriter-cursor"
-            >|</span>
+            <span ref="nameCursor" class="typewriter-cursor">|</span>
           </h1>
 
-          <h2 class="font-subtitle text-lg text-primary/90 sm:text-xl md:text-2xl">
+          <h2 class="font-subtitle text-base text-primary/90 sm:text-xl md:text-2xl">
             Fullstack Developer
             <span class="text-muted"> · </span>
             <span ref="roleText">{{ roles[0] }}</span>
@@ -51,14 +36,30 @@
 
           <p
             ref="descriptionEl"
-            class="body-copy mx-auto max-w-2xl text-muted opacity-0 font-menu"
+            class="body-copy mx-auto max-w-xl text-muted opacity-0 sm:text-base"
           >
             {{ content.description }}
           </p>
 
           <div
+            ref="statsRow"
+            class="grid w-full max-w-lg grid-cols-4 gap-2 opacity-0"
+          >
+            <div
+              v-for="stat in stats"
+              :key="stat.label"
+              class="rounded-xl border border-white/8 bg-black/20 px-2 py-2.5 backdrop-blur-sm"
+            >
+              <p class="font-mono text-base font-bold text-primary sm:text-lg">
+                {{ stat.value }}{{ stat.suffix }}
+              </p>
+              <p class="label-mono mt-0.5 text-[9px] sm:text-[10px]">{{ stat.label }}</p>
+            </div>
+          </div>
+
+          <div
             ref="buttonsContainer"
-            class="flex flex-col items-center gap-3 opacity-0 sm:flex-row sm:gap-4"
+            class="flex w-full flex-col items-center gap-3 opacity-0 sm:w-auto sm:flex-row"
           >
             <UButton
               to="/projects"
@@ -67,7 +68,7 @@
               color="primary"
               class="btn-premium w-full shadow-lg shadow-primary/25 sm:w-auto"
             >
-              View My Work
+              View my work
             </UButton>
             <UButton
               to="/contact"
@@ -77,64 +78,52 @@
               icon="i-heroicons-envelope"
               class="btn-premium w-full sm:w-auto"
             >
-              Get in Touch
+              Get in touch
             </UButton>
           </div>
         </div>
       </UContainer>
-
-      <a
-        href="#showcase"
-        class="scroll-hint absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-muted transition-colors hover:text-primary"
-        aria-label="Scroll to featured projects"
-      >
-        <span class="font-badge text-[10px] uppercase tracking-widest">Explore</span>
-        <UIcon name="i-heroicons-chevron-down" class="size-5" />
-      </a>
     </section>
 
-    <!-- Stats -->
-    <section class="relative z-10 px-4 pb-4 pt-2 sm:px-6 lg:px-10">
-      <UContainer>
+    <section class="relative z-10 px-4 pb-14 pt-2 sm:px-6 lg:px-10">
+      <UContainer class="space-y-4">
+        <div class="grid gap-4 sm:grid-cols-2" data-reveal>
+          <UiProjectCard
+            v-for="project in teaser"
+            :key="project.slug"
+            :project="project"
+            variant="compact"
+            :tilt="false"
+            :shine="false"
+          />
+        </div>
+
         <div
-          class="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4"
+          class="cta-band flex flex-col items-center justify-between gap-3 rounded-2xl border border-primary/20 bg-primary/5 px-5 py-4 sm:flex-row sm:px-6"
           data-reveal
         >
-          <UiStatCounter
-            :value="6"
-            suffix="+"
-            label="Years experience"
-            icon="i-heroicons-briefcase"
-            :immediate="true"
-          />
-          <UiStatCounter
-            :value="15"
-            suffix="+"
-            label="Projects shipped"
-            icon="i-heroicons-rocket-launch"
-            :immediate="true"
-          />
-          <UiStatCounter
-            :value="4"
-            label="Companies"
-            icon="i-heroicons-building-office-2"
-            :immediate="true"
-          />
-          <UiStatCounter
-            :value="25"
-            suffix="+"
-            label="Tech stack"
-            icon="i-heroicons-code-bracket"
-            :immediate="true"
-          />
+          <p class="text-center text-sm text-muted sm:text-left">
+            <span class="font-section text-highlighted">Ready to ship?</span>
+            · {{ totalProjects }}+ live projects
+          </p>
+          <div class="flex shrink-0 gap-2">
+            <UButton to="/projects" color="primary" size="md" class="btn-premium">
+              All projects
+            </UButton>
+            <UButton
+              to="/contact"
+              color="neutral"
+              variant="outline"
+              size="md"
+              icon="i-heroicons-paper-airplane"
+              class="btn-premium"
+            >
+              Contact
+            </UButton>
+          </div>
         </div>
       </UContainer>
     </section>
-
-    <HomeTechMarquee />
-    <HomeServicesBento />
-    <HomeBentoShowcase />
-    <HomeCtaBand />
   </div>
 </template>
 
@@ -147,6 +136,7 @@ const nameText = ref<HTMLElement | null>(null);
 const nameCursor = ref<HTMLElement | null>(null);
 const roleText = ref<HTMLElement | null>(null);
 const descriptionEl = ref<HTMLElement | null>(null);
+const statsRow = ref<HTMLElement | null>(null);
 const buttonsContainer = ref<HTMLElement | null>(null);
 
 const roles = ["Vue.js", "Nuxt", "TypeScript", "Pinia", "Design Systems"];
@@ -154,26 +144,37 @@ const roles = ["Vue.js", "Nuxt", "TypeScript", "Pinia", "Design Systems"];
 const content = {
   name: "Amir Maghami",
   description:
-    "I craft beautiful, intuitive, and high-performance web experiences — merging elegant design with clean, scalable code to build amazing things for the web.",
+    "Beautiful, high-performance web apps — Vue, Nuxt, and polished UI for production teams.",
 };
+
+const { featured, projects } = useProjects();
+const teaser = computed(() => featured.value.slice(0, 2));
+const totalProjects = computed(() => projects.value.length);
+
+const stats = [
+  { value: 6, suffix: "+", label: "Years" },
+  { value: 15, suffix: "+", label: "Projects" },
+  { value: 4, label: "Companies" },
+  { value: 25, suffix: "+", label: "Stack" },
+];
 
 useSeoMeta({
   title: "Amir Maghami — Fullstack Developer",
   description: content.description,
 });
 
-useGsapScrollReveal();
+useGsapScrollReveal({ stagger: 0.06 });
 useRotatingRole(roleText);
 
 function showStaticHero() {
   if (nameText.value) nameText.value.textContent = content.name;
   if (nameCursor.value) nameCursor.value.style.display = "none";
-
   gsap.set(
     [
       heroLogo.value?.logoSvg,
       nameText.value,
       descriptionEl.value,
+      statsRow.value,
       buttonsContainer.value,
       ...gsap.utils.toArray("[data-hero-item]"),
     ],
@@ -184,16 +185,14 @@ function showStaticHero() {
 onMounted(() => {
   if (!import.meta.client) return;
 
-  const reduced = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
-
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduced) {
     showStaticHero();
     return;
   }
 
-  gsap.set(buttonsContainer.value, { y: 12 });
+  gsap.set(buttonsContainer.value, { y: 10 });
+  gsap.set(statsRow.value, { y: 8 });
   gsap.set("[data-hero-item]", { opacity: 0, y: -8 });
 
   const ctx = gsap.context(() => {
@@ -205,8 +204,8 @@ onMounted(() => {
     if (logoEl) {
       tl.fromTo(
         logoEl,
-        { opacity: 0, y: 20, scale: 0.92 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.8 },
+        { opacity: 0, y: 16, scale: 0.94 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.7 },
         "-=0.2",
       );
     }
@@ -214,24 +213,19 @@ onMounted(() => {
     if (nameText.value) {
       tl.to(
         nameText.value,
-        {
-          opacity: 1,
-          duration: 0.9,
-          text: content.name,
-          ease: "none",
-        },
-        "+=0.1",
+        { opacity: 1, duration: 0.85, text: content.name, ease: "none" },
+        "+=0.08",
       );
     }
 
     if (nameCursor.value) {
-      tl.to(nameCursor.value, { opacity: 0, duration: 0.2 }, "+=0.05");
+      tl.to(nameCursor.value, { opacity: 0, duration: 0.15 }, "+=0.05");
     }
 
     tl.to(
-      [descriptionEl.value, buttonsContainer.value],
-      { opacity: 1, y: 0, duration: 0.55, stagger: 0.08 },
-      "+=0.15",
+      [descriptionEl.value, statsRow.value, buttonsContainer.value],
+      { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 },
+      "+=0.12",
     );
   }, heroRoot);
 
@@ -243,7 +237,6 @@ onMounted(() => {
 .typewriter-cursor {
   display: inline-block;
   margin-left: 2px;
-  font-weight: normal;
   color: var(--ui-primary);
   animation: cursor-blink 1s step-end infinite;
 }
@@ -259,7 +252,6 @@ onMounted(() => {
   100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0;
   }

@@ -611,6 +611,121 @@
     @apply border-primary/40 text-highlighted;
     transform: translateY(-1px);
   }
+
+  /* ── Blog signal dispatch ── */
+  .blog-signal-cover {
+    background:
+      radial-gradient(ellipse 80% 70% at 70% 20%, var(--signal-glow), transparent 55%),
+      linear-gradient(160deg, var(--signal-deep), #020617 70%);
+  }
+
+  .blog-signal-cover--emerald {
+    --signal-glow: rgb(66 184 131 / 0.35);
+    --signal-deep: #06221a;
+  }
+
+  .blog-signal-cover--violet {
+    --signal-glow: rgb(139 92 246 / 0.35);
+    --signal-deep: #1a0f2e;
+  }
+
+  .blog-signal-cover--sky {
+    --signal-glow: rgb(56 189 248 / 0.3);
+    --signal-deep: #0a1a28;
+  }
+
+  .blog-signal-cover--amber {
+    --signal-glow: rgb(251 191 36 / 0.28);
+    --signal-deep: #1c1408;
+  }
+
+  .blog-featured {
+    background:
+      radial-gradient(ellipse 70% 80% at 80% 20%, var(--signal-glow), transparent 50%),
+      linear-gradient(145deg, var(--signal-deep), rgb(2 6 23 / 0.9) 60%);
+  }
+
+  .blog-filter-chip {
+    @apply font-tab rounded-full border border-white/10 px-3.5 py-1.5 text-sm text-muted transition-all duration-200;
+  }
+
+  .blog-filter-chip.is-active {
+    @apply border-primary/40 bg-primary/15 text-primary;
+  }
+
+  .blog-filter-chip:not(.is-active):hover {
+    @apply border-white/20 text-highlighted;
+  }
+
+  /* ── Contact curl terminal ── */
+  .contact-terminal {
+    box-shadow:
+      0 4px 32px rgb(0 0 0 / 0.35),
+      inset 0 1px 0 rgb(255 255 255 / 0.04);
+  }
+
+  .contact-curl-preview {
+    max-height: 9rem;
+  }
+
+  .contact-cmd:hover span {
+    transition: color 0.2s ease;
+  }
+
+  /* ── IDE workspace (home) ── */
+  .ide-shell {
+    box-shadow:
+      0 24px 64px rgb(0 0 0 / 0.45),
+      inset 0 1px 0 rgb(255 255 255 / 0.05);
+  }
+
+  .ide-tree-item {
+    @apply flex items-center gap-2 rounded-md px-2 py-1.5 text-left font-mono text-[11px] text-muted transition-colors;
+  }
+
+  .ide-tree-item.is-active {
+    @apply bg-primary/15 text-primary;
+  }
+
+  .ide-tree-item:not(.is-active):hover {
+    @apply bg-white/5 text-highlighted;
+  }
+
+  .ide-tree-item--link {
+    @apply pl-4;
+  }
+
+  .ide-tree-folder {
+    @apply pl-2 font-mono text-[10px] text-muted/70;
+  }
+
+  .ide-tab {
+    @apply rounded-md px-2.5 py-1 font-mono text-[10px] text-muted;
+  }
+
+  .ide-tab.is-active {
+    @apply bg-slate-950/80 text-highlighted;
+  }
+
+  /* ── Skills pnpm manifest ── */
+  .skills-manifest {
+    box-shadow:
+      0 16px 48px rgb(0 0 0 / 0.35),
+      inset 0 1px 0 rgb(255 255 255 / 0.04);
+  }
+
+  .skills-scope-chip {
+    @apply inline-flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-1.5 font-mono text-[11px] text-muted transition-all duration-200;
+  }
+
+  .skills-scope-chip.is-active {
+    @apply border-primary/35 bg-primary/12 text-primary;
+  }
+
+  .skills-scope-chip:not(.is-active):hover {
+    @apply border-white/20 text-highlighted;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
