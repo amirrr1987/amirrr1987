@@ -8,6 +8,12 @@
 
 <script setup lang="ts">
 import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import jsModelUrl from "~/assets/js.glb?url";
+import tsModelUrl from "~/assets/ts.glb?url";
+import vueModelUrl from "~/assets/vue.glb?url";
+import nuxtModelUrl from "~/assets/nuxt.glb?url";
+import nestModelUrl from "~/assets/nest.glb?url";
 
 const canvas = ref<HTMLCanvasElement | null>(null);
 
@@ -16,18 +22,81 @@ type PlanetSpec = {
   color: string;
   textColor: string;
   size: number;
-  orbit: number;
+  center: [number, number];
+  orbitR: number;
   speed: number;
-  tilt: number;
   phase: number;
+  wobble: number;
+  model?: string;
+  spin?: number;
 };
 
 const planets: PlanetSpec[] = [
-  { label: "Vue", color: "#42b883", textColor: "#ffffff", size: 0.1, orbit: 2.4, speed: 0.4, tilt: 0.14, phase: 0 },
-  { label: "Nuxt", color: "#00dc82", textColor: "#ffffff", size: 0.09, orbit: 2.4, speed: 0.52, tilt: 0.14, phase: 2.5 },
-  { label: "Nest", color: "#e0234e", textColor: "#ffffff", size: 0.085, orbit: 2.4, speed: 0.46, tilt: 0.14, phase: 4.8 },
-  { label: "TS", color: "#3178c6", textColor: "#ffffff", size: 0.095, orbit: 3.0, speed: 0.3, tilt: -0.16, phase: 1.0 },
-  { label: "JS", color: "#f7df1e", textColor: "#1a1a1a", size: 0.09, orbit: 3.0, speed: 0.36, tilt: -0.16, phase: 3.8 },
+  {
+    label: "Vue",
+    color: "#42b883",
+    textColor: "#ffffff",
+    size: 0.085,
+    center: [-1.55, 1.0],
+    orbitR: 0.3,
+    speed: 0.44,
+    phase: 0,
+    wobble: 0.1,
+    model: vueModelUrl,
+    spin: 0.75,
+  },
+  {
+    label: "Nuxt",
+    color: "#00dc82",
+    textColor: "#ffffff",
+    size: 0.105,
+    center: [-0.78, 0.5],
+    orbitR: 0.34,
+    speed: 0.4,
+    phase: 1.4,
+    wobble: 0.12,
+    model: nuxtModelUrl,
+    spin: 0.75,
+  },
+  {
+    label: "Nest",
+    color: "#e0234e",
+    textColor: "#ffffff",
+    size: 0.125,
+    center: [0, 0],
+    orbitR: 0.38,
+    speed: 0.36,
+    phase: 2.8,
+    wobble: 0.14,
+    model: nestModelUrl,
+    spin: 0.75,
+  },
+  {
+    label: "TS",
+    color: "#3178c6",
+    textColor: "#ffffff",
+    size: 0.165,
+    center: [0.78, -0.5],
+    orbitR: 0.42,
+    speed: 0.32,
+    phase: 4.2,
+    wobble: 0.16,
+    model: tsModelUrl,
+    spin: 0.75,
+  },
+  {
+    label: "JS",
+    color: "#f7df1e",
+    textColor: "#1a1a1a",
+    size: 0.195,
+    center: [1.55, -1.0],
+    orbitR: 0.46,
+    speed: 0.28,
+    phase: 5.6,
+    wobble: 0.18,
+    model: jsModelUrl,
+    spin: 0.75,
+  },
 ];
 
 let frameId = 0;
@@ -38,6 +107,46 @@ let timer: InstanceType<typeof THREE.Timer>;
 let resizeObserver: ResizeObserver | null = null;
 const planetGroups: THREE.Group[] = [];
 const disposableResources: Array<THREE.BufferGeometry | THREE.Material | THREE.Texture> = [];
+const loader = new GLTFLoader();
+
+function fitModelToRadius(root: THREE.Object3D, radius: number) {
+  const box = new THREE.Box3().setFromObject(root);
+  const center = box.getCenter(new THREE.Vector3());
+  root.position.sub(center);
+
+  box.setFromObject(root);
+  const dims = box.getSize(new THREE.Vector3());
+  const maxDim = Math.max(dims.x, dims.y, dims.z);
+  const scale = (radius * 2) / maxDim;
+  root.scale.setScalar(scale);
+
+  box.setFromObject(root);
+  root.position.sub(box.getCenter(new THREE.Vector3()));
+}
+
+function trackObjectResources(object: THREE.Object3D) {
+  object.traverse((child) => {
+    if (!(child instanceof THREE.Mesh)) return;
+    if (child.geometry) disposableResources.push(child.geometry);
+    const materials = Array.isArray(child.material) ? child.material : [child.material];
+    for (const material of materials) {
+      if (material) disposableResources.push(material);
+    }
+  });
+}
+
+function createSphere(spec: PlanetSpec) {
+  const geometry = new THREE.SphereGeometry(spec.size, 24, 24);
+  const material = new THREE.MeshStandardMaterial({
+    color: spec.color,
+    emissive: new THREE.Color(spec.color),
+    emissiveIntensity: 0.55,
+    metalness: 0.35,
+    roughness: 0.45,
+  });
+  disposableResources.push(geometry, material);
+  return new THREE.Mesh(geometry, material);
+}
 
 function createLabelSprite(spec: PlanetSpec) {
   const dpr = Math.min(window.devicePixelRatio, 2);
@@ -92,6 +201,20 @@ function createLabelSprite(spec: PlanetSpec) {
   return sprite;
 }
 
+async function createPlanetBody(spec: PlanetSpec) {
+  if (!spec.model) return createSphere(spec);
+
+  try {
+    const gltf = await loader.loadAsync(spec.model);
+    const model = gltf.scene;
+    fitModelToRadius(model, spec.size);
+    trackObjectResources(model);
+    return model;
+  } catch {
+    return createSphere(spec);
+  }
+}
+
 function setSize(width: number, height: number) {
   if (!camera || !renderer) return;
   camera.aspect = width / height;
@@ -100,7 +223,7 @@ function setSize(width: number, height: number) {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 }
 
-onMounted(() => {
+onMounted(async () => {
   if (!canvas.value || import.meta.server) return;
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -143,29 +266,21 @@ onMounted(() => {
   const coreGlow = new THREE.Mesh(glowGeometry, glowMaterial);
   scene.add(coreGlow);
 
-  for (const spec of planets) {
+  const bodies = await Promise.all(planets.map((spec) => createPlanetBody(spec)));
+
+  planets.forEach((spec, index) => {
     const group = new THREE.Group();
     group.userData = spec;
+    group.add(bodies[index]!);
 
-    const geometry = new THREE.SphereGeometry(spec.size, 24, 24);
-    const material = new THREE.MeshStandardMaterial({
-      color: spec.color,
-      emissive: new THREE.Color(spec.color),
-      emissiveIntensity: 0.55,
-      metalness: 0.35,
-      roughness: 0.45,
-    });
-    disposableResources.push(geometry, material);
-
-    const mesh = new THREE.Mesh(geometry, material);
-    group.add(mesh);
-
-    const label = createLabelSprite(spec);
-    if (label) group.add(label);
+    if (!spec.model) {
+      const label = createLabelSprite(spec);
+      if (label) group.add(label);
+    }
 
     planetGroups.push(group);
     scene.add(group);
-  }
+  });
 
   scene.add(new THREE.AmbientLight(0xffffff, 0.45));
   const key = new THREE.DirectionalLight(0xffffff, 0.9);
@@ -175,13 +290,27 @@ onMounted(() => {
   timer = new THREE.Timer();
 
   const placePlanets = (elapsed: number) => {
+    const curveTilt = -Math.PI / 4;
+
     for (const group of planetGroups) {
       const spec = group.userData as PlanetSpec;
       const angle = spec.phase + elapsed * spec.speed;
-      const x = Math.cos(angle) * spec.orbit;
-      const z = Math.sin(angle) * spec.orbit;
-      const y = Math.sin(angle * 1.6 + spec.phase) * spec.tilt;
+
+      const localX = Math.cos(angle) * spec.orbitR;
+      const localY = Math.sin(angle) * spec.orbitR * 0.62;
+      const x = spec.center[0] + localX * Math.cos(curveTilt) - localY * Math.sin(curveTilt);
+      const y = spec.center[1] + localX * Math.sin(curveTilt) + localY * Math.cos(curveTilt);
+      const z = Math.sin(angle * 1.7 + spec.phase) * spec.wobble;
+
       group.position.set(x, y, z);
+
+      if (spec.spin) {
+        const body = group.children[0];
+        if (body) {
+          body.rotation.y = elapsed * spec.spin;
+          body.rotation.x = Math.sin(elapsed * 0.4) * 0.12;
+        }
+      }
     }
   };
 
