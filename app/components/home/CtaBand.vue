@@ -1,42 +1,40 @@
 <template>
-  <section class="relative z-10 pb-20">
+  <section class="relative z-10 px-4 pb-14 sm:px-6 sm:pb-16 lg:px-10">
     <UContainer>
-      <UiGlassPanel
-        padding="lg"
-        class="cta-band relative overflow-hidden text-center"
+      <div
+        class="cta-band glass-panel relative flex flex-col items-center justify-between gap-4 overflow-hidden px-6 py-6 text-center sm:flex-row sm:text-left"
         data-reveal
       >
-        <p class="page-eyebrow relative z-[1] mb-4">Next step</p>
-        <h2 class="display-section relative z-[1] text-highlighted">
-          Have a product to ship?
-        </h2>
-        <p class="body-copy relative z-[1] mx-auto mt-4 max-w-lg text-muted">
-          From Figma to production — Vue, Nuxt, motion, and performance tuned for real users.
-        </p>
-        <div class="relative z-[1] mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+        <div class="relative z-[1]">
+          <h2 class="font-section text-xl text-highlighted sm:text-2xl">
+            Have a product to ship?
+          </h2>
+          <p class="body-copy mt-1 text-muted">
+            Vue, Nuxt, and UI engineering for real production teams.
+          </p>
+        </div>
+        <div class="relative z-[1] flex shrink-0 flex-col gap-2 sm:flex-row">
           <UButton
             to="/contact"
-            size="xl"
+            size="lg"
             color="primary"
             icon="i-heroicons-paper-airplane"
-            class="btn-premium justify-center shadow-xl shadow-primary/30"
+            class="btn-premium"
           >
             Start a project
           </UButton>
           <UButton
-            to="/AmirMagjami-Resume.pdf"
-            download
-            target="_blank"
-            size="xl"
+            to="/projects"
+            size="lg"
             color="neutral"
             variant="outline"
-            icon="i-heroicons-document-arrow-down"
-            class="btn-premium justify-center"
+            trailing-icon="i-heroicons-arrow-right"
+            class="btn-premium"
           >
-            Download CV
+            View work
           </UButton>
         </div>
-      </UiGlassPanel>
+      </div>
     </UContainer>
   </section>
 </template>

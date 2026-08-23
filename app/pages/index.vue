@@ -94,7 +94,7 @@
     </section>
 
     <!-- Stats -->
-    <section class="relative z-10 pb-4 pt-2">
+    <section class="relative z-10 px-4 pb-4 pt-2 sm:px-6 lg:px-10">
       <UContainer>
         <div
           class="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4"
@@ -133,7 +133,6 @@
 
     <HomeTechMarquee />
     <HomeServicesBento />
-    <HomeFlagshipCase />
     <HomeBentoShowcase />
     <HomeCtaBand />
   </div>

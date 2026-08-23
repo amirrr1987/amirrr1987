@@ -1,5 +1,5 @@
 <template>
-  <section class="relative z-10 pb-16">
+  <section class="relative z-10 px-4 pb-12 sm:px-6 sm:pb-16 lg:px-10">
     <UContainer>
       <p class="page-eyebrow mb-3" data-reveal>What I do</p>
       <h2 class="display-section mb-8 text-highlighted" data-reveal>
