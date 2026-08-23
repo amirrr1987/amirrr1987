@@ -15,4 +15,13 @@ export default defineNuxtConfig({
     preference: 'dark',
     fallback: 'dark',
   },
+  icon: {
+    serverBundle: {
+      collections: ['heroicons', 'simple-icons'],
+    },
+    clientBundle: {
+      scan: true,
+      sizeLimitKb: 512,
+    },
+  },
 })

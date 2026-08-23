@@ -5,7 +5,7 @@
         class="cta-band glass-panel relative flex flex-col items-center justify-between gap-4 overflow-hidden px-6 py-6 text-center sm:flex-row sm:text-left"
         data-reveal
       >
-        <div class="relative z-[1]">
+        <div class="relative z-1">
           <h2 class="font-section text-xl text-highlighted sm:text-2xl">
             Have a product to ship?
           </h2>
@@ -13,7 +13,7 @@
             Vue, Nuxt, and UI engineering for real production teams.
           </p>
         </div>
-        <div class="relative z-[1] flex shrink-0 flex-col gap-2 sm:flex-row">
+        <div class="relative z-1 flex shrink-0 flex-col gap-2 sm:flex-row">
           <UButton
             to="/contact"
             size="lg"

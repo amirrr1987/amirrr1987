@@ -1,65 +1,110 @@
 <template>
-  <div class="relative mt-8 space-y-6 lg:mt-12">
+  <div class="relative space-y-0">
+    <!-- Center rail (desktop) -->
     <div
-      class="absolute bottom-0 left-[1.35rem] top-3 hidden w-px bg-linear-to-b from-primary/80 via-primary/30 to-transparent sm:block"
+      class="career-rail pointer-events-none absolute bottom-8 left-1/2 top-8 hidden w-px -translate-x-1/2 lg:block"
       aria-hidden="true"
     />
 
-    <UiGlassPanel
+    <article
       v-for="(exp, index) in experiences"
       :key="`${exp.company}-${exp.period}`"
+      class="career-step relative py-6 sm:py-8 lg:py-10"
+      :class="index % 2 === 0 ? 'lg:pr-[52%]' : 'lg:pl-[52%]'"
       data-reveal
-      padding="md"
-      class="relative ml-0 transition-all duration-300 hover:border-primary/30 sm:ml-4"
     >
-      <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
-        <div class="flex shrink-0 items-start gap-3 sm:w-48 sm:flex-col">
-          <div
-            class="timeline-pulse relative z-10 mt-1 flex size-3 shrink-0 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/40 ring-4 ring-primary/20"
-          />
-          <div>
-            <p class="font-label text-xs uppercase tracking-wider text-primary">
-              {{ exp.period }}
-            </p>
-            <p class="font-card mt-1 text-sm text-highlighted">
-              {{ exp.company }}
-            </p>
-            <p class="text-sm text-muted">{{ exp.location }}</p>
-          </div>
-        </div>
+      <!-- Node on rail -->
+      <div
+        class="absolute left-0 top-10 z-10 hidden lg:left-1/2 lg:block lg:-translate-x-1/2"
+        aria-hidden="true"
+      >
+        <span
+          class="flex size-10 items-center justify-center rounded-full border border-primary/40 bg-slate-950 font-badge text-xs text-primary shadow-[0_0_24px_rgb(66_184_131_/0.35)]"
+          :class="index === 0 ? 'timeline-pulse ring-4 ring-primary/15' : ''"
+        >
+          {{ String(index + 1).padStart(2, "0") }}
+        </span>
+      </div>
 
-        <div class="min-w-0 flex-1 space-y-3">
-          <h3 class="font-section text-lg text-highlighted sm:text-xl">
-            {{ exp.role }}
-          </h3>
-          <ul
-            class="space-y-2 pl-1 text-left text-sm leading-7 text-muted sm:text-base"
-          >
+      <div
+        class="career-card group relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950/50 p-5 backdrop-blur-xl transition-all duration-400 sm:p-7"
+        :class="[
+          index === 0 && 'career-card--current',
+          index % 2 === 0 ? 'lg:mr-6' : 'lg:ml-6',
+        ]"
+      >
+        <span
+          class="noise-overlay absolute inset-0 rounded-[inherit] opacity-[0.04]"
+          aria-hidden="true"
+        />
+
+        <div class="relative z-1">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <div class="min-w-0">
+              <div class="mb-3 flex flex-wrap items-center gap-2 lg:hidden">
+                <span class="font-badge text-xs text-primary">
+                  {{ String(index + 1).padStart(2, "0") }}
+                </span>
+                <span
+                  v-if="index === 0"
+                  class="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 font-badge text-[10px] uppercase tracking-wider text-primary"
+                >
+                  <span class="size-1.5 animate-pulse rounded-full bg-primary" />
+                  Now
+                </span>
+              </div>
+
+              <p class="font-label text-xs uppercase tracking-[0.18em] text-primary">
+                {{ exp.period }}
+              </p>
+              <h3 class="font-section mt-2 text-xl text-highlighted sm:text-2xl">
+                {{ exp.role }}
+              </h3>
+              <p class="font-subtitle mt-1 text-sm text-primary/85 sm:text-base">
+                {{ exp.company }}
+                <span class="text-muted"> · </span>
+                <span class="text-muted">{{ exp.location }}</span>
+              </p>
+            </div>
+
+            <span
+              v-if="index === 0"
+              class="hidden items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-badge text-[10px] uppercase tracking-wider text-primary lg:inline-flex"
+            >
+              <span class="size-1.5 animate-pulse rounded-full bg-primary" />
+              Current
+            </span>
+          </div>
+
+          <ul class="mt-5 space-y-3 border-t border-white/5 pt-5">
             <li
               v-for="(responsibility, idx) in exp.responsibilities"
               :key="idx"
-              class="flex gap-2"
+              class="flex gap-3 text-sm leading-7 text-muted sm:text-[0.95rem]"
             >
-              <UIcon
-                name="i-heroicons-check-circle"
-                class="mt-1 size-4 shrink-0 text-primary"
+              <span
+                class="mt-2.5 size-1.5 shrink-0 rounded-full bg-primary/70"
+                aria-hidden="true"
               />
               <span>{{ responsibility }}</span>
             </li>
           </ul>
-          <div class="flex flex-wrap gap-2 pt-1">
+
+          <div class="mt-5 flex flex-wrap gap-1.5">
             <UBadge
               v-for="tech in exp.technologies"
               :key="tech"
-              color="secondary"
+              color="neutral"
               variant="soft"
+              size="sm"
+              class="border border-white/5 transition-colors group-hover:border-primary/20"
             >
               {{ tech }}
             </UBadge>
           </div>
         </div>
       </div>
-    </UiGlassPanel>
+    </article>
   </div>
 </template>
 

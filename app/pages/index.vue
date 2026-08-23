@@ -51,7 +51,7 @@
 
           <p
             ref="descriptionEl"
-            class="body-copy mx-auto max-w-2xl text-muted opacity-0"
+            class="body-copy mx-auto max-w-2xl text-muted opacity-0 font-menu"
           >
             {{ content.description }}
           </p>

@@ -1,10 +1,15 @@
 <template>
-  <div :class="['h-full', rootClass]" data-reveal>
+  <div :class="['project-card h-full', rootClass]" data-reveal>
     <UiTiltCard class="h-full" :tilt="tilt">
       <UiShineHover class="h-full">
         <UCard
-          class="group relative h-full overflow-hidden glass-panel !rounded-[calc(1.5rem-1px)] !bg-slate-950/60 !shadow-none ring-0"
-          :ui="{ body: 'p-0' }"
+          class="group relative h-full overflow-hidden rounded-[calc(1.5rem-1px)]! border-0 bg-slate-950/70 shadow-none ring-0"
+          :ui="{
+            body:
+              variant === 'featured'
+                ? 'flex h-full flex-col p-0 lg:grid lg:grid-cols-2'
+                : 'flex h-full flex-col p-0',
+          }"
         >
           <div :class="previewHeightClass">
             <UiProjectPreview
@@ -14,45 +19,67 @@
               :compact="variant === 'compact'"
             />
             <div
-              class="absolute inset-0 z-[1] bg-linear-to-t from-slate-950 via-slate-950/25 to-transparent"
+              class="pointer-events-none absolute inset-0 z-1 bg-linear-to-t from-slate-950 via-slate-950/40 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-70"
             />
-            <UBadge
-              color="primary"
-              variant="subtle"
-              class="absolute left-4 top-4 z-[2]"
-            >
-              {{ badge }}
-            </UBadge>
-            <span
-              v-if="project.year"
-              class="font-label absolute right-4 top-4 z-[2] text-xs text-muted"
-            >
-              {{ project.year }}
-            </span>
+            <div class="absolute left-4 top-4 z-2 flex flex-wrap items-center gap-2">
+              <UBadge
+                color="primary"
+                variant="subtle"
+                class="backdrop-blur-md"
+              >
+                {{ badge }}
+              </UBadge>
+              <span
+                v-if="project.year"
+                class="font-label rounded-full border border-white/10 bg-slate-950/50 px-2.5 py-0.5 text-[10px] text-muted backdrop-blur-md"
+              >
+                {{ project.year }}
+              </span>
+            </div>
           </div>
 
           <div :class="bodyClass">
-            <h3 class="font-card text-lg text-highlighted sm:text-xl">
-              {{ project.name }}
-            </h3>
-            <p class="font-subtitle mt-1 text-sm text-primary/90">
-              {{ project.tagline }}
-            </p>
-            <p class="mt-3 text-sm leading-7 text-muted">
-              {{ project.description }}
-            </p>
-            <div class="mb-5 mt-4 flex flex-wrap gap-2">
-              <UBadge
-                v-for="(tech, idx) in project.technologies"
-                :key="idx"
-                color="primary"
-                variant="soft"
-                size="sm"
+            <div class="min-h-0 flex-1">
+              <h3
+                class="font-card text-lg leading-snug text-highlighted transition-colors duration-300 group-hover:text-primary sm:text-xl"
               >
-                {{ tech }}
-              </UBadge>
+                {{ project.name }}
+              </h3>
+              <p class="font-subtitle mt-1.5 text-sm text-primary/90">
+                {{ project.tagline }}
+              </p>
+              <p
+                v-if="variant !== 'compact'"
+                class="mt-3 line-clamp-3 text-sm leading-7 text-muted"
+              >
+                {{ project.description }}
+              </p>
+              <div
+                v-if="variant !== 'compact'"
+                class="mb-5 mt-4 flex flex-wrap gap-1.5"
+              >
+                <UBadge
+                  v-for="(tech, idx) in visibleTechs"
+                  :key="idx"
+                  color="neutral"
+                  variant="soft"
+                  size="sm"
+                  class="border border-white/5"
+                >
+                  {{ tech }}
+                </UBadge>
+                <UBadge
+                  v-if="hiddenTechCount > 0"
+                  color="neutral"
+                  variant="outline"
+                  size="sm"
+                >
+                  +{{ hiddenTechCount }}
+                </UBadge>
+              </div>
             </div>
-            <div class="mt-auto flex flex-wrap gap-2">
+
+            <div class="mt-auto flex flex-wrap gap-2 border-t border-white/5 pt-4">
               <UButton
                 v-if="project.caseStudy"
                 :to="`/projects/${project.slug}`"
@@ -84,9 +111,8 @@
                 variant="ghost"
                 icon="i-simple-icons-github"
                 class="btn-premium"
-              >
-                Code
-              </UButton>
+                aria-label="View source on GitHub"
+              />
             </div>
           </div>
         </UCard>
@@ -141,21 +167,33 @@ const previewUrl = computed(() => {
   }
 });
 
+const techLimit = computed(() => (props.variant === "featured" ? 5 : 4));
+
+const visibleTechs = computed(() =>
+  props.project.technologies.slice(0, techLimit.value),
+);
+
+const hiddenTechCount = computed(
+  () => Math.max(0, props.project.technologies.length - techLimit.value),
+);
+
 const previewHeightClass = computed(() => {
   if (props.variant === "featured") {
-    return "relative h-56 overflow-hidden sm:h-64 md:h-72";
+    return "relative h-64 overflow-hidden sm:h-72 md:h-80 lg:h-full lg:min-h-[22rem]";
   }
   if (props.variant === "compact") {
     return "relative h-36 overflow-hidden sm:h-40";
   }
-  return "relative h-44 overflow-hidden sm:h-48";
+  return "relative h-48 overflow-hidden sm:h-52";
 });
 
 const bodyClass = computed(() => {
-  const base = "flex flex-col p-5 sm:p-6";
+  const base = "flex flex-1 flex-col p-5 sm:p-6";
   if (props.variant === "compact") return `${base} min-h-0`;
-  if (props.variant === "featured") return `${base} min-h-64 md:min-h-72`;
-  return `${base} min-h-72`;
+  if (props.variant === "featured") {
+    return `${base} justify-center lg:p-8`;
+  }
+  return base;
 });
 
 const rootClass = computed(() =>
